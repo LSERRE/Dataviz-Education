@@ -1,0 +1,33 @@
+Quelques brèves explications pour les développeurs.
+Backbone est une sorte de Fat-Free avec des routes, des vues et des modèles mais en javascript.
+Require permet d'inclure les libraires et fichiers persos js adéquats en fonction des routes.
+
+Ici le projet est un tuto vidéo : https://www.youtube.com/watch?v=FZSjvWtUxYk adapté au modèle MVC (Modèle/Vue/Controleur)
+
+Le fichier index.html ne fait rien de particulier à part le lien avec require. L'attribut data-main permet d'appeler le fichier main dans le dossier js. L'extension peut-être omise avec Require.
+
+Le fichier de base est le fichier main.js. Il permet de faire la config et de cibler les libraires que nous allons utiliser, à savoir jQuery et Underscore qui sont indispensables au fonctionnement de Backbone. Handlebars est chargé également, il permet de réaliser les templates d'une façon plus simple qu'Underscore. La seconde partie du fichier main.js permet d'appeler le fichier app (extension omise là encore) et de lancer la méthode initialize d'App.js.
+
+App.js
+> charge les différentes librairies ainsi que le Router.js qui est initialisé et retourner.
+
+Router.js
+> /!\ la variable globale n'est pas utile, c'est juste pour pouvoir utiliser le Router partout
+> charge les différentes librairies ainsi que les deux fichiers JS de vues
+> création d'un Router avec les différentes routes
+> méthode initialize permet d'appeler différentes méthodes des vues en fonction des routes
+> on return l'initialize
+
+
+Vues : EditView.js et ListView.js
+> fonctionnement de chaque fonctions concrètes du projet (voir vidéo)
+
+Models et Collections : idem voir vidéo mais il n'y a rien de spécial
+
+Libs : toutes les librairies
+
+dossier templates (à la racine du projet, pas dans js/)
+> templates de pages (en php ce serait le html avec les variables php)
+> user-list-template est au format Handlebars
+> edit-user-template est au format Underscore
+
