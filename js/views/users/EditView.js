@@ -11,6 +11,8 @@ define([
 
 ], function($, d3, _, Backbone, UserModel, UsersCollection, editUserTemplate){
 
+
+
   var EditUser = Backbone.View.extend({
     el: '.page',
     template: Handlebars.compile(editUserTemplate),
