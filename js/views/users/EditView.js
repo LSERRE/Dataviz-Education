@@ -1,6 +1,7 @@
 // Filename: views/projects/list
 define([
   'jquery',
+  'd3',
   'underscore',
   'backbone',
   // Pull in the Collection module from above,
@@ -8,7 +9,7 @@ define([
   'collections/users/UsersCollection',
   'text!../../../templates/users/edit-user-template.html'
 
-], function($, _, Backbone, UserModel, UsersCollection, editUserTemplate){
+], function($, d3, _, Backbone, UserModel, UsersCollection, editUserTemplate){
 
   var EditUser = Backbone.View.extend({
     el: '.page',

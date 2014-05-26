@@ -2,12 +2,13 @@ var glob = {};
 
 define([
   'jquery',
+  'd3',
   'underscore',
   'backbone',
   'handlebars',
   'views/users/ListView',
   'views/users/EditView'
-], function($, _, Backbone, Handlebars, UserList, EditView) {
+], function($, d3, _, Backbone, Handlebars, UserList, EditView) {
 
   // Our router
   var Router = Backbone.Router.extend({

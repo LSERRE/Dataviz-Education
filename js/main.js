@@ -3,11 +3,15 @@
 require.config({
 	paths: {
 		jquery: 'libs/jquery',
+    d3: 'libs/d3',
 		underscore: 'libs/underscore',
 		backbone: 'libs/backbone',
-		handlebars: 'libs/handlebars'
+		handlebars: 'libs/handlebars',
 	},
   shim: {
+    'd3': {
+      'exports': 'd3'
+    },
     'underscore': {
       'exports': '_'
     },

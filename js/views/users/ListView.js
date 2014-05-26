@@ -1,12 +1,13 @@
 define([
   'jquery',
+  'd3',
   'underscore',
   'backbone',
   'handlebars',
   'models/user/UserModel',
   'collections/users/UsersCollection',
   'text!../../../templates/users/user-list-template.html'
-], function($, _, Backbone, Handlebars, UserModel, UsersCollection, listUserTemplate){
+], function($, d3, _, Backbone, Handlebars, UserModel, UsersCollection, listUserTemplate){
 
 
   var UserList = Backbone.View.extend({
