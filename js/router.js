@@ -2,20 +2,19 @@ var glob = {};
 
 define([
   'jquery',
-  'd3',
   'underscore',
   'backbone',
   'handlebars',
-  'views/users/ListView',
-  'views/users/EditView'
-], function($, d3, _, Backbone, Handlebars, UserList, EditView) {
+  'views/standardView',
+  'views/Home',
+  'views/Select',
+], function($,  _, Backbone, Handlebars, StandardView, Home, _Select) {
 
   // Our router
   var Router = Backbone.Router.extend({
     routes : {
       '': 'home',
-      'new': 'editUser',
-      'edit/:id': 'editUser'
+      'select': 'select'
     }
   });
   
@@ -23,16 +22,18 @@ define([
     // Listen the routes
     var router = new Router();
 
+    var view = new StandardView();
+
     glob.router = router;
     router.on('route:home', function(){
-      var userList = new UserList();
-      userList.render();
+      var home = new Home();
+      home.render();
+    });
+    router.on('route:select', function(){
+      var select = new _Select();
+      select.render();
     });
 
-    router.on('route:editUser', function(id){
-      var editView = new EditView();
-      editView.render({id: id});
-    });
 
     Backbone.history.start();
   };

@@ -1,0 +1,359 @@
+/*  TABLE OF CONTENT
+
+01: RESET CSS
+02: FONTS
+03: BASIC STRUCTURE
+04: HEADLINES
+05: REPEATABLE PATTERNS
+06: ASIDE
+07: HEADER
+
+*/
+
+
+/* 01: RESET CSS */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+	text-decoration: none;
+}
+
+/* 02: FONTS */
+
+@font-face {
+    font-family: 'clear_sans_thinregular';
+    src: url('fonts/clearsans-thin-webfont.eot');
+    src: url('fonts/clearsans-thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-thin-webfont.woff') format('woff'),
+         url('fonts/clearsans-thin-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-thin-webfont.svg#clear_sans_thinregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sansregular';
+    src: url('fonts/clearsans-regular-webfont.eot');
+    src: url('fonts/clearsans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-regular-webfont.woff') format('woff'),
+         url('fonts/clearsans-regular-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-regular-webfont.svg#clear_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sans_mediumitalic';
+    src: url('fonts/clearsans-mediumitalic-webfont.eot');
+    src: url('fonts/clearsans-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-mediumitalic-webfont.woff') format('woff'),
+         url('fonts/clearsans-mediumitalic-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-mediumitalic-webfont.svg#clear_sans_mediumitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sansbold_italic';
+    src: url('fonts/clearsans-bolditalic-webfont.eot');
+    src: url('fonts/clearsans-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-bolditalic-webfont.woff') format('woff'),
+         url('fonts/clearsans-bolditalic-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-bolditalic-webfont.svg#clear_sansbold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sansbold';
+    src: url('fonts/clearsans-bold-webfont.eot');
+    src: url('fonts/clearsans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-bold-webfont.woff') format('woff'),
+         url('fonts/clearsans-bold-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-bold-webfont.svg#clear_sansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sans_mediumregular';
+    src: url('fonts/clearsans-medium-webfont.eot');
+    src: url('fonts/clearsans-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-medium-webfont.woff') format('woff'),
+         url('fonts/clearsans-medium-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-medium-webfont.svg#clear_sans_mediumregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sans_lightregular';
+    src: url('fonts/clearsans-light-webfont.eot');
+    src: url('fonts/clearsans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-light-webfont.woff') format('woff'),
+         url('fonts/clearsans-light-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-light-webfont.svg#clear_sans_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sansitalic';
+    src: url('fonts/clearsans-italic-webfont.eot');
+    src: url('fonts/clearsans-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-italic-webfont.woff') format('woff'),
+         url('fonts/clearsans-italic-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-italic-webfont.svg#clear_sansitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* 03: BASIC STRUCTURE */
+
+body{
+	font-size: 62.5%;
+	overflow: hidden;
+}
+
+aside.leftPanel{
+	float:left;
+	width: 100px;
+	height: 100%;
+	background: url("img/asideBackground.png") repeat;
+	background-size: 3px;
+}
+.mainContainer{
+	float: left;
+	height: 100%;
+	width: calc(100% - 100px);
+}
+
+/* 04: HEALINES */
+
+aside header h1 a, aside > footer > a{
+	height: 50px;
+	line-height: 50px;
+	width:100%;
+	font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
+	font-size: 1.25em;
+	text-transform: uppercase;
+	text-align: center;
+	opacity: 0.5;
+	color: #fff !important;
+	display: inline-block;
+	border-bottom: 1px groove #4e575f;
+}
+aside header h1 a span{
+	color: #3c98ff;
+}
+
+p{
+	font-family: 'clear_sansregular';
+	font-size: 1.4em;
+}
+
+/* 05: REPEATEABLE PATTERNS */
+
+/* 06: ASIDE */
+
+aside > header, aside > footer{
+	background-color: #404952;
+}
+aside{
+	position: relative;
+}
+aside > footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	border-top: 1px groove #4e575f;
+}
+aside .choises{
+	height: 300px;
+	width: 100%;
+	position: relative;
+	top: calc(50% - 200px);
+	display: table;
+}
+aside .choises span.choise{
+	height: 50px;
+	width: 50px;
+	position: absolute;
+	left: 50%;
+	margin-left: -25px;
+	background-color: #404952;
+	border-radius: 50px;
+	-webkit-box-shadow:inset 1px 4px 20px -10px #000000;
+	box-shadow:inset 1px 4px 20px -10px #000000;
+}
+aside .choises span.choise:first-of-type{
+	top:0;
+}
+aside .choises span.choise:last-of-type{
+	bottom:0;
+}
+aside .choises span.middleSeparator{
+	height: 200px;
+	width: 2px;
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	margin-left: -1px;
+	border-right: 1px groove #4e575f;
+}
+aside form, aside h3{
+	display: none;
+}
+
+/* 07: HEADER */
+
+.mainContainer header > div:first-child{
+	height: 50px;
+	width: 100%;
+	background-color: #3c98ff;
+	display: table;
+	border-bottom: 1px groove #4e575f;
+}
+.mainContainer header div .navPrev{
+	background: url('img/precedent.svg') no-repeat center center;
+	display: table-cell;
+	width: 50px;
+	height: 50px;
+	background-size: 21px 17px;
+	text-align: center;
+	border-right: 1px groove #0078ff;
+}
+.mainContainer header div .titleContainer{
+	display: table-cell;
+	vertical-align: middle;
+	width: calc(100% - 100px);
+}
+.mainContainer header div .titleContainer h2{
+	font-family: 'clear_sansbold';
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 200;
+}
+.mainContainer header div .fullSize{
+	background: url('img/plein_ecran.svg') no-repeat center center;
+	display: table-cell;
+	width: 50px;
+	height: 50px;
+	background-size: 21px 17px;
+	text-align: center;
+	border-left: 1px groove #0078ff;
+}
+.mainContainer header div.filterContainer{
+	background-color: #f1f1f1;
+	height: 100px;
+	width: 100%;
+}
+.mainContainer header div.filterContainer nav{
+	width: 1045px;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+.mainContainer header div.filterContainer nav ul li{
+	margin-left: 30px;
+	background-color: #f9f9f9;
+	border-radius: 20px;
+	float: left;
+	border: 1px solid #404952;
+	height: 40px;
+	width: 325px;
+}
+.mainContainer header div.filterContainer nav ul li:first-child{
+	margin-left: 0;
+}
+.mainContainer header div.filterContainer nav ul li a{
+	font-family: 'clear_sans_lightregular';
+	font-size: 13px;
+	color: #404952;
+	line-height: 40px;
+	display: inline-block;
+	text-align: center;
+	float: left;
+}
+.mainContainer header div.filterContainer nav ul li a:before, .mainContainer header div.filterContainer nav ul li a:after{
+	content: "";
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	background-size: 30px 30px;
+	margin-top: 5px;
+}
+.mainContainer header div.filterContainer nav ul li:first-child a:before{
+	background: url("img/donnes.svg");
+	float: left;
+	margin-left: 15px;
+	margin-right: 5px;
+}
+.mainContainer header div.filterContainer nav ul li:first-child a:after{
+	background: url("img/donnes.svg");
+	float: right;
+	margin-left: 5px;
+	margin-right: 15px;
+}
+
+.page{
+	height: calc(100% - 150px);
+	background: url('img/pageBackground.png') no-repeat center center;
+
+}
