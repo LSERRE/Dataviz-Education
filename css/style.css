@@ -165,7 +165,7 @@ a{
 
 /* 03: BASIC STRUCTURE */
 
-body{
+html,body{
 	font-size: 62.5%;
 	overflow: hidden;
 }
@@ -190,7 +190,7 @@ aside header h1 a, aside > footer > a{
 	line-height: 50px;
 	width:100%;
 	font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
-	font-size: 1.25em;
+	font-size: 1.25rem;
 	text-transform: uppercase;
 	text-align: center;
 	opacity: 0.5;
@@ -204,7 +204,7 @@ aside header h1 a span{
 
 p{
 	font-family: 'clear_sansregular';
-	font-size: 1.4em;
+	font-size: 1.4rem;
 }
 
 /* 05: REPEATEABLE PATTERNS */
@@ -287,7 +287,7 @@ aside form, aside h3{
 }
 .mainContainer header div .titleContainer h2{
 	font-family: 'clear_sansbold';
-	font-size: 16px;
+	font-size: 1.6rem;
 	color: #fff;
 	text-align: center;
 	text-transform: uppercase;
@@ -330,7 +330,7 @@ aside form, aside h3{
 }
 .mainContainer header div.filterContainer nav ul li a{
 	font-family: 'clear_sans_lightregular';
-	font-size: 14px;
+	font-size: 1.4rem;
 	color: #404952;
 	line-height: 43px;
 	display: inline-block;
