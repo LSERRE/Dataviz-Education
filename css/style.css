@@ -176,12 +176,6 @@ aside.leftPanel{
 	float:left;
 	width: 100px;
 	height: 100%;
-	background: -webkit-radial-gradient( center, circle, #2e353d, #404952);
-	background: -moz-radial-gradient( center, circle, #2e353d, #404952);
-	background: -ms-radial-gradient( center, circle, #2e353d, #404952);
-	background: -o-radial-gradient( center, circle, #2e353d, #404952);
-	background: radial-gradient( circle at center, #2e353d, #404952);
-	background-size: 2px 2px;
 }
 .mainContainer{
 	float: left;
@@ -241,11 +235,21 @@ aside > footer{
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
 }
+aside .backgroundAside{
+	background: -webkit-radial-gradient( center, circle, #2e353d, #404952);
+	background: -moz-radial-gradient( center, circle, #2e353d, #404952);
+	background: -ms-radial-gradient( center, circle, #2e353d, #404952);
+	background: -o-radial-gradient( center, circle, #2e353d, #404952);
+	background: radial-gradient( circle at center, #2e353d, #404952);
+	background-size: 2px 2px;
+	height:calc(100% - 100px);
+	box-shadow: inset -5px 0px 5px #293035;
+}
 aside .choises{
 	height: 300px;
 	width: 100%;
 	position: relative;
-	top: calc(50% - 200px);
+	top: calc(50% - 150px);
 	display: table;
 }
 aside .choises span.choise{
@@ -441,11 +445,10 @@ div.filterContainer nav ul li:last-child  a:after{
 	border: 1px solid #cccccc;
 	border-radius: 5px;
 	padding: 7.5px 7px;
-	float: left;
 	position: relative;
 }
-.help span:after{
-	border-left:10px solid #cccccc;
+.help span:before, .help span:after{
+	border-left:10px solid transparent;
     border-top:10px solid transparent;
     border-bottom:10px solid transparent;
     width:0;
@@ -453,4 +456,9 @@ div.filterContainer nav ul li:last-child  a:after{
     content:"";
     display:block;
     position:absolute;
+}
+.help span:before {
+	border-left:11px solid #cccccc;
+    border-top:11px solid transparent;
+    border-bottom:11px solid transparent;
 }
