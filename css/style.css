@@ -175,12 +175,14 @@ aside.leftPanel{
 	float:left;
 	width: 100px;
 	height: 100%;
-	background: -webkit-radial-gradient( center, circle, #2e353d, #404952);
-	background: -moz-radial-gradient( center, circle, #2e353d, #404952);
-	background: -ms-radial-gradient( center, circle, #2e353d, #404952);
-	background: -o-radial-gradient( center, circle, #2e353d, #404952);
-	background: radial-gradient( circle at center, #2e353d, #404952);
+	background: -webkit-radial-gradient(#2e353d 30%, transparent 0%);
+	background: -moz-radial-gradient(#2e353d 30%, transparent 0%);
+	background: -ms-radial-gradient(#2e353d 30%, transparent 0%);
+	background: -o-radial-gradient(#2e353d 30%, transparent 0%);
+	background: radial-gradient(#2e353d 30%, transparent 0%);
 	background-size: 2px 2px;
+	background-color:#404952;
+
 }
 .mainContainer{
 	float: left;
@@ -224,7 +226,7 @@ aside > header, aside > footer{
 }
 aside{
 	position: relative;
-	box-shadow: inset -5px 0px 5px #293035;
+	box-shadow: inset -5px 0px 8px #293035;
 }
 aside > footer{
 	position: absolute;
