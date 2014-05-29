@@ -381,18 +381,18 @@ div.filterContainer nav ul li:first-child a:before{
 	margin-right: 30.5px;
 }
 div.filterContainer nav ul li:first-child a:after{
-	background: url("img/donnes.svg");
+	background: url("img/departements.svg");
 	float: right;
 	margin-left: 30.5px;
 }
 div.filterContainer nav ul li:nth-child(2) a:before{
-	background: url("img/donnes.svg");
+	background: url("img/departements.svg");
 	float: left;
 	margin-left: 7px;
 	margin-right: 24px;
 }
 div.filterContainer nav ul li:nth-child(2) a:after{
-	background: url("img/donnes.svg");
+	background: url("img/secteur_activite.svg");
 	float: right;
 	margin-left: 24px;
 }
@@ -403,7 +403,7 @@ div.filterContainer nav ul li:last-child a:before{
 	margin-right: 17px;
 }
 div.filterContainer nav ul li:last-child  a:after{
-	background: url("img/donnes.svg");
+	background: url("img/secteur_activite.svg");
 	float: right;
 	margin-left: 17px;
 }
