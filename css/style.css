@@ -168,14 +168,19 @@ a{
 html,body{
 	font-size: 62.5%;
 	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
 }
 
 aside.leftPanel{
 	float:left;
 	width: 100px;
 	height: 100%;
-	background: url("img/asideBackground.png") repeat;
-	background-size: 3px;
+	background: -webkit-radial-gradient( center, circle, #2e353d, #404952);
+	background: -moz-radial-gradient( center, circle, #2e353d, #404952);
+	background: -ms-radial-gradient( center, circle, #2e353d, #404952);
+	background: -o-radial-gradient( center, circle, #2e353d, #404952);
+	background: radial-gradient( circle at center, #2e353d, #404952);
+	background-size: 2px 2px;
 }
 .mainContainer{
 	float: left;
@@ -185,6 +190,10 @@ aside.leftPanel{
 
 /* 04: HEALINES */
 
+aside > header{
+	border-bottom: 1px solid #4e575f;
+}
+
 aside header h1 a, aside > footer > a{
 	height: 50px;
 	line-height: 50px;
@@ -193,10 +202,9 @@ aside header h1 a, aside > footer > a{
 	font-size: 1.25rem;
 	text-transform: uppercase;
 	text-align: center;
-	opacity: 0.5;
+	opacity: 0.3;
 	color: #fff !important;
 	display: inline-block;
-	border-bottom: 1px solid #292f35;
 }
 aside header h1 a span{
 	color: #3c98ff;
@@ -216,12 +224,13 @@ aside > header, aside > footer{
 }
 aside{
 	position: relative;
+	box-shadow: inset -5px 0px 5px #293035;
 }
 aside > footer{
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	border-top: 1px groove #4e575f;
+	border-top: 1px solid #4e575f;
 }
 aside .choises{
 	height: 300px;
@@ -274,7 +283,7 @@ aside form, aside h3{
 	display: table-cell;
 	width: 50px;
 	height: 50px;
-	background-size: 20.5px 17.5px;
+	background-size: 23.5px 17.5px;
 	text-align: center;
 	border-right: 1px solid #0078ff;
 }
@@ -291,14 +300,13 @@ aside form, aside h3{
 	color: #fff;
 	text-align: center;
 	text-transform: uppercase;
-	font-weight: 200;
 }
 .mainContainer header div .fullSize{
 	background: url('img/plein_ecran.svg') no-repeat center center;
 	display: table-cell;
 	width: 50px;
 	height: 50px;
-	background-size: 20.5px 20.5px;
+	background-size: 22.5px 22.5px;
 	text-align: center;
 	border-left: 1px solid #67afff;
 }
@@ -329,7 +337,7 @@ aside form, aside h3{
 	margin-left: 0;
 }
 .mainContainer header div.filterContainer nav ul li a{
-	font-family: 'clear_sans_lightregular';
+	font-family: 'clear_sans_thinregular';
 	font-size: 1.4rem;
 	color: #404952;
 	line-height: 43px;
