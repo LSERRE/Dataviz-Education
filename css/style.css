@@ -170,6 +170,7 @@ html,body{
 	font-size: 62.5%;
 	overflow: hidden;
 	-webkit-font-smoothing: antialiased;
+	height: 100%;
 }
 
 aside.leftPanel{
@@ -442,23 +443,33 @@ div.filterContainer nav ul li:last-child  a:after{
 	font-family: 'clear_sans_lightregular';
 	font-size: 1.25rem;
 	color: #404952;
+	background-color: #f1f1f1;
 	border: 1px solid #cccccc;
 	border-radius: 5px;
 	padding: 7.5px 7px;
 	position: relative;
 }
-.help span:before, .help span:after{
-	border-left:10px solid transparent;
-    border-top:10px solid transparent;
-    border-bottom:10px solid transparent;
-    width:0;
-    height:0;
-    content:"";
-    display:block;
-    position:absolute;
-}
+.help span:after,
 .help span:before {
-	border-left:11px solid #cccccc;
-    border-top:11px solid transparent;
-    border-bottom:11px solid transparent;
+    border-left: 20px solid transparent;
+    border-right: 20px solid #f1f1f1;
+    border-top: 20px solid transparent;
+    content: '';
+    left: 50%;
+    position: absolute;
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg);
+    right: 0;
+}
+
+/* Styling for second triangle (border) */
+
+.help span:before {
+    border-left: 21px solid #f1f1f1;
+    border-top: 21px solid #f1f1f1;
+    border-right: 21px solid;
+    border-right-color: #CCC; /* Can't be included in the shorthand to work */
+    right: -1px;
 }

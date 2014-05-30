@@ -9,9 +9,7 @@ define([
 
   var View = Backbone.View.extend({});
 
-  var windowHeight = $(document).height();
-  $("#leftPanel").height(windowHeight);
-  $("#mainContainer").height(windowHeight);
+
 
   return View;
 });
