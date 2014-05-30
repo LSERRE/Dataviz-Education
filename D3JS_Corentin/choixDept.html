@@ -64,7 +64,20 @@
     		border-left: 4px solid transparent;
     		border-right: 4px solid transparent;
     		border-top: 5px solid #f1f1f1;
-
+    		z-index: 3;
+    	}
+    	.text_nom_dept:after{
+    		content:"";
+    		position: absolute;
+    		bottom: -6.5px;
+    		left:50%;
+    		margin-left: -3px;
+    		width: 0;
+    		height: 0;
+    		border-left: 5px solid transparent;
+    		border-right: 5px solid transparent;
+    		border-top: 6px solid #3C98FF;
+    		z-index: 2;
     	}
     	#container_map,#infosDepartements{
     		transform-origin:50% 50%;
@@ -125,23 +138,20 @@
 		   * On créait un nouvel objet path qui permet 
 		   * de manipuler les données géographiques.
 		   */
-		  var path;
+		  var path = d3.geo.path();
 
 		  // On définit les propriétés de la projection à utiliser
-		  var projection;
+		  var projection = d3.geo.mercator();
 
 		  function refreshSvgSize(){
-
-		  		path = d3.geo.path();
-
 		  		width = window.innerWidth;
 				height = window.innerHeight;
-				scaleDeLaCarte = 5*height;
+				scaleDeLaCarte = 3*height;
 
-		  		projection = d3.geo.conicConformal() // Lambert-93
-		          .center([2.454071, 46.279229]) // On centre la carte sur la France
-		          .scale(scaleDeLaCarte)
-		          .translate([width / 2, height / 2]);
+				projection
+		        	.center([2.454071, 46.279229]) // On centre la carte sur la France
+		        	.scale(scaleDeLaCarte)
+		      		.translate([width / 2, height / 2]);
 
 		        path.projection(projection);
 
@@ -164,7 +174,6 @@
 		  		.attr("height",window.innerHeight);
 
 			refreshSvgSize();
-			path.projection(projection);
 		  };
 
 		  /*
@@ -280,7 +289,7 @@
 					centered = null;
 					zoomed = false;
 				}
-
+				
 				deps.selectAll("path")
 					.classed("active", centered && function(d) { return d === centered; });
 				
@@ -302,12 +311,12 @@
 				container.style("-ms-transform",trStr2);
 				container.style("-moz-transform",trStr2);
 				container.style("-webkit-transform",trStr2);
-
+				
 			};
 
 			//Récupération
 			function choisirDepartement(d){
-				//zoomerMap(d);
+				zoomerMap(d);
 				//console.log(+d.properties.CODE_DEPTS+"");
 				console.log("Nom du département : "+this.getAttribute('nom_dept')+"\n Code du Département : "+this.getAttribute('num_dept'));
 				//d3.selectAll(".departement").style('fill',patternDept);

@@ -169,7 +169,7 @@
 
 			// apply the layout to the data
 			var secteurs_out = tree1.nodes(dataTree);
-			var secteurs_in = tree2.nodes(dataTree2).reverse();
+			var secteurs_in = tree2.nodes(dataTree2);
 
 			// create dom elements for the node
 			var secteur_circle1 = svg_circle1.selectAll(".secteur")
@@ -184,7 +184,7 @@
 				      	})
 
 			var secteur_circle2 = svg_circle2.selectAll(".secteur")
-			      .data(secteurs_in.slice(0,-1)) // cut out the root node, we don't need it
+			      .data(secteurs_in.slice(1)) // cut out the root node, we don't need it
 				    .enter()
 				    	.append("g")
 				      	.attr("class", "secteur")
@@ -198,6 +198,7 @@
 			    .attr("r", "0")
 			    .on("mouseover",afficherNomSecteur,false)
 			    .on("mouseout",unHoverSecteur,false)
+			    .on("click",selectionSecteur,false)
 			    .attr("fill-opacity","0.0")
 			  	.attr("stroke-opacity","0.0")
 
@@ -212,11 +213,12 @@
 			    .attr("r", "0")
 			    .on("mouseover",afficherNomSecteur,false)
 			    .on("mouseout",unHoverSecteur,false)
+			    .on("click",selectionSecteur,false)
 			    .attr("fill-opacity","0.0")
 			  	.attr("stroke-opacity","0.0")
 
 			    .transition()
-			  		.delay(function(d,i){ return 200+i*40; })
+			  		.delay(function(d,i){ return 800+i*40; })
 			  		.duration(500)
 			  		.attr("fill-opacity","1.0")
 			  		.attr("stroke-opacity","1.0")
@@ -319,6 +321,10 @@
 			}
 			return stringReturn;
 
+		}
+
+		function selectionSecteur(){
+			console.log("Nom du secteur : "+this.parentNode.getAttribute('secteur_nom')+"\n Id du secteur : "+this.parentNode.getAttribute('secteur_id'));
 		}
 
     </script>
