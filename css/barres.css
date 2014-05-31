@@ -1,9 +1,26 @@
 .dataBar{
 	width: 196px;
-	height:600px;
-	margin : 0 25px;
+	height:400px;
 	float: left;
+	margin: 0 25px;
 }
+
+	.dataBar:first-of-type{
+		margin-left: 0;
+	}
+
+	.dataBar:last-of-type{
+		margin-right: 0;
+	}
+	
+	.dataBar h1{
+		border-top: 1px solid #404952;
+		margin-top: 11px;
+		font: 1.2rem 'clear_sansbold';
+		color:#404952;
+		text-transform: uppercase;
+		text-align: center;
+	}
 
 .bar{
 	position: absolute;
@@ -31,6 +48,7 @@
 
 
 .average{
+	position: absolute;
 	width:100px;
 	background-color: #dddddd;
 	left:50%;
@@ -38,11 +56,9 @@
 }
 	.average span{
 		display: block;
-		position: absolute;
-		left:-40px;
+		font: 1rem 'clear_sansbold';
+		margin-left: -80px;
 		color:#989898;
-		bottom:70px;
-		font-size: 13px;
 		text-transform: uppercase;
 		-moz-transform:rotate(-90deg);
 	    -webkit-transform:rotate(-90deg); 
@@ -61,10 +77,11 @@
 	.item span{
 		display: block;
 		position: absolute;
-		top:-20px;
+		top:-35px;
 		left:-73px;
 		text-align: center;
 		width: 196px;
+		font: 2rem 'clear_sansbold';
 	}
 
 
@@ -112,7 +129,7 @@
 
 
 .containerBar{
-	height: 600px;
+	height: 500px;
 	position: relative;
 }
 

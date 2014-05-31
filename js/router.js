@@ -8,13 +8,15 @@ define([
   'views/standardView',
   'views/Home',
   'views/Select',
-], function($,  _, Backbone, Handlebars, StandardView, Home, _Select) {
+  'views/Emploi'
+], function($,  _, Backbone, Handlebars, StandardView, Home, _Select, Emploi) {
 
   // Our router
   var Router = Backbone.Router.extend({
     routes : {
       '': 'home',
-      'select': 'select'
+      'select': 'select',
+      'emploi': 'emploi'
     }
   });
   
@@ -31,6 +33,10 @@ define([
     router.on('route:select', function(){
       var select = new _Select();
       select.render();
+    });
+    router.on('route:emploi', function(){
+      var emploi = new Emploi();
+      emploi.render();
     });
 
 
