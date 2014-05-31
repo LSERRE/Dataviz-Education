@@ -1,0 +1,478 @@
+/*  TABLE OF CONTENT
+
+01: RESET CSS
+02: FONTS
+03: BASIC STRUCTURE
+04: HEADLINES
+05: REPEATABLE PATTERNS
+06: ASIDE
+07: HEADER
+08: CONTENT
+
+*/
+
+
+/* 01: RESET CSS */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+	text-decoration: none;
+}
+
+/* 02: FONTS */
+
+@font-face {
+    font-family: 'clear_sans_thinregular';
+    src: url('fonts/clearsans-thin-webfont.eot');
+    src: url('fonts/clearsans-thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-thin-webfont.woff') format('woff'),
+         url('fonts/clearsans-thin-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-thin-webfont.svg#clear_sans_thinregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sansregular';
+    src: url('fonts/clearsans-regular-webfont.eot');
+    src: url('fonts/clearsans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-regular-webfont.woff') format('woff'),
+         url('fonts/clearsans-regular-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-regular-webfont.svg#clear_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sans_mediumitalic';
+    src: url('fonts/clearsans-mediumitalic-webfont.eot');
+    src: url('fonts/clearsans-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-mediumitalic-webfont.woff') format('woff'),
+         url('fonts/clearsans-mediumitalic-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-mediumitalic-webfont.svg#clear_sans_mediumitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sansbold_italic';
+    src: url('fonts/clearsans-bolditalic-webfont.eot');
+    src: url('fonts/clearsans-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-bolditalic-webfont.woff') format('woff'),
+         url('fonts/clearsans-bolditalic-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-bolditalic-webfont.svg#clear_sansbold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sansbold';
+    src: url('fonts/clearsans-bold-webfont.eot');
+    src: url('fonts/clearsans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-bold-webfont.woff') format('woff'),
+         url('fonts/clearsans-bold-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-bold-webfont.svg#clear_sansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sans_mediumregular';
+    src: url('fonts/clearsans-medium-webfont.eot');
+    src: url('fonts/clearsans-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-medium-webfont.woff') format('woff'),
+         url('fonts/clearsans-medium-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-medium-webfont.svg#clear_sans_mediumregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sans_lightregular';
+    src: url('fonts/clearsans-light-webfont.eot');
+    src: url('fonts/clearsans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-light-webfont.woff') format('woff'),
+         url('fonts/clearsans-light-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-light-webfont.svg#clear_sans_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sansitalic';
+    src: url('fonts/clearsans-italic-webfont.eot');
+    src: url('fonts/clearsans-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clearsans-italic-webfont.woff') format('woff'),
+         url('fonts/clearsans-italic-webfont.ttf') format('truetype'),
+         url('fonts/clearsans-italic-webfont.svg#clear_sansitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* 03: BASIC STRUCTURE */
+
+html,body{
+	font-size: 62.5%;
+	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
+	height: 100%;
+	text-rendering: optimizeLegibility;
+}
+
+aside.leftPanel{
+	float:left;
+	width: 100px;
+	height: 100%;
+	background-color:#404952;
+}
+.mainContainer{
+	float: left;
+	height: 100%;
+	width: calc(100% - 100px);
+}
+
+/* 04: HEADLINES */
+
+aside header h1 a, aside > footer > a{
+	height: 49px;
+	line-height: 49px;
+	width:100%;
+	font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
+	font-size: 1.25rem;
+	text-transform: uppercase;
+	text-align: center;
+	opacity: 0.3;
+	color: #fff !important;
+	display: inline-block;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+aside header h1 a span{
+	color: #3c98ff;
+}
+
+p{
+	font-family: 'clear_sansregular';
+	font-size: 1.4rem;
+}
+
+/* 05: REPEATEABLE PATTERNS*/
+
+/* 06: ASIDE */
+
+aside > header{
+	border-bottom: 1px solid #292f35;
+}
+aside > header, aside > footer{
+	background-color: #404952;
+}
+aside{
+	position: relative;
+	/*box-shadow: inset -5px 0px 8px #293035;*/
+}
+aside > footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	border-top: 1px solid #4e575f;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+aside .backgroundAside{
+	background: -webkit-radial-gradient(#2e353d 30%, transparent 0%);
+	background: -moz-radial-gradient(#2e353d 30%, transparent 0%);
+	background: -ms-radial-gradient(#2e353d 30%, transparent 0%);
+	background: -o-radial-gradient(#2e353d 30%, transparent 0%);
+	background: radial-gradient(#2e353d 30%, transparent 0%);
+	background-size: 2px 2px;
+	height: calc(100% - 100px);
+	border-bottom: 1px solid #292f35;
+	border-top: 1px solid #4e575f;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+aside .choises{
+	height: 300px;
+	width: 100%;
+	position: relative;
+	top: calc(50% - 150px);
+	display: table;
+}
+aside .choises span.choise{
+	height: 50px;
+	width: 50px;
+	position: absolute;
+	left: 50%;
+	margin-left: -25px;
+	background-color: #404952;
+	border-radius: 50px;
+	box-shadow: inset 1px 1px #292f35, 1px 1px #4e575f;
+}
+aside .choises span.choise:first-of-type{
+	top:0;
+}
+aside .choises span.choise:last-of-type{
+	bottom:0;
+}
+aside .choises span.middleSeparator{
+	height: 200px;
+	width: 1px;
+	position: absolute;
+	top: 51px;
+	left: 50%;
+	margin-left: -1px;
+	border-right: 1px solid #4e575f;
+	background-color: #292f35;
+}
+aside form, aside h3{
+	display: none;
+}
+
+/* 07: HEADER */
+
+.mainContainer header > div:first-child{
+	height: 50px;
+	width: 100%;
+	background-color: #3c98ff;
+	display: table;
+	border-bottom: 1px solid #0078ff;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+.mainContainer header div .navPrev{
+	background: url('img/precedent.svg') no-repeat center center;
+	display: table-cell;
+	width: 50px;
+	height: 49px;
+	background-size: 23.5px 17.5px;
+	text-align: center;
+	border-right: 1px solid #0078ff;
+}
+.mainContainer header div .titleContainer{
+	display: table-cell;
+	vertical-align: middle;
+	width: calc(100% - 100px);
+	border-left: 1px solid #67afff;
+	border-right: 1px solid #0078ff;
+}
+.mainContainer header div .titleContainer h2{
+	font-family: 'clear_sansbold';
+	font-size: 1.6rem;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+}
+.mainContainer header div .fullSize{
+	background: url('img/plein_ecran.svg') no-repeat center center;
+	display: table-cell;
+	width: 50px;
+	height: 49px;
+	background-size: 22.5px 22.5px;
+	text-align: center;
+	border-left: 1px solid #67afff;
+}
+div.filterContainer{
+	background-color: #f1f1f1;
+	height: 100px;
+	width: 100%;
+	border-bottom: 1px solid #cccccc;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+div.filterContainer nav{
+	width: 1185px;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+div.filterContainer nav ul li{
+	margin-left: 30px;
+	background-color: #f9f9f9;
+	border-radius: 20px;
+	float: left;
+	box-shadow: inset 1px 1px #c7c7c7, 1px 1px #ffffff;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	height: 40px;
+	width: 375px;
+}
+div.filterContainer nav ul li:first-child{
+	margin-left: 0;
+}
+div.filterContainer nav ul li a{
+	font-family: 'clear_sans_lightregular';
+	font-size: 1.4rem;
+	color: #404952;
+	line-height: 43px;
+	display: inline-block;
+	text-align: center;
+}
+div.filterContainer nav ul li a:before, div.filterContainer nav ul li a:after{
+	content: "";
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	background-size: 30px 30px;
+	margin-top: 6px;
+}
+div.filterContainer nav ul li:first-child a:before{
+	background: url("img/donnes.svg");
+	float: left;
+	margin-left: 7px;
+	margin-right: 30.5px;
+}
+div.filterContainer nav ul li:first-child a:after{
+	background: url("img/departements.svg");
+	float: right;
+	margin-left: 30.5px;
+}
+div.filterContainer nav ul li:nth-child(2) a:before{
+	background: url("img/departements.svg");
+	float: left;
+	margin-left: 7px;
+	margin-right: 24px;
+}
+div.filterContainer nav ul li:nth-child(2) a:after{
+	background: url("img/secteur_activite.svg");
+	float: right;
+	margin-left: 24px;
+}
+div.filterContainer nav ul li:last-child a:before{
+	background: url("img/donnes.svg");
+	float: left;
+	margin-left: 7px;
+	margin-right: 17px;
+}
+div.filterContainer nav ul li:last-child  a:after{
+	background: url("img/secteur_activite.svg");
+	float: right;
+	margin-left: 17px;
+}
+
+/* 08: CONTENT */
+
+.content{
+	height: calc(100% - 150px);
+	background: url('img/pageBackground.png') no-repeat center center;
+	background-size: cover;
+	border-top: 1px solid #ffffff;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+.page{
+	height: calc(100% - 50px);
+	position: relative;
+	width: 1185px;
+	margin: 0 auto;
+
+}
+.help{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.help a{
+	font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
+	font-size: 1.4rem;
+	color: #3c98ff;
+	text-transform: uppercase;
+	border: 3px solid #3c98ff;
+	border-radius: 5px;
+	padding: 5px 7px;
+	float: left;
+}
+.help span{
+	font-family: 'clear_sans_lightregular';
+	font-size: 1.25rem;
+	color: #404952;
+	background-color: #f1f1f1;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	padding: 7.5px 7px;
+	position: relative;
+}
+.help span:after,
+.help span:before {
+    border-left: 20px solid transparent;
+    border-right: 20px solid #f1f1f1;
+    border-top: 20px solid transparent;
+    content: '';
+    left: 50%;
+    position: absolute;
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg);
+    right: 0;
+}
+
+/* Styling for second triangle (border) */
+
+.help span:before {
+    border-left: 21px solid #f1f1f1;
+    border-top: 21px solid #f1f1f1;
+    border-right: 21px solid;
+    border-right-color: #CCC; /* Can't be included in the shorthand to work */
+    right: -1px;
+}
