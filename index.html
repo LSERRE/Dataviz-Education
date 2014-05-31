@@ -3,16 +3,38 @@
 <head>
   <meta charset="utf-8">
   <title>Backbone.js - Beginner</title>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <style>
+
+  @-webkit-keyframes fadeIn {
+  	0%   { opacity: 0; }
+		  100% { opacity: 1;}
+		}
+
+		@keyframes fadeIn {
+			0%   { opacity: 0; }
+		  100% { opacity: 1;}
+		}
+
+  		.fade{
+  			-webkit-animation: fadeIn 5s; 
+  			animation: fadeIn 5s; 
+  		}
+
+  		.none{
+  			display: none;
+  		}
+      
+
+      
+  </style>
 </head>
 <body>
   
 	<div class="container">
 		<h1>User Manager</h1>
 		<hr />
-		<div class="page">
-
-		</div>
+		<div class="page"></div>
+		<div class="edit-user"></div>
 	</div>
 	<script data-main="js/main" src="js/libs/require.js"></script>
 

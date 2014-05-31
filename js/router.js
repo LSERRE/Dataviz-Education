@@ -8,7 +8,7 @@ define([
   'handlebars',
   'views/users/ListView',
   'views/users/EditView'
-], function($, d3, _, Backbone, Handlebars, UserList, EditView) {
+], function($, d3, _, Backbone, Handlebars, vue, UserList, EditView) {
 
   // Our router
   var Router = Backbone.Router.extend({
@@ -22,6 +22,8 @@ define([
   var initialize = function(){
     // Listen the routes
     var router = new Router();
+
+
 
     glob.router = router;
     router.on('route:home', function(){

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="barres.css">
+	<style>
+		
+	</style>
+</head>
+<body>
+	<section>
+		<div class="containerBar">
+			<div class="bar average" data-value="30%">
+				<span>france : 450 000</span>
+			</div>
+			<div class="bar item" data-value="34%" data-number="100" data-color="#3c98ff">
+				<span></span>
+			</div>
+		</div>
+		<h1>Offres d'emploi</h1>
+	</section>
+
+	<section>
+		<div class="containerBar">
+			<div class="bar average" data-value="70%">
+				<span>france : 450 000</span>
+			</div>
+			<div class="bar item" data-value="12%" data-number="100" data-color="#f7c912">
+				<span></span>
+			</div>
+		</div>
+		<h1>Offres d'emploi</h1>
+	</section>
+
+	<section>
+		<div class="containerBar">
+			<div class="bar average" data-value="40%">
+				<span>france : 450 000</span>
+			</div>
+			<div class="bar item" data-value="88%" data-number="50000" data-color="#35b751">
+				<span></span>
+			</div>
+		</div>
+		<h1>Offres d'emploi</h1>
+	</section>
+
+	<section>
+		<div class="containerBar">
+			<div class="bar average" data-value="40%">
+				<span>france : 450 000</span>
+			</div>
+			<div class="bar item" data-value="30%" data-number="100" data-color="#b089be">
+				<span></span>
+			</div>
+		</div>
+		<h1>Offres d'emploi</h1>
+	</section>
+
+	<section>
+		<div class="containerBar">
+			<div class="bar average" data-value="40%">
+				<span>france : 450 000</span>
+			</div>
+			<div class="bar item" data-value="25%" data-number="100" data-color="#e64848">
+				<span></span>
+			</div>
+		</div>
+		<h1>Offres d'emploi</h1>
+	</section>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		$('section').each(function(index){
+			var average = $(this).find('.average');
+			var item = $(this).find('.item');
+			var number = item.find('span');
+			var trueNumber = $(this).find('.item').data('number');
+			console.log(average.data('value'));
+			
+			average.height(average.data('value')).addClass('animationBar').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e){
+					average.find('span').addClass('labelBar');
+					e.stopPropagation();
+					item.css('background-color', item.data('color'));
+					item.height(item.data('value')).addClass('animationBar');
+					var temp=0;
+								var t2 =setInterval(function(){
+
+									 temp+=trueNumber/375;
+									 console.log(parseInt(temp));
+					                  item.find('span').text(parseInt(temp));
+					                  if(temp>=trueNumber){
+					                  		//hectolitreCalcule2 = hectolitreBiere;
+						                  	clearInterval(t2);
+					                  		}
+									}, 1);
+	
+				}
+			);
+
+    });
+
+	</script>
+</body>
+</html>
