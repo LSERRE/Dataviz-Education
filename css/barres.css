@@ -1,0 +1,135 @@
+.dataBar{
+	width: 196px;
+	height:400px;
+	float: left;
+	margin: 0 25px;
+}
+
+	.dataBar:first-of-type{
+		margin-left: 0;
+	}
+
+	.dataBar:last-of-type{
+		margin-right: 0;
+	}
+	
+	.dataBar h1{
+		border-top: 1px solid #404952;
+		margin-top: 11px;
+		font: 1.2rem 'clear_sansbold';
+		color:#404952;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+.bar{
+	position: absolute;
+	bottom:0;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	height: 0;
+}
+
+.animationBar{
+	-moz-animation: animate-bar 2s 1 linear;
+	-webkit-animation: animate-bar 2s 1 linear;
+	-ms-animation: animate-bar 2s 1 linear;
+	-o-animation: animate-bar 2s 1 linear;
+	animation: animate-bar 2s 1 linear;
+}
+
+.labelBar{
+	-moz-animation: animate-label 1s linear forwards;
+  	-webkit-animation: animate-label 1s linear forwards;
+  	-ms-animation: animate-label 1s linear forwards;
+  	-o-animation: animate-label 1s linear forwards;
+  	animation: animate-label 1s linear forwards;
+}
+
+
+.average{
+	position: absolute;
+	width:100px;
+	background-color: #dddddd;
+	left:50%;
+	margin-left: -50px; /* 100/2 */
+}
+	.average span{
+		display: block;
+		font: 1rem 'clear_sansbold';
+		margin-left: -80px;
+		color:#989898;
+		text-transform: uppercase;
+		-moz-transform:rotate(-90deg);
+	    -webkit-transform:rotate(-90deg); 
+	    -o-transform:rotate(-90deg);
+	    -ms-transform : rotate(-90deg) ;
+	    opacity: 0;
+	}
+
+.item{
+	width:50px;
+	background-color: #3c98ff;
+	left:50%;
+	margin-left: -25px; /* 100/2 */
+}
+
+	.item span{
+		display: block;
+		position: absolute;
+		top:-35px;
+		left:-73px;
+		text-align: center;
+		width: 196px;
+		font: 2rem 'clear_sansbold';
+	}
+
+
+
+
+
+@-moz-keyframes animate-bar {
+    0%   { height: 0%; }
+}
+
+@-webkit-keyframes animate-bar {
+    0%   { height: 0%; }
+}
+
+@-ms-keyframes animate-bar {
+    0%   { height: 0%; }
+}
+
+@-o-keyframes animate-bar {
+    0%   { height: 0%; }
+}
+
+@-keyframes animate-bar {
+    0%   { height: 0%; }
+}
+
+@-webkit-keyframes animate-label {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes animate-label {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes animate-label {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes animate-label {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+
+
+.containerBar{
+	height: 500px;
+	position: relative;
+}
+

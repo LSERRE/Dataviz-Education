@@ -11,12 +11,19 @@ define([
 
 ], function($, d3, _, Backbone, UserModel, UsersCollection, editUserTemplate){
 
-
+  console.log('res');
+  //
 
   var EditUser = Backbone.View.extend({
-    el: '.page',
+
+    el: '.edit-user',
     template: Handlebars.compile(editUserTemplate),
     render: function(options){
+      console.log('test');
+      //$('.page').removeClass('fade');
+      $('.edit-user').removeClass();
+      $('.page').addClass('none');
+      $('.edit-user').addClass('fade');
       var self = this;
       if(options.id){
         self.user = new UserModel({id: options.id});
