@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<input type="text" name="ville">
+	<ul class="result"></ul>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		var departement = new Array();
+		var filter = {
+			defaults : {
+				result : '',
+				file : '',
+				tab : '',
+				category : '',
+				gotJsonFile : function(){}
+			},
+			init : function(options){
+				this.params=$.extend(this.defaults,options);
+				this.getJsonFile();
+			},
+			getJsonFile : function(){
+				var self = this.params;
+				$.getJSON(this.params.file, function(result){
+					$.each(result, function(index, value){
+				    	self.tab.push(value[self.category].toLowerCase());
+				    });
+				    self.gotJsonFile.call(this, null);
+				});
+			},
+			compareSecondColumn : function(a, b){
+				return a[1] > b[1];
+			},
+			render : function(search, maxOccurrence){
+				var self = this;
+				$('.result').empty();
+				var result = new Array();
+				if(search.length>1){
+					$.each(self.params.tab, function(index, value){
+						var occurrence = value.search(new RegExp(search));
+						if(occurrence!=-1)
+							result.push(new Array(value, occurrence));
+					});
+					result.sort(self.compareSecondColumn);
+					var ul = $('.result');
+					for(i=0; i<result.length; i++){
+						if(i==maxOccurrence)
+							return;
+						$('<li>'+result[i][0]+'</li>').appendTo(ul);
+					}
+				}
+			}
+		};
+
+		filter.init({
+			result: '.result',
+			file : 'departement.json',
+			tab : departement,
+			category : 'departement',
+			gotJsonFile : function(){
+				$('input[type="text"]').on('keyup',function(e){
+					filter.render($(this).val(), 3);
+				});
+			}
+		});
+
+	</script>
+</body>
+</html>
