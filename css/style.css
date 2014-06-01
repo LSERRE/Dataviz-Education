@@ -167,9 +167,10 @@ a{
 html,body{
 	font-size: 62.5%;
 	overflow: hidden;
-	-webkit-font-smoothing: antialiased;
 	height: 100%;
+	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 aside.leftPanel{
@@ -251,6 +252,19 @@ aside > header, aside > footer{
 
 aside{
 	position: relative;
+}
+
+aside:before{
+	position: absolute;
+	content:'';
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 8px;
+	background: -webkit-linear-gradient(right, #2d3339 , transparent);
+	background: -o-linear-gradient(left, #2d3339, transparent);
+	background: -moz-linear-gradient(left, #2d3339, transparent);
+	background: linear-gradient(to left, #2d3339 , transparent);
 }
 
 aside > footer{
@@ -428,7 +442,7 @@ aside form, aside h3{
 	display: table-cell;
 	width: 50px;
 	height: 49px;
-	background-size: 23.5px 17.5px;
+	background-size: 20px auto;
 	text-align: center;
 	border-right: 1px solid #0078ff;
 }
@@ -523,7 +537,7 @@ aside form, aside h3{
 	display: table-cell;
 	width: 50px;
 	height: 49px;
-	background-size: 22.5px 22.5px;
+	background-size: 20px auto;
 	text-align: center;
 	border-left: 1px solid #67afff;
 }
@@ -608,7 +622,7 @@ div.filterContainer nav ul li{
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
 
 			@-moz-document url-prefix() { 
-			  div.filterContainer nav ul li  {
+			  div.filterContainer nav ul li {
 			     box-shadow: inset 0.5px 0.5px #c7c7c7, 0.5px 0.5px #ffffff;
 			  }
 			}
@@ -643,11 +657,23 @@ div.filterContainer nav ul li:first-child a:before{
 	margin-right: 30.5px;
 }
 
+		@-moz-document url-prefix() { 
+		  div.filterContainer nav ul li:first-child a:before  {
+		  	 margin-right: 31px;
+		  }
+		}
+
 div.filterContainer nav ul li:first-child a:after{
 	background: url("img/departements.svg");
 	float: right;
 	margin-left: 30.5px;
 }
+
+		@-moz-document url-prefix() { 
+		  div.filterContainer nav ul li:first-child a:after  {
+		  	 margin-left: 31px;
+		  }
+		}
 
 div.filterContainer nav ul li:nth-child(2) a:before{
 	background: url("img/departements.svg");
@@ -656,11 +682,23 @@ div.filterContainer nav ul li:nth-child(2) a:before{
 	margin-right: 24px;
 }
 
+		@-moz-document url-prefix() { 
+		  div.filterContainer nav ul li:nth-child(2) a:before  {
+		  	 margin-right: 24.5px;
+		  }
+		}
+
 div.filterContainer nav ul li:nth-child(2) a:after{
 	background: url("img/secteur_activite.svg");
 	float: right;
 	margin-left: 24px;
 }
+
+		@-moz-document url-prefix() { 
+		  div.filterContainer nav ul li:nth-child(2) a:after  {
+		  	 margin-left: 24.5px;
+		  }
+		}
 
 div.filterContainer nav ul li:last-child a:before{
 	background: url("img/donnes.svg");
@@ -669,11 +707,23 @@ div.filterContainer nav ul li:last-child a:before{
 	margin-right: 17px;
 }
 
+		@-moz-document url-prefix() { 
+		  div.filterContainer nav ul li:last-child a:before  {
+		  	 margin-right: 17.5px;
+		  }
+		}
+
 div.filterContainer nav ul li:last-child  a:after{
 	background: url("img/secteur_activite.svg");
 	float: right;
 	margin-left: 17px;
 }
+
+		@-moz-document url-prefix() { 
+		  div.filterContainer nav ul li:last-child  a:after  {
+		  	 margin-left: 17.5px;
+		  }
+		}
 
 /* 07: CONTENT */
 
