@@ -452,7 +452,7 @@ div.filterContainer nav ul li:last-child  a:after{
 	padding: 7.5px 7px;
 	position: relative;
 }
-.help span:after,
+/*.help span:after,
 .help span:before {
     border-left: 20px solid transparent;
     border-right: 20px solid #f1f1f1;
@@ -467,12 +467,12 @@ div.filterContainer nav ul li:last-child  a:after{
     right: 0;
 }
 
-/* Styling for second triangle (border) */
+/* 
 
 .help span:before {
     border-left: 21px solid #f1f1f1;
     border-top: 21px solid #f1f1f1;
     border-right: 21px solid;
-    border-right-color: #CCC; /* Can't be included in the shorthand to work */
+    border-right-color: #CCC; 
     right: -1px;
-}
+}*/
