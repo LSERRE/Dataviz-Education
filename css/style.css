@@ -294,7 +294,7 @@ aside .backgroundAside{
 	background: -o-radial-gradient(#2e353d 30%, transparent 0%);
 	background: radial-gradient(#2e353d 30%, transparent 0%);
 	background-size: 2px 2px;
-	height: calc(100% - 100px);
+	height: calc(100% - 98px);
 	border-bottom: 1px solid #292f35;
 	border-top: 1px solid #4e575f;
 	-webkit-box-sizing: border-box;
@@ -312,6 +312,7 @@ aside .backgroundAside{
 				background: -o-radial-gradient(#292f35 50%, transparent 0%);
 				background: radial-gradient(#292f35 50%, transparent 0%);
 				background-size:1.5px 1.5px;
+				height: calc(100% - 100px);
 			}
 			aside .backgroundAside:before {
 				background-color: transparent;
