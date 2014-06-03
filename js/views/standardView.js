@@ -9,7 +9,16 @@ define([
 
   var View = Backbone.View.extend({});
 
-
+  	$('.leftPanel').mouseover(function(){
+  		$('#mainContainer').addClass('active');
+  		$('#asideExplain').addClass('active');
+  		$('#asideExplain').removeClass('desactive');
+  	});
+  	$('.leftPanel').mouseleave(function(){
+  		$('#mainContainer').removeClass('active');
+  		$('#asideExplain').addClass('desactive');
+  		$('#asideExplain').removeClass('active');
+  	});
 
   return View;
 });

@@ -178,11 +178,27 @@ aside.leftPanel{
 	width: 100px;
 	height: 100%;
 	background-color:#404952;
+	-webkit-transition: width 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
 }
 .mainContainer{
-	float: left;
 	height: 100%;
 	width: calc(100% - 100px);
+	position: absolute;
+	left: 100px;
+	-webkit-transition: left 0.5s ease-in-out;
+    -moz-transition: left 0.5s ease-in-out;
+    -o-transition: left 0.5s ease-in-out;
+    transition: left 0.5s ease-in-out;
+}
+.mainContainer.active{
+	/* transform: translate(200px,0);
+    -webkit-transform: translate(200px,0); 
+    -o-transform: translate(200px,0);
+    -moz-transform: translate(200px,0); */
+    left:300px;
 }
 
 /* 04: HEADLINES */
@@ -253,7 +269,9 @@ aside > header, aside > footer{
 aside{
 	position: relative;
 }
-
+aside.leftPanel:hover{
+	width: 300px;
+}x
 aside:before{
 	position: absolute;
 	content:'';
@@ -332,6 +350,32 @@ aside .backgroundAside{
 				box-sizing: border-box;
 			}
 		}
+aside .asideExplain{
+	color:#85898d;
+	display: block;
+	margin: 0 auto;
+	opacity: 0.01;
+	text-align: center;
+	position: absolute;
+	top: 120px;
+	-webkit-transition: opacity 0.2s ease-in-out 0.4s;
+    -moz-transition: opacity 0.2s ease-in-out 0.4s;
+    -o-transition: opacity 0.2s ease-in-out 0.4s;
+    transition: opacity 0.2s ease-in-out 0.4s;
+    padding: 0 40px;
+}
+.asideExplain.desactive{
+	opacity: 0;
+	-webkit-transition: opacity 0.2s ease-in-out 
+    -moz-transition: opacity 0.2s ease-in-out ;
+    -o-transition: opacity 0.2s ease-in-out ;
+    transition: opacity 0.2s ease-in-out ;
+
+}
+.asideExplain.active{
+	opacity: 0.99;
+}
+
 
 aside .choises{
 	height: 300px;
@@ -409,6 +453,8 @@ aside .choises span.middleSeparator{
 aside form, aside h3{
 	display: none;
 }
+
+
 
 /* 06: HEADER */
 
@@ -791,7 +837,6 @@ div.filterContainer nav ul li:last-child  a:after{
 	position: relative;
 	width: 1185px;
 	margin: 0 auto;
-
 }
 
 /*.help{
