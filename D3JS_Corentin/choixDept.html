@@ -22,10 +22,10 @@
     		stroke-width: 1px;
     		/*fill:url(#pattern1);*/
     		fill:#ddd;
-    		transition:fill .2s ease;
-    		-ms-transition:fill .2s ease;
-    		-webkit-transition:fill .2s ease;
-    		-moz-transition:fill .2s ease;
+    		transition:fill .1s ease;
+    		-ms-transition:fill .1s ease;
+    		-webkit-transition:fill .1s ease;
+    		-moz-transition:fill .1s ease;
     	}
     	.dept_select {
     		/*fill:url(#pattern2);*/
@@ -34,7 +34,7 @@
     	}
     	.dept_hover{
     		/*fill:url(#pattern3);*/
-    		fill:#ccc;
+    		fill:#3C98FF;
     	}
     	/*
     	.departement:hover {
@@ -47,8 +47,8 @@
     		font-size: 14px;
     		color: #3C98FF;
     		border: 1px solid #3C98FF;
-    		border-radius: 3px;
-    		padding:5px;
+    		border-radius: 4px;
+    		padding: 6px 14px;
     		background-color: #f1f1f1;
     		top:0;
     		left:0;
@@ -300,7 +300,7 @@
 					.duration(500)
 					.attr("transform", trStr);
 					
-					
+				/*
 				var trStr2 = "translate(" + -x + width / (scaleZoom*2) + "px ," + -y + height / (scaleZoom*2) + "px )" +
 					" scale(" + k + ")"
 				console.log(trStr);
@@ -310,13 +310,13 @@
 				container.style("transform",trStr2);
 				container.style("-ms-transform",trStr2);
 				container.style("-moz-transform",trStr2);
-				container.style("-webkit-transform",trStr2);
+				container.style("-webkit-transform",trStr2);*/
 				
 			};
 
 			//Récupération
 			function choisirDepartement(d){
-				zoomerMap(d);
+				//zoomerMap(d);
 				//console.log(+d.properties.CODE_DEPTS+"");
 				console.log("Nom du département : "+this.getAttribute('nom_dept')+"\n Code du Département : "+this.getAttribute('num_dept'));
 				//d3.selectAll(".departement").style('fill',patternDept);
