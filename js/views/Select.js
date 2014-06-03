@@ -6,16 +6,19 @@ define([
   'backbone',
   'text!../../templates/select-template.html'
 
-], function($, d3, _, Backbone, _Select){
+], function($, d3, _, Backbone, Select){
 
-  var _Select = Backbone.View.extend({
+  var select = Backbone.View.extend({
     el: '.page',
-    template: Handlebars.compile(_Select),
+    template: Handlebars.compile(Select),
     render: function(options){
       var self = this;
-      self.$el.html(self.template(''));
+      //self.$el.html(self.template(''));
+      
+        console.log(options);
+      //glob.router.navigate('#/B', {trigger: true});
     }
   });
 
-  return _Select;
+  return select;
 });

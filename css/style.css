@@ -278,7 +278,8 @@ aside:before{
 	top: 0;
 	right: 0;
 	height: 100%;
-	width: 8px;
+	width: 7px;
+	z-index: 9;
 	background: -webkit-linear-gradient(right, #2d3339 , transparent);
 	background: -o-linear-gradient(left, #2d3339, transparent);
 	background: -moz-linear-gradient(left, #2d3339, transparent);
@@ -306,13 +307,9 @@ aside > footer{
 		}
 
 aside .backgroundAside{
-	background: -webkit-radial-gradient(#2e353d 30%, transparent 0%);
-	background: -moz-radial-gradient(#2e353d 30%, transparent 0%);
-	background: -ms-radial-gradient(#2e353d 30%, transparent 0%);
-	background: -o-radial-gradient(#2e353d 30%, transparent 0%);
-	background: radial-gradient(#2e353d 30%, transparent 0%);
-	background-size: 2px 2px;
-	height: calc(100% - 100px);
+	background: url('./img/motif.svg');
+	background-size: 0.1rem;
+	height: calc(100% - 98px);
 	border-bottom: 1px solid #292f35;
 	border-top: 1px solid #4e575f;
 	-webkit-box-sizing: border-box;
@@ -324,12 +321,7 @@ aside .backgroundAside{
 			aside .backgroundAside {
 				border: none;
 				position: relative;
-				background: -webkit-radial-gradient(#292f35 50%, transparent 0%);
-				background: -moz-radial-gradient(#292f35 50%, transparent 0%);
-				background: -ms-radial-gradient(#292f35 50%, transparent 0%);
-				background: -o-radial-gradient(#292f35 50%, transparent 0%);
-				background: radial-gradient(#292f35 50%, transparent 0%);
-				background-size:1.5px 1.5px;
+				height: calc(100% - 100px);
 			}
 			aside .backgroundAside:before {
 				background-color: transparent;
@@ -484,7 +476,7 @@ aside form, aside h3{
 		}
 
 .mainContainer header div .navPrev{
-	background: url('img/precedent.svg') no-repeat center center;
+	background: url('img/edit.svg') no-repeat center center;
 	display: table-cell;
 	width: 50px;
 	height: 49px;
