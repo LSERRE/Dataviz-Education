@@ -7,9 +7,10 @@ define([
   'handlebars',
   'views/standardView',
   'views/Home',
+  'views/Map',
   'views/Select',
   'views/Emploi'
-], function($,  _, Backbone, Handlebars, StandardView, Home, Select, Emploi) {
+], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Select, Emploi) {
 
   // Our router
   var Router = Backbone.Router.extend({
@@ -19,7 +20,7 @@ define([
       'A/:donnee': 'a-donnee',
       'A/:donnee/:departement': 'a-donnee-departement',
       'B': 'b',
-      'B/:departement': 'b-deparement',
+      'B/:departement': 'b-departement',
       'B/:depatement/:secteur': 'b-departement-secteur',
       'C': 'c',
       'C/:donnee': 'c-donnee',
@@ -36,6 +37,7 @@ define([
 
     glob.router = router;
     router.on('route:home', function(){
+      console.log('home');
       var home = new Home();
       home.render();
     });
@@ -56,8 +58,9 @@ define([
     });
     router.on('route:b', function(){
       console.log('B');
-      var select = new Select();
-      select.render();
+      var map = new Map();
+      console.log('map ...');
+      map.render();
     });
     router.on('route:b-departement', function(departement){
       console.log('B departement');
