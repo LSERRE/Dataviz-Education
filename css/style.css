@@ -261,6 +261,7 @@ aside:before{
 	right: 0;
 	height: 100%;
 	width: 7px;
+	z-index: 9;
 	background: -webkit-linear-gradient(right, #2d3339 , transparent);
 	background: -o-linear-gradient(left, #2d3339, transparent);
 	background: -moz-linear-gradient(left, #2d3339, transparent);
@@ -302,8 +303,6 @@ aside .backgroundAside{
 			aside .backgroundAside {
 				border: none;
 				position: relative;
-				background: url('./img/motif.svg');
-				background-size: 0.1rem;
 				height: calc(100% - 100px);
 			}
 			aside .backgroundAside:before {
