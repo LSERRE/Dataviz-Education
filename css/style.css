@@ -641,6 +641,21 @@ div.filterContainer nav ul li a{
 	text-align: center;
 }
 
+		@-moz-document url-prefix() { 
+		    div.filterContainer nav ul li a {
+		        line-height: 42px;
+		    }
+		}
+
+		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
+
+			@-moz-document url-prefix() { 
+			  div.filterContainer nav ul li a {
+			     line-height: 41.5px;
+			  }
+			}
+		}
+
 div.filterContainer nav ul li a:before, div.filterContainer nav ul li a:after{
 	content: "";
 	width: 30px;
@@ -649,6 +664,15 @@ div.filterContainer nav ul li a:before, div.filterContainer nav ul li a:after{
 	background-size: 30px 30px;
 	margin-top: 6px;
 }
+
+		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
+
+			@-moz-document url-prefix() { 
+			  div.filterContainer nav ul li a:before, div.filterContainer nav ul li a:after {
+			     margin-top: 5.5px;
+			  }
+			}
+		}
 
 div.filterContainer nav ul li:first-child a:before{
 	background: url("img/donnes.svg");
