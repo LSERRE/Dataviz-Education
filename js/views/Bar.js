@@ -3,14 +3,15 @@ define([
   'jquery',
   'd3',
   'underscore',
-  'backbone',
-  'text!../../templates/emploi-template.html'
+  'backbone'
 
 ], function($, d3, _, Backbone, emploi){
 
   var Emploi = Backbone.View.extend({
     el: '.emploiBar',
     render: function(options){
+      console.log($('.emploiBar'));
+      $('.emploiBar').removeClass('none');
       var self = this;
       $('.dataBar').each(function(index){
         var averageBar = $(this).find('.average');

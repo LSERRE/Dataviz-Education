@@ -21,13 +21,21 @@ define([
         id: '#map',
         infosid: '#infosDepartements',
         choix: function(dep, code){
-          console.log(code);
           $('.choise').eq(0).html(code);
           divParent.remove();
-          glob.router.navigate('#B/'+dep, {trigger: true});
+          console.log(options);
+          if(options.donnee){
+            console.log('test');
+            // route A
+            glob.router.navigate('#/A/'+options.donnee+'/'+dep, {trigger: true});
+          }
+          else{
+            // route B
+            glob.router.navigate('#/B/'+dep, {trigger: true});
+          }
+          
         }
       });
-      console.log('bug ?');
       this.d3=d3.select(this.el);
       //glob.router.navigate('#/B', {trigger: true});
     }

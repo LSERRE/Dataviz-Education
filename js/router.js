@@ -10,8 +10,8 @@ define([
   'views/Map',
   'views/Secteur',
   'views/Select',
-  'views/Emploi'
-], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Secteur, Select, Emploi) {
+  'views/Bar'
+], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Secteur, Select, Bar) {
 
   // Our router
   var Router = Backbone.Router.extend({
@@ -49,19 +49,20 @@ define([
     });
     router.on('route:a-donnee', function(donnee){
       console.log('A - donnee');
-      var select = new Select();
-      select.render({donnee: donnee});
+      var map = new Map();
+      map.render({donnee: donnee});
     });
     router.on('route:a-donnee-departement', function(donnee, departement){
-      console.log('A - donnee - departement');
-      var select = new Select();
-      select.render({donnee: donnee, departement: departement});
+      console.log('A - donnee - departement (bar)');
+      var bar = new Bar();
+      bar.render({donnee: donnee, departement: departement});
     });
     router.on('route:b', function(){
       var map = new Map();
-      map.render();
+      map.render({});
     });
     router.on('route:b-departement', function(departement){
+      console.log('test');
       var secteur = new Secteur();
       secteur.render({departement: departement});
     });
@@ -76,9 +77,9 @@ define([
       select.render();
     });
     router.on('route:c-donnee', function(donnee){
-      console.log('c-donnee');
-      var select = new Select();
-      select.render({donnee: donnee});
+      console.log('test');
+      var secteur = new Secteur();
+      secteur.render({donnee: donnee});
     });
     router.on('route:c-donnee-secteur', function(donnee, secteur){
       console.log('c-donnee-secteur');
