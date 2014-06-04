@@ -8,9 +8,10 @@ define([
   'views/standardView',
   'views/Home',
   'views/Map',
+  'views/Secteur',
   'views/Select',
   'views/Emploi'
-], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Select, Emploi) {
+], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Secteur, Select, Emploi) {
 
   // Our router
   var Router = Backbone.Router.extend({
@@ -57,15 +58,12 @@ define([
       select.render({donnee: donnee, departement: departement});
     });
     router.on('route:b', function(){
-      console.log('B');
       var map = new Map();
-      console.log('map ...');
       map.render();
     });
     router.on('route:b-departement', function(departement){
-      console.log('B departement');
-      var select = new Select();
-      select.render({departement: departement});
+      var secteur = new Secteur();
+      secteur.render({departement: departement});
     });
     router.on('route:b-departement-secteur', function(departement, secteur){
       console.log('b-departement-secteur');

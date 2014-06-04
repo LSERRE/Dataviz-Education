@@ -20,7 +20,9 @@ define([
       Map.init({
         id: '#map',
         infosid: '#infosDepartements',
-        choix: function(dep){
+        choix: function(dep, code){
+          console.log(code);
+          $('.choise').eq(0).html(code);
           divParent.remove();
           glob.router.navigate('#B/'+dep, {trigger: true});
         }

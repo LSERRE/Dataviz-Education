@@ -95,6 +95,57 @@
     		-webkit-transition:all 1s ease;
     	}
 
+
+    	#containerSecteur{
+    		transform-origin:50% 50%;
+    		-ms-transform-origin:50% 50%;
+    		-moz-transform-origin:50% 50%;
+    		-webkit-transform-origin:50% 50%;
+
+    		transition:all 1s ease;
+    		-ms-transition:all 1s ease;
+    		-moz-transition:all 1s ease;
+    		-webkit-transition:all 1s ease;
+    	}
+    	.secteur{
+    		fill:#f1f1f1;
+    		stroke:#ddd;
+    		stroke-width:1px;
+    	}
+    	.secteurHover{
+    		fill:#3C98FF;
+    		stroke:#3C98FF;
+    		cursor: pointer;
+    	}
+    	.secteurHighlight{
+    		fill:#fff;
+    	}
+
+
+    	#svgSecteur{
+    		z-index: 100;
+    	}
+       	#infosSecteurs{
+    		position: absolute;
+    		z-index: 50;
+    		width:360px;
+    		height: 100px;
+    		top:50%;
+    		left:50%;
+    		margin-left: -180px;
+    		margin-top: -50px;
+    		text-align: center;
+    		padding-top: 20px
+    	}
+    	#infosSecteurs input[placeholder]{
+    		min-width: 250px;
+    		max-width: 360px;
+    		height:40px;
+    		border:#ddd;
+    		background: #fafafa;
+    		text-align: center;
+    	}
+
     </style>
 </head>
 <body>
@@ -199,7 +250,7 @@
 			</div> -->
 			
 
-			
+		<div id="containerSecteur"></div>
 			
 		</div>
 	</div>

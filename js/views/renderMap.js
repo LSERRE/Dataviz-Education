@@ -174,7 +174,7 @@ define([
 			//d3.selectAll(".departement").style('fill',patternDept);
 			d3.selectAll(".departement").classed('dept_select',false);
 			d3.select(this).classed('dept_select',true);
-			map.params.choix.call(this, this.getAttribute('nom_dept'));
+			map.params.choix.call(this, this.getAttribute('nom_dept'), this.getAttribute('num_dept'));
 			//d3.select(this).style('fill',patternSelect);
 		}
 	};
