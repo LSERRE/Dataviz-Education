@@ -69,7 +69,7 @@
     	.text_nom_dept:after{
     		content:"";
     		position: absolute;
-    		bottom: -6.5px;
+    		bottom: -6px;
     		left:50%;
     		margin-left: -3px;
     		width: 0;
@@ -124,34 +124,30 @@
 		  </pattern>
 		</defs>
 	</svg>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="d3.v3.min.js"></script>
     <script type="text/javascript">
     //(function() {
 
-    	var map = {
-    		defaults : {
-    			id: '#map',
-    			infosid: '#infosDepartements',
-				zommed : false,
-				gotJsonFile : function(){}
-			},
+		var width;
+		var height;
+		var scaleDeLaCarte;
+		var scaleZoom = 4;
+		var zoomed = false;
 
-			init : function(options){
-				this.params=$.extend(this.defaults,options);
-				this.initialize();
-			},
+		  /* 
+		   * On créait un nouvel objet path qui permet 
+		   * de manipuler les données géographiques.
+		   */
+		  var path = d3.geo.path();
 
+		  // On définit les propriétés de la projection à utiliser
+		  var projection = d3.geo.mercator();
 
-			initialize: function(){
-				var self=this;
-				var path = d3.geo.path();
-				var projection = d3.geo.mercator();
-				
-				var width = window.innerWidth;
-				var height = window.innerHeight;
-				var scaleDeLaCarte = 3*height;
-				
+		  function refreshSvgSize(){
+		  		width = window.innerWidth;
+				height = window.innerHeight;
+				scaleDeLaCarte = 3*height;
+
 				projection
 		        	.center([2.454071, 46.279229]) // On centre la carte sur la France
 		        	.scale(scaleDeLaCarte)
@@ -159,126 +155,153 @@
 
 		        path.projection(projection);
 
-		        var svg = d3.select(this.params.id).append("svg")
-		      		.attr("width", width)
-		      		.attr("height", height);
+		  }
 
-		  		window.onresize = function(){
-		  			d3.select(this.params.id).select("svg")
-		  				.attr("width",window.innerWidth)
-		  				.attr("height",window.innerHeight);
-				};
+		  refreshSvgSize();
+		   // On assigne la projection au path
 
-				var deps = svg.append("g")
-			    	.attr("id", "departements");
+		  /*
+		   * On créait un nouvel élément svg à la racine de notre div #map,
+		   * définie plus haut dans le HTML
+		   */
+		  var svg = d3.select('#map').append("svg")
+		      .attr("width", width)
+		      .attr("height", height);
 
-		    	d3.json('departements.json', function(req, geojson) {
+		  window.onresize = function(){
+		  	d3.select('#map').select("svg")
+		  		.attr("width",window.innerWidth)
+		  		.attr("height",window.innerHeight);
 
-				  	/*
-				     * On "bind" un élément SVG path pour chaque entrée
-				     * du tableau features de notre objet geojson
-				     */
-				  	var features = deps
-				  			.selectAll("path")
-							.data(geojson.features);
+			refreshSvgSize();
+		  };
 
-						/*
-				     * On créait un ColorScale, qui va nous
-				     * permettre d'assigner plus tard une
-				     * couleur de fond à chacun de nos
-				     * départements
-				     */
-				  	//var colorScale = d3.scale.category20c();
+		  /*
+		   * On créait un groupe SVG qui va accueillir
+		   * tous nos départements
+		   */
+		  var deps = svg
+		  		.append("g")
+		    	.attr("id", "departements");
 
-				  	/*
-				     * Pour chaque entrée du tableau feature, on
-				     * créait un élément SVG path, avec les
-				     * propriétés suivantes
-				     */
-			  		features.enter()
-				  	.append("path")
-				  		.attr('class', 'departement')
-				  		/*.attr('fill', function(d) { 
-				  			return colorScale(+d.properties.CODE_DEPT); 
-				  		})*/
-				     	.attr("d", path)
-				      	.attr("nom_dept", function(d){ return d.properties.NOM_DEPT; })
-				      	.attr("num_dept", function(d){ return d.properties.CODE_DEPT; })
-				      	.attr("fill-opacity","0.0")
-				      	.attr("stroke-opacity","0.0")
-			      		.attr("transform", "scale(2.0)translate("+-width/4+","+-height/4+")")
-			     		 //.on('click', countyClickHandler);
-			      		.on('mouseover', function(d){
-			      			d3.select(this).classed('dept_hover',true);
-			      			var centroid = path.centroid(d);
-			      			var value = d.properties.NOM_DEPT;
-			      			d3.select(self.params.infosid)
-			      				.append("p")
+		  /*
+		   * On charge les données GeoJSON
+		   */
+		  d3.json('departements.json', function(req, geojson) {
+
+		  	/*
+		     * On "bind" un élément SVG path pour chaque entrée
+		     * du tableau features de notre objet geojson
+		     */
+		  	var features = deps
+		  			.selectAll("path")
+					.data(geojson.features);
+
+				/*
+		     * On créait un ColorScale, qui va nous
+		     * permettre d'assigner plus tard une
+		     * couleur de fond à chacun de nos
+		     * départements
+		     */
+		  	//var colorScale = d3.scale.category20c();
+
+		  	/*
+		     * Pour chaque entrée du tableau feature, on
+		     * créait un élément SVG path, avec les
+		     * propriétés suivantes
+		     */
+		  	features.enter()
+			  	.append("path")
+			  		.attr('class', 'departement')
+			  		/*.attr('fill', function(d) { 
+			  			return colorScale(+d.properties.CODE_DEPT); 
+			  		})*/
+			      .attr("d", path)
+			      .attr("nom_dept", function(d){ return d.properties.NOM_DEPT; })
+			      .attr("num_dept", function(d){ return d.properties.CODE_DEPT; })
+			      .attr("fill-opacity","0.0")
+			      .attr("stroke-opacity","0.0")
+			      .attr("transform", "scale(2.0)translate("+-width/4+","+-height/4+")")
+			      //.on('click', countyClickHandler);
+			      .on('mouseover', function(d){
+			      		d3.select(this).classed('dept_hover',true);
+
+			      		var centroid = path.centroid(d);
+
+			      		var value = d.properties.NOM_DEPT;
+
+			      		d3.select("#infosDepartements")
+			      			.append("p")
 		  						.attr("class","text_nom_dept")
 		  						.html(value)
 		  						//.style("top",centroid.top+height/2+"px")
 		  						//.style("left",centroid.left-30+width/2+"px");
 		  						.style("top",function(){ 
 															var value = centroid[1]-50
-															if(self.params.zoomed)
+															if(zoomed)
 																value *= scaleZoom/2;
 															return value+"px";
 														})
 		  						.style("left",function(){ 
 		  													var value = centroid[0]
-		  													if(self.params.zoomed)
+		  													if(zoomed)
 																value *= scaleZoom/2;
 		  													return value+"px";
 		  												})
 		  						.style("margin-left", function(){ return -this.offsetWidth/2+"px"; } );
-			      		})
-			     	 	.on('mouseout', function(){
-			      			d3.select(this).classed('dept_hover',false);
-			      			d3.select(self.params.infosid).select("p").remove();
-			      		})
-			      		.on('click', self.choisirDepartement)
+			      })
+			      .on('mouseout', function(){
+			      		d3.select(this).classed('dept_hover',false);
 
-			      		.transition()
-				  		.delay(function(d,i){ return i*10; })
-				  		.duration(500)
-				  		.attr("fill-opacity","1.0")
-				  		.attr("stroke-opacity","1.0")
-				  		.attr("transform", "scale(1)translate(0,0,0)");
+			      		d3.select("#infosDepartements").select("p").remove();
+			      })
+			      .on('click', choisirDepartement)
 
-		  		});
-			},
+			      .transition()
+			  		.delay(function(d,i){ return i*10; })
+			  		.duration(500)
+			  		.attr("fill-opacity","1.0")
+			  		.attr("stroke-opacity","1.0")
+			  		.attr("transform", "scale(1)translate(0,0,0)");
 
+		  });
 
-		  	zoomerMap: function(d) {
-		  		var centered;
-	  			var x, y, k;
+		  /*
+	     * Fonction qui permet de zoomer sur la carte
+	     * en cliquant sur les départements
+	     * Récupéré ici : http://bl.ocks.org/mbostock/2206340
+	     */
+		  var centered;
+		  function zoomerMap(d) {
+		  	var x, y, k;
 
-	  			if (d && centered !== d) {
+		  	if (d && centered !== d) {
 					var centroid = path.centroid(d);
 					x = centroid[0];
 					y = centroid[1];
 					k = scaleZoom;
 					centered = d;
-					self.params.zoomed = true;
-				} 
-				else {
+					zoomed = true;
+				} else {
 					x = width / 2;
 					y = height / 2;
 					k = 1;
 					centered = null;
-					self.params.zoomed = true;
+					zoomed = false;
 				}
-			
+				
 				deps.selectAll("path")
 					.classed("active", centered && function(d) { return d === centered; });
-			
-				var trStr = "translate(" + width / 2 + "," + height / 2 + ")" + "scale(" + k + ")translate(" + -x + "," + -y + ")";
-			
+				
+				var trStr = "translate(" + width / 2 + "," + height / 2 + ")" +
+					"scale(" + k + ")translate(" + -x + "," + -y + ")";
+				
 				deps.transition()
 					.duration(500)
 					.attr("transform", trStr);
-
-					var trStr2 = "translate(" + -x + width / (scaleZoom*2) + "px ," + -y + height / (scaleZoom*2) + "px )" +
+					
+				/*
+				var trStr2 = "translate(" + -x + width / (scaleZoom*2) + "px ," + -y + height / (scaleZoom*2) + "px )" +
 					" scale(" + k + ")"
 				console.log(trStr);
 
@@ -287,11 +310,12 @@
 				container.style("transform",trStr2);
 				container.style("-ms-transform",trStr2);
 				container.style("-moz-transform",trStr2);
-				container.style("-webkit-transform",trStr2);
-			
-    		},
+				container.style("-webkit-transform",trStr2);*/
+				
+			};
 
-    		choisirDepartement: function(){
+			//Récupération
+			function choisirDepartement(d){
 				//zoomerMap(d);
 				//console.log(+d.properties.CODE_DEPTS+"");
 				console.log("Nom du département : "+this.getAttribute('nom_dept')+"\n Code du Département : "+this.getAttribute('num_dept'));
@@ -299,14 +323,9 @@
 				d3.selectAll(".departement").classed('dept_select',false);
 				d3.select(this).classed('dept_select',true);
 				//d3.select(this).style('fill',patternSelect);
-			}
+			};
 
-		};
-
-		map.init({
-			id: '#map',
-			infosid: '#infosDepartements'
-		});
+    //}());
     </script>
   </body>
 </html>
