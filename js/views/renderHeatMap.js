@@ -1,112 +1,11 @@
-<!DOCTYPE html>
-<html>
- <head>
-    <meta charset="utf-8">
-    <style type="text/css">
-
-    	*{
-    		box-sizing:border-box;
-    		-ms-box-sizing:border-box;
-    		-moz-box-sizing:border-box;
-    		-webkit-box-sizing:border-box;
-    		padding: 0;
-    		margin: 0;
-    	}
-    	body{
-    		background: #efefef;
-
-    	}
-    	#departementsHM{
-    		stroke: black;
-    		stroke-width: 10px;
-    	}
-    	.departementHM {
-    		cursor: pointer;
-    		stroke: #fff;
-    		stroke-width: 1px;
-    		/*fill:url(#pattern1);*/
-    		/*fill:#ddd;*/
-    		transition:fill .2s ease;
-    		-ms-transition:fill .2s ease;
-    		-webkit-transition:fill .2s ease;
-    		-moz-transition:fill .2s ease;
-    	}
-    	.dept_select {
-    		/*fill:url(#pattern2);*/
-    		fill:#3C98FF;
-
-    	}
-    	.dept_hover{
-    		/*fill:url(#pattern3);*/
-    		fill:#ccc;
-    	}
-    	/*
-    	.departement:hover {
-    		stroke: lightblue;
-    		fill:url(#pattern3);
-    	}*/
-    	.text_nom_dept{
-    		position:absolute;
-    		font-family: sans-serif;
-    		font-size: 14px;
-    		color: #3C98FF;
-    		border: 1px solid #3C98FF;
-    		border-radius: 3px;
-    		padding:5px;
-    		background-color: #f1f1f1;
-    		top:0;
-    		left:0;
-    	}
-    	.text_nom_dept:before{
-    		content:"";
-    		position: absolute;
-    		bottom: -5px;
-    		left:50%;
-    		margin-left: -2px;
-    		width: 0;
-    		height: 0;
-    		border-left: 4px solid transparent;
-    		border-right: 4px solid transparent;
-    		border-top: 5px solid #f1f1f1;
-    		z-index: 3;
-    	}
-    	.text_nom_dept:after{
-    		content:"";
-    		position: absolute;
-    		bottom: -6.5px;
-    		left:50%;
-    		margin-left: -3px;
-    		width: 0;
-    		height: 0;
-    		border-left: 5px solid transparent;
-    		border-right: 5px solid transparent;
-    		border-top: 6px solid #3C98FF;
-    		z-index: 2;
-    	}
-    	#container_map,#infosDepartements{
-    		transform-origin:50% 50%;
-    		-ms-transform-origin:50% 50%;
-    		-moz-transform-origin:50% 50%;
-    		-webkit-transform-origin:50% 50%;
-
-    		transition:all 1s ease;
-    		-ms-transition:all 1s ease;
-    		-moz-transition:all 1s ease;
-    		-webkit-transition:all 1s ease;
-    	}
-
-    </style>
-  </head>
-  <body>
-  	<div id="container_map">
-	  	<div id="infosDepartements"></div>
-	  	<div id="map"></div>
-  	</div>
-  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="d3.v3.min.js"></script>
-    <script type="text/javascript">
-    //(function() {
-   var map = {
+define([
+  'jquery',
+  'd3',
+  'underscore',
+  'backbone',
+  'handlebars',
+], function($, d3, _, Backbone, Handlebars){
+  	var map = {
 
   		defaults : {
 			id: '#map',
@@ -116,8 +15,7 @@
 			secteurChoisi: '2',
 			parametre:'nb_employes',
 			width: window.innerWidth,
-			height:  window.innerHeight,
-			choix: function(){}
+			height:  window.innerHeight
 		},
 
 		init : function(options){
@@ -167,7 +65,7 @@
 			/*
 			* On charge les données GeoJSON
 			*/
-			d3.json('departements.json', function(req, geojson) {
+			d3.json('json/departements.json', function(req, geojson) {
 
 			//Supprimer Loader
 
@@ -264,7 +162,7 @@
 
 			// Les 3 valeurs là sont celles à changer pour faire varier le graph
 
-			var nom_du_CSV = '../json/'+map.params.nomDuTheme+'_'+map.params.parametre+'.csv'; //Nb employés
+			var nom_du_CSV = 'json/'+map.params.nomDuTheme+'_'+map.params.parametre+'.csv'; //Nb employés
 
 			
 
@@ -308,8 +206,7 @@
 		}
 	};
 
-	map.init();
-    //}());
-    </script>
-  </body>
-</html>
+  	return {
+    	init : map.init
+  	};
+});

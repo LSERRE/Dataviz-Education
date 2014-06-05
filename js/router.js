@@ -9,9 +9,10 @@ define([
   'views/Home',
   'views/Map',
   'views/Secteur',
+  'views/heatMap',
   'views/Select',
   'views/Bar'
-], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Secteur, Select, Bar) {
+], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Secteur, HeatMap, Select, Bar) {
 
   // Our router
   var Router = Backbone.Router.extend({
@@ -83,8 +84,8 @@ define([
     });
     router.on('route:c-donnee-secteur', function(donnee, secteur){
       console.log('c-donnee-secteur');
-      var select = new Select();
-      select.render({donnee: donnee, secteur: secteur});
+      var heatMap = new HeatMap();
+      heatMap.render({donnee: donnee, secteur: secteur});
     });
     router.on('route:emploi', function(){
       var emploi = new Emploi();

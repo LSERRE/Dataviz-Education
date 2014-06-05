@@ -41,12 +41,6 @@ define([
 	      		.attr("width", width)
 	      		.attr("height", height);
 
-	  		window.onresize = function(){
-	  			d3.select(map.params.id).select("svg")
-	  				.attr("width",window.innerWidth)
-	  				.attr("height",window.innerHeight);
-			};
-
 			var deps = svg.append("g")
 		    	.attr("id", "departements");
 
