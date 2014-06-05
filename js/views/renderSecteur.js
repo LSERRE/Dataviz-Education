@@ -85,8 +85,8 @@ define([
 		},
 
 		initialize: function(){
-			var w = window.innerWidth, 
-				h = window.innerHeight;
+			var w = $('.content').width(), 
+				h = $('.content').height();
 				
 
 			var selectPlaceholder = document.querySelectorAll("#infosSecteurs>input[placeholder]")[0];
@@ -131,13 +131,11 @@ define([
 			    .attr("height", h)
 			    .attr("id","svg_circles")
 			  .append("g")
-			    .attr("transform", "translate(" + (w / 2) + "," + (h / 2) + ")") //center the circle
+			    .attr("transform", "translate(" + (w / 2) + "," + (h / 2) + ")scale("+h/640+")") //center the circle
 
 			var svg_circle2 = d3.select("#svg_circles")
 				.append("g")
-				.attr("transform", "translate(" + (w / 2) + "," + (h / 2) + ") rotate("+360/39+")") //center the circle
-
-
+				.attr("transform", "translate(" + (w / 2) + "," + (h / 2) + ") rotate("+360/39+")scale("+h/640+")") //center the circle
 
 			d3.json('json/secteurs.json', function(req, secjson) {
 

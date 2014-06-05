@@ -25,9 +25,10 @@ define([
 			var path = d3.geo.path();
 			var projection = d3.geo.mercator();
 			
-			var width = window.innerWidth;
-			var height = window.innerHeight;
-			var scaleDeLaCarte = 3*height;
+			var width = $('.content').width();
+			var height = $('.content').height()-1;
+			console.log(width+" "+height)
+			var scaleDeLaCarte = 3.5*height;
 			
 			projection
 	        	.center([2.454071, 46.279229]) // On centre la carte sur la France
