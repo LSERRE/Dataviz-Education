@@ -986,3 +986,17 @@ div.filterContainer nav ul li:last-child  a:after{
 .none{
     display: none;
 }
+
+/* HEATMAP */
+
+.departementHM {
+	cursor: pointer;
+	stroke: #fff;
+	stroke-width: 1px;
+	/*fill:url(#pattern1);*/
+	/*fill:#ddd;*/
+	transition:fill .2s ease;
+	-ms-transition:fill .2s ease;
+	-webkit-transition:fill .2s ease;
+	-moz-transition:fill .2s ease;
+}

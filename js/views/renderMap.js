@@ -27,7 +27,6 @@ define([
 			
 			var width = $('.content').width();
 			var height = $('.content').height()-1;
-			console.log(width+" "+height)
 			var scaleDeLaCarte = 3.5*height;
 			
 			projection

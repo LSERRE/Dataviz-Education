@@ -14,8 +14,8 @@ define([
 			nomDuTheme: 'EMPLOI',
 			secteurChoisi: '2',
 			parametre:'nb_employes',
-			width: window.innerWidth,
-			height:  window.innerHeight
+			width: $('.content').width(),
+			height:  $('.content').height()-1
 		},
 
 		init : function(options){
@@ -116,12 +116,12 @@ define([
 
 			      		var centroid = path.centroid(d);
 
-			      		var value = d.properties.NOM_DEPT;
+			      		var nom_departement = d.properties.NOM_DEPT;
 
 			      		d3.select(map.params.infosid)
 			      			.append("p")
 		  						.attr("class","text_nom_dept")
-		  						.html(value+" : "+this.getAttribute("value"))
+		  						.html(nom_departement+" : "+this.getAttribute("value"))
 		  						//.style("top",centroid.top+height/2+"px")
 		  						//.style("left",centroid.left-30+width/2+"px");
 		  						.style("top",function(){ 
@@ -157,7 +157,7 @@ define([
 
 		initialize: function(){
 			
-			var scaleDeLaCarte = 3*map.params.height;
+			var scaleDeLaCarte = 3.5*map.params.height;
 			var scaleZoom = 4;
 
 			// Les 3 valeurs là sont celles à changer pour faire varier le graph

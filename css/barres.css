@@ -48,16 +48,22 @@
 
 
 .average{
+	display: table;
 	position: absolute;
 	width:100px;
 	background-color: #dddddd;
 	left:50%;
 	margin-left: -50px; /* 100/2 */
 }
-	.average span{
+	.middle{
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+	}
+	.middle span{
 		display: block;
 		font: 1rem 'clear_sansbold';
-		margin-left: -80px;
+		margin-left: -77px;
 		color:#989898;
 		text-transform: uppercase;
 		-moz-transform:rotate(-90deg);
