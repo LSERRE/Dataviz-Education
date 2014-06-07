@@ -9,7 +9,8 @@ define([
 ], function($, d3, _, Backbone, Map, templateHeatMap){
 
   var map = Backbone.View.extend({
-    el: '.items',  
+    el: '#items',  
+    map : '#map',
     template: Handlebars.compile(templateHeatMap), 
     render: function(options){
       var self = this;
@@ -20,14 +21,18 @@ define([
         var divEnfant2 = $("<div>", {id : 'infosDepartements'});
         divParent.prepend(divEnfant1);
         divParent.prepend(divEnfant2);
+        // items underneath map
+        var divItems = $("<div>", {id: "items"});
+        $('.content').append(divItems);
+
         Map.init({
-          id: '#map',
+          id: self.map,
           infosid: '#infosDepartements',
           nomDuTheme: 'EMPLOI',
           secteurChoisi: '2',
           parametre:'nb_employes',
         });
-        self.$el.html(self.template(''));
+        divItems.html(self.template(''));
         //this.d3=d3.select(this.el);
       }
       //glob.router.navigate('#/B', {trigger: true});

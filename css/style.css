@@ -269,9 +269,13 @@ aside > header, aside > footer{
 aside{
 	position: relative;
 }
-aside.leftPanel:hover{
+
+/* aside.leftPanel:hover */
+aside.asideActive
+{
 	width: 300px;
-}x
+}
+
 aside:before{
 	position: absolute;
 	content:'';
