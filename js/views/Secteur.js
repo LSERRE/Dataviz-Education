@@ -11,6 +11,7 @@ define([
     el: '#containerSecteur',   
     render: function(options){
         var self = this;
+        $('.titleContainer h2').html('Choisissez un type de visualisation');
         var divParent = $("<div>", {id: "containerSecteur"});
         $('.content').append(divParent);
         var divEnfant1 = $("<div>", {id: "svgSecteur"});
@@ -30,22 +31,21 @@ define([
             // sidebar
             $('.choise').eq(1).html(code);
             // sector in localstorage
-            localStorage.setItem('secteur', nom);
-
-            // redirection
-            if(options.departement){
-              // route B
-              glob.router.navigate('#/B/'+options.departement+'/'+nom, {trigger: true});
+            var secteurUrl = findType('secteurs', nom, 'url');
+            if(secteurUrl){
+              localStorage.setItem('urlSecteur', secteurUrl[0]);
+              localStorage.setItem('nomSecteur', nom);
+              localStorage.setItem('imgSecteur', secteurUrl[1]);
+                // redirection
+              if(options.departement){
+                // route B
+                glob.router.navigate('#/B/'+options.departement+'/'+secteurUrl[0], {trigger: true});
+              }
+              else{
+                 // route C
+                glob.router.navigate('#/C/'+options.donnee+'/'+secteurUrl[0], {trigger: true});
+              }
             }
-            else if(options.donnee){
-               // route C
-              glob.router.navigate('#/C/'+options.donnee+'/'+nom, {trigger: true});
-            }
-            else{
-              // default
-              glob.router.navigate('#/home/'+options.donnee, {trigger: true});
-            }
-            
           }
         });
       }

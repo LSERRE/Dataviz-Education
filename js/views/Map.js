@@ -10,6 +10,7 @@ define([
   var map = Backbone.View.extend({
     el: '#map',   
     render: function(options){
+      $('.titleContainer h2').html('Choisissez un type de visualisation');
       var self = this;
       var divParent = $("<div>", {class: "map page"});
       $('.content').prepend(divParent);
@@ -24,16 +25,20 @@ define([
           // update sidebar
           $('.choise').eq(0).html(code);
           // departement in localstorage
-          localStorage.setItem('departement', dep);
-
-          // redirection
-          if(options.donnee){
-            // route A
-            glob.router.navigate('#/A/'+options.donnee+'/'+dep, {trigger: true});
-          }
-          else{
-            // route B
-            glob.router.navigate('#/B/'+dep, {trigger: true});
+          var departementUrl = findType('departements', dep, 'url');
+          if(departementUrl){
+            localStorage.setItem('urlDepartement', departementUrl[0]);
+            localStorage.setItem('nomDepartement', dep);
+            localStorage.setItem('codeDepartement', departementUrl[2]);
+            // redirection
+            if(options.donnee){
+              // route A
+              glob.router.navigate('#/A/'+options.donnee+'/'+departementUrl[0], {trigger: true});
+            }
+            else{
+              // route B
+              glob.router.navigate('#/B/'+departementUrl[0], {trigger: true});
+            }
           }
           
         }

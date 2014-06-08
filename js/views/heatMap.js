@@ -14,7 +14,9 @@ define([
     template: Handlebars.compile(templateHeatMap), 
     render: function(options){
       var self = this;
-      if(options.donnee && options.secteur){        
+      if(options.donnee && options.secteur){ 
+
+               
         var divParent = $("<div>", {class: "map page"});
         $('.content').prepend(divParent);
         var divEnfant1 = $("<div>", {id : 'map'});

@@ -1,7 +1,7 @@
 var glob = {};
-var dep = {};
-var data = {};
-var sector = {};
+var findDep;
+var findData;
+var findSector;
 
 define([
   'jquery',
@@ -49,28 +49,44 @@ define([
 
     
     router.on('route:home', function(){
-      console.log('home');
+      document.title = 'Home | JobShaker';
       contain();
       var home = new Home();
       home.render();
     });
     router.on('route:a', function(){
-      console.log('A');
+      document.title = 'Choix du jeu de données (A) | JobShaker';
       contain();
       var select = new Select();
       select.render();
     });
     router.on('route:a-donnee', function(donnee){
-      console.log('A - donnee');
+      document.title = 'Choix département (A) | JobShaker';
       contain();
       var map = new Map();
       map.render({donnee: donnee});
     });
-    router.on('route:a-donnee-departement', function(donnee, departement){
+    router.on('route:a-donnee-departement', function(donnee, urlDepartement){
       console.log('A - donnee - departement (bar)');
       contain();
-      var bar = new Bar();
-      bar.render({donnee: donnee, departement: departement});
+      if(urlDepartement==localStorage.getItem('urlDepartement')){
+        $('.titleContainer h2').html('Données xxx : '+localStorage.getItem('nomDepartement'));
+        var bar = new Bar();
+        bar.render({donnee: donnee, departement: urlDepartement});
+      }
+      else{
+        var nomDepartement = findType('departements', urlDepartement, 'nom');
+        if(nomDepartement){
+          localStorage.setItem('nomDepartement', nomDepartement[0]);
+          localStorage.setItem('codeDepartement', nomDepartement[2]);   
+          $('.titleContainer h2').html('Données pour '+localStorage.getItem('nomDepartement'));  
+          var bar = new Bar();
+          bar.render({donnee: donnee, departement: urlDepartement});
+        }
+        else{
+          router.navigate('', {trigger: true});
+        }
+      }
     });
     router.on('route:b', function(){
       console.log('B');
@@ -78,17 +94,58 @@ define([
       var map = new Map();
       map.render({});
     });
-    router.on('route:b-departement', function(departement){
-      console.log('b-departement');
+    router.on('route:b-departement', function(urlDepartement){
       contain();
-      var secteur = new Secteur();
-      secteur.render({departement: departement});
+      if(urlDepartement==localStorage.getItem('urlDepartement')){
+        var secteur = new Secteur();
+        secteur.render({departement: urlDepartement});
+      }
+      else{
+        var nomDepartement = findType('departements', urlDepartement, 'nom');
+        if(nomDepartement){
+          localStorage.setItem('nomDepartement', nomDepartement[0]);
+          localStorage.setItem('codeDepartement', nomDepartement[2]);        
+          var secteur = new Secteur();
+          secteur.render({departement: urlDepartement});
+        }
+        else{
+          router.navigate('', {trigger: true});
+        }
+      }
     });
-    router.on('route:b-departement-secteur', function(departement, secteur){
+    router.on('route:b-departement-secteur', function(urlDepartement, urlSecteur){
       console.log('b-departement-secteur');
       contain();
-      var select = new Select();
-      select.render({departement: departement, secteur: secteur});
+      // first departement
+      if(urlDepartement!=localStorage.getItem('urlDepartement')){
+        var nomDepartement = findType('departements', urlDepartement, 'nom');
+        if(nomDepartement){
+          localStorage.setItem('nomDepartement', nomDepartement[0]);
+          localStorage.setItem('codeDepartement', nomDepartement[2]);
+        }
+        else{
+          router.navigate('', {trigger: true});
+        }
+      }
+      // second sector
+      if(urlSecteur==localStorage.getItem('urlSecteur')){
+        $('.titleContainer h2').html('Le secteur '+localStorage.getItem('nomSecteur')+' : '+localStorage.getItem('nomDepartement'));
+        var select = new Select();
+        select.render({departement: urlDepartement, secteur: urlSecteur});
+      }
+      else{
+        var nomSecteur = findType('secteurs', urlSecteur, 'nom');
+        if(nomSecteur){
+          localStorage.setItem('nomSecteur', nomSecteur[0]);
+          localStorage.setItem('imgSecteur', nomSecteur[1]);
+          $('.titleContainer h2').html('Le secteur '+localStorage.getItem('nomSecteur')+' : '+localStorage.getItem('nomDepartement'));
+          var select = new Select();
+          select.render({departement: urlDepartement, secteur: urlSecteur});
+        }
+        else{
+          router.navigate('', {trigger: true});
+        }
+      }
     });
     router.on('route:c', function(){
       console.log('C');
@@ -102,11 +159,29 @@ define([
       var secteur = new Secteur();
       secteur.render({donnee: donnee});
     });
-    router.on('route:c-donnee-secteur', function(donnee, secteur){
+    router.on('route:c-donnee-secteur', function(donnee, urlSecteur){
       console.log('c-donnee-secteur');
       contain();
-      var heatMap = new HeatMap();
-      heatMap.render({donnee: donnee, secteur: secteur});
+
+      // second sector
+      if(urlSecteur==localStorage.getItem('urlSecteur')){
+        $('.titleContainer h2').html('Données xxx pour le secteur '+localStorage.getItem('nomSecteur'));
+        var heatMap = new HeatMap();
+        heatMap.render({donnee: donnee, secteur: urlSecteur});
+      }
+      else{
+        var nomSecteur = findType('secteurs', urlSecteur, 'nom');
+        if(nomSecteur){
+          localStorage.setItem('nomSecteur', nomSecteur[0]);
+          localStorage.setItem('imgSecteur', nomSecteur[1]);
+          $('.titleContainer h2').html('Données xxx pour le secteur '+localStorage.getItem('nomSecteur'));
+          var heatMap = new HeatMap();
+          heatMap.render({donnee: donnee, secteur: urlSecteur});
+        }
+        else{
+          router.navigate('', {trigger: true});
+        }
+      }
     });
     router.on('route:emploi', function(){
       var emploi = new Emploi();

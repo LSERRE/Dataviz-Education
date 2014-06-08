@@ -289,7 +289,7 @@
       "code":"95", "nom":"Val-d'Oise", "url":"val-d-oise"
     }
   ],
-  "secteur": [
+  "secteurs": [
     {"id": 1, "nom": "Agriculture", "url": "agriculture", "img": "icon.svg"},
     {"id": 2, "nom": "Industrie du tabac", "url": "industrie-du-tabac", "img": "icon.svg"},
     {"id": 3, "nom": "Industrie pétrolière", "url": "industrie-petroliere", "img": "icon.svg"},
