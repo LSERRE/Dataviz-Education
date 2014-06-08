@@ -29,6 +29,17 @@ define([
       }
     });
 
+    $('.content').on('click', function(e){
+      e.preventDefault;
+      if($('.leftPanel').hasClass('asideActive')){
+        $('#mainContainer').removeClass('active');
+        $('#asideExplain').addClass('desactive');
+        $('#asideExplain').removeClass('active');
+        $('.leftPanel').removeClass('asideActive');
+        status = true ;
+      }
+    });
+
     $.getJSON('json/title.json', function(data){
       localStorage.setItem('departements', JSON.stringify(data.departements));
       localStorage.setItem('secteurs', JSON.stringify(data.secteurs));
