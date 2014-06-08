@@ -12,10 +12,12 @@ define([
   'views/Home',
   'views/Map',
   'views/Secteur',
-  'views/heatMap',
+  'views/HeatMap',
   'views/Select',
-  'views/Bar'
-], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Secteur, HeatMap, Select, Bar) {
+  'views/Bar',
+  'views/CircleChart',
+  'views/Error'
+], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Secteur, HeatMap, Select, Bar, CircleChart, Error) {
 
   // Our router
   var Router = Backbone.Router.extend({
@@ -31,7 +33,8 @@ define([
       'C/:donnee': 'c-donnee',
       'C/:donnee/:secteur': 'c-donnee-secteur',
       'emploi': 'emploi',
-      'about': 'about'
+      'about': 'about',
+      '*notFound': 'notFound'
     }
   });
   
@@ -71,8 +74,8 @@ define([
       contain();
       if(urlDepartement==localStorage.getItem('urlDepartement')){
         $('.titleContainer h2').html('Données xxx : '+localStorage.getItem('nomDepartement'));
-        var bar = new Bar();
-        bar.render({donnee: donnee, departement: urlDepartement});
+        var circleChart = new CircleChart();
+        circleChart.render({donnee: donnee, departement: urlDepartement});
       }
       else{
         var nomDepartement = findType('departements', urlDepartement, 'nom');
@@ -80,8 +83,8 @@ define([
           localStorage.setItem('nomDepartement', nomDepartement[0]);
           localStorage.setItem('codeDepartement', nomDepartement[2]);   
           $('.titleContainer h2').html('Données pour '+localStorage.getItem('nomDepartement'));  
-          var bar = new Bar();
-          bar.render({donnee: donnee, departement: urlDepartement});
+          var circleChart = new CircleChart();
+          circleChart.render({donnee: donnee, departement: urlDepartement});
         }
         else{
           router.navigate('', {trigger: true});
@@ -130,8 +133,8 @@ define([
       // second sector
       if(urlSecteur==localStorage.getItem('urlSecteur')){
         $('.titleContainer h2').html('Le secteur '+localStorage.getItem('nomSecteur')+' : '+localStorage.getItem('nomDepartement'));
-        var select = new Select();
-        select.render({departement: urlDepartement, secteur: urlSecteur});
+        var bar = new Bar();
+        bar.render({departement: urlDepartement, secteur: urlSecteur});
       }
       else{
         var nomSecteur = findType('secteurs', urlSecteur, 'nom');
@@ -139,8 +142,8 @@ define([
           localStorage.setItem('nomSecteur', nomSecteur[0]);
           localStorage.setItem('imgSecteur', nomSecteur[1]);
           $('.titleContainer h2').html('Le secteur '+localStorage.getItem('nomSecteur')+' : '+localStorage.getItem('nomDepartement'));
-          var select = new Select();
-          select.render({departement: urlDepartement, secteur: urlSecteur});
+          var bar = new Bar();
+          bar.render({departement: urlDepartement, secteur: urlSecteur});
         }
         else{
           router.navigate('', {trigger: true});
@@ -183,13 +186,19 @@ define([
         }
       }
     });
-    router.on('route:emploi', function(){
-      var emploi = new Emploi();
+    router.on('route:notFound', function(){
+      var error = new Error();
       contain();
-      emploi.render();
+      error.render();
     });
 
-    Backbone.history.start();
+    if(!Backbone.history.start()) {
+      console.log('error');
+      var error = new Error();
+      contain();
+      error.render();
+    }
+      
   };
   
   return { 
