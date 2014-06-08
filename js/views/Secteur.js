@@ -10,7 +10,6 @@ define([
   var secteur = Backbone.View.extend({
     el: '#containerSecteur',   
     render: function(options){
-
         var self = this;
         var divParent = $("<div>", {id: "containerSecteur"});
         $('.content').append(divParent);
@@ -28,8 +27,12 @@ define([
           outer_circle_radius: 550/2,
           inner_circle_radius: 450/2,
           choix: function(nom, code){
+            // sidebar
             $('.choise').eq(1).html(code);
-            divParent.remove();
+            // sector in localstorage
+            localStorage.setItem('secteur', nom);
+
+            // redirection
             if(options.departement){
               // route B
               glob.router.navigate('#/B/'+options.departement+'/'+nom, {trigger: true});
@@ -45,7 +48,6 @@ define([
             
           }
         });
-        this.d3=d3.select(this.el);
       }
       //glob.router.navigate('#/B', {trigger: true});
   });

@@ -4,28 +4,36 @@ define([
   'd3',
   'underscore',
   'backbone',
-  'views/renderHeatMap'
-], function($, d3, _, Backbone, Map){
+  'views/renderHeatMap',
+  'text!../../templates/heatMap-template.html'
+], function($, d3, _, Backbone, Map, templateHeatMap){
 
   var map = Backbone.View.extend({
-    el: '.map',   
+    el: '#items',  
+    map : '#map',
+    template: Handlebars.compile(templateHeatMap), 
     render: function(options){
-      if(options.donnee && options.secteur){
-        var self = this;
+      var self = this;
+      if(options.donnee && options.secteur){        
         var divParent = $("<div>", {class: "map page"});
-        $('.content').append(divParent);
+        $('.content').prepend(divParent);
         var divEnfant1 = $("<div>", {id : 'map'});
         var divEnfant2 = $("<div>", {id : 'infosDepartements'});
-        divParent.append(divEnfant1);
-        divParent.append(divEnfant2);
+        divParent.prepend(divEnfant1);
+        divParent.prepend(divEnfant2);
+        // items underneath map
+        var divItems = $("<div>", {id: "items"});
+        $('.content').append(divItems);
+
         Map.init({
-          id: '#map',
+          id: self.map,
           infosid: '#infosDepartements',
           nomDuTheme: 'EMPLOI',
           secteurChoisi: '2',
           parametre:'nb_employes',
         });
-        this.d3=d3.select(this.el);
+        divItems.html(self.template(''));
+        //this.d3=d3.select(this.el);
       }
       //glob.router.navigate('#/B', {trigger: true});
     }
