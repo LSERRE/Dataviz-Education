@@ -63,7 +63,7 @@ define([
 					//i
 					case "ï":
 					case "î":
-						tringReturn += "i";
+						stringReturn += "i";
 					break;
 					//u
 					case "û":

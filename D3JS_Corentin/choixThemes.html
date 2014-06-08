@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="utf-8">
+    <style type="text/css">
+
+    	*{
+    		box-sizing:border-box;
+    		-ms-box-sizing:border-box;
+    		-moz-box-sizing:border-box;
+    		-webkit-box-sizing:border-box;
+    		padding: 0;
+    		margin: 0;
+    	}
+    	body{
+    		background: #eeeeef;
+    		width: 100%;
+    		height: 100%;
+    	}
+      #container_cT{
+        height: 100%;
+        margin:0 auto;
+        text-align: center;
+        padding-top: 100px;
+        font-family: sans-serif;
+      }
+      #container_cT nav button{
+        background: white;
+        padding: 15px 20px;
+        border: none;
+        cursor: pointer;
+      }
+      #container_cT nav button:hover{
+        background: blue;
+        color: white;
+      }
+      #choixThemes{
+        /*
+        width:50%;
+        height: 50%;*/
+        background: black;
+        margin: 0 auto;
+      }
+    	.btnTheme{
+        cursor: pointer;
+    	}
+
+    </style>
+  </head>
+  <body>
+  	<div id="container_cT">
+	  	<div id="choixThemes">
+	  	</div>
+      <h3>Nom du thème par défaut</h3>
+      <nav>
+        <button id="previous_item"><</button>
+        <button id="valider_item">Valider</button>
+        <button id="next_item">></button>
+      </nav>
+  	</div>
+  	<svg class="svg_defs">
+  		<defs><!--
+        <g id="third_circle">
+          <path fill="#F1F1F1" d="M265.3,577.6c-0.2,0.7-0.2,1.5-0.4,2.3L388,612.3C458,346.2,299.5,73.5,33.5,2.8L2.3,120.9
+            C200.4,175.1,317.8,378.9,265.3,577.6z"/>
+          <path fill="none" stroke="#CCCCCC" stroke-miterlimit="10" d="M265.3,577.6c-0.2,0.7-0.2,1.5-0.4,2.3L388,612.3
+            C458,346.2,299.5,73.5,33.5,2.8L2.3,120.9C200.4,175.1,317.8,378.9,265.3,577.6z"/>
+        </g>-->
+  		</defs>
+  	</svg>
+    <script type="text/javascript" src="d3.v3.min.js"></script>
+    <script type="text/javascript">
+    	// Choix entre les 3 themes
+      //var data = ["EMPLOI","BIENETRE","SOCIETE"];
+      var data = [10,20,30,40,50,60,70,80,90];
+
+      var w = 500;
+      var h = 500;
+      
+      var radius = 300/2;
+
+      var tree = d3.layout.tree()
+                .size([360, radius]);
+        
+      var dataTree = {
+          children: data.map(function(d) { return d; })
+      };
+      
+      var dataThemes = tree.nodes(dataTree);
+
+      var lesChoix = d3.select("#choixThemes")
+                      .append("svg")
+                      .attr("width",w)
+                      .attr("height",h)
+                        .append("g")
+                        .attr("transform", "translate(" + (w / 2) + "," + (h / 1.2) + ")"); //center the circle
+                        
+      var items = lesChoix.selectAll(".btnTheme")
+                  .data(dataThemes)
+                    .enter()
+                      .append("svg:image")
+                      .attr("xlink:href","theme.svg")
+                      .attr("width", 200)
+                      .attr("height", 200)
+                      .text(function(d){ return d; })
+                      //.attr("x", 228)
+                      //.attr("y",53)
+                      .attr("class","btnTheme")
+                      .attr("transform", function(d) {
+                          return "rotate(" + (d.x - 90) + ") translate(" + d.y + ")";
+                      });
+
+
+    </script>
+  </body>
+</html>
