@@ -992,7 +992,6 @@ div.filterContainer nav ul li:last-child  a:after{
 }
 
 /* HEATMAP */
-
 .departementHM {
 	cursor: pointer;
 	stroke: #fff;
@@ -1003,4 +1002,45 @@ div.filterContainer nav ul li:last-child  a:after{
 	-ms-transition:fill .2s ease;
 	-webkit-transition:fill .2s ease;
 	-moz-transition:fill .2s ease;
+}
+#items>ul{
+	display: block;
+	overflow: hidden;
+	position:relative;
+	bottom: 0;
+	z-index: 300;
+}
+.btnChoixHeatMap{
+	display: block;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	float: left;
+	width:calc(100%/7);
+	height:48px;
+	font-size: 1.5rem;
+	text-align: center;
+	cursor: pointer;
+	background: #f1f1f1;
+	border-right: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	font-family: "clear_sansregular";
+	color:#777;
+	padding-top: 18px;
+
+	transition:background .2s ease;
+	-o-transition:background .2s ease;
+	-moz-transition:background .2s ease;
+	-webkit-transition:background .2s ease;
+}
+.btnChoixHeatMap:hover{
+	background: white;
+
+	transition:background 0s ease;
+	-o-transition:background 0s ease;
+	-moz-transition:background 0s ease;
+	-webkit-transition:background 0s ease;
+}
+.activeItem{
+	font-family: "clear_sansbold" !important;
 }
