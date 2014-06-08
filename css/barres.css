@@ -31,11 +31,11 @@
 }
 
 .animationBar{
-	-moz-animation: animate-bar 2s 1 linear;
-	-webkit-animation: animate-bar 2s 1 linear;
-	-ms-animation: animate-bar 2s 1 linear;
-	-o-animation: animate-bar 2s 1 linear;
-	animation: animate-bar 2s 1 linear;
+	-moz-animation: animate-bar 2s linear;
+	-webkit-animation: animate-bar 2s linear;
+	-ms-animation: animate-bar 2s linear;
+	-o-animation: animate-bar 2s linear;
+	animation: animate-bar 2s linear;
 }
 
 .labelBar{

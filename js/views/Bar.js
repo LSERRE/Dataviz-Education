@@ -28,15 +28,19 @@ define([
             itemBar.css('background-color', itemBar.data('color'));
             itemBar.height(itemBar.data('value')).addClass('animationBar');
             var temp=0;
+            var iteration = itemNumber/40;
+            // itemNumber <-> 2 secondes ; itemNumber/2 <-> 1 seconde ; itemNumber/(2*10) <-> 0,1 seconde ; itemNumber/(2*10*2) <-> 0,05 seconde
+            //var iteration = 1.040;
+            console.log(itemNumber+' '+averageBar.height()+' '+iteration);
             var count= setInterval(function(){
 
-              temp+=itemNumber/averageBar.height();
+              temp+=iteration;
               itemBar.find('span').text(parseInt(temp));
               if(temp>=itemNumber){
                 clearInterval(count); 
                 itemBar.find('span').text(itemNumber);
               }             
-            }, 1);
+            }, 50);
           }
         );
       });
