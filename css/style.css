@@ -7,6 +7,9 @@
 05: ASIDE
 06: HEADER
 07: CONTENT
+08: HEATMAP
+09: SELECTION DEPT
+10: 404
 
 */
 
@@ -867,7 +870,7 @@ div.filterContainer nav ul li:last-child  a:after{
 	position: relative;
 }*/
 
-/* SELECTION DEPT */
+/* 08: SELECTION DEPT */
 
 .departement {
 	cursor: pointer;
@@ -991,7 +994,7 @@ div.filterContainer nav ul li:last-child  a:after{
     display: none;
 }
 
-/* HEATMAP */
+/* 09: HEATMAP */
 
 .departementHM {
 	cursor: pointer;
@@ -1004,3 +1007,5 @@ div.filterContainer nav ul li:last-child  a:after{
 	-webkit-transition:fill .2s ease;
 	-moz-transition:fill .2s ease;
 }
+
+/* 10: 404 */
