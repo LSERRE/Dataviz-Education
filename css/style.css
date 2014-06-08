@@ -271,7 +271,8 @@ aside{
 }
 aside.leftPanel:hover{
 	width: 300px;
-}x
+}
+
 aside:before{
 	position: absolute;
 	content:'';
