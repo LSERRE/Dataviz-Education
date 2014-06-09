@@ -166,6 +166,32 @@ a{
 
 }
 
+@font-face {
+    font-family: 'oswald_bold';
+    src: url('fonts/clearsans-italic-webfont.eot');
+    src: src: url('fonts/oswald-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'oswald_light';
+    src: url('fonts/clearsans-italic-webfont.eot');
+    src: src: url('fonts/oswald-light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'oswald_italic';
+    src: url('fonts/oswald-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /* 03: BASIC STRUCTURE */
 
 html,body{
@@ -215,7 +241,7 @@ aside header h1 a, aside > footer > a{
 	font-size: 1.25rem;
 	text-transform: uppercase;
 	text-align: center;
-	opacity: 0.4;
+	opacity: 0.5;
 	color: #fff !important;
 	display: inline-block;
 }
@@ -616,7 +642,7 @@ aside form, aside h3{
 					-webkit-box-sizing: border-box;
 					-moz-box-sizing: border-box;
 					box-sizing: border-box;
-				}			
+				}		
 			}
 
 			@-moz-document url-prefix() { 
@@ -661,12 +687,22 @@ div.filterContainer nav ul li{
 	background-color: #f9f9f9;
 	border-radius: 20px;
 	float: left;
-	box-shadow: inset 1px 1px #c7c7c7, 1px 1px #ffffff;
+	box-shadow: inset 1px 1px #E3E3E3, 1px 1px #ffffff;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	height: 40px;
 	width: 375px;
+	-webkit-transition: 0.3s ease all;
+	-moz-transition: 0.3s ease all;
+	-ms-transition: 0.3s ease all;
+	-o-transition: 0.3s ease all;
+	transition: 0.3s ease all;
+	font-family: 'clear_sans_lightregular';
+}
+
+div.filterContainer nav ul li:hover{
+	background-color: #ffffff;
 }
 
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
@@ -683,7 +719,7 @@ div.filterContainer nav ul li:first-child{
 }
 
 div.filterContainer nav ul li a{
-	font-family: 'clear_sans_lightregular';
+	font-family: inherit;
 	font-size: 1.4rem;
 	color: #404952;
 	line-height: 43px;
