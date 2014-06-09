@@ -1180,12 +1180,16 @@ div.filterContainer nav ul li:last-child  a:after{
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	border-top: 1px solid #dddddd;
+	background-color: #F1F1F1;
 }
 
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
-			.choix_categorie{
-				border-top: 1px solid #dddddd;
-			}	
+
+			@-moz-document url-prefix() { 
+				.choix_categorie{
+					border-top: 0.5px solid #cccccc;
+				}
+			}
 		}
 
 .choix_categorie a{
@@ -1193,7 +1197,6 @@ div.filterContainer nav ul li:last-child  a:after{
 	display: table-cell;
 	border-right: 1px solid #dddddd;
 	border-top: 1px solid #ffffff;
-	background-color: #F1F1F1;
 	vertical-align: middle;
 	text-align: center;
 	transition: background 0.2s ease;
@@ -1204,8 +1207,10 @@ div.filterContainer nav ul li:last-child  a:after{
 
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
 			.choix_categorie a{
-				border-right: 1px solid #dddddd;
-				border-top: 1px solid #ffffff;
+				border: none;
+				background:
+					linear-gradient(180deg, #ffffff, #ffffff 50%, transparent 50%) top left  / 100% 1px no-repeat,
+					linear-gradient(90deg, #cccccc, #cccccc 50%, transparent 50%) top right / 1px 100% no-repeat;
 			}	
 		}
 
@@ -1221,24 +1226,10 @@ div.filterContainer nav ul li:last-child  a:after{
 	padding-top: 1px;
 }
 
-		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
-			.choix_categorie a p{
-				padding-top: 1px;
-			}	
-		}
-
 .activeItem{
 	font-family: 'clear_sansbold' , 'verdana', 'sans-serif' !important;
 	padding-top: 0px !important;
 }
-
-
-		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
-			.activeItem{
-				font-family: 'clear_sansbold' , 'verdana', 'sans-serif' !important;
-				padding-top: 0px !important;
-			}	
-		}
 
 
 /* 10: 404 */
