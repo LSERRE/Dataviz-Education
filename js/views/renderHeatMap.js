@@ -151,7 +151,7 @@ define([
 			  			.duration(500)
 			  			.attr("fill-opacity","1.0")
 			  			.attr("stroke-opacity","1.0")
-			  			.attr("transform", "scale(1)translate(0,0,0)");
+			  			.attr("transform", "scale(1)");
 
 				  	});
 		},
