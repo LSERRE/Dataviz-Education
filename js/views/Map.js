@@ -4,22 +4,19 @@ define([
   'd3',
   'underscore',
   'backbone',
-  'views/renderMap'
-], function($, d3, _, Backbone, Map){
+  'views/renderMap',
+  'text!../../templates/map-template.html'
+], function($, d3, _, Backbone, Map, templateMap){
 
   var map = Backbone.View.extend({
-    el: '#map',   
+    el: '.content',   
+    template: Handlebars.compile(templateMap), 
     render: function(options){
       $('.titleContainer h2').html('Choisissez un type de visualisation');
       var self = this;
-      var divParent = $("<div>", {class: "map page"});
-      $('.content').prepend(divParent);
-      var divEnfant1 = $("<div>", {id : 'map'});
-      var divEnfant2 = $("<div>", {id : 'infosDepartements'});
-      divParent.append(divEnfant1);
-      divParent.append(divEnfant2);
+      self.$el.html(self.template(options)); 
       Map.init({
-        id: self.el,
+        id: '#map',
         infosid: '#infosDepartements',
         choix: function(dep, code){
           // update sidebar
