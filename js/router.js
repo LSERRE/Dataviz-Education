@@ -52,6 +52,49 @@ define([
       contain();
       error.render();
     };
+    findType = function (type, param, result){
+      var returnValue, img, code, data;
+      if(type=='departements')
+        data = JSON.parse(localStorage.getItem('departements'));
+      else if(type=="secteurs")
+        data = JSON.parse(localStorage.getItem('secteurs'));
+      else if(type=='donnees')
+        data = JSON.parse(localStorage.getItem('donnees'));
+      else if(type=='itemA')
+        data = JSON.parse(localStorage.getItem('itemA'));
+      else if(type=='itemB')
+        data = JSON.parse(localStorage.getItem('itemB'));
+      else if(type=='itemC')
+        data = JSON.parse(localStorage.getItem('itemC'));
+      else
+        return false;
+      
+      if(result=='url' || result=='nom'){
+        $.each(data, function(key, value){
+          if(result=='url'){
+            // want url
+            if(value.nom==param){
+              returnValue = value.url;
+              img = value.img;
+              code = value.code;
+              return false;
+            }
+          }
+          else{
+            // want name
+            if(value.url==param){
+              returnValue = value.nom;
+              img = value.img;
+              code = value.code;
+              return false;
+            }
+          }          
+        });
+      }
+      if(returnValue || img || code)
+        return [returnValue, img, code];
+      return false;
+    };
 
     glob.router = router;
 
