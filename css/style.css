@@ -928,12 +928,9 @@ div.filterContainer nav ul li:last-child  a:after{
 }
 .text_nom_dept{
 	position:absolute;
-	font-family: sans-serif;
-	font-size: 14px;
-	color: #3C98FF;
-	border: 1px solid #3C98FF;
+	text-align: center;
+	border: 1px solid #ccc;
 	border-radius: 4px;
-	padding: 6px 14px;
 	background-color: #f1f1f1;
 	top:0;
 	left:0;
@@ -941,28 +938,48 @@ div.filterContainer nav ul li:last-child  a:after{
 .text_nom_dept:before{
 	content:"";
 	position: absolute;
-	bottom: -5px;
+	bottom: -10px;
 	left:50%;
-	margin-left: -2px;
+	margin-left: -4px;
 	width: 0;
 	height: 0;
-	border-left: 4px solid transparent;
-	border-right: 4px solid transparent;
-	border-top: 5px solid #f1f1f1;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 10px solid #f1f1f1;
 	z-index: 3;
 }
 .text_nom_dept:after{
 	content:"";
 	position: absolute;
-	bottom: -6.5px;
+	bottom: -12px;
 	left:50%;
-	margin-left: -3px;
+	margin-left: -6px;
 	width: 0;
 	height: 0;
-	border-left: 5px solid transparent;
-	border-right: 5px solid transparent;
-	border-top: 6px solid #3C98FF;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 12px solid #ccc;
 	z-index: 2;
+}
+.text_nom_dept>h3{
+	color:#404952;
+	font-size: 1.6rem;
+	padding: 10px 20px;
+	font-family: "clear_sansbold", 'verdana', 'sans-serif';
+}
+.text_nom_dept>hr{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	color: #ccc;
+	background-color: #ccc;
+	opacity: 0.3;
+}
+.text_nom_dept>p{
+	color: #3C98FF;
+	padding: 18px 40px 20px 40px;
+	font-family: "clear_sansbold", 'verdana', 'sans-serif';
+	font-size: 3.0rem;
 }
 #map,#infosDepartements{
 	transform-origin:50% 50%;
@@ -1019,14 +1036,36 @@ div.filterContainer nav ul li:last-child  a:after{
 	padding-top: 20px
 }
 #infosSecteurs input[placeholder]{
-	min-width: 250px;
-	max-width: 360px;
+	display: inline;
 	height:40px;
-	border:#ddd;
-	background: #fafafa;
 	text-align: center;
-}
 
+	color:#404952;
+	font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
+    font-size: 2.0rem;
+    background: #f1f1f1;
+    border:solid 1px #ddd;
+    border-radius: 4px;
+    padding: 5px 20px;
+}/*
+#infosSecteurs input[placeholder]:focus{
+	border:solid 1px #aaa;
+}*/
+#infosSecteurs2>h2{
+	display: inline;
+	width: inherit;
+    
+    text-transform: uppercase;
+
+}
+#infosSecteurs>p{
+	display: block;
+	margin-top: 20px;
+    color:#64717e;
+    font-size: 1.5rem;
+    line-height: 2.0rem;
+    font-family: 'clear_sansitalic' , 'verdana', 'sans-serif';
+}
 .none{
     display: none;
 }
@@ -1067,7 +1106,7 @@ div.filterContainer nav ul li:last-child  a:after{
 	background: #f1f1f1;
 	border-right: 1px solid #ddd;
 	border-top: 1px solid #ddd;
-	font-family: "clear_sansregular";
+	font-family: "clear_sansregular", 'verdana', 'sans-serif';
 	color:#777;
 	padding-top: 18px;
 
@@ -1085,7 +1124,7 @@ div.filterContainer nav ul li:last-child  a:after{
 	-webkit-transition:background 0s ease;
 }
 .activeItem{
-	font-family: "clear_sansbold" !important;
+	font-family: 'clear_sansbold' , 'verdana', 'sans-serif' !important;
 }
 
 /* 10: 404 */
@@ -1145,34 +1184,57 @@ div.filterContainer nav ul li:last-child  a:after{
 
 /* 11 CIRCLECHART */
 
+#circleChart{
+	position: relative;
+	z-index: 200;
+}
 .uneBarSecteur{
     cursor: pointer;
+    fill-opacity:1.0;
+
+    transition:fill-opacity .2s ease;
+	-o-transition:fill-opacity .2s ease;
+	-moz-transition:fill-opacity .2s ease;
+	-webkit-transition:fill-opacity .2s ease;
 }
-#infosSecteurs{
+.uneBarSecteurHover{
+	fill-opacity:0.3;
+}
+#infosSecteurs2{
     position: absolute;
     top:50%;
     left: 50%;
-    *z-index: -100;
+    z-index: 100;
     width: 500px;
     margin-left: -250px;
-    margin-top: 100px;
+    margin-top: 6%; /*Change en fonction de la taille d'écran*/
     text-align: center;
     font-family: sans-serif;
 }
-#infosSecteurs>h1{
+#infosSecteurs2>h1{
     color:#0078ff;
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 4.0rem;
+    font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
+    margin-bottom: 40px;
 }
-#infosSecteurs>h2{
+#infosSecteurs2>h2{
+	display: inline;
+	width: inherit;
     color:#404952;
     text-transform: uppercase;
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
+    font-size: 2.0rem;
+    background: #f1f1f1;
+    border:solid 1px #ddd;
+    border-radius: 4px;
+    padding: 15px 30px;
 }
-#infosSecteurs>p{
+#infosSecteurs2>p{
+	display: block;
+	margin-top: 40px;
     color:#64717e;
-    font-size: 14px;
+    font-size: 1.4rem;
+    font-family: 'clear_sansitalic' , 'verdana', 'sans-serif';
 }
 
 

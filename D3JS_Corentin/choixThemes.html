@@ -58,21 +58,10 @@
         <button id="next_item">></button>
       </nav>
   	</div>
-  	<svg class="svg_defs">
-  		<defs><!--
-        <g id="third_circle">
-          <path fill="#F1F1F1" d="M265.3,577.6c-0.2,0.7-0.2,1.5-0.4,2.3L388,612.3C458,346.2,299.5,73.5,33.5,2.8L2.3,120.9
-            C200.4,175.1,317.8,378.9,265.3,577.6z"/>
-          <path fill="none" stroke="#CCCCCC" stroke-miterlimit="10" d="M265.3,577.6c-0.2,0.7-0.2,1.5-0.4,2.3L388,612.3
-            C458,346.2,299.5,73.5,33.5,2.8L2.3,120.9C200.4,175.1,317.8,378.9,265.3,577.6z"/>
-        </g>-->
-  		</defs>
-  	</svg>
     <script type="text/javascript" src="d3.v3.min.js"></script>
     <script type="text/javascript">
     	// Choix entre les 3 themes
-      //var data = ["EMPLOI","BIENETRE","SOCIETE"];
-      var data = [10,20,30,40,50,60,70,80,90];
+      var data = ["EMPLOI","BIENETRE","SOCIETE"];
 
       var w = 500;
       var h = 500;
@@ -86,7 +75,7 @@
           children: data.map(function(d) { return d; })
       };
       
-      var dataThemes = tree.nodes(dataTree);
+      var dataThemes = tree.nodes(dataTree); //ICI ça bug, je sais pas pourquoi...
 
       var lesChoix = d3.select("#choixThemes")
                       .append("svg")
@@ -110,6 +99,7 @@
                           return "rotate(" + (d.x - 90) + ") translate(" + d.y + ")";
                       });
 
+    
 
     </script>
   </body>

@@ -119,19 +119,20 @@ define([
 			      		var nom_departement = d.properties.NOM_DEPT;
 
 			      		d3.select(map.params.infosid)
-			      			.append("p")
+			      			.append("div")
 		  						.attr("class","text_nom_dept")
-		  						.html(nom_departement+" : "+this.getAttribute("value"))
+		  						.html("<h3>"+nom_departement+"</h3><hr /><p>"+this.getAttribute("value")+"</p>")
 		  						//.style("top",centroid.top+height/2+"px")
 		  						//.style("left",centroid.left-30+width/2+"px");
 		  						.style("top",function(){ 
-															var value = centroid[1]-50
+		  													console.log(this.offsetHeight*3);
+															var value = centroid[1]-this.offsetHeight*1.3;
 															if(map.params.zoomed)
 																value *= scaleZoom/2;
 															return value+"px";
 														})
 		  						.style("left",function(){ 
-		  													var value = centroid[0]
+		  													var value = centroid[0];
 		  													if(map.params.zoomed)
 																value *= scaleZoom/2;
 		  													return value+"px";
@@ -141,7 +142,7 @@ define([
 			      	.on('mouseout', function(){
 			      		//d3.select(this).classed('dept_hover',false);
 
-			      		d3.select(map.params.infosid).select("p").remove();
+			      		d3.select(map.params.infosid).select("div").remove();
 			      	})
 			      	//.on('click', choisirDepartement)
 

@@ -18,8 +18,8 @@ define([
 
 
         initialize: function(){
-            var w = window.innerWidth,
-            h = window.innerHeight;
+            var w = $('.content').width(),
+            h = $('.content').height()-49;
 
             var circle_radius = 500/2;
 
@@ -31,7 +31,7 @@ define([
                             .attr("width",w)
                             .attr("height",h)
                                 .append("g")
-                                .attr("transform", "translate(" + (w / 2) + "," + (h / 1.2) + ") rotate(-92.3)") //center the circle
+                                .attr("transform", "translate(" + (w / 2) + "," + (h / 1.3) + ")") //center the circle
                             ;
 
             var tree = d3.layout.tree()
@@ -60,8 +60,8 @@ define([
                             .append("rect")
                             .attr("class","uneBarSecteur")
                             .attr("fill", function(d,i){ return color(fakeData[i]); })
-                            .attr("transform", function(d) {
-                              return "rotate(" + (d.x - 90) + ") translate(" + d.y + ")";
+                            .attr("transform", function(d,i) {
+                              return "rotate(" + (d.x - 182.5 ) + ") translate(" + ( d.y - 0 ) + ")";
                             })
                             .attr("height","20")
                             .attr("width", "0")
@@ -71,23 +71,28 @@ define([
                             .attr("secteur_nom", function(d){ return d.propreties.NOM_SECTEUR; })
                             .attr("secteur_icon", function(d){ return d.propreties.NOM_ICON; })
                             .attr("value", function(d,i){ return fakeData[i]; })
-                            .on("mouseover",function(){ 
-                                var it = this;
-                                d3.selectAll('.uneBarSecteur').transition().duration(50).style('fill-opacity',function () {
-                                    return (this === it) ? 1.0 : 0.3;
-                                });
-                                circleChart.changeValue(this);
-                            },false)
-                            .on("mouseout",function(){ 
-                                d3.selectAll('.uneBarSecteur').transition().duration(500).style('fill-opacity','1.0');
-                            },false)
 
                             .transition()
                             .duration(500)
                             .delay(function(d,i){ return 30*i;})
                                 .attr("width", function(d,i){
                                     return scale(fakeData[i]);
-                                })
+                            })
+                            .each("end", function(){
+                                d3.select(this)
+                                .on("mouseover",function(){ 
+                                    var it = this;
+                                    /*d3.selectAll('.uneBarSecteur').transition().duration(50).style('fill-opacity',function () {
+                                        return (this === it) ? 1.0 : 0.3;
+                                    });*/
+                                    d3.selectAll('.uneBarSecteur').classed("uneBarSecteurHover",function(){ return (this === it) ? false : true; });
+                                    circleChart.changeValue(this);
+                                },false)
+                                .on("mouseout",function(){ 
+                                    d3.selectAll('.uneBarSecteur').classed("uneBarSecteurHover",false);
+                                },false)
+
+                            });
                             ;
 
             });
