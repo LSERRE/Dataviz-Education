@@ -1,7 +1,5 @@
 var glob = {};
-var findDep;
-var findData;
-var findSector;
+var findType;
 
 define([
   'jquery',
@@ -31,7 +29,7 @@ define([
       'B/:depatement/:secteur': 'b-departement-secteur',
       'C': 'c',
       'C/:donnee': 'c-donnee',
-      'C/:donnee/:secteur': 'c-donnee-secteur',
+      'C/:donnee/:secteur/:item': 'c-donnee-secteur-item',
       'emploi': 'emploi',
       'about': 'about',
       '*notFound': 'notFound'
@@ -46,6 +44,12 @@ define([
     var view = new StandardView();
     var contain = function(){
       $('.content').empty();
+      $('.page_404').remove();
+    };
+    var error = function(){
+      var error = new Error();
+      contain();
+      error.render();
     };
 
     glob.router = router;
@@ -141,7 +145,7 @@ define([
         if(nomSecteur){
           localStorage.setItem('nomSecteur', nomSecteur[0]);
           localStorage.setItem('imgSecteur', nomSecteur[1]);
-          $('.titleContainer h2').html('Le secteur '+localStorage.getItem('nomSecteur')+' : '+localStorage.getItem('nomDepartement'));
+          $('.titleContainer h2').html('Le secteur '+nomSecteur[0]+' : '+localStorage.getItem('nomDepartement'));
           var bar = new Bar();
           bar.render({departement: urlDepartement, secteur: urlSecteur});
         }
@@ -162,27 +166,42 @@ define([
       var secteur = new Secteur();
       secteur.render({donnee: donnee});
     });
-    router.on('route:c-donnee-secteur', function(donnee, urlSecteur){
-      console.log('c-donnee-secteur');
+    router.on('route:c-donnee-secteur-item', function(donnee, urlSecteur, urlItemC){
+      console.log('c-donnee-secteur-item');
       contain();
 
-      // second sector
-      if(urlSecteur==localStorage.getItem('urlSecteur')){
-        $('.titleContainer h2').html('Données xxx pour le secteur '+localStorage.getItem('nomSecteur'));
-        var heatMap = new HeatMap();
-        heatMap.render({donnee: donnee, secteur: urlSecteur});
-      }
-      else{
+      // first secteur
+      if(urlSecteur!=localStorage.getItem('urlSecteur')){
         var nomSecteur = findType('secteurs', urlSecteur, 'nom');
         if(nomSecteur){
           localStorage.setItem('nomSecteur', nomSecteur[0]);
           localStorage.setItem('imgSecteur', nomSecteur[1]);
-          $('.titleContainer h2').html('Données xxx pour le secteur '+localStorage.getItem('nomSecteur'));
-          var heatMap = new HeatMap();
-          heatMap.render({donnee: donnee, secteur: urlSecteur});
         }
         else{
-          router.navigate('', {trigger: true});
+          router.navigate('#/notFound', {trigger: true});
+        }
+      }
+
+
+      // second sector
+      if(urlItemC==localStorage.getItem('urlItemC')){
+        $('.titleContainer h2').html(localStorage.getItem('nomItemC')+' pour le secteur '+localStorage.getItem('nomSecteur'));
+        var heatMap = new HeatMap();
+        heatMap.render({donnee: donnee, secteur: urlSecteur, itemC: urlItemC});
+      }
+      else{
+        console.log('url : '+urlItemC);
+        var nomItemC = findType('itemC', urlItemC, 'nom');
+        console.log(nomItemC);
+        if(nomItemC){
+          console.log('test');
+          localStorage.setItem('nomItemC', nomItemC[0]);
+          $('.titleContainer h2').html(nomItemC[0]+' pour le secteur '+localStorage.getItem('nomSecteur'));
+          var heatMap = new HeatMap();
+          heatMap.render({donnee: donnee, secteur: urlSecteur, itemC: urlItemC});
+        }
+        else{
+          error();
         }
       }
     });

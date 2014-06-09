@@ -333,5 +333,14 @@
     {"id": 1, "nom": "Bien-être", "url": "bien-etre", "img": "A"},
     {"id": 2, "nom": "Données 2", "url": "donnees2", "img": "B"},
     {"id": 3, "nom": "Données 3", "url": "donnees3", "img": "C"}
+  ],
+  "itemC" :[
+    {"nom": "Taux d'activité", "url": "taux-activite"},
+    {"nom": "Logements", "url": "logements"},
+    {"nom": "Logements vacants", "url": "logements-vacants"},
+    {"nom": "Densité de population", "url": "densite-population"},
+    {"nom": "Retraités", "url": "retraites"},
+    {"nom": "Situation familiale", "url": "situation-familiale"},
+    {"nom": "Scolarisés", "url": "scolarises"}
   ]
 }

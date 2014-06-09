@@ -109,11 +109,11 @@ define([
 		      		.on('click', map.choisirDepartement)
 
 		      		.transition()
-			  		.delay(function(d,i){ return i*10; })
-			  		.duration(500)
-			  		.attr("fill-opacity","1.0")
-			  		.attr("stroke-opacity","1.0")
-			  		.attr("transform", "scale(1)translate(0,0,0)");
+				  		.delay(function(d,i){ return i*10; })
+				  		.duration(500)
+				  		.attr("fill-opacity","1.0")
+				  		.attr("stroke-opacity","1.0")
+				  		.attr("transform", "scale(1)translate(0,0,0)");
 
 	  		});
 		},

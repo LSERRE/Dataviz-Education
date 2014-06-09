@@ -1,9 +1,9 @@
 <ul>
-	<li class="btnChoixHeatMap activeItem">Taux d'activité</li>
-	<li class="btnChoixHeatMap">Logements (nb)</li>
-	<li class="btnChoixHeatMap">Logement vacants (nb)</li>
-	<li class="btnChoixHeatMap">Densité de pop.</li>
-	<li class="btnChoixHeatMap">Retraités (nb)</li>
-	<li class="btnChoixHeatMap">Situation familiale</li>
-	<li class="btnChoixHeatMap">Scolarisés (nb)</li>
+	<a href="#/C/{{donnee}}/{{secteur}}/taux-activite"><li class="btnChoixHeatMap {{#if_eq itemC "taux-activite"}}activeItem{{/if_eq}}">Taux d'activité</li></a>
+	<a href="#/C/{{donnee}}/{{secteur}}/logements"><li class="btnChoixHeatMap {{#if_eq itemC "logements"}}activeItem{{/if_eq}}">Logements (nb)</li></a>
+	<a href="#/C/{{donnee}}/{{secteur}}/logements-vacants"><li class="btnChoixHeatMap {{#if_eq itemC "logements-vacants"}}activeItem{{/if_eq}}">Logements vacants (nb)</li></a>
+	<a href="#/C/{{donnee}}/{{secteur}}/densite-population"><li class="btnChoixHeatMap {{#if_eq itemC "densite-population"}}activeItem{{/if_eq}}">Densité de pop.</li></a>
+	<a href="#/C/{{donnee}}/{{secteur}}/retraites"><li class="btnChoixHeatMap {{#if_eq itemC "retraites"}}activeItem{{/if_eq}}">Retraités (nb)</li></a>
+	<a href="#/C/{{donnee}}/{{secteur}}/situation-familiale"><li class="btnChoixHeatMap {{#if_eq itemC "situation-familiale"}}activeItem{{/if_eq}}">Situation familiale</li></a>
+	<a href="#/C/{{donnee}}/{{secteur}}/scolarises"><li class="btnChoixHeatMap {{#if_eq itemC "scolarises"}}activeItem{{/if_eq}}">Scolarisés (nb)</li></a>
 </ul>

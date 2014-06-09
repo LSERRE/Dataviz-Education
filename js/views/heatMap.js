@@ -8,6 +8,12 @@ define([
   'text!../../templates/heatMap-template.html'
 ], function($, d3, _, Backbone, Map, templateHeatMap){
 
+  Handlebars.registerHelper('if_eq', function(a, b, opts) {
+      if(a == b) // Or === depending on your needs
+          return opts.fn(this);
+      else
+          return opts.inverse(this);
+  });
   var map = Backbone.View.extend({
     el: '#items',  
     map : '#map',
@@ -34,7 +40,7 @@ define([
           secteurChoisi: '2',
           parametre:'nb_employes',
         });
-        divItems.html(self.template(''));
+        divItems.html(self.template(options));
         //this.d3=d3.select(this.el);
       }
       //glob.router.navigate('#/B', {trigger: true});

@@ -13,7 +13,8 @@ define([
     template: Handlebars.compile(Error),
     render: function(options){
       var self = this;
-      self.$el.html(self.template(''));
+      console.log(Error);
+      self.$el.prepend(self.template(''));
     }
   });
 

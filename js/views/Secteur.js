@@ -43,7 +43,7 @@ define([
               }
               else{
                  // route C
-                glob.router.navigate('#/C/'+options.donnee+'/'+secteurUrl[0], {trigger: true});
+                glob.router.navigate('#/C/'+options.donnee+'/'+secteurUrl[0]+'/taux-activite', {trigger: true});
               }
             }
           }
