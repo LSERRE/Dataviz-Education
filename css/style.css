@@ -1173,7 +1173,7 @@ div.filterContainer nav ul li:last-child  a:after{
 	bottom: 0;
 	z-index: 300;
 	width: 100%;
-	height: 50px;
+	height: 51px;
 	display: table;
 	table-layout: fixed;
 	box-sizing:border-box;
@@ -1193,6 +1193,7 @@ div.filterContainer nav ul li:last-child  a:after{
 		}
 
 .choix_categorie a{
+	position: relative;
 	text-decoration: none;
 	display: table-cell;
 	border-right: 1px solid #dddddd;
@@ -1208,10 +1209,52 @@ div.filterContainer nav ul li:last-child  a:after{
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
 			.choix_categorie a{
 				border: none;
-				background:
-					linear-gradient(180deg, #ffffff, #ffffff 50%, transparent 50%) top left  / 100% 1px no-repeat,
-					linear-gradient(90deg, #cccccc, #cccccc 50%, transparent 50%) top right / 1px 100% no-repeat;
 			}	
+
+			@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+				.choix_categorie a:before {
+					background-color: transparent;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 200%;
+					height: 0px;
+					border-top: 1px solid #ffffff;
+					content: "";
+					transform: scale(0.5);
+					-webkit-transform: scale(0.5);
+					transform-origin: 0 0;
+					-webkit-transform-origin: 0 0;
+					-webkit-box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					box-sizing: border-box;
+				}
+
+				.choix_categorie a:after {
+					background-color: transparent;
+					position: absolute;
+					top: 0;
+					right: 0;
+					width: 0px;
+					height: 200%;
+					border-right: 1px solid #cccccc;
+					content: "";
+					transform: scale(0.5);
+					-webkit-transform: scale(0.5);
+					transform-origin: 0 0;
+					-webkit-transform-origin: 0 0;
+					-webkit-box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					box-sizing: border-box;
+				}
+			}
+
+			@-moz-document url-prefix() { 
+				.choix_categorie a{
+					border-right: 0.5px solid #cccccc;
+					border-top: 0.5px solid #ffffff;
+				}
+			}
 		}
 
 .choix_categorie a:hover{
