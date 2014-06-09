@@ -4,15 +4,15 @@ define([
   'd3',
   'underscore',
   'backbone',
-  'text!../../templates/emploi-template.html'
+  'text!../../templates/bar-template.html'
 ], function($, d3, _, Backbone, templateBar){
-  var Emploi = Backbone.View.extend({
+  var bar = Backbone.View.extend({
     el: '.content',
     bar : '.emploiBar',
     template: Handlebars.compile(templateBar), 
     render: function(options){
       var self = this;
-      self.$el.html(self.template(''));
+      self.$el.html(self.template(options));
       console.log($('.emploiBar'));
       $('.emploiBar').removeClass('none');
       $('.dataBar').each(function(index){
@@ -49,5 +49,5 @@ define([
     }
   });
 
-  return Emploi;
+  return bar;
 });

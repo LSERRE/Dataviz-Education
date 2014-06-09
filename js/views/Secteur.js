@@ -39,7 +39,7 @@ define([
                 // redirection
               if(options.departement){
                 // route B
-                glob.router.navigate('#/B/'+options.departement+'/'+secteurUrl[0], {trigger: true});
+                glob.router.navigate('#/B/'+options.departement+'/'+secteurUrl[0]+'/emploi', {trigger: true});
               }
               else{
                  // route C

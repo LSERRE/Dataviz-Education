@@ -44,6 +44,7 @@ define([
       localStorage.setItem('departements', JSON.stringify(data.departements));
       localStorage.setItem('secteurs', JSON.stringify(data.secteurs));
       localStorage.setItem('donnees', JSON.stringify(data.donnees));
+      localStorage.setItem('itemA', JSON.stringify(data.itemA));
       localStorage.setItem('itemB', JSON.stringify(data.itemB));
       localStorage.setItem('itemC', JSON.stringify(data.itemC));
       
@@ -55,6 +56,8 @@ define([
           data = JSON.parse(localStorage.getItem('secteurs'));
         else if(type=='donnees')
           data = JSON.parse(localStorage.getItem('donnees'));
+        else if(type=='itemA')
+          data = JSON.parse(localStorage.getItem('itemA'));
         else if(type=='itemB')
           data = JSON.parse(localStorage.getItem('itemB'));
         else if(type=='itemC')
@@ -67,7 +70,6 @@ define([
             if(result=='url'){
               // want url
               if(value.nom==param){
-                console.log('njekzbgzjbgjkg');
                 returnValue = value.url;
                 img = value.img;
                 code = value.code;
@@ -77,7 +79,6 @@ define([
             else{
               // want name
               if(value.url==param){
-                console.log('jieajfioa');
                 returnValue = value.nom;
                 img = value.img;
                 code = value.code;

@@ -15,7 +15,7 @@ define([
     render: function(options){
       $('.titleContainer h2').html('Choisissez un type de visualisation');
       var self = this;
-      self.$el.html(self.template(''));
+      self.$el.html(self.template(options));
       CircleChart.init({
         id: self.circleChart
       });

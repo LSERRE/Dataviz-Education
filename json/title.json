@@ -334,6 +334,20 @@
     {"id": 2, "nom": "Données 2", "url": "donnees2", "img": "B"},
     {"id": 3, "nom": "Données 3", "url": "donnees3", "img": "C"}
   ],
+  "itemA" :[
+    {"nom": "Employés", "url": "employes"},
+    {"nom": "Salaire moyen", "url": "salaire-moyen"},
+    {"nom": "Entreprises", "url": "entreprises"},
+    {"nom": "Création entreprises", "url": "creation-entreprises"},
+    {"nom": "Parités (H/F)", "url": "parites"},
+    {"nom": "Offres d'emploi", "url": "offres-emploi"},
+    {"nom": "Taux de chômage", "url": "taux-chomage"}
+  ],
+  "itemB" :[
+    {"nom": "Emploi", "url": "emploi"},
+    {"nom": "Société", "url": "societe"},
+    {"nom": "Bien-être", "url": "bien-etre"}
+  ],
   "itemC" :[
     {"nom": "Taux d'activité", "url": "taux-activite"},
     {"nom": "Logements", "url": "logements"},

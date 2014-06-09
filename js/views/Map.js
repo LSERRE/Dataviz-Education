@@ -33,7 +33,7 @@ define([
             // redirection
             if(options.donnee){
               // route A
-              glob.router.navigate('#/A/'+options.donnee+'/'+departementUrl[0], {trigger: true});
+              glob.router.navigate('#/A/'+options.donnee+'/'+departementUrl[0]+'/employes', {trigger: true});
             }
             else{
               // route B
