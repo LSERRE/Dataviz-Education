@@ -1001,13 +1001,13 @@ div.filterContainer nav ul li:last-child  a:after{
 	border-top: 12px solid #ccc;
 	z-index: 2;
 }
-.text_nom_dept>h3{
+.text_nom_dept2>h3{
 	color:#404952;
 	font-size: 1.6rem;
 	padding: 10px 20px;
 	font-family: "clear_sansbold", 'verdana', 'sans-serif';
 }
-.text_nom_dept>hr{
+.text_nom_dept2>hr{
 	width: 100%;
 	padding: 0;
 	margin: 0;
@@ -1015,7 +1015,7 @@ div.filterContainer nav ul li:last-child  a:after{
 	background-color: #ccc;
 	opacity: 0.3;
 }
-.text_nom_dept>p{
+.text_nom_dept2>p{
 	color: #3C98FF;
 	padding: 18px 40px 20px 40px;
 	font-family: "clear_sansbold", 'verdana', 'sans-serif';
