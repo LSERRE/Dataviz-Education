@@ -100,9 +100,9 @@ define([
 
         changeValue: function(item){
             //var divInfos = document.getElementById("infosSecteurs");
-            d3.select("#infosSecteurs>h1").html(item.getAttribute("value"));
-            d3.select("#infosSecteurs>h2").html(item.getAttribute("secteur_nom"));
-            //d3.select("#infosSecteurs>span").html(it.getAttribute("secteur_icon"));
+            d3.select("#infosSecteurs2>h1").html(item.getAttribute("value"));
+            d3.select("#infosSecteurs2>h2").html(item.getAttribute("secteur_nom"));
+            //d3.select("#infosSecteurs2>span").html(it.getAttribute("secteur_icon"));
         }
 
     };

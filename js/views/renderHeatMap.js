@@ -120,7 +120,7 @@ define([
 
 			      		d3.select(map.params.infosid)
 			      			.append("div")
-		  						.attr("class","text_nom_dept")
+		  						.attr("class","text_nom_dept2")
 		  						.html("<h3>"+nom_departement+"</h3><hr /><p>"+this.getAttribute("value")+"</p>")
 		  						//.style("top",centroid.top+height/2+"px")
 		  						//.style("left",centroid.left-30+width/2+"px");
