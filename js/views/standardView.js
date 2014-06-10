@@ -46,7 +46,6 @@ define([
       localStorage.setItem('donnees', JSON.stringify(data.donnees));
       localStorage.setItem('itemA', JSON.stringify(data.itemA));
       localStorage.setItem('itemB', JSON.stringify(data.itemB));
-<<<<<<< HEAD
       localStorage.setItem('itemC', JSON.stringify(data.itemC)); 
     });
     
@@ -58,13 +57,9 @@ define([
         $('.page_404').remove();
         self.$el.html(self.template(options)); 
       }
-    });
-    
-    return View;
-=======
-      localStorage.setItem('itemC', JSON.stringify(data.itemC));
+    });   
+
     });
     
   return View;
->>>>>>> FETCH_HEAD
 });
