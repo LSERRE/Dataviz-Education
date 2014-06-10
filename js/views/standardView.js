@@ -47,10 +47,7 @@ define([
       localStorage.setItem('itemA', JSON.stringify(data.itemA));
       localStorage.setItem('itemB', JSON.stringify(data.itemB));
       localStorage.setItem('itemC', JSON.stringify(data.itemC));
-      
-      
     });
     
-
   return View;
 });

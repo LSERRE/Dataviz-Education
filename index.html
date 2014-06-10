@@ -31,7 +31,43 @@
 			<div>
 				<a class="navPrev" id="buttonSidebar" href=""></a>
 				<div class="titleContainer"><h2></h2></div>
-				<a class="fullSize" href=""></a>
+				<script type="text/javascript">
+				    function enterFullscreen(element) {
+				      if(element.requestFullScreen) {
+				              //fonction officielle du w3c
+				              element.requestFullScreen();
+				      } else if(element.webkitRequestFullScreen) {
+				              //fonction pour Google Chrome (on lui passe un argument pour autoriser le plein écran lors d'une pression sur le clavier)
+				              element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+				      } else if(element.mozRequestFullScreen){
+				              //fonction pour Firefox
+				              element.mozRequestFullScreen();
+				      } else {
+				              alert('Votre navigateur ne supporte pas le mode plein écran, il est temps de passer à un plus récent ;)');
+				      }
+				      $('#mainContainer').addClass('fullSize');
+				      $('#fullSize').css({ display: "none"});
+				      $('#LeaveFullSize').css({display: "table-cell"});
+				      return false;
+				    }
+				    function LeaveFullscreen(element) {
+				    	if (document.exitFullscreen) {
+					      document.exitFullscreen();
+					    } else if (document.msExitFullscreen) {
+					      document.msExitFullscreen();
+					    } else if (document.mozCancelFullScreen) {
+					      document.mozCancelFullScreen();
+					    } else if (document.webkitExitFullscreen) {
+					      document.webkitExitFullscreen();
+    					}
+    					$('#mainContainer').removeClass('fullSize');
+    					$('#fullSize').css({ display: "table-cell"});
+				      	$('#LeaveFullSize').css({display: "none"});
+    					return false
+				    }
+				</script>
+				<a id="fullSize" onClick="event.preventDefault(); enterFullscreen(document.getElementById('mainContainer'));" class="fullSize" href=""></a>
+				<a id="LeaveFullSize" onClick="event.preventDefault(); LeaveFullscreen(document.getElementById('mainContainer'));" class="leaveFullSize" href=""></a>
 			</div>
 			<div class="filterContainer">
 				<nav>
@@ -43,7 +79,7 @@
 				</nav>
 			</div>
 		</header>
-		<div class="content">
+		<div class="content" id="content">
 
 
 		</div>

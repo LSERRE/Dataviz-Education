@@ -201,6 +201,10 @@ html,body{
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 	-moz-osx-font-smoothing: grayscale;
+	margin:0;
+	padding:0;
+	height:100%;
+	width:100%;
 }
 
 aside.leftPanel{
@@ -229,6 +233,12 @@ aside.leftPanel{
     -o-transform: translate(200px,0);
     -moz-transform: translate(200px,0); */
     left:300px;
+}
+.mainContainer.fullSize{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	left: 0;
 }
 
 /* 04: HEADLINES */
@@ -617,16 +627,25 @@ aside form, aside h3{
 	text-align: center;
 	border-left: 1px solid #67afff;
 }
-
+.mainContainer header div .leaveFullSize{
+	background: url('img/plein_ecran.svg') no-repeat center center;
+	display: table-cell;
+	width: 50px;
+	height: 49px;
+	background-size: 20px auto;
+	text-align: center;
+	border-left: 1px solid #67afff;
+	display: none;
+}
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
-			.mainContainer header div .fullSize {
+			.mainContainer header div .fullSize, .mainContainer header div .leaveFullSize {
 				border: none;
 				position: relative;
 				height: 48px;
 			}
 
 			@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
-				.mainContainer header div .fullSize:before {
+				.mainContainer header div .fullSize:before, .mainContainer header div .leaveFullSize:before {
 					background-color: transparent;
 					position: absolute;
 					top: 0px;
