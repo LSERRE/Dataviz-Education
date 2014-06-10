@@ -180,35 +180,47 @@ define([
 					          return "rotate(" + (d.x - 90) + ") translate(" + d.y + ")";
 					      	})
 				//Cercles exterieur
-				secteur_circle1.append("circle")
+				var circles_in_circle1 = secteur_circle1.append("circle")
 				    .attr("r", "0")
 				    .on("mouseover",afficherNomSecteur,false)
 				    .on("mouseout",unHoverSecteur,false)
 				    .on("click", secteur.selectionSecteur,false)
 				    .attr("fill-opacity","0.0")
-				  	.attr("stroke-opacity","0.0")
+				  	.attr("stroke-opacity","0.0");
 
-			    	.transition()
+			   	circles_in_circle1.transition()
 				  		.delay(function(d,i){ return i*40; })
 				  		.duration(500)
 				  		.attr("fill-opacity","1.0")
 				  		.attr("stroke-opacity","1.0")
 				  		.attr("r", function(d) { return radiusScale(d.size); });
+
+				circles_in_circle1.parentNode.append("svg:image")
+				  		.attr("xlink:href","./svg/industrie.svg")
+                    	.attr("width", 20)
+                    	.attr("height", 20);
 				//Cercles interieur
-				secteur_circle2.append("circle")
+				var circles_in_circle2 = secteur_circle2.append("circle")
 				    .attr("r", "0")
 				    .on("mouseover",afficherNomSecteur,false)
 				    .on("mouseout",unHoverSecteur,false)
 				    .on("click", secteur.selectionSecteur,false)
 				    .attr("fill-opacity","0.0")
-				  	.attr("stroke-opacity","0.0")
+				  	.attr("stroke-opacity","0.0");
 
-				    .transition()
+				circles_in_circle2.transition()
 				  		.delay(function(d,i){ return 800+i*40; })
 				  		.duration(500)
 				  		.attr("fill-opacity","1.0")
 				  		.attr("stroke-opacity","1.0")
 				  		.attr("r", function(d) { return radiusScale(d.size); });
+
+				circles_in_circle2.parentNode.append("svg:image")
+				  		.attr("xlink:href","./svg/industrie.svg")
+				  		.attr("x",0) //-height/2
+				  		.attr("y",0) //-width/2
+                    	.attr("width", 200)
+                    	.attr("height", 200);
 
 			});
 

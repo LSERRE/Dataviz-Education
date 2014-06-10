@@ -204,6 +204,39 @@ define([
 
 		  	// Appel de la fonction pour initialiser
 		 	map.changerCarte(nom_du_CSV, deps, path);
+		},
+
+		majCarte: function(nomDuCsv) {
+
+			var donneesCsv = [];
+			d3.csv(nomDuCsv,function(data){
+				donneesCsv = data;
+			  	// donneesCsv[CodeSecteur-1][CodeDept]
+			  	// console.log(donneesCsv["10"]["13"])
+			  	map.afficherNouvelleCarte(donneesCsv);
+			});
+
+		},
+
+		afficherNouvelleCarte: function(donneesCsv){
+
+			//La couleur est encore à définir en fonction de l'onglet
+		  	var color = d3.scale.linear()
+				.domain([0, map.maxVal(donneesCsv[map.params.secteurChoisi-1])])
+				.range(["#f1f1f1","#0078FF"]); //#AED4FE"
+
+			d3.selectAll(".departementHM")
+				.enter()
+					.transition()
+					.duration()
+			  		.attr('fill', function(d) { 
+			  			if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null){
+			  				console.log("Undefined or NULL at "+(map.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
+			  				return;
+			  			}
+			  			return color(parseInt(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT].replace(" ",""))); 
+			  		})
+			      	.attr("value",function(d){ return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] })
 		}
 	};
 

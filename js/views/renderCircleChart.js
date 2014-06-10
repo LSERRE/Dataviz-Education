@@ -24,7 +24,6 @@ define([
             var circle_radius = 500/2;
 
             var fakeData = [34,45,59,20,40,29,490,584,48,29,5,204,58,403,57,39,58,20,6,295,356,103,185,58,20,59,105,592,245,25,493,23,59,240,401,35,281,79];
-            console.log(fakeData.length);
 
             var leGraph = d3.select(circleChart.params.id).append("svg")
                             .attr("id","leGraph")
@@ -102,7 +101,13 @@ define([
             //var divInfos = document.getElementById("infosSecteurs");
             d3.select("#infosSecteurs2>h1").html(item.getAttribute("value"));
             d3.select("#infosSecteurs2>h2").html(item.getAttribute("secteur_nom"));
+
             //d3.select("#infosSecteurs2>span").html(it.getAttribute("secteur_icon"));
+            //d3.select("#infosSecteurs2>span").html("<img src='./svg/industrie.svg' alt='icon secteur'/>");
+        },
+
+        changeCSV:function(otherData){
+            
         }
 
     };

@@ -21,24 +21,23 @@
         height: 100%;
         margin:0 auto;
         text-align: center;
-        padding-top: 100px;
         font-family: sans-serif;
       }
-      #container_cT nav button{
+      #container_cT button{
         background: white;
         padding: 15px 20px;
         border: none;
         cursor: pointer;
       }
-      #container_cT nav button:hover{
+      #container_cT button:hover{
         background: blue;
         color: white;
       }
       #choixThemes{
         /*
         width:50%;
-        height: 50%;*/
-        background: black;
+        height: 50%;
+        background: black;*/
         margin: 0 auto;
       }
     	.btnTheme{
@@ -49,30 +48,71 @@
   </head>
   <body>
   	<div id="container_cT">
-	  	<div id="choixThemes">
-	  	</div>
+      <button id="previous_item"><</button>
+	  	<div id="choixThemes"></div>
+      <button id="next_item">></button>
       <h3>Nom du thème par défaut</h3>
       <nav>
-        <button id="previous_item"><</button>
         <button id="valider_item">Valider</button>
-        <button id="next_item">></button>
       </nav>
+      <svg>
+        <defs>
+            <g id="halfcircle1" transform="rotate(215) scale(0.5)">
+                <g>
+                  <path fill="#F1F1F1" d="M93.3,5.8c-0.5-0.5-1.2-0.9-1.8-1.5L2.1,95c196.2,193.1,511.6,191,705.1-4.7l-87-85.8
+                    C474.8,149.5,239.6,150.1,93.3,5.8z"/>
+                  <path fill="none" stroke="#CCCCCC" stroke-miterlimit="10" d="M93.3,5.8c-0.5-0.5-1.2-0.9-1.8-1.5L2.1,95
+                    c196.2,193.1,511.6,191,705.1-4.7l-87-85.8C474.8,149.5,239.6,150.1,93.3,5.8z"/>
+                </g>
+                <circle fill="none" cx="354.5" cy="-246.8" r="436.5"/>
+                <text transform="matrix(0.9166 0.3998 -0.3998 0.9166 169.7803 149.041)"><tspan x="0" y="0" fill="#404952" font-family="'ClearSans-Light'" font-size="36">D</tspan><tspan x="23.4" y="0" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-3.2">O</tspan><tspan x="48.2" y="-1.4" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-6.5">N</tspan><tspan x="73.1" y="-4.3" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-9.8">N</tspan><tspan x="97.7" y="-8.6" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-12.8">É</tspan><tspan x="118.2" y="-13.3" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-15.6">E</tspan><tspan x="138.4" y="-18.9" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-18.4">S</tspan><tspan x="159.4" y="-26" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-20.5"> </tspan><tspan x="168.8" y="-29.5" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-22.6">S</tspan><tspan x="189.5" y="-38.1" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-25.6">O</tspan><tspan x="211.8" y="-48.8" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-28.8">C</tspan><tspan x="232.9" y="-60.5" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-31.5">I</tspan><tspan x="246.5" y="-68.9" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-33.9">É</tspan><tspan x="263.9" y="-80.5" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-36.7">T</tspan><tspan x="281.6" y="-93.7" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-39.8">A</tspan><tspan x="300.1" y="-109.3" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-42.6">L</tspan><tspan x="314.1" y="-122.1" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-45.3">E</tspan><tspan x="328.8" y="-137" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-48.1">S</tspan></text>
+            </g>
+            <g id="halfcircle0" transform="rotate(215) scale(0.5)">
+              <g>
+                <path fill="#F1F1F1" d="M93.3,5.8c-0.5-0.5-1.2-0.9-1.8-1.5L2.1,95c196.2,193.1,511.6,191,705.1-4.7l-87-85.8
+                  C474.8,149.5,239.6,150.1,93.3,5.8z"/>
+                <path fill="none" stroke="#CCCCCC" stroke-miterlimit="10" d="M93.3,5.8c-0.5-0.5-1.2-0.9-1.8-1.5L2.1,95
+                  c196.2,193.1,511.6,191,705.1-4.7l-87-85.8C474.8,149.5,239.6,150.1,93.3,5.8z"/>
+              </g>
+              <circle fill="none" cx="354.5" cy="-246.8" r="436.5"/>
+              <text transform="matrix(0.9164 0.4002 -0.4002 0.9164 169.5918 148.9541)"><tspan x="0" y="0" fill="#404952" font-family="'ClearSans-Light'" font-size="36">D</tspan><tspan x="23.4" y="0" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-3.2">O</tspan><tspan x="48.2" y="-1.4" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-6.5">N</tspan><tspan x="73.1" y="-4.3" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-9.8">N</tspan><tspan x="97.7" y="-8.6" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-12.8">É</tspan><tspan x="118.2" y="-13.3" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-15.6">E</tspan><tspan x="138.5" y="-18.9" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-18.4">S</tspan><tspan x="159.3" y="-26" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-20.5"> </tspan><tspan x="168.8" y="-29.4" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-22.7">D</tspan><tspan x="190.3" y="-38.5" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-25.5">E</tspan><tspan x="209" y="-47.5" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-27.5"> </tspan><tspan x="217.9" y="-52.1" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-29.4">L</tspan><tspan x="234.2" y="-61.4" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-31.3">’</tspan><tspan x="243.4" y="-66.9" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-33.4">E</tspan><tspan x="261.1" y="-78.4" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-36.8">M</tspan><tspan x="285.2" y="-96.7" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-40.3">P</tspan><tspan x="302.4" y="-111.3" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-43">L</tspan><tspan x="316.3" y="-124.2" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-45.9">O</tspan><tspan x="333.4" y="-142" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-48.6">I</tspan></text>
+            </g>
+            <g id="halfcircle2" transform="rotate(215) scale(0.5)">
+              <g>
+                <path fill="#F1F1F1" d="M93.3,5.8c-0.5-0.5-1.2-0.9-1.8-1.5L2.1,95c196.2,193.1,511.6,191,705.1-4.7l-87-85.8
+                  C474.8,149.5,239.6,150.1,93.3,5.8z"/>
+                <path fill="none" stroke="#CCCCCC" stroke-miterlimit="10" d="M93.3,5.8c-0.5-0.5-1.2-0.9-1.8-1.5L2.1,95
+                  c196.2,193.1,511.6,191,705.1-4.7l-87-85.8C474.8,149.5,239.6,150.1,93.3,5.8z"/>
+              </g>
+              <circle fill="none" cx="354.5" cy="-246.8" r="436.5"/>
+              <text transform="matrix(0.9032 0.4293 -0.4293 0.9032 157.0913 142.8594)"><tspan x="0" y="0" fill="#404952" font-family="'ClearSans-Light'" font-size="36">D</tspan><tspan x="23.4" y="0" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-3.2">O</tspan><tspan x="48.2" y="-1.4" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-6.5">N</tspan><tspan x="73.1" y="-4.3" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-9.8">N</tspan><tspan x="97.7" y="-8.6" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-12.8">É</tspan><tspan x="118.1" y="-13.3" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-15.6">E</tspan><tspan x="138.5" y="-18.9" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-18.5">S</tspan><tspan x="159.4" y="-26" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-20.6"> </tspan><tspan x="168.8" y="-29.5" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-22.7">D</tspan><tspan x="190.5" y="-38.4" fill="#404952" font-family="'ClearSans-Light'" font-size="36" rotate="-26.4">U</tspan><tspan x="212.6" y="-49.4" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-28"> </tspan><tspan x="220.8" y="-53.6" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-30.1">B</tspan><tspan x="241" y="-65.5" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-32.7">I</tspan><tspan x="254.5" y="-74.1" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-35.1">E</tspan><tspan x="271.7" y="-86.2" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-38.2">N</tspan><tspan x="291.7" y="-102.1" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-40.9">-</tspan><tspan x="302.6" y="-111.5" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-43.2">Ê</tspan><tspan x="317.9" y="-125.8" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-46">T</tspan><tspan x="333.1" y="-141.6" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-49">R</tspan><tspan x="348.4" y="-159.3" fill="#404952" font-family="'ClearSans-Bold'" font-size="36" rotate="-51.9">E</tspan></text>
+              </svg>
+            </g>
+        </defs>
+      </svg>
   	</div>
     <script type="text/javascript" src="d3.v3.min.js"></script>
     <script type="text/javascript">
     	// Choix entre les 3 themes
-      var data = ["EMPLOI","BIENETRE","SOCIETE"];
-
-      var w = 500;
-      var h = 500;
+      var data = {
+        name : "themes",
+        children : [
+          { name: 'EMPLOI', id: 0 },
+          { name: 'SOCIETE', id: 1 },
+          { name: 'BIENETRE', id: 2 },
+        ]
+      }
+      //console.log(localStorage.getItem('donnees'));
+      var w = 1000;
+      var h = 600;
       
       var radius = 300/2;
-
+      
       var tree = d3.layout.tree()
                 .size([360, radius]);
-        
+      
       var dataTree = {
-          children: data.map(function(d) { return d; })
+          children: data.children.map(function(d) { return d; })
       };
       
       var dataThemes = tree.nodes(dataTree); //ICI ça bug, je sais pas pourquoi...
@@ -82,25 +122,27 @@
                       .attr("width",w)
                       .attr("height",h)
                         .append("g")
-                        .attr("transform", "translate(" + (w / 2) + "," + (h / 1.2) + ")"); //center the circle
+                        .attr("transform", "translate(" + (w / 2) + "," + (h / 2) + ")"); //center the circle
                         
       var items = lesChoix.selectAll(".btnTheme")
-                  .data(dataThemes)
+                  .data(dataThemes.slice(1))
                     .enter()
-                      .append("svg:image")
-                      .attr("xlink:href","theme.svg")
-                      .attr("width", 200)
-                      .attr("height", 200)
-                      .text(function(d){ return d; })
+                      .append("use").attr("xlink:href",function(d,i){return "#halfcircle"+i;})
                       //.attr("x", 228)
                       //.attr("y",53)
+                      .attr("nom_theme", function(d){ return d.name; })
+                      .attr("id_theme", function(d){ return d.id; })
                       .attr("class","btnTheme")
                       .attr("transform", function(d) {
-                          return "rotate(" + (d.x - 90) + ") translate(" + d.y + ")";
-                      });
+                          return "rotate(" + (d.x) + ") translate(" + d.y + ")";
+                      })
+                      .on("click", tournerRoueAt,false);
 
-    
-
+      function tournerRoueAt(){
+        //alert(this.getAttribute('nom_theme'));
+        lesChoix.transition().duration(1000).attr("transform","rotate(90)")
+      }
+      
     </script>
   </body>
 </html>
