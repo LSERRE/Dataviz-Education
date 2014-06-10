@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/barres.css">
 </head>
-<body>
+<body id="body">
 	<aside id="leftPanel" class="leftPanel">
 		<header>
 			<h1><a href="#"><span>Job</span>Shaker</a></h1>
@@ -45,7 +45,6 @@
 				      } else {
 				              alert('Votre navigateur ne supporte pas le mode plein écran, il est temps de passer à un plus récent ;)');
 				      }
-				      $('#mainContainer').addClass('fullSize');
 				      $('#fullSize').css({ display: "none"});
 				      $('#LeaveFullSize').css({display: "table-cell"});
 				      return false;
@@ -60,14 +59,13 @@
 					    } else if (document.webkitExitFullscreen) {
 					      document.webkitExitFullscreen();
     					}
-    					$('#mainContainer').removeClass('fullSize');
     					$('#fullSize').css({ display: "table-cell"});
 				      	$('#LeaveFullSize').css({display: "none"});
     					return false
 				    }
 				</script>
-				<a id="fullSize" onClick="event.preventDefault(); enterFullscreen(document.getElementById('mainContainer'));" class="fullSize" href=""></a>
-				<a id="LeaveFullSize" onClick="event.preventDefault(); LeaveFullscreen(document.getElementById('mainContainer'));" class="leaveFullSize" href=""></a>
+				<a id="fullSize" onClick="event.preventDefault(); enterFullscreen(document.body);" class="fullSize" href=""></a>
+				<a id="LeaveFullSize" onClick="event.preventDefault(); LeaveFullscreen(document.body);" class="leaveFullSize" href=""></a>
 			</div>
 			<div class="filterContainer">
 				<nav>
