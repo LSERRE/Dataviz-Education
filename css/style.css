@@ -413,10 +413,20 @@ aside .asideExplain{
 
 aside .choises{
 	height: 300px;
-	width: 100%;
+	width: 100px;
 	position: relative;
 	top: calc(50% - 150px);
 	display: table;
+	  -webkit-transition: width 0.5s ease;
+    -moz-transition: width 0.5s ease;
+     -ms-transition: width 0.5s ease;
+      -o-transition: width 0.5s ease;
+         transition: width 0.5s ease;
+}
+
+aside.asideActive .choises
+{
+	width: 100px;
 }
 
 aside .choises span.choise{
@@ -488,10 +498,43 @@ aside .choises span.middleSeparator{
 			}
 		}
 
-aside form, aside h3{
+aside form > input, aside h3{
 	display: none;
 }
-
+aside.asideActive .choises h3{
+	color: #fff;
+	text-transform: uppercase;
+	display: inline-block;
+	font-size: 1.25rem;
+	position: absolute;
+	left: 90px;
+	top: 20px;
+	font-family: "clear_sansbold";
+	text-shadow: 1px 1px 0 #292f35;
+}
+aside.asideActive .choises h3:nth-of-type(2){
+	top: 265px;
+}
+aside.asideActive .choises form > input{
+	display: block;
+	position: absolute;
+	left: 90px;
+	top: 55px;
+	width: 147px;
+	height: 14px;
+	background-color: #404952;
+	border-radius: 5px;
+	outline: none;
+	box-shadow: inset 1px 1px #292f35, 1px 1px #4e575f;
+	border: none;
+	padding: 14px;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25rem;
+}
+aside.asideActive .choises form:nth-of-type(2) > input{
+	top: 300px;
+}
 
 
 /* 06: HEADER */
@@ -856,12 +899,29 @@ div.filterContainer nav ul li:last-child  a:after{
 
 .content{
 	height: calc(100% - 150px);
+	width: calc(100% - 10px);
 	background: url('img/pageBackground.png') no-repeat center center;
 	background-size: cover;
 	border-top: 1px solid #ffffff;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	float: left;
+}
+.stepUI{
+	height: calc(100% - 150px);
+	width: 10px;
+	border-left: 1px solid #cccccc;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	float: right;
+}
+.stepUI div{
+	height: 33.33%;
+}
+.stepUI > div.currentStep{
+	background-color: #3c98ff;
 }
 
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
