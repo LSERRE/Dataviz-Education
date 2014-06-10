@@ -101,15 +101,43 @@ define([
             //var divInfos = document.getElementById("infosSecteurs");
             d3.select("#infosSecteurs2>h1").html(item.getAttribute("value"));
             d3.select("#infosSecteurs2>h2").html(item.getAttribute("secteur_nom"));
+            d3.select("#infosSecteurs2>span").html("<img src='./svg/"+item.getAttribute("secteur_icon")+"' alt='icon secteur'/>");
+        }
+        /*
+        majCircle: function() {
 
-            //d3.select("#infosSecteurs2>span").html(it.getAttribute("secteur_icon"));
-            //d3.select("#infosSecteurs2>span").html("<img src='./svg/industrie.svg' alt='icon secteur'/>");
+            var donneesCsv = [];
+            d3.csv(nomDuCsv,function(data){
+                donneesCsv = data;
+                // donneesCsv[CodeSecteur-1][CodeDept]
+                // console.log(donneesCsv["10"]["13"])
+                map.afficherNewCircle(donneesCsv);
+            });
+
         },
 
-        changeCSV:function(otherData){
-            
-        }
+        afficherNewCircle: function(donneesCsv){
 
+            //La couleur est encore à définir en fonction de l'onglet
+            
+            var color = d3.scale.linear()
+                .domain([0, map.maxVal(donneesCsv[map.params.secteurChoisi-1])])
+                .range(["#f1f1f1","#0078FF"]); //#AED4FE"
+            
+            d3.selectAll(".departementHM")
+                .enter()
+                    .transition()
+                    .duration(1000)
+                    .attr('fill', function(d) { 
+                        if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null){
+                            console.log("Undefined or NULL at "+(map.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
+                            return;
+                        }
+                        return color(parseInt(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT].replace(" ",""))); 
+                    })
+                    .attr("value",function(d){ return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] })
+        }
+        */
     };
 
     return {

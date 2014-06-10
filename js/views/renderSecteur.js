@@ -194,11 +194,13 @@ define([
 				  		.attr("fill-opacity","1.0")
 				  		.attr("stroke-opacity","1.0")
 				  		.attr("r", function(d) { return radiusScale(d.size); });
-
-				circles_in_circle1.parentNode.append("svg:image")
-				  		.attr("xlink:href","./svg/industrie.svg")
-                    	.attr("width", 20)
-                    	.attr("height", 20);
+				
+				circles_in_circle1.append("svg:image")
+				  		.attr("xlink:href", function(d){ return "./svg/"+d.propreties.NOM_ICON;})
+				  		.attr("x",-20) //-height/2
+				  		.attr("y",-20) //-width/2
+                    	.attr("width", 40)
+                    	.attr("height", 40);
 				//Cercles interieur
 				var circles_in_circle2 = secteur_circle2.append("circle")
 				    .attr("r", "0")
@@ -214,13 +216,15 @@ define([
 				  		.attr("fill-opacity","1.0")
 				  		.attr("stroke-opacity","1.0")
 				  		.attr("r", function(d) { return radiusScale(d.size); });
-
-				circles_in_circle2.parentNode.append("svg:image")
-				  		.attr("xlink:href","./svg/industrie.svg")
+				 /*
+				d3.selectAll(".secteur")
+						.enter()
+						.append("img")
+				  		.attr("src","./svg/industrie.svg")
 				  		.attr("x",0) //-height/2
 				  		.attr("y",0) //-width/2
-                    	.attr("width", 200)
-                    	.attr("height", 200);
+                    	.attr("width", 40)
+                    	.attr("height", 40);*/
 
 			});
 

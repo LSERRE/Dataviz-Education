@@ -1,80 +1,80 @@
 {
 	"type" : "SecteursActivites",
 	"features" : [
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 1, "NOM_SECTEUR": "Agriculture", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 1, "NOM_SECTEUR": "Agriculture", "NOM_ICON": "agriculture.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 2, "NOM_SECTEUR": "Industrie du tabac", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 2, "NOM_SECTEUR": "Industrie alimentaire", "NOM_ICON": "industrie_alimentaire.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 3, "NOM_SECTEUR": "Industrie pétrolière", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 3, "NOM_SECTEUR": "Industrie pétrolière", "NOM_ICON": "industrie_petrole.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 4, "NOM_SECTEUR": "Fabrication de produits électroniques", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 4, "NOM_SECTEUR": "Fabrication de produits électroniques", "NOM_ICON": "fab_equipements_electriques.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 5, "NOM_SECTEUR": "Fabrication d'équipements électriques", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 5, "NOM_SECTEUR": "Fabrication d'équipements électriques", "NOM_ICON": "fab_produits_electroniques.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 6, "NOM_SECTEUR": "Fabrication de machines", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 6, "NOM_SECTEUR": "Fabrication de machines", "NOM_ICON": "fab_machines.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 7, "NOM_SECTEUR": "Fabrication de matériels de transport", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 7, "NOM_SECTEUR": "Fabrication de matériels de transport", "NOM_ICON": "materiel_transport.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 8, "NOM_SECTEUR": "Industrie textile", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 8, "NOM_SECTEUR": "Industrie textile", "NOM_ICON": "industrie_textile.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 9, "NOM_SECTEUR": "Industrie du papier et imprimerie", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 9, "NOM_SECTEUR": "Industrie du papier et imprimerie", "NOM_ICON": "industrie_papier_imprimerie.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 10, "NOM_SECTEUR": "Industrie chimique", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 10, "NOM_SECTEUR": "Industrie chimique", "NOM_ICON": "industrie_chimique.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 11, "NOM_SECTEUR": "Industrie pharmaceutique", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 11, "NOM_SECTEUR": "Industrie pharmaceutique", "NOM_ICON": "industrie_pharmaceutique.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 12, "NOM_SECTEUR": "Fabrication de produits plastiques", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 12, "NOM_SECTEUR": "Fabrication de produits plastiques", "NOM_ICON": "fab_produits_plastique.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 13, "NOM_SECTEUR": "Métallurgie", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 13, "NOM_SECTEUR": "Métallurgie", "NOM_ICON": "Metallurgie.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 14, "NOM_SECTEUR": "Réparation de machines et d'équipements", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 14, "NOM_SECTEUR": "Réparation de machines et d'équipements", "NOM_ICON": "reparations_machines_equipements.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 15, "NOM_SECTEUR": "Industries extractives", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 15, "NOM_SECTEUR": "Industries extractives", "NOM_ICON": "industrie_extractive.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 16, "NOM_SECTEUR": "Distribution d'électricité et gaz", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 16, "NOM_SECTEUR": "Distribution d'électricité et gaz", "NOM_ICON": "distribution_elec_gaz.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 17, "NOM_SECTEUR": "Distribution d'eau et assainissement", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 17, "NOM_SECTEUR": "Distribution d'eau et assainissement", "NOM_ICON": "distribution_eau_assainissement.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 18, "NOM_SECTEUR": "Construction", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 18, "NOM_SECTEUR": "Construction", "NOM_ICON": "construction.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 19, "NOM_SECTEUR": "Réparation automobile", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 19, "NOM_SECTEUR": "Commerce", "NOM_ICON": "commerce.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 20, "NOM_SECTEUR": "Transports", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 20, "NOM_SECTEUR": "Transports", "NOM_ICON": "MANQUANT"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 21, "NOM_SECTEUR": "Hôtellerie et restauration", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 21, "NOM_SECTEUR": "Hôtellerie et restauration", "NOM_ICON": "MANQUANT"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 22, "NOM_SECTEUR": "Édition, audiovisuel et diffusion", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 22, "NOM_SECTEUR": "Édition, audiovisuel et diffusion", "NOM_ICON": "edition_audiovisuel.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 23, "NOM_SECTEUR": "Télécommunications", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 23, "NOM_SECTEUR": "Télécommunications", "NOM_ICON": "telecommunications.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 24, "NOM_SECTEUR": "Informatique et services d'information", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 24, "NOM_SECTEUR": "Informatique et services d'information", "NOM_ICON": "informatique_services_info.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 25, "NOM_SECTEUR": "Activités financières et assurances", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 25, "NOM_SECTEUR": "Activités financières et assurances", "NOM_ICON": "acti_fianciere_assurances.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 26, "NOM_SECTEUR": "Immobilier", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 26, "NOM_SECTEUR": "Immobilier", "NOM_ICON": "immobilier.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 27, "NOM_SECTEUR": "Tomate et Elephant", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 27, "NOM_SECTEUR": "Droit, gestion, architecture et ingénierie", "NOM_ICON": "MANQUANT"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 28, "NOM_SECTEUR": "Recherche et développement scientifique", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 28, "NOM_SECTEUR": "Recherche et développement scientifique", "NOM_ICON": "recherche_dev_scientifique.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 29, "NOM_SECTEUR": "Activités spécialisées scientifiques et techniques", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 29, "NOM_SECTEUR": "Activités spécialisées scientifiques et techniques", "NOM_ICON": "acti_specialisees_scientifique.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 30, "NOM_SECTEUR": "Services administratifs", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 30, "NOM_SECTEUR": "Services administratifs", "NOM_ICON": "services_administratifs.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 31, "NOM_SECTEUR": "Arts, spectacles et activités récréatives", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 31, "NOM_SECTEUR": "Arts, spectacles et activités récréatives", "NOM_ICON": "arts_spectacles.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 32, "NOM_SECTEUR": "Autres activités de services", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 32, "NOM_SECTEUR": "Autres activités de services", "NOM_ICON": "autres_activites_services.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 33, "NOM_SECTEUR": "Patates et Poulet", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 33, "NOM_SECTEUR": "Activités des ménages", "NOM_ICON": "activite_menages.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 34, "NOM_SECTEUR": "Activités extra-territoriales", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 34, "NOM_SECTEUR": "Activités extra-territoriales", "NOM_ICON": "activites_extraterritoriales.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 35, "NOM_SECTEUR": "Administration publique", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 35, "NOM_SECTEUR": "Administration publique", "NOM_ICON": "administration_publique.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 36, "NOM_SECTEUR": "Enseignement", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 36, "NOM_SECTEUR": "Enseignement", "NOM_ICON": "enseignement.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 37, "NOM_SECTEUR": "Santé", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 37, "NOM_SECTEUR": "Santé", "NOM_ICON": "sante.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 38, "NOM_SECTEUR": "Médico-social", "NOM_ICON": "icon.svg"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 38, "NOM_SECTEUR": "Médico-social", "NOM_ICON": "medico_social.svg"  } }
 	]
 }

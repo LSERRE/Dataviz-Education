@@ -97,16 +97,21 @@ define([
 			  	.append("path")
 			  		.attr('class', 'departementHM')
 			  		.attr('fill', function(d) { 
-			  			if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null){
+			  			if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" ){
 			  				console.log("Undefined or NULL at "+(map.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
-			  				return;
+			  				return "#ccc";
 			  			}
 			  			return color(parseInt(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT].replace(" ",""))); 
 			  		})
 			      	.attr("d", path)
 			      	.attr("nom_dept", function(d){ return d.properties.NOM_DEPT; })
 			      	.attr("num_dept", function(d){ return d.properties.CODE_DEPT; })
-			      	.attr("value",function(d){ return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] })
+			      	.attr("value",function(d){ 
+			      		if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" ){
+			  				return "Indisponible";
+			  			}
+			      		return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT];
+			      	})
 			      	.attr("fill-opacity","0.0")
 			      	.attr("stroke-opacity","0.0")
 			      	.attr("transform", "scale(2.0)translate("+-map.params.width/4+","+-map.params.height/4+")")
@@ -206,14 +211,12 @@ define([
 		 	map.changerCarte(nom_du_CSV, deps, path);
 		},
 
-		majCarte: function(nomDuCsv) {
+		majCarte: function() {
 
-			var donneesCsv = [];
+			var nomDuCSV = 'json/'+map.params.nomDuTheme+'_'+map.params.parametre+'.csv'; //Nb employés
 			d3.csv(nomDuCsv,function(data){
-				donneesCsv = data;
-			  	// donneesCsv[CodeSecteur-1][CodeDept]
-			  	// console.log(donneesCsv["10"]["13"])
-			  	map.afficherNouvelleCarte(donneesCsv);
+				//Fonction asynchrone
+			  	map.afficherNouvelleCarte(data);
 			});
 
 		},
@@ -228,15 +231,22 @@ define([
 			d3.selectAll(".departementHM")
 				.enter()
 					.transition()
-					.duration()
+					.duration(1000)
 			  		.attr('fill', function(d) { 
-			  			if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null){
+			  			if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" ){
 			  				console.log("Undefined or NULL at "+(map.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
-			  				return;
+			  				return "#ccc";
 			  			}
 			  			return color(parseInt(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT].replace(" ",""))); 
 			  		})
-			      	.attr("value",function(d){ return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] })
+			      	.attr("value",function(d){ 
+			      		if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" ){
+			  				return "Indisponible";
+			  			}
+			      		return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT];
+			      	})
+			      	;
+
 		}
 	};
 
