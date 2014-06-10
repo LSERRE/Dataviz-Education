@@ -926,21 +926,6 @@ div.filterContainer nav ul li:last-child  a:after{
 	box-sizing: border-box;
 	float: left;
 }
-.stepUI{
-	height: calc(100% - 150px);
-	width: 10px;
-	border-left: 1px solid #cccccc;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	float: right;
-}
-.stepUI div{
-	height: 33.33%;
-}
-.stepUI > div.currentStep{
-	background-color: #3c98ff;
-}
 
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
 			.content {
@@ -966,6 +951,46 @@ div.filterContainer nav ul li:last-child  a:after{
 				box-sizing: border-box;
 			}				
 		}
+
+.stepUI{
+	position: relative;
+	height: calc(100% - 150px);
+	width: 10px;
+	border-left: 1px solid #dddddd;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	float: right;
+}
+
+		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
+			.stepUI{
+				border: none;
+			}
+
+			.stepUI:before{
+				background-color: transparent;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 200%;
+				height: 200%;
+				border-left: 1px #cccccc solid;
+				content: "";
+				transform: scale(0.5);
+				-webkit-transform: scale(0.5);	
+				transform-origin: 0 0;
+				-webkit-transform-origin: 0 0;
+			}			
+		}
+
+.stepUI div{
+	height: 33.33%;
+}
+
+.stepUI > div.currentStep{
+	background-color: #3c98ff;
+}
 
 .page{
 	height: calc(100% - 50px);
@@ -1301,6 +1326,10 @@ div.filterContainer nav ul li:last-child  a:after{
 	-webkit-transition: background 0.2s ease;
 }
 
+.choix_categorie a:last-of-type {
+	border-right: 1px solid transparent;
+}
+
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
 			.choix_categorie a{
 				border: none;
@@ -1341,6 +1370,10 @@ div.filterContainer nav ul li:last-child  a:after{
 					-webkit-box-sizing: border-box;
 					-moz-box-sizing: border-box;
 					box-sizing: border-box;
+				}
+
+				.choix_categorie a:last-of-type:after {
+					border-right: 1px solid transparent;
 				}
 			}
 
