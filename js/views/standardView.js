@@ -4,8 +4,8 @@ define([
   'd3',
   'underscore',
   'backbone',
-
-], function($, d3, _, Backbone){
+  'text!../../templates/standard-template.html'
+], function($, d3, _, Backbone, templateStandardView){
 
   var View = Backbone.View.extend({});
 
@@ -46,11 +46,18 @@ define([
       localStorage.setItem('donnees', JSON.stringify(data.donnees));
       localStorage.setItem('itemA', JSON.stringify(data.itemA));
       localStorage.setItem('itemB', JSON.stringify(data.itemB));
-      localStorage.setItem('itemC', JSON.stringify(data.itemC));
-      
-      
+      localStorage.setItem('itemC', JSON.stringify(data.itemC)); 
     });
     
-
-  return View;
+    var View = Backbone.View.extend({
+      el: '.mainContainer',   
+      template: Handlebars.compile(templateStandardView), 
+      render: function(options){
+        var self = this;
+        $('.page_404').remove();
+        self.$el.html(self.template(options)); 
+      }
+    });
+    
+    return View;
 });
