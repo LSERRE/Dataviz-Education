@@ -20,7 +20,7 @@ define([
         infosid: '#infosDepartements',
         choix: function(dep, code){
           // update sidebar
-          $('.choise').eq(0).html(code);
+          $('.choise').eq(0).children().html(code);
           // departement in localstorage
           var departementUrl = findType('departements', dep, 'url');
           if(departementUrl){
