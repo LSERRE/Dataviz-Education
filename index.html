@@ -61,8 +61,14 @@
     					}
     					$('#fullSize').css({ display: "table-cell"});
 				      	$('#LeaveFullSize').css({display: "none"});
-    					return false
+    					return false;
 				    }
+				    document.addEventListener("keyup", function(e) {
+					  if (e.keyCode == 27) {
+ 						$('#fullSize').css({ display: "table-cell"});
+				      	$('#LeaveFullSize').css({display: "none"});
+					  }
+					}, false);
 				</script>
 				<a id="fullSize" onClick="event.preventDefault(); enterFullscreen(document.body);" class="fullSize" href=""></a>
 				<a id="LeaveFullSize" onClick="event.preventDefault(); LeaveFullscreen(document.body);" class="leaveFullSize" href=""></a>
