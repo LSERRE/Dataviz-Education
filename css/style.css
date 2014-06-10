@@ -429,9 +429,9 @@ aside .asideActive .choises
 	width: 100px;
 }
 
-aside .choises span.choise{
-	height: 17px;
-	width: 17px;
+aside .choises div.choise{
+	height: 50px;
+	width: 50px;
 	position: absolute;
 	left: 50%;
 	margin-left: -25px;
@@ -441,11 +441,10 @@ aside .choises span.choise{
 	font-family: "oswald_bold";
 	font-size: 18px;
 	color: #fff;
-	padding: 16.5px;
 }
 
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
-			aside .choises span.choise {
+			aside .choises div.choise {
 				height: 100px;
 				width: 100px;
 				margin-left: -50px;
@@ -456,7 +455,7 @@ aside .choises span.choise{
 			}
 		}
 
-aside .choises span.choise:first-of-type{
+aside .choises div.choise:first-of-type{
 	top:0;
 }
 
@@ -466,13 +465,28 @@ aside .choises span.choise:first-of-type{
 			}
 		}
 
-aside .choises span.choise:last-of-type{
+aside .choises div.choise:last-of-type{
 	bottom:0;
 }
 
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
-			aside .choises span.choise:last-of-type {
+			aside .choises div.choise:last-of-type {
 				bottom: -25px;
+			}
+		}
+aside .choises div.choise:first-of-type div{
+	height: 100%;
+	width: 50px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 50px;
+}
+
+		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
+			aside .choises div.choise:first-of-type div {
+					height: 100%;
+					width: 100px;
+					line-height: 100px;
 			}
 		}
 

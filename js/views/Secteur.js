@@ -29,7 +29,7 @@ define([
           inner_circle_radius: 450/2,
           choix: function(nom, code){
             // sidebar
-            $('.choise').eq(1).html(code);
+            $('.choise').eq(1).children().html(code);
             // sector in localstorage
             var secteurUrl = findType('secteurs', nom, 'url');
             if(secteurUrl){
