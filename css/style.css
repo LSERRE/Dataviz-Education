@@ -439,12 +439,14 @@ aside .choises div.choise{
 	border-radius: 50%;
 	box-shadow: inset 1px 1px #292f35, 1px 1px #4e575f;
 	font-family: "oswald_bold";
-	font-size: 18px;
+	font-size: 1.8rem;
 	color: #fff;
+	text-shadow: 1px 1px #292f35;
 }
 
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
 			aside .choises div.choise {
+				font-size: 3.6rem;
 				height: 100px;
 				width: 100px;
 				margin-left: -50px;
@@ -460,7 +462,7 @@ aside .choises div.choise:first-of-type{
 }
 
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
-			aside .choises span.choise:first-of-type {
+			aside .choises div.choise:first-of-type {
 				top: -25px;
 			}
 		}
@@ -480,6 +482,7 @@ aside .choises div.choise:first-of-type div{
 	margin: 0 auto;
 	text-align: center;
 	line-height: 50px;
+	padding: 2px 0px 0px 1px;
 }
 
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
@@ -519,6 +522,7 @@ aside .choises span.middleSeparator{
 aside form > input, aside h3{
 	display: none;
 }
+
 aside.asideActive .choises h3{
 	color: #fff;
 	text-transform: uppercase;
@@ -530,9 +534,11 @@ aside.asideActive .choises h3{
 	font-family: "clear_sansbold";
 	text-shadow: 1px 1px 0 #292f35;
 }
+
 aside.asideActive .choises h3:nth-of-type(2){
 	top: 265px;
 }
+
 aside.asideActive .choises form > input{
 	display: block;
 	position: absolute;
@@ -550,6 +556,7 @@ aside.asideActive .choises form > input{
 	text-transform: uppercase;
 	font-size: 1.25rem;
 }
+
 aside.asideActive .choises form:nth-of-type(2) > input{
 	top: 300px;
 }
@@ -845,6 +852,11 @@ div.filterContainer nav ul li:first-child a:before{
 	margin-right: 30.5px;
 }
 
+		.activeNav:first-child a:before{
+			margin-right: 26.5px !important;
+		}
+
+
 		@-moz-document url-prefix() { 
 		  div.filterContainer nav ul li:first-child a:before  {
 		  	 margin-right: 31px;
@@ -856,6 +868,10 @@ div.filterContainer nav ul li:first-child a:after{
 	float: right;
 	margin-left: 30.5px;
 }
+
+		.activeNav:first-child a:after{
+			margin-left: 26.5px !important;
+		}
 
 		@-moz-document url-prefix() { 
 		  div.filterContainer nav ul li:first-child a:after  {
@@ -870,6 +886,10 @@ div.filterContainer nav ul li:nth-child(2) a:before{
 	margin-right: 24px;
 }
 
+		.activeNav:nth-child(2) a:before{
+			margin-right: 19.5px !important;
+		}
+
 		@-moz-document url-prefix() { 
 		  div.filterContainer nav ul li:nth-child(2) a:before  {
 		  	 margin-right: 24.5px;
@@ -881,6 +901,10 @@ div.filterContainer nav ul li:nth-child(2) a:after{
 	float: right;
 	margin-left: 24px;
 }
+
+		.activeNav:nth-child(2) a:after{
+			margin-left: 19.5px !important;
+		}
 
 		@-moz-document url-prefix() { 
 		  div.filterContainer nav ul li:nth-child(2) a:after  {
@@ -895,6 +919,10 @@ div.filterContainer nav ul li:last-child a:before{
 	margin-right: 17px;
 }
 
+		.activeNav:last-child a:before{
+			margin-right: 12.5px !important;
+		}
+
 		@-moz-document url-prefix() { 
 		  div.filterContainer nav ul li:last-child a:before  {
 		  	 margin-right: 17.5px;
@@ -906,6 +934,10 @@ div.filterContainer nav ul li:last-child  a:after{
 	float: right;
 	margin-left: 17px;
 }
+
+		.activeNav:last-child a:after{
+			margin-left: 12.5px !important;
+		}
 
 		@-moz-document url-prefix() { 
 		  div.filterContainer nav ul li:last-child  a:after  {
@@ -986,6 +1018,11 @@ div.filterContainer nav ul li:last-child  a:after{
 
 .stepUI div{
 	height: 33.33%;
+	-webkit-transition: 1s ease all;
+	-moz-transition: 1s ease all;
+	-ms-transition: 1s ease all;
+	-o-transition: 1s ease all;
+	transition: 1s ease all;
 }
 
 .stepUI > div.currentStep{
@@ -1464,6 +1501,7 @@ div.filterContainer nav ul li:last-child  a:after{
 	position: relative;
 	z-index: 200;
 }
+
 .uneBarSecteur{
     cursor: pointer;
     fill-opacity:1.0;
@@ -1473,9 +1511,11 @@ div.filterContainer nav ul li:last-child  a:after{
 	-moz-transition:fill-opacity .2s ease;
 	-webkit-transition:fill-opacity .2s ease;
 }
+
 .uneBarSecteurHover{
 	fill-opacity:0.3;
 }
+
 #infosSecteurs2{
     position: absolute;
     top:50%;
@@ -1487,12 +1527,14 @@ div.filterContainer nav ul li:last-child  a:after{
     text-align: center;
     font-family: sans-serif;
 }
+
 #infosSecteurs2>h1{
     color:#0078ff;
     font-size: 4.0rem;
     font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
     margin-bottom: 40px;
 }
+
 #infosSecteurs2>h2{
 	display: inline;
 	width: inherit;
@@ -1505,6 +1547,7 @@ div.filterContainer nav ul li:last-child  a:after{
     border-radius: 4px;
     padding: 15px 30px;
 }
+
 #infosSecteurs2>p{
 	display: block;
 	margin-top: 40px;
@@ -1513,16 +1556,16 @@ div.filterContainer nav ul li:last-child  a:after{
     font-family: 'clear_sansitalic' , 'verdana', 'sans-serif';
 }
 
-
-
-
-
-
-
 /* BIDON */
 
 .activeNav{
 	position: relative;
+	font-family: 'clear_sansbold' , 'verdana', 'sans-serif' !important;
+	-webkit-transition: 0.3s ease all;
+	-moz-transition: 0.3s ease all;
+	-ms-transition: 0.3s ease all;
+	-o-transition: 0.3s ease all;
+	transition: 0.3s ease all;
 }
 
 .activeNav:after{
