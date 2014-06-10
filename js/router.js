@@ -101,7 +101,10 @@ define([
     
     router.on('route:home', function(){
       document.title = 'Home | JobShaker';
+<<<<<<< HEAD
       view.render({step:''});
+=======
+>>>>>>> FETCH_HEAD
       contain();
       var home = new Home();
       home.render();
@@ -109,14 +112,12 @@ define([
 
     router.on('route:a', function(){
       document.title = 'Choix du jeu de données (A) | JobShaker';
-      view.render({step:'A'});
       contain();
       router.navigate('#/A/test', {trigger: true});
     });
 
     router.on('route:a-donnee', function(donnee){
       document.title = 'Choix département (A) | JobShaker';
-      view.render({step:'A'});
       contain();
       var map = new Map();
       map.render({donnee: donnee});
@@ -124,7 +125,6 @@ define([
 
     router.on('route:a-donnee-departement-item', function(donnee, urlDepartement, urlItemA){
       console.log('A - donnee - departement (bar)');
-      view.render({step:'A'});
       contain();
       // second departement
       if(urlDepartement!=localStorage.getItem('urlDepartement')){
@@ -160,7 +160,6 @@ define([
 
     router.on('route:b', function(){
       console.log('B');
-      view.render({step:'B'});
       contain();
       var map = new Map();
       map.render({});
@@ -237,12 +236,14 @@ define([
 
     router.on('route:c', function(){
       view.render({step:'C'});
+      console.log('C');
       contain();
       router.navigate('#/C/test', {trigger: true});
     });
 
     router.on('route:c-donnee', function(donnee){
       view.render({step:'C'});
+      console.log('test');
       contain();
       var secteur = new Secteur();
       secteur.render({donnee: donnee});
@@ -250,6 +251,7 @@ define([
 
     router.on('route:c-donnee-secteur-item', function(donnee, urlSecteur, urlItemC){
       view.render({step:'C'});
+      console.log('c-donnee-secteur-item');
       contain();
 
       // first secteur

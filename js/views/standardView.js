@@ -44,9 +44,7 @@ define([
       localStorage.setItem('donnees', JSON.stringify(data.donnees));
       localStorage.setItem('itemA', JSON.stringify(data.itemA));
       localStorage.setItem('itemB', JSON.stringify(data.itemB));
-      localStorage.setItem('itemC', JSON.stringify(data.itemC));
-
-        
+      localStorage.setItem('itemC', JSON.stringify(data.itemC));        
     });
     
 
