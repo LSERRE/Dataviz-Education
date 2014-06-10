@@ -169,7 +169,7 @@ a{
 @font-face {
     font-family: 'oswald_bold';
     src: url('fonts/clearsans-italic-webfont.eot');
-    src: src: url('fonts/oswald-italic.ttf') format('truetype');
+    src: url('fonts/oswald-italic.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -178,7 +178,7 @@ a{
 @font-face {
     font-family: 'oswald_light';
     src: url('fonts/clearsans-italic-webfont.eot');
-    src: src: url('fonts/oswald-light.ttf') format('truetype');
+    src: url('fonts/oswald-light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 

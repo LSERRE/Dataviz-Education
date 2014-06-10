@@ -115,14 +115,14 @@ define([
 
     router.on('route:a', function(){
       document.title = 'Choix du jeu de données (A) | JobShaker';
-      view.render({step:'A'});
+      view.render({step:'A', number:'1'});
       contain();
       router.navigate('#/A/test', {trigger: true});
     });
 
     router.on('route:a-donnee', function(donnee){
       document.title = 'Choix département (A) | JobShaker';
-      view.render({step:'A'});
+      view.render({step:'A', number:'2'});
       contain();
       var map = new Map();
       map.render({donnee: donnee});
@@ -130,7 +130,7 @@ define([
 
     router.on('route:a-donnee-departement-item', function(donnee, urlDepartement, urlItemA){
       console.log('A - donnee - departement (bar)');
-      view.render({step:'A'});
+      view.render({step:'A', number:'3'});
       contain();
       // second departement
       if(urlDepartement!=localStorage.getItem('urlDepartement')){
@@ -166,14 +166,14 @@ define([
 
     router.on('route:b', function(){
       console.log('B');
-      view.render({step:'B'});
+      view.render({step:'B', number:'1'});
       contain();
       var map = new Map();
       map.render({});
     });
 
     router.on('route:b-departement', function(urlDepartement){
-      view.render({step:'B'});
+      view.render({step:'B', number:'2'});
       contain();
       if(urlDepartement==localStorage.getItem('urlDepartement')){
         var secteur = new Secteur();
@@ -194,7 +194,7 @@ define([
     });
 
     router.on('route:b-departement-secteur-item', function(urlDepartement, urlSecteur, urlItemB){
-      view.render({step:'B'});
+      view.render({step:'B', number:'3'});
       console.log('b-departement-secteur');
       contain();
       // first departement
@@ -242,14 +242,14 @@ define([
     });
 
     router.on('route:c', function(){
-      view.render({step:'C'});
+      view.render({step:'C', number:'1'});
       console.log('C');
       contain();
       router.navigate('#/C/test', {trigger: true});
     });
 
     router.on('route:c-donnee', function(donnee){
-      view.render({step:'C'});
+      view.render({step:'C', number:'2'});
       console.log('test');
       contain();
       var secteur = new Secteur();
@@ -257,7 +257,7 @@ define([
     });
 
     router.on('route:c-donnee-secteur-item', function(donnee, urlSecteur, urlItemC){
-      view.render({step:'C'});
+      view.render({step:'C', number:'3'});
       console.log('c-donnee-secteur-item');
       contain();
 

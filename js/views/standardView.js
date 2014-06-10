@@ -55,6 +55,33 @@ define([
         var self = this;
         $('.page_404').remove();
         self.$el.html(self.template(options)); 
+        var stepBar=true;
+        console.log(options.number);
+        if(options.number){
+          $('.stepUI').removeClass('none');
+          if(stepBar==false)
+            $('.content').css('width', '100%').css('width', '-=10px');
+          if(options.number==1){
+            $('.step1').addClass('currentStep');
+            $('.step2').removeClass('currentStep');
+            $('.step3').removeClass('currentStep');
+          }
+          else if(options.number==2){
+            $('.step1').addClass('currentStep');
+            $('.step2').addClass('currentStep');
+            $('.step3').removeClass('currentStep');
+          }
+          else if(options.number==3){
+            $('.step1').addClass('currentStep');
+            $('.step2').addClass('currentStep');
+            $('.step3').addClass('currentStep');
+          }
+        }
+        else{
+          stepBar=false;
+          $('.stepUI').addClass('none');
+          $('.content').width($('.content').width()+10);
+        }
       }
     });   
 
