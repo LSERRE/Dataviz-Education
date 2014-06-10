@@ -201,10 +201,6 @@ html,body{
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 	-moz-osx-font-smoothing: grayscale;
-	margin:0;
-	padding:0;
-	height:100%;
-	width:100%;
 }
 
 aside.leftPanel{
@@ -216,6 +212,8 @@ aside.leftPanel{
     -moz-transition: width 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out;
     transition: width 0.5s ease-in-out;
+    left: 0;
+	position: absolute;
 }
 .mainContainer{
 	height: 100%;

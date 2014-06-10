@@ -8,7 +8,12 @@ define([
   'text!../../templates/heatMap-template.html'
 ], function($, d3, _, Backbone, Map, templateHeatMap){
 
- 
+  Handlebars.registerHelper('if_eq', function(a, b, opts) {
+      if(a == b) // Or === depending on your needs
+          return opts.fn(this);
+      else
+          return opts.inverse(this);
+  });
 
   var map = Backbone.View.extend({
     el: '.content',
