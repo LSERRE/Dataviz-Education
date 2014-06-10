@@ -424,7 +424,7 @@ aside .choises{
          transition: width 0.5s ease;
 }
 
-aside.asideActive .choises
+aside .asideActive .choises
 {
 	width: 100px;
 }
@@ -1473,10 +1473,34 @@ div.filterContainer nav ul li:last-child  a:after{
 
 
 /* BIDON */
-.activeNav a{
-	color:red !important;
+
+.activeNav{
+	position: relative;
 }
 
+.activeNav:after{
+	background-color: #cccccc;
+	border-right: 1px solid #ffffff;
+	position: absolute;
+	top: 41px;
+	left: 50%;
+	width: 2px;
+	height: 57px;
+	content: "";
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
+
+			.activeNav:after{
+				transform: scale(0.5);
+				-webkit-transform: scale(0.5);
+				transform-origin: 0 0;
+				-webkit-transform-origin: 0 0;
+			}
+		}
 
 
 
