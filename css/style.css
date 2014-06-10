@@ -628,7 +628,7 @@ aside form, aside h3{
 	border-left: 1px solid #67afff;
 }
 .mainContainer header div .leaveFullSize{
-	background: url('img/plein_ecran.svg') no-repeat center center;
+	background: url('img/taille_de_base.svg') no-repeat center center;
 	display: table-cell;
 	width: 50px;
 	height: 49px;
