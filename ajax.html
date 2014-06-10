@@ -16,15 +16,14 @@
 			defaults : {
 				result : '',
 				file : '',
-				tab : '',
 				category : '',
-				gotJsonFile : function(){}
+				initialized : function(){}
 			},
 			init : function(options){
 				this.params=$.extend(this.defaults,options);
-				this.getJsonFile();
+				this.initialize();
 			},
-			getJsonFile : function(){
+			/*getJsonFile : function(){
 				var self = this.params;
 				$.getJSON(this.params.file, function(result){
 					$.each(result, function(index, value){
@@ -32,21 +31,31 @@
 				    });
 				    self.gotJsonFile.call(this, null);
 				});
-			},
+			},*/
 			compareSecondColumn : function(a, b){
 				return a[1] > b[1];
 			},
-			render : function(search, maxOccurrence){
+			initialize : function(){
 				var self = this;
 				$('.result').empty();
 				var result = new Array();
+				console.log(self.params.category);
+				var data = localStorage.getItem(self.params.category);
+				self.params.initialized.call(this, JSON.parse(data));
+			},
+			render:function(data, search, maxOccurrence){
+				console.log(search);
+				var result = [];
 				if(search.length>1){
-					$.each(self.params.tab, function(index, value){
-						var occurrence = value.search(new RegExp(search));
+					$.each(data, function(index, value){
+						console.log(value);
+						var occurrence = value.nom.search(new RegExp(search));
 						if(occurrence!=-1)
-							result.push(new Array(value, occurrence));
+							result.push(new Array(value.nom, value.url, value.code, occurrence));
+						//console.log(value.nom);
 					});
-					result.sort(self.compareSecondColumn);
+					console.log(result);
+					//result.sort(self.compareSecondColumn);
 					var ul = $('.result');
 					for(i=0; i<result.length; i++){
 						if(i==maxOccurrence)
@@ -54,6 +63,7 @@
 						$('<li>'+result[i][0]+'</li>').appendTo(ul);
 					}
 				}
+				
 			}
 		};
 
@@ -61,10 +71,10 @@
 			result: '.result',
 			file : 'departement.json',
 			tab : departement,
-			category : 'departement',
-			gotJsonFile : function(){
+			category : 'departements',
+			initialized : function(data){
 				$('input[type="text"]').on('keyup',function(e){
-					filter.render($(this).val(), 3);
+					filter.render(data, $(this).val(), 50);
 				});
 			}
 		});
