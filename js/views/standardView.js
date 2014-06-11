@@ -28,7 +28,7 @@ define([
       }
     });
 
-    $('#leftPanel').hover(function(){
+    $('#asideContent').hover(function(){
       if(status){
         $('#mainContainer').addClass('active');
         $('.leftPanel').addClass('asideActive');
