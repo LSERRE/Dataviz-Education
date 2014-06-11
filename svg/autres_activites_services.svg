@@ -3,27 +3,32 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M28.75,46.875
-	l1.937,0.812c0,0,4.063-8.625,7.5-10.625C37.5,36.375,35.5,34.625,35.5,34.625"/>
-<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M35.609,39.513
-	c0,0-0.359,0.575,3.641,0s6.5-0.638,10.812,2.425"/>
-<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M64.062,40.57
-	c0,0-1.187,2.242-6.437,1.867s-9.874-1.875-12.458,5.438s2.247,8.062,3.727,4.312s1.042-4.497,4.793-2.5
-	c3.756,2,10.139,1.874,12.563,1.063"/>
-<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M66.25,37.312
-	l-2.813,1.125c0,0,3.313,11.312,3.125,14.75c1.75-0.188,3.875-0.375,3.875-0.375"/>
-<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M31.057,46.935
-	c0,0,3.881,2.44,5.006,4.565"/>
-<circle fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="36.062" cy="53.858" r="1.812"/>
-<circle fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="38.969" cy="57.115" r="1.812"/>
-<circle fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="42.256" cy="60.186" r="1.812"/>
-<circle fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="45.487" cy="63.122" r="1.812"/>
-<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M49.75,60.17
-	c0,0,6.156,3.455,6-1.242"/>
-<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M52.75,57.115
-	c0,0,5.937,4.26,6.312-1.178"/>
-<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M57.062,53.858
-	c0,0,4.25,5.069,5.625-2.358"/>
-<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M47.625,63.122
-	c0,0,3.668,2.691,4.115-2.091"/>
+<g>
+	<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M29.2,47.1l1.9,0.8
+		c0,0,4.1-8.6,7.5-10.6c-0.7-0.7-2.7-2.4-2.7-2.4"/>
+	<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M36,39.7
+		c0,0-0.4,0.6,3.6,0s6.5-0.6,10.8,2.4"/>
+	<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M64.5,40.8
+		c0,0-1.2,2.2-6.4,1.9s-9.9-1.9-12.5,5.4s2.2,8.1,3.7,4.3s1-4.5,4.8-2.5c3.8,2,10.1,1.9,12.6,1.1"/>
+	<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M66.7,37.5l-2.8,1.1
+		c0,0,3.3,11.3,3.1,14.8c1.8-0.2,3.9-0.4,3.9-0.4"/>
+	<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M31.5,47.2
+		c0,0,3.9,2.4,5,4.6"/>
+	
+		<circle fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="36.5" cy="54.1" r="1.8"/>
+	
+		<circle fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="39.4" cy="57.3" r="1.8"/>
+	
+		<circle fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="42.7" cy="60.4" r="1.8"/>
+	
+		<circle fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="45.9" cy="63.3" r="1.8"/>
+	<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M50.2,60.4
+		c0,0,6.2,3.5,6-1.2"/>
+	<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M53.2,57.3
+		c0,0,5.9,4.3,6.3-1.2"/>
+	<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M57.5,54.1
+		c0,0,4.2,5.1,5.6-2.4"/>
+	<path fill="none" stroke="#568DCB" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M48,63.3
+		c0,0,3.7,2.7,4.1-2.1"/>
+</g>
 </svg>

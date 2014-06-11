@@ -11,6 +11,7 @@
 09: SELECTION DEPT
 10: 404
 11 : CIRCLECHART;
+12 : ABOUT;
 
 */
 
@@ -567,10 +568,31 @@ aside.asideActive .choises form > input{
 	font-size: 1.25rem;
 }
 
+aside .choises ul{
+	display: none;
+}
+aside.asideActive ul{
+	display: block;
+}
 aside.asideActive .choises form:nth-of-type(2) > input{
 	top: 300px;
 }
-
+aside .choises ul.searchResults{
+	position: absolute;
+	left: 103px;
+	width: 150px;
+	top: 115px;
+}
+aside .choises ul.searchResults li{
+	margin-bottom: 15px;
+}
+aside .choises ul.searchResults li a{
+	font-size: 1.25rem;
+	font-family: "clear_sansbold";
+	color: #fff;
+	opacity: 0.3;
+	text-transform: uppercase;
+}
 
 /* 06: HEADER */
 
@@ -1622,9 +1644,61 @@ div.filterContainer nav ul li:last-child  a:after{
 			}
 		}
 
+/* 12 ABOUT */
 
-
-
+.aboutSection{
+	position: relative;
+	display: none;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	background-color: #404952;
+	opacity: 0.1;
+	 transition: opacity 0.5s ease;
+	-o-transition: opacity 0.5s ease;
+	-moz-transition: opacity 0.5s ease;
+	-webkit-transition: opacity 0.5s ease;
+}
+.aboutSection h2{
+	font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
+	font-size: 6.0rem;
+	color: #fff;
+	top:40%;
+	left:50%;
+	margin-left: -145px;
+	text-align: center;
+	text-transform: uppercase;
+	position: absolute;
+	border-bottom: 2px dotted #fff;
+	padding-bottom: 20px;
+}
+.aboutSection p{
+	font-family: "clear_sans_lightregular", 'verdana', 'sans-serif';
+	font-size: 1.6rem;
+	color: #fff;
+	width: 600px;
+	text-align: center;
+	position: absolute;
+	top: 55%;
+	left: 50%;
+	margin-left: -300px;
+}
+#aboutSection.active{
+	opacity: 0.99999999;
+	display: block;
+}
+.aboutSection .closeAbout{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 30px;
+	height: 30px;
+	display: block;
+	background:url('img/closeAbout.png') no-repeat;
+	background-size: 30px 30px;
+}
 
 
 

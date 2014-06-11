@@ -1,5 +1,6 @@
 var glob = {};
 var findType;
+var heatMap=false;
 
 define([
   'jquery',
@@ -272,9 +273,9 @@ define([
 
     router.on('route:c-donnee-secteur-item', function(donnee, urlSecteur, urlItemC){
       view.render({step:'C', number:'3'});
-      console.log('c-donnee-secteur-item');
-      contain();
-
+      console.log(heatMap);
+      if(heatMap==false)
+        contain();
       // first secteur
       if(urlSecteur!=localStorage.getItem('urlSecteur')){
         var nomSecteur = findType('secteurs', urlSecteur, 'nom');
