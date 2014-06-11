@@ -107,6 +107,7 @@ define([
     
     router.on('route:home', function(){
       document.title = 'Home | JobShaker';
+      $('.titleContainer h2').html('Bienvenue sur JobShaker');
       view.render({step:''});
       contain();
       var home = new Home();
@@ -115,6 +116,7 @@ define([
 
     router.on('route:a', function(){
       document.title = 'Choix du jeu de données (A) | JobShaker';
+      $('.titleContainer h2').html('Choisissez un jeu de données');
       view.render({step:'A', number:'1'});
       contain();
       router.navigate('#/A/test', {trigger: true});
@@ -122,6 +124,7 @@ define([
 
     router.on('route:a-donnee', function(donnee){
       document.title = 'Choix département (A) | JobShaker';
+      $('.titleContainer h2').html('Choisissez un département');
       view.render({step:'A', number:'2'});
       contain();
       var map = new Map();
@@ -146,15 +149,17 @@ define([
 
       // third itemA
       if(urlItemA==localStorage.getItem('urlItemA')){
-        $('.titleContainer h2').html('Données xxx : '+localStorage.getItem('nomDepartement'));
+        document.title = localStorage.getItem('nomItemA')+ ' '+localStorage.getItem('nomDepartement')+' | JobShaker';
+        $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+localStorage.getItem('nomItemA')+' dans le secteur #jeudedonnée');
         var circleChart = new CircleChart();
         circleChart.render({donnee: donnee, departement: urlDepartement, itemA: urlItemA});
       }
       else{
         var nomItemA = findType('itemA', urlItemA, 'nom');
         if(nomItemA){
+          document.title = localStorage.getItem('nomItemA')+ ' '+localStorage.getItem('nomDepartement')+' | JobShaker';
+          $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+localStorage.getItem('nomItemA')+' dans le secteur #jeudedonnée');
           localStorage.setItem('nomItemA', nomItemA[0]);
-          $('.titleContainer h2').html('Données xxx : '+localStorage.getItem('nomDepartement'));
           var circleChart = new CircleChart();
           circleChart.render({donnee: donnee, departement: urlDepartement, itemA: urlItemA});
         }
@@ -165,7 +170,8 @@ define([
     });
 
     router.on('route:b', function(){
-      console.log('B');
+      document.title = 'Choix du département (B) | JobShaker';
+      $('.titleContainer h2').html('Choisissez un département');
       view.render({step:'B', number:'1'});
       contain();
       var map = new Map();
@@ -173,6 +179,8 @@ define([
     });
 
     router.on('route:b-departement', function(urlDepartement){
+      document.title = 'Choix du secteur (B) | JobShaker';
+      $('.titleContainer h2').html('Choisissez un secteur');
       view.render({step:'B', number:'2'});
       contain();
       if(urlDepartement==localStorage.getItem('urlDepartement')){
@@ -223,7 +231,8 @@ define([
       
       // third itemB
       if(urlItemB==localStorage.getItem('urlItemB')){
-        $('.titleContainer h2').html('Le secteur '+localStorage.getItem('nomSecteur')+' : '+localStorage.getItem('nomDepartement'));
+        document.title = localStorage.getItem('nomItemB')+ ' '+localStorage.getItem('nomSecteur')+' '+localStorage.getItem('nomDepartement')+' | JobShaker';
+        $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+localStorage.getItem('nomItemB')+' dans le secteur '+localStorage.getItem('nomSecteur'));
         var bar = new Bar();
         bar.render({departement: urlDepartement, secteur: urlSecteur, itemB: urlItemB});
       }
@@ -231,7 +240,8 @@ define([
         var nomItemB = findType('itemB', urlItemB, 'nom');
         if(nomItemB){
           localStorage.setItem('nomItemB', nomItemB[0]);
-          $('.titleContainer h2').html('Le secteur '+localStorage.getItem('nomSecteur')+' : '+localStorage.getItem('nomDepartement'));
+          document.title = localStorage.getItem('nomItemB')+ ' '+localStorage.getItem('nomSecteur')+' '+localStorage.getItem('nomDepartement')+' | JobShaker';
+          $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+localStorage.getItem('nomItemB')+' dans le secteur '+localStorage.getItem('nomSecteur'));
           var bar = new Bar();
           bar.render({departement: urlDepartement, secteur: urlSecteur, itemB: urlItemB});
         }
@@ -242,6 +252,8 @@ define([
     });
 
     router.on('route:c', function(){
+      document.title = 'Choix du jeu de données (C) | JobShaker';
+      $('.titleContainer h2').html('Choisissez un jeu de données');
       view.render({step:'C', number:'1'});
       console.log('C');
       contain();
@@ -249,6 +261,8 @@ define([
     });
 
     router.on('route:c-donnee', function(donnee){
+      document.title = 'Choix du secteur (C) | JobShaker';
+      $('.titleContainer h2').html('Choisissez un secteur');
       view.render({step:'C', number:'2'});
       console.log('test');
       contain();
@@ -276,18 +290,17 @@ define([
 
       // second itemC
       if(urlItemC==localStorage.getItem('urlItemC')){
-        $('.titleContainer h2').html(localStorage.getItem('nomItemC')+' pour le secteur '+localStorage.getItem('nomSecteur'));
+        document.title = localStorage.getItem('nomItemC')+ ' '+localStorage.getItem('nomSecteur')+' #jeudedonnées'+' | JobShaker';
+        $('.titleContainer h2').html('#jeudedonnées : les données '+localStorage.getItem('nomItemC')+' dans le secteur '+localStorage.getItem('nomSecteur'));
         var heatMap = new HeatMap();
         heatMap.render({donnee: donnee, secteur: urlSecteur, itemC: urlItemC});
       }
       else{
-        console.log('url : '+urlItemC);
         var nomItemC = findType('itemC', urlItemC, 'nom');
-        console.log(nomItemC);
         if(nomItemC){
-          console.log('test');
           localStorage.setItem('nomItemC', nomItemC[0]);
-          $('.titleContainer h2').html(nomItemC[0]+' pour le secteur '+localStorage.getItem('nomSecteur'));
+          document.title = localStorage.getItem('nomItemC')+ ' '+localStorage.getItem('nomSecteur')+' #jeudedonnées'+' | JobShaker';
+          $('.titleContainer h2').html('#jeudedonnées : les données '+localStorage.getItem('nomItemC')+' dans le secteur '+localStorage.getItem('nomSecteur'));
           var heatMap = new HeatMap();
           heatMap.render({donnee: donnee, secteur: urlSecteur, itemC: urlItemC});
         }

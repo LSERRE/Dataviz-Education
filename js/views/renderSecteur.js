@@ -80,8 +80,8 @@ define([
 		},
 
 		selectionSecteur: function(){
-			console.log("Nom du secteur : "+this.parentNode.getAttribute('secteur_nom')+"\n Id du secteur : "+this.parentNode.getAttribute('secteur_id'));
-			secteur.params.choix.call(this, this.parentNode.getAttribute('secteur_nom'), this.parentNode.getAttribute('secteur_id'));
+			console.log("Nom du secteur : "+this.getAttribute('secteur_nom')+"\n Id du secteur : "+this.getAttribute('secteur_id'));
+			secteur.params.choix.call(this, this.getAttribute('secteur_nom'), this.getAttribute('secteur_id'));
 		},
 
 		initialize: function(){
@@ -165,9 +165,32 @@ define([
 					      	.attr("class", "secteur")
 					      	.attr("secteur_id", function(d){ return d.propreties.ID_SECTEUR; })
 					      	.attr("secteur_nom", function(d){ return d.propreties.NOM_SECTEUR; })
+					      	.on("mouseover",afficherNomSecteur,false)
+				    		.on("mouseout",unHoverSecteur,false)
+				    		.on("click", secteur.selectionSecteur,false)
 					      	.attr("transform", function(d) {
 					          return "rotate(" + (d.x - 90) + ") translate(" + d.y + ")";
-					      	})
+					      	});
+						  		
+						//Cercles exterieur
+				secteur_circle1.append("circle")
+				    .attr("r", function(d) { return radiusScale(d.size); });
+				
+				secteur_circle1.append("svg:image")
+				  		.attr("xlink:href", function(d){ return "./svg/"+d.propreties.NOM_ICON;})
+				  		.attr("x",-40) //-height/2
+				  		.attr("y",-40) //-width/2
+				  		.attr("transform", function(d) {
+					          return "rotate(" + (-d.x+90) + ")";
+					     })
+                    	.attr("width", 80)
+                    	.attr("height", 80);
+
+                secteur_circle1.attr("opacity","0.0")
+							  		.transition()
+							  		.delay(function(d,i){ return i*40; })
+							  		.duration(500)
+							  		.attr("opacity","1.0");
 
 				var secteur_circle2 = svg_circle2.selectAll(".secteur")
 				      .data(secteurs_in.slice(1)) // cut out the root node, we don't need it
@@ -176,55 +199,32 @@ define([
 					      	.attr("class", "secteur")
 					      	.attr("secteur_id", function(d){ return d.propreties.ID_SECTEUR; })
 					      	.attr("secteur_nom", function(d){ return d.propreties.NOM_SECTEUR; })
+					      	.on("mouseover",afficherNomSecteur,false)
+				    		.on("mouseout",unHoverSecteur,false)
+				    		.on("click", secteur.selectionSecteur,false)
 					      	.attr("transform", function(d) {
 					          return "rotate(" + (d.x - 90) + ") translate(" + d.y + ")";
-					      	})
-				//Cercles exterieur
-				var circles_in_circle1 = secteur_circle1.append("circle")
-				    .attr("r", "0")
-				    .on("mouseover",afficherNomSecteur,false)
-				    .on("mouseout",unHoverSecteur,false)
-				    .on("click", secteur.selectionSecteur,false)
-				    .attr("fill-opacity","0.0")
-				  	.attr("stroke-opacity","0.0");
+					      	});
 
-			   	circles_in_circle1.transition()
-				  		.delay(function(d,i){ return i*40; })
-				  		.duration(500)
-				  		.attr("fill-opacity","1.0")
-				  		.attr("stroke-opacity","1.0")
-				  		.attr("r", function(d) { return radiusScale(d.size); });
-				
-				circles_in_circle1.append("svg:image")
-				  		.attr("xlink:href", function(d){ return "./svg/"+d.propreties.NOM_ICON;})
-				  		.attr("x",-20) //-height/2
-				  		.attr("y",-20) //-width/2
-                    	.attr("width", 40)
-                    	.attr("height", 40);
 				//Cercles interieur
-				var circles_in_circle2 = secteur_circle2.append("circle")
-				    .attr("r", "0")
-				    .on("mouseover",afficherNomSecteur,false)
-				    .on("mouseout",unHoverSecteur,false)
-				    .on("click", secteur.selectionSecteur,false)
-				    .attr("fill-opacity","0.0")
-				  	.attr("stroke-opacity","0.0");
+				secteur_circle2.append("circle")
+				    .attr("r", function(d) { return radiusScale(d.size); });
+				
+				secteur_circle2.append("svg:image")
+				  		.attr("xlink:href", function(d){ return "./svg/"+d.propreties.NOM_ICON;})
+				  		.attr("x",-40) //-height/2
+				  		.attr("y",-40) //-width/2
+				  		.attr("transform", function(d) {
+					          return "rotate(" + (-d.x+80) + ")";
+					     })
+                    	.attr("width", 80)
+                    	.attr("height", 80);
 
-				circles_in_circle2.transition()
-				  		.delay(function(d,i){ return 800+i*40; })
-				  		.duration(500)
-				  		.attr("fill-opacity","1.0")
-				  		.attr("stroke-opacity","1.0")
-				  		.attr("r", function(d) { return radiusScale(d.size); });
-				 /*
-				d3.selectAll(".secteur")
-						.enter()
-						.append("img")
-				  		.attr("src","./svg/industrie.svg")
-				  		.attr("x",0) //-height/2
-				  		.attr("y",0) //-width/2
-                    	.attr("width", 40)
-                    	.attr("height", 40);*/
+                secteur_circle2.attr("opacity","0.0")
+							  		.transition()
+							  		.delay(function(d,i){ return 800+i*40; })
+							  		.duration(500)
+							  		.attr("opacity","1.0");
 
 			});
 
@@ -263,7 +263,7 @@ define([
 				ph_current_value = selectPlaceholder.value;
 
 				d3.select(this).classed("secteurHover",true);
-				selectPlaceholder.value = this.parentNode.getAttribute('secteur_nom');
+				selectPlaceholder.value = this.getAttribute('secteur_nom');
 			};
 
 			function unHoverSecteur(){

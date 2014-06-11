@@ -444,6 +444,7 @@ aside .choises div.choise{
 	text-shadow: 1px 1px #292f35;
 }
 
+
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
 			aside .choises div.choise {
 				font-size: 3.6rem;
@@ -457,6 +458,13 @@ aside .choises div.choise{
 			}
 		}
 
+aside .choises div.currentChoise{
+	border: 1px solid #3c98ff;
+	box-shadow: none;
+	background:url('img/choiseCurrent.png') no-repeat #404952;
+	background-size: 40px 40px;
+	background-position: center center;
+}
 aside .choises div.choise:first-of-type{
 	top:0;
 }
@@ -523,10 +531,13 @@ aside form > input, aside h3{
 	display: none;
 }
 
+aside.asideActive form.selected > input, aside.asideActive h3.selected{
+	display: inline-block;
+}
+
 aside.asideActive .choises h3{
 	color: #fff;
 	text-transform: uppercase;
-	display: inline-block;
 	font-size: 1.25rem;
 	position: absolute;
 	left: 90px;
@@ -540,7 +551,6 @@ aside.asideActive .choises h3:nth-of-type(2){
 }
 
 aside.asideActive .choises form > input{
-	display: block;
 	position: absolute;
 	left: 90px;
 	top: 55px;
@@ -1207,6 +1217,9 @@ div.filterContainer nav ul li:last-child  a:after{
 	stroke:#ddd;
 	stroke-width:1px;
 }
+#Calque_1 path{
+	stroke:red;
+	}
 .secteurHover{
 	fill:#3C98FF;
 	stroke:#3C98FF;
