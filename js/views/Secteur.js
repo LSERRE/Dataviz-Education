@@ -11,7 +11,6 @@ define([
     el: '#containerSecteur',   
     render: function(options){
         var self = this;
-        $('.titleContainer h2').html('Choisissez un type de visualisation');
         var divParent = $("<div>", {id: "containerSecteur"});
         $('.content').append(divParent);
         var divEnfant1 = $("<div>", {id: "svgSecteur"});

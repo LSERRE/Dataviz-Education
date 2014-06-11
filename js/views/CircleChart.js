@@ -13,7 +13,6 @@ define([
     circleChart : '#circleChart',
     template: Handlebars.compile(templateCircleChart),   
     render: function(options){
-      $('.titleContainer h2').html('Choisissez un type de visualisation');
       var self = this;
       self.$el.html(self.template(options));
       CircleChart.init({

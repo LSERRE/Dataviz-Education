@@ -32,32 +32,36 @@
 				    self.gotJsonFile.call(this, null);
 				});
 			},*/
-			compareSecondColumn : function(a, b){
-				return a[1] > b[1];
+			compare: function(a, b){
+				return a[2] < b[2];
 			},
 			initialize : function(){
 				var self = this;
 				$('.result').empty();
 				var result = new Array();
 				console.log(self.params.category);
-				var data = localStorage.getItem(self.params.category);
-				self.params.initialized.call(this, JSON.parse(data));
+				var data = JSON.parse(localStorage.getItem(self.params.category));
+				$.each(data, function(index, value){
+					data[index].minuscule = value['nom'].toLowerCase();
+					//console.log(data['nom']);
+				});
+				self.params.initialized.call(this, data);
 			},
 			render:function(data, search, maxOccurrence){
-				console.log(search);
-				var result = [];
+				$('.result').empty();
+				var result = new Array();
 				if(search.length>1){
 					$.each(data, function(index, value){
-						console.log(value);
-						var occurrence = value.nom.search(new RegExp(search));
+						var occurrence = value.minuscule.search(new RegExp(search.toLowerCase()));
 						if(occurrence!=-1)
 							result.push(new Array(value.nom, value.url, value.code, occurrence));
-						//console.log(value.nom);
 					});
 					console.log(result);
-					//result.sort(self.compareSecondColumn);
+					result.sort(function(a, b) { return a[3]>b[3] }); 
+					console.log(result);
 					var ul = $('.result');
 					for(i=0; i<result.length; i++){
+						console.log(result);
 						if(i==maxOccurrence)
 							return;
 						$('<li>'+result[i][0]+'</li>').appendTo(ul);
@@ -74,7 +78,7 @@
 			category : 'departements',
 			initialized : function(data){
 				$('input[type="text"]').on('keyup',function(e){
-					filter.render(data, $(this).val(), 50);
+					filter.render(data, $(this).val(), 3);
 				});
 			}
 		});

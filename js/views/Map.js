@@ -12,7 +12,6 @@ define([
     el: '.content',   
     template: Handlebars.compile(templateMap), 
     render: function(options){
-      $('.titleContainer h2').html('Choisissez un type de visualisation');
       var self = this;
       self.$el.html(self.template(options)); 
       Map.init({
