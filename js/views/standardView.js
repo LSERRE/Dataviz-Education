@@ -29,6 +29,20 @@ define([
       }
     });
 
+    $('#leftPanel').hover(function(){
+      $('#mainContainer').addClass('active');
+      $('.leftPanel').addClass('asideActive');
+      $('#asideExplain').addClass('active');
+      $('#asideExplain').removeClass('desactive');
+    });
+
+    $('#leftPanel').mouseleave(function(){
+        $('#mainContainer').removeClass('active');
+        $('#asideExplain').addClass('desactive');
+        $('#asideExplain').removeClass('active');
+        $('.leftPanel').removeClass('asideActive');
+    });
+
     $('.content').on('click', function(e){
       e.preventDefault;
       if($('.leftPanel').hasClass('asideActive')){
