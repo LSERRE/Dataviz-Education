@@ -9,7 +9,6 @@ define([
 ], function($, d3, _, Backbone, templateStandardView){
 
   	var status = true;
-    var stepBar=true;
 
     $('#buttonSidebar').on('click', function(e){
       e.preventDefault();
@@ -30,17 +29,21 @@ define([
     });
 
     $('#leftPanel').hover(function(){
-      $('#mainContainer').addClass('active');
-      $('.leftPanel').addClass('asideActive');
-      $('#asideExplain').addClass('active');
-      $('#asideExplain').removeClass('desactive');
+      if(status){
+        $('#mainContainer').addClass('active');
+        $('.leftPanel').addClass('asideActive');
+        $('#asideExplain').addClass('active');
+        $('#asideExplain').removeClass('desactive');
+      }
     });
 
     $('#leftPanel').mouseleave(function(){
-        $('#mainContainer').removeClass('active');
-        $('#asideExplain').addClass('desactive');
-        $('#asideExplain').removeClass('active');
-        $('.leftPanel').removeClass('asideActive');
+        if(status){
+          $('#mainContainer').removeClass('active');
+          $('#asideExplain').addClass('desactive');
+          $('#asideExplain').removeClass('active');
+          $('.leftPanel').removeClass('asideActive');
+        }
     });
 
     $('.content').on('click', function(e){
@@ -52,6 +55,22 @@ define([
         $('.leftPanel').removeClass('asideActive');
         status = true ;
       }
+    });
+
+    $('#about').on('click', function(e){
+      e.preventDefault();
+      $('#aboutSection').addClass('active');
+      $('#mainContainer').removeClass('active');
+      $('#asideExplain').addClass('desactive');
+      $('#asideExplain').removeClass('active');
+      $('.leftPanel').removeClass('asideActive');
+      return false;
+    });
+
+    $('#closeAbout').on('click', function(e){
+      e.preventDefault();
+      $('#aboutSection').removeClass('active');
+      return false;
     });
 
     $.getJSON('json/title.json', function(data){
@@ -99,6 +118,73 @@ define([
         }
       }
     });   
+
+    var departement = new Array();
+    var filter = {
+      defaults : {
+        result : '',
+        file : '',
+        category : '',
+        initialized : function(){}
+      },
+      init : function(options){
+        this.params=$.extend(this.defaults,options);
+        this.initialize();
+      },
+      /*getJsonFile : function(){
+        var self = this.params;
+        $.getJSON(this.params.file, function(result){
+          $.each(result, function(index, value){
+              self.tab.push(value[self.category].toLowerCase());
+            });
+            self.gotJsonFile.call(this, null);
+        });
+      },*/
+      compare: function(a, b){
+        return a[2] < b[2];
+      },
+      initialize : function(){
+        var self = this;
+        $(filter.params.result).empty();
+        var result = new Array();
+        var data = JSON.parse(localStorage.getItem(self.params.category));
+        $.each(data, function(index, value){
+          data[index].minuscule = value['nom'].toLowerCase();
+          //console.log(data['nom']);
+        });
+        self.params.initialized.call(this, data);
+      },
+      render:function(data, search, maxOccurrence){
+        $(filter.params.result).empty();
+        var result = new Array();
+        if(search.length>1){
+          $.each(data, function(index, value){
+            var occurrence = value.minuscule.search(new RegExp(search.toLowerCase()));
+            if(occurrence!=-1)
+              result.push(new Array(value.nom, value.url, value.code, occurrence));
+          });
+          result.sort(function(a, b) { return a[3]>b[3] }); 
+
+          var ul = $(filter.params.result);
+          for(i=0; i<result.length; i++){
+            if(i==maxOccurrence)
+              return;
+            $('<li><a href="">'+result[i][0]+'</a></li>').appendTo(ul);
+          }
+        }
+        
+      }
+    };
+
+    filter.init({
+      result: '.resultDepartement',
+      category : 'departements',
+      initialized : function(data){
+        $('#inputDepartements').on('keyup',function(e){
+          filter.render(data, $(this).val(), 2);
+        });
+      }
+    });
 
   return View;
 });
