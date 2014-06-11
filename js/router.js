@@ -1,6 +1,7 @@
 var glob = {};
 var findType;
 var heatMap=false;
+var stepBar;
 
 define([
   'jquery',
@@ -265,13 +266,14 @@ define([
       document.title = 'Choix du secteur (C) | JobShaker';
       $('.titleContainer h2').html('Choisissez un secteur');
       view.render({step:'C', number:'2'});
-      console.log('test');
       contain();
+      heatMap=false;
       var secteur = new Secteur();
       secteur.render({donnee: donnee});
     });
 
     router.on('route:c-donnee-secteur-item', function(donnee, urlSecteur, urlItemC){
+      console.log(heatMap);
       view.render({step:'C', number:'3'});
       console.log(heatMap);
       if(heatMap==false)
