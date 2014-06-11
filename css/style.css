@@ -1549,7 +1549,6 @@ div.filterContainer nav ul li:last-child  a:after{
     z-index: 100;
     width: 500px;
     margin-left: -250px;
-    margin-top: -250px;
     text-align: center;
     font-family: sans-serif;
 }
@@ -1561,17 +1560,17 @@ div.filterContainer nav ul li:last-child  a:after{
     margin-bottom: 40px;
 }
 
-#infosSecteurs2>h2{
-	display: inline;
-	width: inherit;
-    color:#404952;
-    text-transform: uppercase;
-    font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
-    font-size: 2.0rem;
+#nom{
     background: #f1f1f1;
     border:solid 1px #ddd;
     border-radius: 4px;
-    padding: 15px 30px;
+}
+
+#infosSecteurs2>#nom>h2{
+    color:#404952;
+    text-transform: uppercase;
+    font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
+    font-size: 1.5rem;
 }
 
 #infosSecteurs2>p{
