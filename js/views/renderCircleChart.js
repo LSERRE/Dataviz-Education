@@ -47,7 +47,7 @@ define([
 
                 var scale = d3.scale.linear()
                     .domain([0, d3.max(fakeData)])
-                    .range([200, 200]);
+                    .range([10, 200]);
 
                 var color = d3.scale.linear()
                     .domain([0, d3.max(fakeData)])

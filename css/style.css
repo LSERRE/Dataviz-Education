@@ -1689,22 +1689,33 @@ div.filterContainer nav ul li:last-child  a:after{
 }
 
 #aboutSection.active{
-	opacity: 0.98;
+	opacity: 0.99;
 	display: block;
 }
 
 .aboutSection .closeAbout{
 	position: absolute;
-	top: 20px;
-	right: 20px;
+	top: 30px;
+	right: 30px;
 	width: 30px;
 	height: 30px;
 	display: block;
 	background:url('img/closeAbout.png') no-repeat;
 	background-size: 30px 30px;
+	-webkit-transition: 0.3s ease-out all;
+	-moz-transition: 0.3s ease-out all;
+	-ms-transition: 0.3s ease-out all;
+	-o-transition: 0.3s ease-out all;
+	transition: 0.3s ease-out all;
 }
 
-
+.aboutSection .closeAbout:hover{
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
 
 
 
