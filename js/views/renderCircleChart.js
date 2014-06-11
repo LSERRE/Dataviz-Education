@@ -27,10 +27,10 @@ define([
 
             var leGraph = d3.select(circleChart.params.id).append("svg")
                             .attr("id","leGraph")
-                            .attr("width",w)
-                            .attr("height",h)
+                            //.attr("width",w)
+                            //.attr("height",h)
                                 .append("g")
-                                .attr("transform", "translate(" + (w / 2) + "," + (h / 1.3) + ")") //center the circle
+                                .attr("transform", "translate(" + 450 + "," + 450 + ")") //center the circle
                             ;
 
             var tree = d3.layout.tree()
@@ -47,7 +47,7 @@ define([
 
                 var scale = d3.scale.linear()
                     .domain([0, d3.max(fakeData)])
-                    .range([10, 200]);
+                    .range([200, 200]);
 
                 var color = d3.scale.linear()
                     .domain([0, d3.max(fakeData)])
