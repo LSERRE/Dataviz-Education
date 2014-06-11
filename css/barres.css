@@ -16,6 +16,7 @@
 	.dataBar h1{
 		border-top: 1px solid #404952;
 		margin-top: 11px;
+		padding-top: 6px;
 		font: 1.2rem 'clear_sansbold';
 		color:#404952;
 		text-transform: uppercase;
