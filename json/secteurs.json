@@ -39,9 +39,9 @@
 		,
 		{ "type" : "feature", "propreties": { "ID_SECTEUR": 19, "NOM_SECTEUR": "Commerce", "NOM_ICON": "commerce.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 20, "NOM_SECTEUR": "Transports", "NOM_ICON": "MANQUANT"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 20, "NOM_SECTEUR": "Transports", "NOM_ICON": "transports.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 21, "NOM_SECTEUR": "Hôtellerie et restauration", "NOM_ICON": "MANQUANT"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 21, "NOM_SECTEUR": "Hôtellerie et restauration", "NOM_ICON": "hotellerie_restauration.svg"  } }
 		,
 		{ "type" : "feature", "propreties": { "ID_SECTEUR": 22, "NOM_SECTEUR": "Édition, audiovisuel et diffusion", "NOM_ICON": "edition_audiovisuel.svg"  } }
 		,
@@ -53,7 +53,7 @@
 		,
 		{ "type" : "feature", "propreties": { "ID_SECTEUR": 26, "NOM_SECTEUR": "Immobilier", "NOM_ICON": "immobilier.svg"  } }
 		,
-		{ "type" : "feature", "propreties": { "ID_SECTEUR": 27, "NOM_SECTEUR": "Droit, gestion, architecture et ingénierie", "NOM_ICON": "MANQUANT"  } }
+		{ "type" : "feature", "propreties": { "ID_SECTEUR": 27, "NOM_SECTEUR": "Droit, gestion, architecture et ingénierie", "NOM_ICON": "droit_gestion_architecture_ingenierie.svg"  } }
 		,
 		{ "type" : "feature", "propreties": { "ID_SECTEUR": 28, "NOM_SECTEUR": "Recherche et développement scientifique", "NOM_ICON": "recherche_dev_scientifique.svg"  } }
 		,
