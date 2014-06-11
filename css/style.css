@@ -12,7 +12,7 @@
 10: 404
 11 : CIRCLECHART;
 12 : ABOUT;
-
+13 : THEME;
 */
 
 
@@ -1782,7 +1782,47 @@ div.filterContainer nav ul li:last-child  a:after{
 
 
 
+/* 13 - THEME */
+#container_cT{
+height: 100%;
+margin:0 auto;
+text-align: center;
+font-family: sans-serif;
+}
+#container_cT button{
+background: white;
+padding: 15px 20px;
+border: none;
+cursor: pointer;
+}
+#container_cT button:hover{
+background: blue;
+color: white;
+}
+#choixThemes{
+/*
+width:50%;
+height: 50%;
+background: black;*/
+margin: 0 auto;
+}
+.btnTheme{
+cursor: pointer;
+-webkit-transform-origin: center center;
+-moz-transform-origin: center center;
+transform-origin: center center;
+}
+#descriptionTheme{
+position:absolute;
+left:50%;
+top:50%;
+width:340px;
+margin-left:-160px;
+margin-top: -120px;
+}
+#previous_item,#next_item{
 
+}
 
 
 

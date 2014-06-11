@@ -12,12 +12,13 @@ define([
   'views/Home',
   'views/Map',
   'views/Secteur',
+  'views/Theme',
   'views/HeatMap',
   'views/Select',
   'views/Bar',
   'views/CircleChart',
   'views/Error'
-], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Secteur, HeatMap, Select, Bar, CircleChart, Error) {
+], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Secteur, Theme, HeatMap, Select, Bar, CircleChart, Error) {
 
   // Our router
   var Router = Backbone.Router.extend({
@@ -121,7 +122,8 @@ define([
       $('.titleContainer h2').html('Choisissez un jeu de données');
       view.render({step:'A', number:'1'});
       contain();
-      router.navigate('#/A/test', {trigger: true});
+      var theme = new Theme();
+      theme.render();
     });
 
     router.on('route:a-donnee', function(donnee){
