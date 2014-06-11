@@ -46,9 +46,21 @@ define([
           return opts.inverse(this);
   });
   
+  $.getJSON('json/title.json', function(data){
+      localStorage.setItem('departements', JSON.stringify(data.departements));
+      localStorage.setItem('secteurs', JSON.stringify(data.secteurs));
+      localStorage.setItem('themes', JSON.stringify(data.themes));
+      localStorage.setItem('itemA', JSON.stringify(data.itemA));
+      localStorage.setItem('itemB', JSON.stringify(data.itemB));
+      localStorage.setItem('itemC', JSON.stringify(data.itemC));        
+    });
 
   var initialize = function(){
     // Listen the routes
+
+
+
+
     var router = new Router();
     var view = new StandardView();
     var contain = function(){
@@ -67,8 +79,8 @@ define([
         data = JSON.parse(localStorage.getItem('departements'));
       else if(type=="secteurs")
         data = JSON.parse(localStorage.getItem('secteurs'));
-      else if(type=='donnees')
-        data = JSON.parse(localStorage.getItem('donnees'));
+      else if(type=='themes')
+        data = JSON.parse(localStorage.getItem('themes'));
       else if(type=='itemA')
         data = JSON.parse(localStorage.getItem('itemA'));
       else if(type=='itemB')
@@ -79,6 +91,7 @@ define([
         return false;
       
       if(result=='url' || result=='nom'){
+        console.log(data);
         $.each(data, function(key, value){
           if(result=='url'){
             // want url
@@ -118,12 +131,16 @@ define([
     });
 
     router.on('route:a', function(){
+      // document title and page h2 title
       document.title = 'Choix du jeu de données (A) | JobShaker';
       $('.titleContainer h2').html('Choisissez un jeu de données');
+      // to right step bar and step name
       view.render({step:'A', number:'1'});
+      // div content empty
       contain();
       var theme = new Theme();
-      theme.render();
+      // To determine if we are on step A or step C
+      theme.render({step:'A'});
     });
 
     router.on('route:a-donnee', function(donnee){
@@ -259,9 +276,9 @@ define([
       document.title = 'Choix du jeu de données (C) | JobShaker';
       $('.titleContainer h2').html('Choisissez un jeu de données');
       view.render({step:'C', number:'1'});
-      console.log('C');
-      contain();
-      router.navigate('#/C/test', {trigger: true});
+      var theme = new Theme();
+      // To determine if we are on step A or step C
+      theme.render({step:'A'});
     });
 
     router.on('route:c-donnee', function(donnee){

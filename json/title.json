@@ -329,10 +329,10 @@
     {"id": 37, "nom": "Santé", "url": "sante", "img": "icon.svg"},
     {"id": 38, "nom": "Médico-social", "url": "medico-social", "img": "icon.svg"}
   ],
-  "donnees" :[
+  "themes" :[
     {"id": 1, "nom": "Bien-être", "url": "bien-etre", "img": "A"},
-    {"id": 2, "nom": "Données 2", "url": "donnees2", "img": "B"},
-    {"id": 3, "nom": "Données 3", "url": "donnees3", "img": "C"}
+    {"id": 2, "nom": "Emploi", "url": "emploi", "img": "B"},
+    {"id": 3, "nom": "Société", "url": "societe", "img": "C"}
   ],
   "itemA" :[
     {"nom": "Employés", "url": "employes"},
@@ -344,9 +344,9 @@
     {"nom": "Taux de chômage", "url": "taux-chomage"}
   ],
   "itemB" :[
-    {"nom": "Emploi", "url": "emploi"},
-    {"nom": "Société", "url": "societe"},
-    {"nom": "Bien-être", "url": "bien-etre"}
+    {"id": 0, "nom": "Emploi", "url": "emploi"},
+    {"id": 1, "nom": "Société", "url": "societe"},
+    {"id": 2, "nom": "Bien-être", "url": "bien-etre"}
   ],
   "itemC" :[
     {"nom": "Taux d'activité", "url": "taux-activite"},

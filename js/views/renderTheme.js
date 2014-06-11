@@ -25,9 +25,9 @@ define([
           var data = {
             name : "themes",
             children : [
-              { name: 'EMPLOI', id: 0 },
-              { name: 'SOCIETE', id: 1 },
-              { name: 'BIENETRE', id: 2 },
+              { name: 'EMPLOI', url:'emploi' },
+              { name: 'SOCIETE', url:'societe' },
+              { name: 'BIENETRE', url:'bien-etre' },
             ]
           }
           //console.log(localStorage.getItem('donnees'));
@@ -69,7 +69,7 @@ define([
                           //.attr("x", 228)
                           //.attr("y",53)
                           .attr("nom_theme", function(d){ return d.name; })
-                          .attr("id_theme", function(d){ return d.id; })
+                          .attr("url_theme", function(d){ return d.url; })
                           .attr("class","btnTheme")
                           .attr("transform", function(d) {
                               return "rotate(" + (d.x) + ") translate(" + d.y + ")";
@@ -82,6 +82,8 @@ define([
               .attr("transform","translate(" + (w / 2) + "," + (h / 2) + ") rotate("+30+")");
 
           d3.select(donnees.params.validerId).on("click",function(){  
+            if(!returnValue)
+              returnValue = 'emploi';
             donnees.params.rendered.call(this, returnValue);
             //Jeremy, ici l'ID du secteur est retourné via returnValue
           });
@@ -91,22 +93,21 @@ define([
             //150  Bien-être
             //270  Société
             var degree = 30;
-            switch(this.getAttribute("id_theme"))
+            switch(this.getAttribute("url_theme"))
             {
-              case "0": degree = 30;
+              case "emploi": degree = 30;
               text = "Lorem Elsass ipsum in, Richard Schirmeck kartoffelsalad Gal ! suspendisse nullam leverwurscht pellentesque amet eget elementum dignissim chambon Morbi sit mänele baeckeoffe Salu bissame lacus hopla so merci vielmols und ac picon bière libero. blottkopf, tchao bissame Yo dû. kuglopf messti de Bischheim Verdammi id libero, id, amet s'guelt hoplageiss schneck leo quam. senectus non Gal.  ";
               break;
-              case "1": degree = 270;
+              case "societe": degree = 270;
               text = "schpeck knepfle jetz gehts los Oberschaeffolsheim eleifend lotto-owe météor turpis tristique ullamcorper sit elit auctor, hopla rhoncus habitant porta geïz ornare nüdle wie sagittis flammekueche sit placerat condimentum consectetur Chulia Roberstau Salut bisamme dui risus, ac wurscht geht's tellus ornare libero, bredele ante Huguette morbi bissame mamsell rossbolla Hans gravida turpis, sed Pellentesque vielmols, Racing.";
               break;
-              case "2": degree = 150;
+              case "bien-etre": degree = 150;
               text = "Heineken Carola commodo Oberschaeffolsheim rucksack tellus et dolor Mauris kougelhopf Christkindelsmärik semper aliquam hopla Strasbourg varius mollis schnaps hopla hop munster yeuh. gewurztraminer quam, adipiscing ftomi! Wurschtsalad non Coopé de Truchtersheim purus amet, knack vulputate Spätzle salu réchime sed Chulien Miss Dahlias leo gal Pfourtz ! barapli ch'ai Kabinetpapier DNA, .";
               break;
               default:
               break;
             }
-
-            returnValue = this.getAttribute("id_theme");
+            returnValue = this.getAttribute("url_theme");
 
             document.getElementById("descriptionTheme").innerHTML = text;
 

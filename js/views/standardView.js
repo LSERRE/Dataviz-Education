@@ -73,14 +73,7 @@ define([
       return false;
     });
 
-    $.getJSON('json/title.json', function(data){
-      localStorage.setItem('departements', JSON.stringify(data.departements));
-      localStorage.setItem('secteurs', JSON.stringify(data.secteurs));
-      localStorage.setItem('donnees', JSON.stringify(data.donnees));
-      localStorage.setItem('itemA', JSON.stringify(data.itemA));
-      localStorage.setItem('itemB', JSON.stringify(data.itemB));
-      localStorage.setItem('itemC', JSON.stringify(data.itemC));        
-    });
+    
     
 
     var View = Backbone.View.extend({
@@ -111,7 +104,6 @@ define([
           }
         }
         else{
-          console.log('test');
           stepBar=false;
           $('.stepUI').addClass('none');
           $('.content').width($('.content').width()+10);
@@ -120,7 +112,7 @@ define([
     });   
 
     var departement = new Array();
-    var filter = {
+    /*var filter = {
       defaults : {
         result : '',
         file : '',
@@ -131,15 +123,6 @@ define([
         this.params=$.extend(this.defaults,options);
         this.initialize();
       },
-      /*getJsonFile : function(){
-        var self = this.params;
-        $.getJSON(this.params.file, function(result){
-          $.each(result, function(index, value){
-              self.tab.push(value[self.category].toLowerCase());
-            });
-            self.gotJsonFile.call(this, null);
-        });
-      },*/
       compare: function(a, b){
         return a[2] < b[2];
       },
@@ -184,7 +167,7 @@ define([
           filter.render(data, $(this).val(), 2);
         });
       }
-    });
+    });*/
 
   return View;
 });
