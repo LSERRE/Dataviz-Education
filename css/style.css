@@ -1443,7 +1443,7 @@ div.filterContainer nav ul li:last-child  a:after{
 /* 10: 404 */
 
 
-.page_404{
+.page_404, .page_home{
 	width: 100%;
 	height: 100%;
 	background: url("./img/motif_404.png"), url("./img/404.jpg");
@@ -1452,16 +1452,17 @@ div.filterContainer nav ul li:last-child  a:after{
 	background-position: top left;
 }
 
-.center_404{
+.center_404, .center_home{
 	width: 800px;
 	position: absolute;
 	top: 50%;
-	left: 50%;
-	margin-left: -390px;
+	*left: 50%;
+	*margin-left: -262.5px;
+	left: 15%;
 	margin-top: -62px;
 }
 
-.center_404 h1{
+.center_404 h1, .center_home h1{
 	color: #3C98FF;
 	font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
 	font-size: 7rem;
@@ -1474,11 +1475,11 @@ div.filterContainer nav ul li:last-child  a:after{
 	line-height: 120px;
 }
 
-.center_404 h1 span{
+.center_404 h1 span, .center_home h1 span{
 	color: #FFFFFF;
 }
 
-.center_404 h1+p{
+.center_404 h1+p, .center_home h1+p{
 	color: #919aa4;
 	font-family: 'clear_sansitalic' , 'verdana', 'sans-serif';
 	font-size: 1.4rem;
@@ -1488,7 +1489,7 @@ div.filterContainer nav ul li:last-child  a:after{
 	padding-left: 30px;
 }
 
-.center_404 h1+p a{
+.center_404 h1+p a, .center_home h1+p a{
 	color: #919aa4;
 	text-decoration: none;
 	border-bottom: 1px dotted #919aa4;
