@@ -390,15 +390,17 @@ aside .asideExplain{
 	display: block;
 	margin: 0 auto;
 	opacity: 0.01;
-	text-align: center;
+	text-align: justify;
 	position: absolute;
-	top: 120px;
+	top: 100px;
 	-webkit-transition: opacity 0.2s ease-in-out 0.4s;
     -moz-transition: opacity 0.2s ease-in-out 0.4s;
     -o-transition: opacity 0.2s ease-in-out 0.4s;
     transition: opacity 0.2s ease-in-out 0.4s;
-    padding: 0 40px;
+    padding: 0 26px;
+    line-height: 16pt;
 }
+
 .asideExplain.desactive{
 	opacity: 0;
 	-webkit-transition: opacity 0.2s ease-in-out 
@@ -407,6 +409,7 @@ aside .asideExplain{
     transition: opacity 0.2s ease-in-out ;
 
 }
+
 .asideExplain.active{
 	opacity: 0.99;
 }
@@ -1576,7 +1579,7 @@ div.filterContainer nav ul li:last-child  a:after{
 	left: 50%;
 	width: 900px;
 	height: 450px;
-	margin-top: -250px;
+	margin-top: -260px;
 	margin-left: -450px;
 }
 
