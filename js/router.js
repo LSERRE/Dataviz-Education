@@ -1,6 +1,7 @@
 var glob = {};
 var findType;
 var heatMap=false;
+var stepBar;
 
 define([
   'jquery',
@@ -11,12 +12,13 @@ define([
   'views/Home',
   'views/Map',
   'views/Secteur',
+  'views/Theme',
   'views/HeatMap',
   'views/Select',
   'views/Bar',
   'views/CircleChart',
   'views/Error'
-], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Secteur, HeatMap, Select, Bar, CircleChart, Error) {
+], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Secteur, Theme, HeatMap, Select, Bar, CircleChart, Error) {
 
   // Our router
   var Router = Backbone.Router.extend({
@@ -120,7 +122,8 @@ define([
       $('.titleContainer h2').html('Choisissez un jeu de données');
       view.render({step:'A', number:'1'});
       contain();
-      router.navigate('#/A/test', {trigger: true});
+      var theme = new Theme();
+      theme.render();
     });
 
     router.on('route:a-donnee', function(donnee){
@@ -265,13 +268,14 @@ define([
       document.title = 'Choix du secteur (C) | JobShaker';
       $('.titleContainer h2').html('Choisissez un secteur');
       view.render({step:'C', number:'2'});
-      console.log('test');
       contain();
+      heatMap=false;
       var secteur = new Secteur();
       secteur.render({donnee: donnee});
     });
 
     router.on('route:c-donnee-secteur-item', function(donnee, urlSecteur, urlItemC){
+      console.log(heatMap);
       view.render({step:'C', number:'3'});
       console.log(heatMap);
       if(heatMap==false)
