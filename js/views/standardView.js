@@ -5,8 +5,9 @@ define([
   'd3',
   'underscore',
   'backbone',
-  'text!../../templates/standardView-template.html'
-], function($, d3, _, Backbone, templateStandardView){
+  'text!../../templates/standardView-template.html',
+  'text!../../templates/aside-template.html',
+], function($, d3, _, Backbone, templateStandardView, templateAside){
 
   	var status = true;
 
@@ -78,11 +79,19 @@ define([
 
     var View = Backbone.View.extend({
       el: '.filterContainer',   
+      aside: '.backgroundAside',
       template: Handlebars.compile(templateStandardView), 
+      templateAside: Handlebars.compile(templateAside), 
       render: function(options){
         var self = this;
         $('.page_404').remove();
         self.$el.html(self.template(options)); 
+        console.log(localStorage.getItem('nomSecteur'));
+        $(self.aside).html(self.templateAside({step: options.step, number: options.number, departement: localStorage.getItem('nomDepartement'), codeDepartement: localStorage.getItem('codeDepartement'), secteur: localStorage.getItem('nomSecteur'), theme: localStorage.getItem('nomTheme') })); 
+        console.log(options);
+        if(options.step=='A'){
+          // sidebar first theme, second departement
+        }
         if(options.number){
           $('.stepUI').removeClass('none');
           if(stepBar==false)
@@ -112,7 +121,7 @@ define([
     });   
 
     var departement = new Array();
-    /*var filter = {
+    var filter = {
       defaults : {
         result : '',
         file : '',
@@ -167,7 +176,7 @@ define([
           filter.render(data, $(this).val(), 2);
         });
       }
-    });*/
+    });
 
   return View;
 });

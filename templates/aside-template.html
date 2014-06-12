@@ -1,0 +1,22 @@
+{{#if_eq number "3"}}
+	{{#if_eq step "B"}}
+	<p id="asideExplain" class="asideExplain">Vous êtes actuellement en train de regarder les données du secteur <span id="showSecteur">{{secteur}}</span>, dans le <span id="showDepartement">{{departement}}</span>. Vous pouvez changer directement les paramètres ci-dessous.</p>
+	<div class="choises">
+		<div class="choise"><div>{{codeDepartement}}</div></div>
+		<h3 class="selected">{{departement}}</h3>
+		<form class="selected" action="">	
+			<input type="text" name="departement" id="inputDepartement">
+			<ul class="searchResults resultDepartement"></ul>
+		</form>
+		<span class="middleSeparator"></span>
+		<div class="choise"><div>22</div></div>
+		<h3 class="selected">{{secteur}}</h3>
+		<form class="selected" action="">					
+			<input type="text" name="secteur" id="inputSecteur">
+			<ul class="searchResults resultSecteur"></ul>
+		</form>
+	</div>
+	{{/if_eq}}
+{{else}}
+<p id="asideExplain" class="asideExplain">Vous êtes actuellement en train de regarder les données du secteur <span id="showSecteur">informatique</span>, dans le <span id="showDepartement"></span>. Vous pouvez changer directement les paramètres ci-dessous.</p>
+{{/if_eq}}
