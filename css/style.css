@@ -1661,8 +1661,14 @@ div.filterContainer nav ul li:last-child  a:after{
     color:#64717e;
     font-size: 1.4rem;
     font-family: 'clear_sansitalic' , 'verdana', 'sans-serif';
-    margin-top: -32px;
+    margin-top: 18px;
 }
+
+		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
+			#infosSecteurs2>p{
+			    margin-top: -32px !important;
+			}
+		}
 
 .icon_big{
 	position: relative;

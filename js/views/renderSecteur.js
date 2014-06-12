@@ -228,6 +228,17 @@ define([
 							  		.duration(500)
 							  		.attr("opacity","1.0");
 
+				$( window ).resize(function() {
+					w = $('.content').width(); 
+					h = $('.content').height();
+					console.log("coucou");
+					d3.select("#svg_circles")
+						.attr("width", w)
+			    		.attr("height", h);
+					svg_circle1.attr("transform", "translate(" + (w / 2) + "," + (h / 2) + ")scale("+h/700+")");
+					svg_circle2.attr("transform", "translate(" + (w / 2) + "," + (h / 2) + ") rotate("+360/39+")scale("+h/700+")");
+				});
+
 			});
 
 			//La recherche Live, déclaré après l'init du d3
