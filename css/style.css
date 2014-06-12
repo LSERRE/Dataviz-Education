@@ -1081,7 +1081,7 @@ div.filterContainer nav ul li:last-child  a:after{
 .page{
 	height: calc(100% - 50px);
 	position: relative;
-	width: 1185px;
+	/*width: 1185px;*/
 	margin: 0 auto;
 }
 
@@ -1270,7 +1270,7 @@ div.filterContainer nav ul li:last-child  a:after{
 }
 
 .secteurHover{
-	fill:#3C98FF;
+	fill:#3C98FF !important;
 	stroke:#3C98FF;
 	cursor: pointer;
 }
@@ -1669,10 +1669,11 @@ div.filterContainer nav ul li:last-child  a:after{
 	width: 70px;
 	height: 70px;
 	display: inline-block;
-	border: 1px solid #0078FF;
+	background-color: #F1F1F1;
+	box-shadow: inset 1px 1px #dddddd, 1px 1px #ffffff;
 	border-radius: 50%;
 	margin-bottom: 15px;
-	margin-top: 104px;
+	margin-top: 103px;
 }
 
 .icon_big img{
@@ -1681,8 +1682,8 @@ div.filterContainer nav ul li:last-child  a:after{
 	height: 44.1px;
 	left: 50%;
 	top: 50%;
-	margin-top: -22.05px;
-	margin-left: -22.05px;
+	margin-top: -21.05px;
+	margin-left: -21.05px;
 }
 
 /* BIDON */

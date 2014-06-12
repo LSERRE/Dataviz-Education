@@ -255,12 +255,16 @@ define([
 			function afficherNomSecteur(){
 				ph_current_value = selectPlaceholder.value;
 
+				d3.select(this.children[1]).attr("xlink:href", function(d){ return "./svg/Blanc/"+d.propreties.NOM_ICON;});
+
 				d3.select(this).classed("secteurHover",true);
 				selectPlaceholder.value = this.getAttribute('secteur_nom');
 			};
 
 			function unHoverSecteur(){
 				d3.select(this).classed("secteurHover",false);
+
+				d3.select(this.children[1]).attr("xlink:href", function(d){ return "./svg/"+d.propreties.NOM_ICON;});
 
 				selectPlaceholder.value = ph_current_value;
 			};
