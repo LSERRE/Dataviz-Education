@@ -29,11 +29,13 @@ define([
                 donneesCsv = data;
                 // donneesCsv[CodeSecteur-1][CodeDept]
                 // circleChart.getRow(donneesCsv, CodeDept)
-                 console.log( circleChart.getRow(donneesCsv, circleChart.params.deptChoisi) );
+                var dataACharger = circleChart.getRow(donneesCsv, circleChart.params.deptChoisi);
+
+                 console.log( dataACharger );
                 if(circleChart.params.status!='update')
-                    circleChart.initialize( circleChart.getRow(donneesCsv, circleChart.params.deptChoisi) );
+                    circleChart.initialize( dataACharger );
                 else
-                    circleChart.majCircle( circleChart.getRow(donneesCsv, circleChart.params.deptChoisi) );
+                    circleChart.majCircle( dataACharger );
             });
         },
 
@@ -169,9 +171,11 @@ define([
         },
 
         majCircle: function(leCSV){
-            console.log('LALALALLALA');
+            
             console.log(leCSV);
             var dataCSV = leCSV;
+
+            document.querySelectorAll("#infosSecteurs2>h1").innerHTML = "Valeur";
 
             for(var i=0; i<dataCSV.length;i++)
             {

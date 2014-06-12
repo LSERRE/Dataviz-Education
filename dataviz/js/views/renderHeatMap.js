@@ -13,7 +13,7 @@ define([
 			zommed : false,
 			nomDuTheme: 'EMPLOI',
 			secteurChoisi: '2',
-			parametre:'nb_employes',
+			parametre:'employes',
 			width: $('.content').width(),
 			height:  $('.content').height()-1,
 			status: '',
@@ -75,6 +75,8 @@ define([
 
 			//Supprimer Loader
 			
+			console.log(map.params.secteurChoisi);
+
 		  	/*
 		     * On "bind" un élément SVG path pour chaque entrée
 		     * du tableau features de notre objet geojson
@@ -229,10 +231,12 @@ define([
 		},
 
 		afficherNouvelleCarte: function(donneesCsv){
+
 			//La couleur est encore à définir en fonction de l'onglet
 		  	var color = d3.scale.linear()
 				.domain([0, map.maxVal(donneesCsv[map.params.secteurChoisi-1])])
-				.range(["#f1f1f1","red"]); //#AED4FE"
+				.range(["#f1f1f1","red"]); //COULEUR A METTRE ICI
+
 			d3.selectAll(".departementHM")
 				.transition()
 				.duration(500)
