@@ -180,7 +180,6 @@ define([
           $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+localStorage.getItem('nomItemA')+' dans le secteur #jeudedonnée');
           localStorage.setItem('nomItemA', nomItemA[0]);
           var circleChart = new CircleChart();
-          console.log(urlItemA);
           circleChart.render({donnee: donnee, departement: urlDepartement, itemA: urlItemA});
         }
         else{

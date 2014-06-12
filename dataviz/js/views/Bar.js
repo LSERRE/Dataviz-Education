@@ -12,9 +12,13 @@ define([
     template: Handlebars.compile(templateBar), 
     render: function(options){
       var self = this;
-      console.log(options);
       self.$el.html(self.template(options));
-      $('.emploiBar').removeClass('none');
+      var items = JSON.parse(localStorage.getItem(options.theme));
+      console.log(items);
+      self.$el.html(self.template(options));
+      $.each(items, function(index, value) {
+        $('.emploiBar').append('<section class="dataBar"><div class="containerBar"><div class="bar average" data-value="30%" data-number="450000"><div class="middle"><span>france : 450 000</span></div></div><div class="bar item" data-value="34%" data-number="500430" data-color="'+value.color+'"><span></span></div></div><h1>'+value.nom+'</h1></section>');
+      });
       $('.dataBar').each(function(index){
         var averageBar = $(this).find('.average');
         var averageNumber = averageBar.find('span');
