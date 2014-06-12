@@ -10,7 +10,7 @@ define([
             id: '#svg_d3',
             nomDuTheme: 'EMPLOI', //Valeur par défaut qui doive être réécrite
             deptChoisi: '35',
-            parametre:'nb_employes',
+            parametre:'entreprises',
             needInit: true,
         },
 
@@ -29,38 +29,22 @@ define([
             d3.csv(nom_du_CSV,function(data){
                 donneesCsv = data;
                 // donneesCsv[CodeSecteur-1][CodeDept]
-                console.log(donneesCsv[keys["2"]])
+                // circleChart.getRow(donneesCsv, CodeDept)
+                 console.log( circleChart.getRow(donneesCsv, circleChart.params.deptChoisi) );
                 if(circleChart.params.needInit)
-                    circleChart.initialize(donneesCsv);
+                    circleChart.initialize( circleChart.getRow(donneesCsv, circleChart.params.deptChoisi) );
                 else
-                    circleChart.majCircle(donneesCsv);
+                    circleChart.majCircle( circleChart.getRow(donneesCsv, circleChart.params.deptChoisi) );
             });
         },
 
-        maxVal : function(array){
-            //Fonction max custom pour les départements
-            var maxVal = 0;
-            //console.log(newArray);
+        getRow : function(array, nbr){
+            var retArray = new Array();
             for(var i=0; i<Object.keys(array).length; i++)
             {
-                var y;
-                y = i+1;
-                if (y<10)
-                    y="0"+y;
-                else if(y == 96)
-                    y="2A";
-                else if(y == 97)
-                    y="2B";
-                // La seul erreur vient du departement 20 qui n'existe pas, c'est le undefined
-
-                if (array[y] == undefined){
-                    console.log("MaxValue encounter an Undefined value : "+y);
-                }else{
-                    if( parseInt(array[y].replace(" ",""))>maxVal )
-                        maxVal = parseInt(array[y].replace(" ",""));
-                }
+                retArray[i] = array[i][nbr];
             }
-            return maxVal;
+            return retArray;
         },
 
         initialize: function(leCSV){
@@ -72,6 +56,11 @@ define([
             var circle_radius = 500/2;
 
             var dataCSV = leCSV;
+
+            for(var i=0; i<dataCSV.length;i++)
+            {
+                dataCSV[i] = parseInt(leCSV[i].replace(" ",""));
+            }
 
             var leGraph = d3.select(circleChart.params.id).append("svg")
                             .attr("id","leGraph")
@@ -93,12 +82,15 @@ define([
                 };
                 var secteurs_bars = tree.nodes(dataTree);
 
+                console.log(dataCSV);
+                console.log( d3.max(dataCSV));
+
                 var scale = d3.scale.linear()
-                    .domain([0, circleChart.maxVal(dataCSV)])
+                    .domain([0, d3.max(dataCSV)])
                     .range([10, 200]);
 
                 var color = d3.scale.linear()
-                    .domain([0, circleChart.maxVal(dataCSV)])
+                    .domain([0, d3.max(dataCSV)])
                     .range(["#AED4FE","#0078FF"]); //#AED4FE"
 
                 var bars = leGraph.selectAll(".uneBarSecteur")
@@ -122,8 +114,8 @@ define([
                             .transition()
                             .duration(500)
                             .delay(function(d,i){ return 30*i;})
-                                .attr("width", function(d,i){
-                                    return scale(dataCSV[i]);
+                            .attr("width", function(d,i){
+                                return scale(dataCSV[i]);
                             })
                             .each("end", function(){
                                 d3.select(this)
@@ -151,41 +143,36 @@ define([
             d3.select("#infosSecteurs2>#nom>h2").html(item.getAttribute("secteur_nom"));
             d3.select("#infosSecteurs2>span").html("<img src='./svg/"+item.getAttribute("secteur_icon")+"' alt='icon secteur'/>");
         }
-        /*
-        majCircle: function() {
 
-            var donneesCsv = [];
-            d3.csv(nomDuCsv,function(data){
-                donneesCsv = data;
-                // donneesCsv[CodeSecteur-1][CodeDept]
-                // console.log(donneesCsv["10"]["13"])
-                map.afficherNewCircle(donneesCsv);
-            });
+        afficherNewCircle: function(leCSV){
 
-        },
+            var dataCSV = leCSV;
 
-        afficherNewCircle: function(donneesCsv){
-
+            for(var i=0; i<dataCSV.length;i++)
+            {
+                dataCSV[i] = parseInt(leCSV[i].replace(" ",""));
+            }
             //La couleur est encore à définir en fonction de l'onglet
             
+            var scale = d3.scale.linear()
+                    .domain([0, d3.max(dataCSV)])
+                    .range([10, 200]);
+
             var color = d3.scale.linear()
-                .domain([0, map.maxVal(donneesCsv[map.params.secteurChoisi-1])])
-                .range(["#f1f1f1","#0078FF"]); //#AED4FE"
+                .domain([0, d3.max(dataCSV)])
+                .range(["#AED4FE","#0078FF"]); //#AED4FE"
             
-            d3.selectAll(".departementHM")
-                .enter()
-                    .transition()
-                    .duration(1000)
-                    .attr('fill', function(d) { 
-                        if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null){
-                            console.log("Undefined or NULL at "+(map.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
-                            return;
-                        }
-                        return color(parseInt(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT].replace(" ",""))); 
-                    })
-                    .attr("value",function(d){ return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] })
+
+            d3.selectAll(".uneBarSecteur")
+                .attr("fill", function(d,i){ return color(dataCSV[i]); })
+                .attr("width", function(d,i){
+                    return scale(dataCSV[i]);
+                })
+                .attr("value", function(d,i){ return dataCSV[i]; })
+                ;
+
         }
-        */
+        
     };
 
     return {
