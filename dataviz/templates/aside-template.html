@@ -3,21 +3,21 @@
 		<p id="asideExplain" class="asideExplain">Vous êtes actuellement en train de regarder les données du thème <strong>{{theme}}</strong>, dans le département <strong>{{departement}}</strong>. Vous pouvez changer directement les paramètres ci-dessous.</p>
 	{{/if_eq}}
 	<div class="choises">
-		<div class="choise"><div></div></div>
+		<div class="choise {{#if_eq number '1'}} currentChoise{{/if_eq}}"><div></div></div>
 		<h3 class="selected">{{theme}}</h3>
 		{{#if_eq number "3"}}
 			<form class="selected">	
 				<input type="text" name="theme" id="inputTheme">
-				<ul class="searchResults resultTheme"></ul>
+				<ul class="top searchResults resultTheme"></ul>
 			</form>
 		{{/if_eq}}
 		<span class="middleSeparator"></span>
-		<div class="choise"><div>{{codeDepartement}}</div></div>
+		<div class="choise {{#if_eq number '2'}} currentChoise{{/if_eq}}"><div>{{#if_eq number '1'}} {{else}} {{#if_eq number '3'}} {{codeDepartement}} {{/if_eq}} {{/if_eq}} </div></div>
 		<h3 class="selected">{{departement}}</h3>
 		{{#if_eq number "3"}}
 			<form class="selected" action="">	
 				<input type="text" name="departement" id="inputDepartement">
-				<ul class="searchResults resultDepartement"></ul>
+				<ul class="bottom searchResults resultDepartement"></ul>
 			</form>
 		{{/if_eq}}
 	</div>
@@ -29,19 +29,23 @@
 		<p id="asideExplain" class="asideExplain">Vous êtes actuellement en train de regarder les données du secteur <strong>{{secteur}}</strong>, dans le département <strong>{{departement}}</strong>. Vous pouvez changer directement les paramètres ci-dessous.</p>
 	{{/if_eq}}
 	<div class="choises">
-		<div class="choise"><div>{{codeDepartement}}</div></div>
+		<div class="choise {{#if_eq number '1'}} currentChoise{{/if_eq}}"><div> {{#if_eq number '1'}} {{else}} {{codeDepartement}} {{/if_eq}} </div></div>
 		<h3 class="selected">{{departement}}</h3>
-		<form class="selected" action="">	
-			<input type="text" name="departement" id="inputDepartement">
-			<ul class="searchResults resultDepartement"></ul>
-		</form>
+		{{#if_eq number "3"}} 
+			<form class="selected" action="">	
+				<input type="text" name="departement" id="inputDepartement">
+				<ul class="top searchResults resultDepartement"></ul>
+			</form>
+		{{/if_eq}}
 		<span class="middleSeparator"></span>
-		<div class="choise"><div></div></div>
-		<h3>{{secteur}}</h3>
-		<form action="">					
-			<input type="text" name="secteur" id="inputSecteur">
-			<ul class="searchResults resultSecteur"></ul>
-		</form>
+		<div class="choise {{#if_eq number '2'}} currentChoise{{/if_eq}}"><div></div></div>
+		<h3 class="selected">{{secteur}}</h3>
+		{{#if_eq number "3"}} 
+			<form class="selected" action="">					
+				<input type="text" name="secteur" id="inputSecteur">
+				<ul class="bottom searchResults resultSecteur"></ul>
+			</form>
+		{{/if_eq}}
 	</div>
 {{/if_eq}}
 
@@ -50,21 +54,21 @@
 		<p id="asideExplain" class="asideExplain">Vous êtes actuellement en train de regarder les données du thème <strong>{{theme}}</strong>, dans le secteur <strong>{{secteur}}</strong>. Vous pouvez changer directement les paramètres ci-dessous.</p>
 	{{/if_eq}}
 	<div class="choises">
-		<div class="choise"><div></div></div>
+		<div class="choise {{#if_eq number '1'}} currentChoise{{/if_eq}}"><div></div></div>
 		<h3 class="selected">{{theme}}</h3>
 		{{#if_eq number "3"}}
 			<form class="selected">	
 				<input type="text" name="theme" id="inputTheme">
-				<ul class="searchResults resultTheme"></ul>
+				<ul class="top searchResults resultTheme"></ul>
 			</form>
 		{{/if_eq}}
 		<span class="middleSeparator"></span>
-		<div class="choise"><div></div></div>
-		<h3>{{secteur}}</h3>
+		<div class="choise {{#if_eq number '2'}} currentChoise{{/if_eq}}"><div></div></div>
+		<h3 class="selected">{{secteur}}</h3>
 		{{#if_eq number "3"}}
-			<form action="">	
+			<form class="selected" action="">	
 				<input type="text" name="secteur" id="inputSecteur">
-				<ul class="searchResults resultSecteur"></ul>
+				<ul class="bottom searchResults resultSecteur"></ul>
 			</form>
 		{{/if_eq}}
 	</div>

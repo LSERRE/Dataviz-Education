@@ -104,73 +104,72 @@ define([
           else if(options.number==3){
 
             if(options.step=='A'){
-              var A = filter.init({
+              var A = filterDepartement.init({
                 result: '.resultDepartement',
                 category : 'departements',
                 step : options.step,
                 initialized : function(data){
-                  console.log(filter.result);
                   $('#inputDepartement').on('keyup',function(e){
-                    filter.render(data, $(this).val(), 2);
+                    filterDepartement.render(data, $(this).val(), 2);
                   });
                 }
               });
 
-              var B = filter.init({
+              var B = filterTheme.init({
                 result: '.resultTheme',
                 category : 'themes',
                 step : options.step,
                 initialized : function(data){
                   $('#inputTheme').on('keyup',function(e){
-                    filter.render(data, $(this).val(), 2);
+                    filterTheme.render(data, $(this).val(), 2);
                   });
                 }
               });
             }
             
             else if(options.step=='B'){
-              filter.init({
+              filterDepartement.init({
                 result: '.resultDepartement',
                 category : 'departements',
                 step : options.step,
                 initialized : function(data){
                   $('#inputDepartement').on('keyup',function(e){
-                    filter.render(data, $(this).val(), 2);
+                    filterDepartement.render(data, $(this).val(), 2);
                   });
                 }
               });
 
-              filter.init({
+              filterSecteur.init({
                 result: '.resultSecteur',
                 category : 'secteurs',
                 step : options.step,
                 initialized : function(data){
                   $('#inputSecteur').on('keyup',function(e){
-                    filter.render(data, $(this).val(), 2);
+                    filterSecteur.render(data, $(this).val(), 2);
                   });
                 }
               });
             }
 
             else{
-              filter.init({
+              filterTheme.init({
                 result: '.resultTheme',
                 category : 'themes',
                 step : options.step,
                 initialized : function(data){
                   $('#inputTheme').on('keyup',function(e){
-                    filter.render(data, $(this).val(), 2);
+                    filterTheme.render(data, $(this).val(), 2);
                   });
                 }
               });
 
-              filter.init({
+              filterSecteur.init({
                 result: '.resultSecteur',
                 category : 'secteurs',
                 step : options.step,
                 initialized : function(data){
                   $('#inputSecteur').on('keyup',function(e){
-                    filter.render(data, $(this).val(), 2);
+                    filterSecteur.render(data, $(this).val(), 2);
                   });
                 }
               });
@@ -188,7 +187,7 @@ define([
       }
     });   
 
-    var filter = {
+ var filterTheme = {
       defaults : {
         result : '',
         file : '',
@@ -214,7 +213,7 @@ define([
       },
       initialize : function(){
         var self = this;
-        $(filter.params.result).empty();
+        $(filterTheme.params.result).empty();
         var result = new Array();
         var data = JSON.parse(localStorage.getItem(self.params.category));
         $.each(data, function(index, value){
@@ -248,6 +247,125 @@ define([
       }
     };
 
+     var filterDepartement = {
+      defaults : {
+        result : '',
+        file : '',
+        category : '',
+        step: '',
+        initialized : function(){}
+      },
+      init : function(options){
+        this.params=$.extend(this.defaults,options);
+        this.initialize();
+      },
+      /*getJsonFile : function(){
+        var self = this.params;
+        $.getJSON(this.params.file, function(result){
+          $.each(result, function(index, value){
+              self.tab.push(value[self.category].toLowerCase());
+            });
+            self.gotJsonFile.call(this, null);
+        });
+      },*/
+      compare: function(a, b){
+        return a[2] < b[2];
+      },
+      initialize : function(){
+        var self = this;
+        $(filterDepartement.params.result).empty();
+        var result = new Array();
+        var data = JSON.parse(localStorage.getItem(self.params.category));
+        $.each(data, function(index, value){
+          data[index].minuscule = value['nom'].toLowerCase();
+          //console.log(data['nom']);
+        });
+        self.params.initialized.call(this, data);
+      },
+      render:function(data, search, maxOccurrence){
+        var self = this;
+        $(filterDepartement.params.result).empty();
+        var result = new Array();
+        if(search.length>1){
+          $.each(data, function(index, value){
+            var occurrence = value.minuscule.search(new RegExp(search.toLowerCase()));
+            if(occurrence!=-1)
+              result.push(new Array(value.nom, value.url, value.code, occurrence));
+          });
+          result.sort(function(a, b) { return a[3]>b[3] }); 
+          var ul = $(self.params.result);
+          for(i=0; i<result.length; i++){
+            if(i==maxOccurrence)
+              return;
+            var lien;
+            if(filterDepartement.params.step='B')
+              lien='#/B/'+result[i][1]+'/'+localStorage.getItem('urlSecteur')+'/emploi';
+            $('<li><a href="'+lien+'">'+result[i][0]+'</a></li>').appendTo(ul);
+          }
+        }
+        
+      }
+    };
+
+     var filterSecteur = {
+      defaults : {
+        result : '',
+        file : '',
+        category : '',
+        step: '',
+        initialized : function(){}
+      },
+      init : function(options){
+        this.params=$.extend(this.defaults,options);
+        this.initialize();
+      },
+      /*getJsonFile : function(){
+        var self = this.params;
+        $.getJSON(this.params.file, function(result){
+          $.each(result, function(index, value){
+              self.tab.push(value[self.category].toLowerCase());
+            });
+            self.gotJsonFile.call(this, null);
+        });
+      },*/
+      compare: function(a, b){
+        return a[2] < b[2];
+      },
+      initialize : function(){
+        var self = this;
+        $(filterSecteur.params.result).empty();
+        var result = new Array();
+        var data = JSON.parse(localStorage.getItem(self.params.category));
+        $.each(data, function(index, value){
+          data[index].minuscule = value['nom'].toLowerCase();
+          //console.log(data['nom']);
+        });
+        self.params.initialized.call(this, data);
+      },
+      render:function(data, search, maxOccurrence){
+        var self = this;
+        $(filterSecteur.params.result).empty();
+        var result = new Array();
+        if(search.length>1){
+          $.each(data, function(index, value){
+            var occurrence = value.minuscule.search(new RegExp(search.toLowerCase()));
+            if(occurrence!=-1)
+              result.push(new Array(value.nom, value.url, value.code, occurrence));
+          });
+          result.sort(function(a, b) { return a[3]>b[3] }); 
+          var ul = $(self.params.result);
+          for(i=0; i<result.length; i++){
+            if(i==maxOccurrence)
+              return;
+            var lien;
+            if(filterSecteur.params.step='B')
+              lien='#/B/'+result[i][1]+'/'+localStorage.getItem('urlSecteur')+'/emploi';
+            $('<li><a href="'+lien+'">'+result[i][0]+'</a></li>').appendTo(ul);
+          }
+        }
+        
+      }
+    };
 
   return View;
 });
