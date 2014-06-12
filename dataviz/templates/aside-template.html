@@ -4,7 +4,7 @@
 	{{/if_eq}}
 	<div class="choises">
 		<div class="choise {{#if_eq number '1'}} currentChoise{{/if_eq}}"><div></div></div>
-		<h3 class="selected">{{theme}}</h3>
+		<h3 class="selected">{{#if_eq number "2"}} {{theme}}	{{/if_eq}}</h3>
 		{{#if_eq number "3"}}
 			<form class="selected">	
 				<input type="text" name="theme" id="inputTheme">
@@ -13,7 +13,7 @@
 		{{/if_eq}}
 		<span class="middleSeparator"></span>
 		<div class="choise {{#if_eq number '2'}} currentChoise{{/if_eq}}"><div>{{#if_eq number '1'}} {{else}} {{#if_eq number '3'}} {{codeDepartement}} {{/if_eq}} {{/if_eq}} </div></div>
-		<h3 class="selected">{{departement}}</h3>
+		<h3 class="selected"> {{#if_eq number "3"}} {{departement}} {{/if_eq}} </h3>
 		{{#if_eq number "3"}}
 			<form class="selected" action="">	
 				<input type="text" name="departement" id="inputDepartement">
@@ -30,7 +30,7 @@
 	{{/if_eq}}
 	<div class="choises">
 		<div class="choise {{#if_eq number '1'}} currentChoise{{/if_eq}}"><div> {{#if_eq number '1'}} {{else}} {{codeDepartement}} {{/if_eq}} </div></div>
-		<h3 class="selected">{{departement}}</h3>
+		<h3 class="selected">{{#if_eq number "2"}} {{departement}} {{/if_eq}} </h3>
 		{{#if_eq number "3"}} 
 			<form class="selected" action="">	
 				<input type="text" name="departement" id="inputDepartement">
@@ -39,7 +39,7 @@
 		{{/if_eq}}
 		<span class="middleSeparator"></span>
 		<div class="choise {{#if_eq number '2'}} currentChoise{{/if_eq}}"><div></div></div>
-		<h3 class="selected">{{secteur}}</h3>
+		<h3 class="selected">{{#if_eq number "3"}} {{secteur}} {{/if_eq}}</h3>
 		{{#if_eq number "3"}} 
 			<form class="selected" action="">					
 				<input type="text" name="secteur" id="inputSecteur">
@@ -55,7 +55,7 @@
 	{{/if_eq}}
 	<div class="choises">
 		<div class="choise {{#if_eq number '1'}} currentChoise{{/if_eq}}"><div></div></div>
-		<h3 class="selected">{{theme}}</h3>
+		<h3 class="selected">{{#if_eq number "2"}} {{theme}} {{/if_eq}}</h3>
 		{{#if_eq number "3"}}
 			<form class="selected">	
 				<input type="text" name="theme" id="inputTheme">
@@ -64,7 +64,7 @@
 		{{/if_eq}}
 		<span class="middleSeparator"></span>
 		<div class="choise {{#if_eq number '2'}} currentChoise{{/if_eq}}"><div></div></div>
-		<h3 class="selected">{{secteur}}</h3>
+		<h3 class="selected">{{#if_eq number "3"}} {{secteur}} {{/if_eq}}</h3>
 		{{#if_eq number "3"}}
 			<form class="selected" action="">	
 				<input type="text" name="secteur" id="inputSecteur">

@@ -348,14 +348,11 @@ aside > footer{
 			  }
 			}
 		}
-<<<<<<< HEAD
 
 aside .asideContainer{
 	height: 100%;
 }
 
-=======
->>>>>>> 94c91f387a6e692cee93bef3c0bf262e5b9cd242
 aside .backgroundAside{
 	background: #38414b;
 	height: calc(100% - 98px);
@@ -474,7 +471,7 @@ aside .choises div.currentChoise{
 	border: 1px solid #3c98ff;
 	box-shadow: none;
 	background:url('img/choiseCurrent.png') no-repeat #404952;
-	background-size: 40px 40px;
+	background-size: 30px 30px;
 	background-position: center center;
 }
 aside .choises div.choise:first-of-type{
