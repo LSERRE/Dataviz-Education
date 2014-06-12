@@ -2,27 +2,25 @@
 <!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-<path fill="none" stroke="#568DCB" stroke-linejoin="round" stroke-miterlimit="10" d="M60.167,60.333l3.896-7.426
-	c0.902-1.719,0.916-3.769,0.038-5.501l-3.352-6.611c-0.792-1.563-2.228-2.701-3.931-3.116l-5.814-1.417
-	c-0.933-0.227-1.908-0.227-2.841,0l-5.814,1.417c-1.702,0.415-3.138,1.553-3.931,3.116l-3.352,6.611
-	c-0.878,1.732-0.864,3.781,0.038,5.501l4.333,7.812"/>
-<path fill="none" stroke="#568DCB" stroke-linejoin="round" stroke-miterlimit="10" d="M38.531,61.872l2.533-3.112
-	c0.554-0.68,1.378-1.084,2.255-1.105l12.91-0.309c0.885-0.021,1.734,0.349,2.32,1.013l2.689,3.043
-	c0.833,0.943,0.989,2.298,0.398,3.409c-1.183,2.223-4.216,5.399-11.886,5.44c-7.879,0.042-10.67-3.17-11.654-5.314
-	C37.632,63.926,37.83,62.734,38.531,61.872z"/>
-<circle fill="none" stroke="#568DCB" stroke-linejoin="round" stroke-miterlimit="10" cx="43.875" cy="63.312" r="1.75"/>
-<circle fill="none" stroke="#568DCB" stroke-linejoin="round" stroke-miterlimit="10" cx="55.875" cy="63.312" r="1.75"/>
-<path fill="none" stroke="#568DCB" stroke-linejoin="round" stroke-miterlimit="10" d="M40.125,45.25c0,0-0.438,4.438,3.125,4.438
-	s3.188-3.688,3.188-4.312"/>
-<path fill="none" stroke="#568DCB" stroke-linejoin="round" stroke-miterlimit="10" d="M58.557,45.25c0,0,0.438,4.438-3.125,4.438
-	S52.244,46,52.244,45.375"/>
-<path fill="none" stroke="#568DCB" stroke-linejoin="round" stroke-miterlimit="10" d="M34,51.125c0,0-5.312-0.75-4.625-5.625
-	s1.812-9.625,4.75-5.75s3.062,3.375,3.062,3.375"/>
-<path fill="none" stroke="#568DCB" stroke-linejoin="round" stroke-miterlimit="10" d="M64.814,51.125c0,0,5.312-0.75,4.625-5.625
-	s-1.812-9.625-4.75-5.75S62,42.812,62,42.812"/>
-<path fill="none" stroke="#568DCB" stroke-linejoin="round" stroke-miterlimit="10" d="M35.688,41.688c0,0-4.625-5.812,6.812-11.812
-	c-2.125,2.062-4.894,4.434-3.25,9.062"/>
-<path fill="none" stroke="#568DCB" stroke-linejoin="round" stroke-miterlimit="10" d="M64.156,40.469c0,0,4.482-4.594-6.956-10.594
-	c2.125,2.062,4.569,4.809,2.925,9.438"/>
+	 viewBox="28.8 29.4 41.2 41.4" enable-background="new 28.8 29.4 41.2 41.4" xml:space="preserve">
+<path fill="none" stroke="#0078FF" stroke-linejoin="round" stroke-miterlimit="10" d="M60.2,60.3l3.9-7.4c0.9-1.7,0.9-3.8,0-5.5
+	l-3.4-6.6c-0.8-1.6-2.2-2.7-3.9-3.1L51,36.3c-0.9-0.2-1.9-0.2-2.8,0l-5.8,1.4c-1.7,0.4-3.1,1.6-3.9,3.1l-3.4,6.6
+	c-0.9,1.7-0.9,3.8,0,5.5l4.3,7.8"/>
+<path fill="none" stroke="#0078FF" stroke-linejoin="round" stroke-miterlimit="10" d="M38.5,61.9l2.5-3.1c0.6-0.7,1.4-1.1,2.3-1.1
+	l12.9-0.3c0.9,0,1.7,0.3,2.3,1l2.7,3c0.8,0.9,1,2.3,0.4,3.4c-1.2,2.2-4.2,5.4-11.9,5.4c-7.9,0-10.7-3.2-11.7-5.3
+	C37.6,63.9,37.8,62.7,38.5,61.9z"/>
+<circle fill="none" stroke="#0078FF" stroke-linejoin="round" stroke-miterlimit="10" cx="43.9" cy="63.3" r="1.7"/>
+<circle fill="none" stroke="#0078FF" stroke-linejoin="round" stroke-miterlimit="10" cx="55.9" cy="63.3" r="1.7"/>
+<path fill="none" stroke="#0078FF" stroke-linejoin="round" stroke-miterlimit="10" d="M40.1,45.2c0,0-0.4,4.4,3.1,4.4
+	s3.2-3.7,3.2-4.3"/>
+<path fill="none" stroke="#0078FF" stroke-linejoin="round" stroke-miterlimit="10" d="M58.6,45.2c0,0,0.4,4.4-3.1,4.4
+	s-3.2-3.7-3.2-4.3"/>
+<path fill="none" stroke="#0078FF" stroke-linejoin="round" stroke-miterlimit="10" d="M34,51.1c0,0-5.3-0.8-4.6-5.6
+	s1.8-9.6,4.8-5.8s3.1,3.4,3.1,3.4"/>
+<path fill="none" stroke="#0078FF" stroke-linejoin="round" stroke-miterlimit="10" d="M64.8,51.1c0,0,5.3-0.8,4.6-5.6
+	s-1.8-9.6-4.8-5.8S62,42.8,62,42.8"/>
+<path fill="none" stroke="#0078FF" stroke-linejoin="round" stroke-miterlimit="10" d="M35.7,41.7c0,0-4.6-5.8,6.8-11.8
+	c-2.1,2.1-4.9,4.4-3.2,9.1"/>
+<path fill="none" stroke="#0078FF" stroke-linejoin="round" stroke-miterlimit="10" d="M64.2,40.5c0,0,4.5-4.6-7-10.6
+	c2.1,2.1,4.6,4.8,2.9,9.4"/>
 </svg>
