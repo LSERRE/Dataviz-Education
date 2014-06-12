@@ -11,6 +11,8 @@ define([
           itemId: '.btnTheme',
           descriptionId: '#descriptionTheme',
           validerId: '#valider_item',
+          flecheG:'#previous_item',
+          flecheD:'#next_item',
           rendered: function(){}
         },
 
@@ -34,7 +36,7 @@ define([
           var w = 600;
           var h = 600;
 
-          var returnValue = 0;
+          var returnValue = "emploi";
           
           var radius = 400/2;
           
@@ -88,12 +90,66 @@ define([
             //Jeremy, ici l'ID du secteur est retourné via returnValue
           });
 
-          function tournerRoueAt(){
+          document.onkeydown=function (e)
+          {
+            e=e || window.event;
+            var code=e.keyCode || e.which;  
+            //Gauche & Haut
+            if (code==37 || code==38){
+              e.preventDefault();
+              tournerG();
+            }
+            //Droite & Bas
+            if (code==39 || code==40){
+              e.preventDefault();
+              tournerD();
+            }
+          }
+
+          d3.select(donnees.params.flecheG).on("click", tournerG, false);
+          d3.select(donnees.params.flecheD).on("click", tournerD, false);
+
+          function tournerG(){
+            switch(returnValue)
+            {
+              case "emploi": returnValue = "societe";
+              break;
+              case "societe": returnValue = "bien-etre";
+              break;
+              case "bien-etre": returnValue = "emploi";
+              break;
+            }
+            tournerRoueAt(true);
+            return false;
+          }
+
+          function tournerD(){
+            switch(returnValue)
+            {
+              case "emploi": returnValue = "bien-etre";
+              break;
+              case "bien-etre": returnValue = "societe";
+              break;
+              case "societe": returnValue = "emploi";
+              break;
+            }
+            tournerRoueAt(true);
+            return false;
+          }
+
+          function tournerRoueAt(at){
             //30  Emploi
             //150  Bien-être
             //270  Société
+            if(at == true)
+            {}  //No need to specify a value, it's returnValue
+            else{
+              returnValue = this.getAttribute("url_theme");
+            }
+            var text = "";
+
             var degree = 30;
-            switch(this.getAttribute("url_theme"))
+            switch(returnValue)
             {
               case "emploi": degree = 30;
               text = "Lorem Elsass ipsum in, Richard Schirmeck kartoffelsalad Gal ! suspendisse nullam leverwurscht pellentesque amet eget elementum dignissim chambon Morbi sit mänele baeckeoffe Salu bissame lacus hopla so merci vielmols und ac picon bière libero. blottkopf, tchao bissame Yo dû. kuglopf messti de Bischheim Verdammi id libero, id, amet s'guelt hoplageiss schneck leo quam. senectus non Gal.  ";
@@ -107,7 +163,6 @@ define([
               default:
               break;
             }
-            returnValue = this.getAttribute("url_theme");
 
             document.getElementById("descriptionTheme").innerHTML = text;
 

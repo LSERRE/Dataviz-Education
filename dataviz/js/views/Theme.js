@@ -29,6 +29,7 @@ define([
             localStorage.setItem('urlTheme', result);
             localStorage.setItem('nomTheme', themeName[0]);
             // redirection
+            console.log(options.step);
             if(options.step=='A'){
               // route A
               glob.router.navigate('#/A/'+themeName[0], {trigger: true});

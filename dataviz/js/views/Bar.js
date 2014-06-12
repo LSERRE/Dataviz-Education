@@ -13,7 +13,6 @@ define([
     render: function(options){
       var self = this;
       self.$el.html(self.template(options));
-      console.log($('.emploiBar'));
       $('.emploiBar').removeClass('none');
       $('.dataBar').each(function(index){
         var averageBar = $(this).find('.average');
@@ -31,7 +30,7 @@ define([
             var iteration = itemNumber/40;
             // itemNumber <-> 2 secondes ; itemNumber/2 <-> 1 seconde ; itemNumber/(2*10) <-> 0,1 seconde ; itemNumber/(2*10*2) <-> 0,05 seconde
             //var iteration = 1.040;
-            console.log(itemNumber+' '+averageBar.height()+' '+iteration);
+            //console.log(itemNumber+' '+averageBar.height()+' '+iteration);
             var count= setInterval(function(){
 
               temp+=iteration;
