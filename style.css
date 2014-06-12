@@ -213,7 +213,7 @@ div.centerHome{
 	float: left;
 }
 .centerHome h1+p, .centerHome h1+p {
-	color: #919aa4;
+	color: #F1F1F1;
 	font-family: 'clear_sansitalic' , 'verdana', 'sans-serif';
 	font-size: 1.4rem;
 	display: inline-block;
@@ -227,21 +227,21 @@ div.centerHome{
 	margin-top: 26px;
 }
 .centerHome h1 > span{
-	color: #B1B3B6 !important;
+	color: #F1F1F1 !important;
 }
 .centerHome a{
-	width: 60%;
-	display: block;
-	margin: 0 auto;
-	color: #fff;
-	background-color: #3c80ce;
-	margin-top: 100px;
-	border-radius: 15px;
-	font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
-	text-align: center;
-	font-size: 2.0rem;
-	text-transform: uppercase;
-	 -webkit-box-shadow:    0 4px 0 #2c64a2, 0 4px 5px rgba(0, 0, 0, .35);
+	width: 47%;
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    background-color: #3c80ce;
+    margin-top: 150px;
+    border-radius: 150px;
+    font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    -webkit-box-shadow: 0 4px 0 #2c64a2, 0 4px 5px rgba(0, 0, 0, .35);
     -moz-box-shadow: 0 4px 0 #2c64a2, 0 4px 5px rgba(0, 0, 0, .35);
     box-shadow: 0 4px 0 #2c64a2, 0 4px 5px rgba(0, 0, 0, .35);
     -webkit-transition: -webkit-box-shadow .1s ease-in-out;
@@ -255,7 +255,7 @@ div.centerHome{
     text-shadow: 0 -1px 1px rgba(43, 106, 177, .7);
 }
 .centerHome a span{
-	padding: 22px 20px;
+	padding: 17px 20px;
 	display: inline-block;
 }
 .centerHome a:hover, .centerHome a:focus{
@@ -282,10 +282,10 @@ div.centerHome{
 .fb-share-button{
     position: absolute !important;
     bottom: 20px;
-    right: 140px;
+    right: 126px;
 }
 .twitter-share-button{
     position: absolute;
     bottom: 20px;
-    right: 10px;
+    right: -10px;
 }
