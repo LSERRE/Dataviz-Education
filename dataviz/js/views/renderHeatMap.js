@@ -13,7 +13,7 @@ define([
 			zommed : false,
 			nomDuTheme: 'EMPLOI',
 			secteurChoisi: '2',
-			parametre:'nb_employes',
+			parametre:'employes',
 			width: $('.content').width(),
 			height:  $('.content').height()-1,
 			status: '',
@@ -75,6 +75,8 @@ define([
 
 			//Supprimer Loader
 			
+			console.log(map.params.secteurChoisi);
+
 		  	/*
 		     * On "bind" un élément SVG path pour chaque entrée
 		     * du tableau features de notre objet geojson
@@ -103,7 +105,13 @@ define([
 			  	.append("path")
 			  		.attr('class', 'departementHM')
 			  		.attr('fill', function(d) { 
-			  			if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" || isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) ){
+			  			if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
+			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
+			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
+			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "" ||
+			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NaN" ||
+			  				 isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) )
+						{
 			  				console.log("Undefined or NULL at "+(map.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
 			  				return "#ccc";
 			  			}
@@ -113,7 +121,13 @@ define([
 			      	.attr("nom_dept", function(d){ return d.properties.NOM_DEPT; })
 			      	.attr("num_dept", function(d){ return d.properties.CODE_DEPT; })
 			      	.attr("value",function(d){ 
-			      		if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" || isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) ){
+			  			if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
+			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
+			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
+			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "" ||
+			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NaN" ||
+			  				 isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) )
+			  			{
 			  				return "Indisponible";
 			  			}
 			      		return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT];
@@ -226,24 +240,38 @@ define([
 		},
 
 		afficherNouvelleCarte: function(donneesCsv){
+
 			//La couleur est encore à définir en fonction de l'onglet
 		  	var color = d3.scale.linear()
 				.domain([0, map.maxVal(donneesCsv[map.params.secteurChoisi-1])])
-				.range(["#f1f1f1","red"]); //#AED4FE"
+				.range(["#f1f1f1","red"]); //COULEUR A METTRE ICI
+
 			d3.selectAll(".departementHM")
 				.transition()
 				.duration(500)
 		  		.attr('fill', function(d) { 
-		  			if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" || isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) ){
+	  				if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
+		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
+		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
+		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "" ||
+		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NaN" ||
+		  				 isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) )
+		  			{
 		  				console.log("Undefined or NULL at "+(map.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
 		  				return "#ccc";
 		  			}
 		  			return color(parseInt(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT].replace(" ",""))); 
 		  		})
 		      	.attr('value', function(d){ 
-		      		if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" || isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) ){
+	      			if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
+		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
+		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
+		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "" ||
+		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NaN" ||
+		  				 isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) )
+		      		{
 		  				return "Indisponible";
-		  			}
+		      		}
 		      		return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT];
 		      	});
 

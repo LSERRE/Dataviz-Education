@@ -109,6 +109,7 @@ define([
                 step : options.step,
                 initialized : function(data){
                   $('#inputDepartement').on('keyup',function(e){
+                    e.preventDefault();
                     filterDepartement.render(data, $(this).val(), 2);
                   });
                 }
@@ -120,6 +121,7 @@ define([
                 step : options.step,
                 initialized : function(data){
                   $('#inputTheme').on('keyup',function(e){
+                    e.preventDefault();
                     filterTheme.render(data, $(this).val(), 2);
                   });
                 }
@@ -285,6 +287,7 @@ define([
         var result = new Array();
         if(search.length>1){
           $.each(data, function(index, value){
+            console.log('log');
             var occurrence = value.minuscule.search(new RegExp(search.toLowerCase()));
             if(occurrence!=-1)
               result.push(new Array(value.nom, value.url, value.code, occurrence));
@@ -295,8 +298,20 @@ define([
             if(i==maxOccurrence)
               return;
             var lien;
-            if(filterDepartement.params.step='B')
+            if(filterDepartement.params.step=='B'){
               lien='#/B/'+result[i][1]+'/'+localStorage.getItem('urlSecteur')+'/emploi';
+            }              
+            else{
+              nomTheme=localStorage.getItem('nomTheme');
+              if(nomTheme=='bienetre')
+                var itemDefault = 'temps-libre';
+              else if(nomTheme=='emploi')
+                var itemDefault = 'employes';
+              else
+                var itemDefault = 'population-activite';
+              lien='#/A/'+localStorage.getItem('urlTheme')+'/'+result[i][1]+'/'+itemDefault;
+
+            }
             $('<li><a href="'+lien+'">'+result[i][0]+'</a></li>').appendTo(ul);
           }
         }
@@ -356,7 +371,7 @@ define([
                 var itemDefault = 'employes';
               else
                 var itemDefault = 'population-activite';
-              lien='#/C/'+nomTheme+'/'+result[i][1]+'/'+itemDefault;
+              lien='#/C/'+localStorage.getItem('urlTheme')+'/'+result[i][1]+'/'+itemDefault;
 
             }
              

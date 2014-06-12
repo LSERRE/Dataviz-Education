@@ -25,10 +25,16 @@ define([
             var donneesCsv = [];
             d3.csv(nom_du_CSV,function(data){
                 donneesCsv = data;
+                // donneesCsv[CodeSecteur-1][CodeDept]
+                // circleChart.getRow(donneesCsv, CodeDept)
+                var dataACharger = circleChart.getRow(donneesCsv, circleChart.params.deptChoisi);
+
+                 console.log( dataACharger );
+
                 if(circleChart.params.status!='update')
-                    circleChart.initialize( circleChart.getRow(donneesCsv, circleChart.params.deptChoisi) );
+                    circleChart.initialize( dataACharger );
                 else
-                    circleChart.majCircle( circleChart.getRow(donneesCsv, circleChart.params.deptChoisi) );
+                    circleChart.majCircle( dataACharger );
             });
         },
 
@@ -53,8 +59,14 @@ define([
 
             for(var i=0; i<dataCSV.length;i++)
             {
-                if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                if( dataCSV[i] == null ||
+                    dataCSV[i] == "" ||
+                    dataCSV[i] == undefined ||
+                    dataCSV[i] == "NaN" ||
+                    dataCSV[i] == "NC" ||
+                    isNaN(dataCSV[i]) )
                 {
+                    console.log("pouet");
                     dataCSV[i] = "";
                 }else{
                     dataCSV[i] = parseInt(leCSV[i].replace(" ",""));
@@ -95,7 +107,12 @@ define([
                             .append("rect")
                             .attr("class","uneBarSecteur")
                             .attr("fill", function(d,i){ 
-                                if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                                if( dataCSV[i] == null ||
+                                    dataCSV[i] == "" ||
+                                    dataCSV[i] == undefined ||
+                                    dataCSV[i] == "NaN" ||
+                                    dataCSV[i] == "NC" ||
+                                    isNaN(dataCSV[i]) )
                                 {
                                     return "#ccc"; 
                                 }else{
@@ -113,7 +130,12 @@ define([
                             .attr("secteur_nom", function(d){ return d.propreties.NOM_SECTEUR; })
                             .attr("secteur_icon", function(d){ return d.propreties.NOM_ICON; })
                             .attr("value", function(d,i){ 
-                                if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                                if( dataCSV[i] == null ||
+                                    dataCSV[i] == "" ||
+                                    dataCSV[i] == undefined ||
+                                    dataCSV[i] == "NaN" ||
+                                    dataCSV[i] == "NC" ||
+                                    isNaN(dataCSV[i]) )
                                 {
                                     return "Indisponible"; 
                                 }else{
@@ -125,7 +147,12 @@ define([
                             .duration(500)
                             .delay(function(d,i){ return 30*i;})
                             .attr("width", function(d,i){
-                                if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                                if( dataCSV[i] == null ||
+                                    dataCSV[i] == "" ||
+                                    dataCSV[i] == undefined ||
+                                    dataCSV[i] == "NaN" ||
+                                    dataCSV[i] == "NC" ||
+                                    isNaN(dataCSV[i]) )
                                 {
                                     return 10; 
                                 }else{
@@ -160,11 +187,21 @@ define([
         },
 
         majCircle: function(leCSV){
+            
+            console.log(leCSV);
+
             var dataCSV = leCSV;
+
+            document.querySelectorAll("#infosSecteurs2>h1").innerHTML = "Valeur";
 
             for(var i=0; i<dataCSV.length;i++)
             {
-                if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                if( dataCSV[i] == null ||
+                    dataCSV[i] == "" ||
+                    dataCSV[i] == undefined ||
+                    dataCSV[i] == "NaN" ||
+                    dataCSV[i] == "NC" ||
+                    isNaN(dataCSV[i]) )
                 {
                     dataCSV[i] = "";
                 }else{
@@ -186,7 +223,12 @@ define([
                 .transition()
                 .duration(500)
                 .attr("fill", function(d,i){ 
-                    if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                    if( dataCSV[i] == null ||
+                    dataCSV[i] == "" ||
+                    dataCSV[i] == undefined ||
+                    dataCSV[i] == "NaN" ||
+                    dataCSV[i] == "NC" ||
+                    isNaN(dataCSV[i]) )
                     {
                         return "#ccc"; 
                     }else{
@@ -194,7 +236,12 @@ define([
                     }
                 })
                 .attr("width", function(d,i){
-                    if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                    if( dataCSV[i] == null ||
+                    dataCSV[i] == "" ||
+                    dataCSV[i] == undefined ||
+                    dataCSV[i] == "NaN" ||
+                    dataCSV[i] == "NC" ||
+                    isNaN(dataCSV[i]) )
                     {
                         return 10; 
                     }else{
@@ -202,7 +249,12 @@ define([
                     }
                 })
                 .attr("value", function(d,i){ 
-                    if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                    if( dataCSV[i] == null ||
+                    dataCSV[i] == "" ||
+                    dataCSV[i] == undefined ||
+                    dataCSV[i] == "NaN" ||
+                    dataCSV[i] == "NC" ||
+                    isNaN(dataCSV[i]) )
                     {
                         return "Indisponible"; 
                     }else{

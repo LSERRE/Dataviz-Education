@@ -15,11 +15,10 @@ define([
   'views/Secteur',
   'views/Theme',
   'views/HeatMap',
-  'views/Select',
   'views/Bar',
   'views/CircleChart',
   'views/Error'
-], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Secteur, Theme, HeatMap, Select, Bar, CircleChart, Error) {
+], function($,  _, Backbone, Handlebars, StandardView, Home, Map, Secteur, Theme, HeatMap, Bar, CircleChart, Error) {
 
   // Our router
   var Router = Backbone.Router.extend({
