@@ -35,6 +35,7 @@ define([
               else
                 var itemDefault = 'population-activite';
               // route A
+              localStorage.setItem('urlItemA', itemDefault);
               glob.router.navigate('#/A/'+options.donnee+'/'+departementUrl[0]+'/'+itemDefault, {trigger: true});
             }
             else{

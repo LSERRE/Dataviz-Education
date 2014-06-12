@@ -176,8 +176,8 @@ define([
       else{
         var nomItemA = findType(donnee, urlItemA, 'nom');
         if(nomItemA){
-          document.title = localStorage.getItem('nomItemA')+ ' '+localStorage.getItem('nomDepartement')+' | JobShaker';
-          $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+localStorage.getItem('nomItemA')+' dans le secteur #jeudedonnée');
+          document.title = nomItemA[0]+ ' '+localStorage.getItem('nomDepartement')+' | JobShaker';
+          $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+nomItemA[0]+' dans le thème '+localStorage.getItem('nomTheme'));
           localStorage.setItem('nomItemA', nomItemA[0]);
           var circleChart = new CircleChart();
           circleChart.render({donnee: donnee, departement: urlDepartement, itemA: urlItemA});
