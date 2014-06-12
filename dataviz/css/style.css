@@ -1259,6 +1259,7 @@ div.filterContainer nav ul li:last-child  a:after{
 
 
 #containerSecteur{
+	position: relative;
 	transform-origin:50% 50%;
 	-ms-transform-origin:50% 50%;
 	-moz-transform-origin:50% 50%;
@@ -1288,54 +1289,56 @@ div.filterContainer nav ul li:last-child  a:after{
 
 
 #svgSecteur{
-	z-index: 100;
+	position: relative;
+	z-index: 200;
 }
 
 #infosSecteurs{
 	position: absolute;
 	z-index: 50;
-	width:360px;
-	height: 100px;
+	width:500px;
+	height: 150px;
 	top:50%;
 	left:50%;
-	margin-left: -180px;
-	/*margin-top: -50px;*/
+	margin-left: -250px;
+	margin-top: -60px;
 	text-align: center;
-	padding-top: 20px
 }
 
 #infosSecteurs input[placeholder]{
 	display: inline;
 	height:40px;
 	text-align: center;
-
 	color:#404952;
 	font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
-    font-size: 2.0rem;
+    font-size: 1.4rem;
     background: #f1f1f1;
     border:solid 1px #ddd;
     border-radius: 4px;
-    padding: 5px 20px;
-}/*
+    padding: 5px 15px;
+    text-transform: uppercase;
+    width: 280px;
+}
+
+/*
 #infosSecteurs input[placeholder]:focus{
 	border:solid 1px #aaa;
 }*/
 
 #infosSecteurs2>h2{
 	display: inline;
-	width: inherit;
-    
+	width: inherit;  
     text-transform: uppercase;
-
 }
 
 #infosSecteurs>p{
-	display: block;
+	display: inline-block;
 	margin-top: 20px;
     color:#64717e;
     font-size: 1.5rem;
     line-height: 2.0rem;
     font-family: 'clear_sansitalic' , 'verdana', 'sans-serif';
+    max-width: 280px;
 }
 
 .none{
