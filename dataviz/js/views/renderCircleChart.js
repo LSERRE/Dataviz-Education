@@ -59,7 +59,12 @@ define([
 
             for(var i=0; i<dataCSV.length;i++)
             {
-                dataCSV[i] = parseInt(leCSV[i].replace(" ",""));
+                if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                {
+                    dataCSV[i] = "";
+                }else{
+                    dataCSV[i] = parseInt(leCSV[i].replace(" ",""));
+                }
             }
 
             var leGraph = d3.select(circleChart.params.id).append("svg")
@@ -98,7 +103,14 @@ define([
                         .enter()
                             .append("rect")
                             .attr("class","uneBarSecteur")
-                            .attr("fill", function(d,i){ return color(dataCSV[i]); })
+                            .attr("fill", function(d,i){ 
+                                if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                                {
+                                    return "#ccc"; 
+                                }else{
+                                    return color(dataCSV[i]);   
+                                }
+                            })
                             .attr("transform", function(d,i) {
                               return "rotate(" + (d.x - 182.5 ) + ") translate(" + ( d.y - 0 ) + ")";
                             })
@@ -109,13 +121,25 @@ define([
                             .attr("secteur_id", function(d){ return d.propreties.ID_SECTEUR; })
                             .attr("secteur_nom", function(d){ return d.propreties.NOM_SECTEUR; })
                             .attr("secteur_icon", function(d){ return d.propreties.NOM_ICON; })
-                            .attr("value", function(d,i){ return dataCSV[i]; })
+                            .attr("value", function(d,i){ 
+                                if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                                {
+                                    return "Indisponible"; 
+                                }else{
+                                    return dataCSV[i];   
+                                }
+                            })
 
                             .transition()
                             .duration(500)
                             .delay(function(d,i){ return 30*i;})
                             .attr("width", function(d,i){
-                                return scale(dataCSV[i]);
+                                if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                                {
+                                    return 10; 
+                                }else{
+                                    return scale(dataCSV[i]);   
+                                }
                             })
                             .each("end", function(){
                                 d3.select(this)
@@ -151,7 +175,12 @@ define([
 
             for(var i=0; i<dataCSV.length;i++)
             {
-                dataCSV[i] = parseInt(leCSV[i].replace(" ",""));
+                if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                {
+                    dataCSV[i] = "";
+                }else{
+                    dataCSV[i] = parseInt(leCSV[i].replace(" ",""));
+                }
             }
             //La couleur est encore à définir en fonction de l'onglet
             
@@ -165,11 +194,32 @@ define([
             
 
             d3.selectAll(".uneBarSecteur")
-                .attr("fill", function(d,i){ return color(dataCSV[i]); })
-                .attr("width", function(d,i){
-                    return scale(dataCSV[i]);
+                .transition()
+                .duration(500)
+                .attr("fill", function(d,i){ 
+                    if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                    {
+                        return "#ccc"; 
+                    }else{
+                        return color(dataCSV[i]);   
+                    }
                 })
-                .attr("value", function(d,i){ return dataCSV[i]; })
+                .attr("width", function(d,i){
+                    if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                    {
+                        return 10; 
+                    }else{
+                        return scale(dataCSV[i]);   
+                    }
+                })
+                .attr("value", function(d,i){ 
+                    if(dataCSV[i] == null | "NC" | undefined | "" || isNaN(dataCSV[i]) )
+                    {
+                        return "Indisponible"; 
+                    }else{
+                        return dataCSV[i];   
+                    }
+                })
                 ;
 
         }
