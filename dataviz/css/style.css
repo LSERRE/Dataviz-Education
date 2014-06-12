@@ -1290,23 +1290,23 @@ div.filterContainer nav ul li:last-child  a:after{
 
 #svgSecteur{
 	position: relative;
-	z-index: 200;
+	z-index: 50;
 }
 
 #infosSecteurs{
 	position: absolute;
-	z-index: 50;
-	width:500px;
+	z-index: 100;
+	width: 280px;
 	height: 150px;
 	top:50%;
 	left:50%;
-	margin-left: -250px;
-	margin-top: -60px;
+	margin-left: -140px;
+	margin-top: -55px;
 	text-align: center;
 }
 
 #infosSecteurs input[placeholder]{
-	display: inline;
+	display: inline-block;
 	height:40px;
 	text-align: center;
 	color:#404952;
@@ -1317,7 +1317,16 @@ div.filterContainer nav ul li:last-child  a:after{
     border-radius: 4px;
     padding: 5px 15px;
     text-transform: uppercase;
-    width: 280px;
+    min-width: 270px;
+    margin-left: -11px;
+}
+
+input{
+	outline: none;
+}
+
+#infosSecteurs input:focus{
+	border-color: #3c98ff;
 }
 
 /*
