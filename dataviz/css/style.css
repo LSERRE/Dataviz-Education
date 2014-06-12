@@ -1656,11 +1656,17 @@ input{
     left: 50%;
     z-index: 100;
     width: 500px;
-    margin-top: -139px;
+    margin-top: -62px;
     margin-left: -250px;
     text-align: center;
     font-family: sans-serif;
 }
+
+		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
+			#infosSecteurs2{
+			    margin-top: -139px;
+			}		
+}	
 
 #infosSecteurs2>h1{
     color:#0078ff;
