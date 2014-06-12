@@ -100,6 +100,7 @@ define([
               returnValue = value.url;
               img = value.img;
               code = value.code;
+              id = value.id;
               return false;
             }
           }
@@ -109,13 +110,14 @@ define([
               returnValue = value.nom;
               img = value.img;
               code = value.code;
+              id = value.id;
               return false;
             }
           }          
         });
       }
-      if(returnValue || img || code)
-        return [returnValue, img, code];
+      if(returnValue || img || code || id)
+        return [returnValue, img, code, id];
       return false;
     };
 
@@ -306,6 +308,7 @@ define([
         if(nomSecteur){
           localStorage.setItem('nomSecteur', nomSecteur[0]);
           localStorage.setItem('imgSecteur', nomSecteur[1]);
+          localStorage.setItem('idSecteur', nomSecteur[3]);
         }
         else{
           error();
