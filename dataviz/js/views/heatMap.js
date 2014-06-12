@@ -26,8 +26,12 @@ define([
       if(heatMap==false){
         var items = JSON.parse(localStorage.getItem(options.donnee));
         self.$el.html(self.template(options));
+        var i=0;
         $.each(items, function(index, value) {
-           $('.choix_categorie').append('<a href="#/C/'+options.donnee+'/'+options.secteur+'/'+value.url+'"><p class="btnChoixHeatMap">'+value.nom+'</p></a>');
+            $('.choix_categorie').append('<a href="#/C/'+options.donnee+'/'+options.secteur+'/'+value.url+'"><p class="btnChoixHeatMap '+ value.url+'">'+value.nom+'</p></a>');
+          if(value.url==options.itemC)
+            $('.btnChoixHeatMap').eq(i).addClass('activeItem');
+          i++;
         }); 
         Map.init({
           id: '#map',

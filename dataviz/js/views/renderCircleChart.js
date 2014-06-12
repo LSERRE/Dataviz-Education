@@ -11,7 +11,7 @@ define([
             nomDuTheme: 'EMPLOI', //Valeur par défaut qui doive être réécrite
             deptChoisi: '35',
             parametre:'entreprises',
-            needInit: true,
+            status:''
         },
 
         init : function(options){
@@ -22,16 +22,15 @@ define([
 
         chargerCsv : function(){
             // afficher le loader
-
             var nom_du_CSV = 'json/'+circleChart.params.nomDuTheme+'_'+circleChart.params.parametre+'.csv'; //Nb employés
-
+            console.log(nom_du_CSV);
             var donneesCsv = [];
             d3.csv(nom_du_CSV,function(data){
                 donneesCsv = data;
                 // donneesCsv[CodeSecteur-1][CodeDept]
                 // circleChart.getRow(donneesCsv, CodeDept)
                  console.log( circleChart.getRow(donneesCsv, circleChart.params.deptChoisi) );
-                if(circleChart.params.needInit)
+                if(circleChart.params.status!='update')
                     circleChart.initialize( circleChart.getRow(donneesCsv, circleChart.params.deptChoisi) );
                 else
                     circleChart.majCircle( circleChart.getRow(donneesCsv, circleChart.params.deptChoisi) );
@@ -48,6 +47,7 @@ define([
         },
 
         initialize: function(leCSV){
+            console.log('init');
             var w = $('.content').width(),
             h = $('.content').height()-49;
 
@@ -145,7 +145,8 @@ define([
         },
 
         majCircle: function(leCSV){
-
+            console.log('LALALALLALA');
+            console.log(leCSV);
             var dataCSV = leCSV;
 
             for(var i=0; i<dataCSV.length;i++)

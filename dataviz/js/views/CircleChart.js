@@ -15,14 +15,36 @@ define([
     template: Handlebars.compile(templateCircleChart),   
     render: function(options){
       var self = this;
-      var items = JSON.parse(localStorage.getItem(options.donnee));
-      self.$el.html(self.template(options));
-      $.each(items, function(index, value) {
-         $('.choix_categorie').append('<a href="#/A/'+options.donnee+'/'+options.departement+'/'+value.url+'"><p class="btnChoixHeatMap">'+value.nom+'</p></a>');
-      }); 
-      CircleChart.init({
-        id: self.circleChart
-      });
+      if(statusCircleChart==false){
+        console.log('circleChart');
+        var items = JSON.parse(localStorage.getItem(options.donnee));
+        self.$el.html(self.template(options));
+        var i=0;
+        $.each(items, function(index, value) {
+          var element = $('.choix_categorie').append('<a href="#/A/'+options.donnee+'/'+options.departement+'/'+value.url+'"><p class="btnChoixHeatMap">'+value.nom+'</p></a>');
+          if(value.url==options.itemA)
+            $('.btnChoixHeatMap').eq(i).addClass('activeItem');
+          i++;
+        }); 
+        CircleChart.init({
+          id: self.circleChart,
+          nomDuTheme: 'EMPLOI', //Valeur par défaut qui doive être réécrite
+          deptChoisi: '35',
+          parametre:'entreprises',
+        });
+        statusCircleChart=true;
+      }
+      else{
+        console.log(statusCircleChart);
+        console.log('la');
+        CircleChart.init({
+          id: self.circleChart,
+          nomDuTheme: options.donnee.toUpperCase(), //Valeur par défaut qui doive être réécrite
+          deptChoisi: localStorage.getItem('codeDepartement'),
+          parametre: options.itemA,
+          status:'update'
+        });
+      }
     }
   });
 

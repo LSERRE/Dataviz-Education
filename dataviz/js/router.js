@@ -1,6 +1,7 @@
 var glob = {};
 var findType;
 var heatMap=false;
+var statusCircleChart=false;
 var stepBar;
 
 define([
@@ -138,6 +139,7 @@ define([
       view.render({step:'A', number:'1'});
       // div content empty
       contain();
+      statusCircleChart=false;
       var theme = new Theme();
       // To determine if we are on step A or step C
       theme.render({step:'A'});
@@ -148,13 +150,18 @@ define([
       $('.titleContainer h2').html('Choisissez un département');
       view.render({step:'A', number:'2'});
       contain();
+      statusCircleChart=false;
       var map = new Map();
       map.render({donnee: donnee});
     });
 
     router.on('route:a-donnee-departement-item', function(donnee, urlDepartement, urlItemA){
       view.render({step:'A', number:'3'});
-      contain();
+      if(statusCircleChart==false){
+        console.log('duuuuur');
+        contain();
+      }
+        
       // second departement
       if(urlDepartement!=localStorage.getItem('urlDepartement')){
         var nomDepartement = findType('departements', urlDepartement, 'nom');

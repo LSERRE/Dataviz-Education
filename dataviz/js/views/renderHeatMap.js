@@ -227,12 +227,10 @@ define([
 		},
 
 		afficherNouvelleCarte: function(donneesCsv){
-			console.log(donneesCsv);
 			//La couleur est encore à définir en fonction de l'onglet
 		  	var color = d3.scale.linear()
 				.domain([0, map.maxVal(donneesCsv[map.params.secteurChoisi-1])])
 				.range(["#f1f1f1","red"]); //#AED4FE"
-			console.log(d3.selectAll(".departementHM"));
 			d3.selectAll(".departementHM")
 				.transition()
 				.duration(1000)
