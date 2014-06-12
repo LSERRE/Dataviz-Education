@@ -23,15 +23,9 @@ define([
 		init : function(options){
 			map.params=$.extend(map.defaults,options);
 			if(map.params.status=='update')
-			{
-				console.log('UPDATEHEATMAP');
-				map.majCarte();
-			}				
-			else{
-				console.log('ADDHEATMAP');
+				map.majCarte();			
+			else
 				map.initialize();
-			}
-				
 		},
 
 		maxVal : function(array){
