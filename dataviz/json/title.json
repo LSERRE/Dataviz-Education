@@ -335,25 +335,25 @@
     {"id": 3, "nom": "Société", "url": "societe", "img": "C"}
   ],
   "emplois" :[
-    {"nom": "Employés", "url": "employes", "unite":"", "color":"#"},
-    {"nom": "Salaires horaires moyens", "url": "salaires-horaires-moyens", "unite":"€", "color":"#"},
-    {"nom": "Entreprises", "url": "entreprises", "unite":"", "color":"#"},
-    {"nom": "Création entreprises", "url": "creation-entreprises", "unite":"", "color":"#"},
-    {"nom": "Parité (% de femmes)", "url": "parites", "unite":"%", "color":"#"},
-    {"nom": "Offres d'emploi", "url": "offres-emploi", "unite":"", "color":"#"},
-    {"nom": "Taux de chômage", "url": "taux-chomage", "unite":"%", "color":"#"}
+    {"nom": "Employés", "url": "employes", "unite":"", "color":"#0078FF"},
+    {"nom": "Salaires horaires moyens", "url": "salaires-horaires-moyens", "unite":"€", "color":"#E03848"},
+    {"nom": "Entreprises", "url": "entreprises", "unite":"", "color":"#FF8A0D"},
+    {"nom": "Création entreprises", "url": "creation-entreprises", "unite":"", "color":"#FFDE00"},
+    {"nom": "Parité (% de femmes)", "url": "parites", "unite":"%", "color":"#A5C800"},
+    {"nom": "Offres d'emploi", "url": "offres-emploi", "unite":"", "color":"#45BE9D"},
+    {"nom": "Taux de chômage", "url": "taux-chomage", "unite":"%", "color":"#7A6DCB"}
   ],
   "societes" :[
-    {"nom": "Population active", "url": "population-activite", "unite":"", "color":"#"},
-    {"nom": "Logements", "url": "logements", "unite":"", "color":"#"},
-    {"nom": "Logements vacants", "url": "logements-vacants", "unite":"%", "color":"#"},
-    {"nom": "Densité de population", "url": "densite-population", "unite":"Hab/m²", "color":"#"},
-    {"nom": "Retraités", "url": "retraites", "unite":"", "color":"#"},
-    {"nom": "Taux de célibataires", "url": "taux-de-celibataires", "unite":"%", "color":"#"}
+    {"nom": "Population active", "url": "population-activite", "unite":"", "color":"#0078FF"},
+    {"nom": "Logements", "url": "logements", "unite":"", "color":"#E03848"},
+    {"nom": "Logements vacants", "url": "logements-vacants", "unite":"%", "color":"#FF8A0D"},
+    {"nom": "Densité de population", "url": "densite-population", "unite":"Hab/m²", "color":"#FFDE00"},
+    {"nom": "Retraités", "url": "retraites", "unite":"", "color":"#A5C800"},
+    {"nom": "Taux de célibataires", "url": "taux-de-celibataires", "unite":"%", "color":"#45BE9D"}
   ],
   "bien-etre" :[
-    {"nom": "Temps libre", "url": "temps-libre", "unite":"min", "color":"#"},
-    {"nom": "Temps de sommeil moyen", "url": "temps-sommeil-moyen", "unite":"min", "color":"#"},
-    {"nom": "Durée du trajet", "url": "duree-trajet", "unite":"min", "color":"#"}
+    {"nom": "Temps libre", "url": "temps-libre", "unite":"min", "color":"#0078FF"},
+    {"nom": "Temps de sommeil moyen", "url": "temps-sommeil-moyen", "unite":"min", "color":"#E03848"},
+    {"nom": "Durée du trajet", "url": "duree-trajet", "unite":"min", "color":"#FF8A0D"}
   ]
 }
