@@ -4,9 +4,9 @@
 	{{/if_eq}}
 	<div class="choises">
 		<div class="choise {{#if_eq number '1'}} currentChoise{{/if_eq}}"><div></div>{{#if_eq number '1'}} {{else}}<img class="iconeSecteur" src="./svg/datas.svg" alt="">{{/if_eq}}</div>
-		<h3 class="selected">{{#if_eq number "2"}} {{theme}}	{{/if_eq}}</h3>
+		<h3 class="selected">{{#if_eq number "1"}}{{else}}{{theme}}{{/if_eq}}</h3>
 		{{#if_eq number "3"}}
-			<form class="selected">	
+			<form class="selected" action="">	
 				<input type="text" name="theme" id="inputTheme">
 				<ul class="top searchResults resultTheme"></ul>
 			</form>
