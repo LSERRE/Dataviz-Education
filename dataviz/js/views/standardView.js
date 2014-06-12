@@ -74,9 +74,6 @@ define([
       return false;
     });
 
-    
-    
-
     var View = Backbone.View.extend({
       el: '.filterContainer',   
       aside: '.backgroundAside',
@@ -86,7 +83,7 @@ define([
         var self = this;
         $('.page_404').remove();
         self.$el.html(self.template(options)); 
-        $(self.aside).html(self.templateAside({step: options.step, number: options.number, departement: localStorage.getItem('nomDepartement'), codeDepartement: localStorage.getItem('codeDepartement'), secteur: localStorage.getItem('nomSecteur'), theme: localStorage.getItem('nomTheme') })); 
+        $(self.aside).html(self.templateAside({step: options.step, number: options.number, departement: localStorage.getItem('nomDepartement'), codeDepartement: localStorage.getItem('codeDepartement'), secteur: localStorage.getItem('nomSecteur'), urlImageSecteur: 'svg/' + localStorage.getItem('imgSecteur'),  theme: localStorage.getItem('nomTheme') })); 
         if(options.number){
           $('.stepUI').removeClass('none');
           if(stepBar==false)
@@ -366,6 +363,8 @@ define([
         
       }
     };
+
+
 
   return View;
 });

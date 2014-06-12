@@ -501,7 +501,6 @@ aside .choises div.choise div{
 	line-height: 50px;
 	padding: 2px 0px 0px 1px;
 }
-
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
 			aside .choises div.choise:first-of-type div {
 					height: 100%;
@@ -510,6 +509,13 @@ aside .choises div.choise div{
 			}
 		}
 
+aside .choises div.choise img{
+	position: absolute;
+	top: 11px;
+	left: 11px;
+	width: 30px;
+	height: 30px;
+}
 aside .choises span.middleSeparator{
 	height: 200px;
 	width: 1px;
