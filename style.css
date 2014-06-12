@@ -281,11 +281,11 @@ div.centerHome{
 
 .fb-share-button{
     position: absolute !important;
-    bottom: 200px;
+    bottom: 20px;
     right: 140px;
 }
 .twitter-share-button{
     position: absolute;
-    bottom: 200px;
+    bottom: 20px;
     right: 10px;
 }

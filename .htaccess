@@ -4,4 +4,4 @@ SetEnv SESSION_USE_TRANS_SID 0
 Options +FollowSymlinks
 
 RewriteEngine on
-ErrorDocument 404 http://localhost/Dataviz-Education/#/error
+ErrorDocument 404 http://localhost/Dataviz-Education/dataviz/#/error
