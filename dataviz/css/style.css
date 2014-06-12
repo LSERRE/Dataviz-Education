@@ -354,7 +354,6 @@ aside .asideContainer{
 }
 aside .backgroundAside{
 	background: #38414b;
-	background-size: 0.1rem;
 	height: calc(100% - 98px);
 	border-bottom: 1px solid #292f35;
 	border-top: 1px solid #4e575f;
@@ -369,6 +368,7 @@ aside .backgroundAside{
 				position: relative;
 				height: calc(100% - 100px);
 				background: url('./img/motif.svg');
+				background-size: 0.1rem;
 			}
 			aside .backgroundAside:before {
 				background-color: transparent;

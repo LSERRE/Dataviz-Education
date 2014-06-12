@@ -7,23 +7,71 @@ define([
 ], function($, d3, _, Backbone, Handlebars){
     var circleChart = {
         defaults : {
-            id: '#svg_d3'
+            id: '#svg_d3',
+            nomDuTheme: 'EMPLOI', //Valeur par défaut qui doive être réécrite
+            deptChoisi: '35',
+            parametre:'nb_employes',
+            needInit: true,
         },
 
         init : function(options){
             console.log(this);
             circleChart.params=$.extend(circleChart.defaults,options);
-            circleChart.initialize();
+            circleChart.chargerCsv();
         },
 
+        chargerCsv : function(){
+            // afficher le loader
 
-        initialize: function(){
+            var nom_du_CSV = 'json/'+circleChart.params.nomDuTheme+'_'+circleChart.params.parametre+'.csv'; //Nb employés
+
+            var donneesCsv = [];
+            d3.csv(nom_du_CSV,function(data){
+                donneesCsv = data;
+                // donneesCsv[CodeSecteur-1][CodeDept]
+                console.log(donneesCsv[keys["2"]])
+                if(circleChart.params.needInit)
+                    circleChart.initialize(donneesCsv);
+                else
+                    circleChart.majCircle(donneesCsv);
+            });
+        },
+
+        maxVal : function(array){
+            //Fonction max custom pour les départements
+            var maxVal = 0;
+            //console.log(newArray);
+            for(var i=0; i<Object.keys(array).length; i++)
+            {
+                var y;
+                y = i+1;
+                if (y<10)
+                    y="0"+y;
+                else if(y == 96)
+                    y="2A";
+                else if(y == 97)
+                    y="2B";
+                // La seul erreur vient du departement 20 qui n'existe pas, c'est le undefined
+
+                if (array[y] == undefined){
+                    console.log("MaxValue encounter an Undefined value : "+y);
+                }else{
+                    if( parseInt(array[y].replace(" ",""))>maxVal )
+                        maxVal = parseInt(array[y].replace(" ",""));
+                }
+            }
+            return maxVal;
+        },
+
+        initialize: function(leCSV){
             var w = $('.content').width(),
             h = $('.content').height()-49;
 
+            circleChart.params.needInit = true;
+
             var circle_radius = 500/2;
 
-            var fakeData = [34,45,59,20,40,29,490,584,48,29,5,204,58,403,57,39,58,20,6,295,356,103,185,58,20,59,105,592,245,25,493,23,59,240,401,35,281,79];
+            var dataCSV = leCSV;
 
             var leGraph = d3.select(circleChart.params.id).append("svg")
                             .attr("id","leGraph")
@@ -46,11 +94,11 @@ define([
                 var secteurs_bars = tree.nodes(dataTree);
 
                 var scale = d3.scale.linear()
-                    .domain([0, d3.max(fakeData)])
+                    .domain([0, circleChart.maxVal(dataCSV)])
                     .range([10, 200]);
 
                 var color = d3.scale.linear()
-                    .domain([0, d3.max(fakeData)])
+                    .domain([0, circleChart.maxVal(dataCSV)])
                     .range(["#AED4FE","#0078FF"]); //#AED4FE"
 
                 var bars = leGraph.selectAll(".uneBarSecteur")
@@ -58,7 +106,7 @@ define([
                         .enter()
                             .append("rect")
                             .attr("class","uneBarSecteur")
-                            .attr("fill", function(d,i){ return color(fakeData[i]); })
+                            .attr("fill", function(d,i){ return color(dataCSV[i]); })
                             .attr("transform", function(d,i) {
                               return "rotate(" + (d.x - 182.5 ) + ") translate(" + ( d.y - 0 ) + ")";
                             })
@@ -69,13 +117,13 @@ define([
                             .attr("secteur_id", function(d){ return d.propreties.ID_SECTEUR; })
                             .attr("secteur_nom", function(d){ return d.propreties.NOM_SECTEUR; })
                             .attr("secteur_icon", function(d){ return d.propreties.NOM_ICON; })
-                            .attr("value", function(d,i){ return fakeData[i]; })
+                            .attr("value", function(d,i){ return dataCSV[i]; })
 
                             .transition()
                             .duration(500)
                             .delay(function(d,i){ return 30*i;})
                                 .attr("width", function(d,i){
-                                    return scale(fakeData[i]);
+                                    return scale(dataCSV[i]);
                             })
                             .each("end", function(){
                                 d3.select(this)
