@@ -1,6 +1,36 @@
-{{#if_eq number "3"}}
-	{{#if_eq step "B"}}
-	<p id="asideExplain" class="asideExplain">Vous êtes actuellement en train de regarder les données du secteur <span id="showSecteur">{{secteur}}</span>, dans le <span id="showDepartement">{{departement}}</span>. Vous pouvez changer directement les paramètres ci-dessous.</p>
+{{#if_eq step "A"}}
+<div id="asideContent" class="backgroundAside">
+	{{#if_eq number "3"}} 
+		<p id="asideExplain" class="asideExplain">Vous êtes actuellement en train de regarder les données du thème <strong>{{theme}}</strong>, dans le département <strong>{{departement}}</strong>. Vous pouvez changer directement les paramètres ci-dessous.</p>
+	{{/if_eq}}
+	<div class="choises">
+		<div class="choise"><div></div></div>
+		<h3 class="selected">{{theme}}</h3>
+		{{#if_eq number "3"}}
+			<form class="selected">	
+				<input type="text" name="theme" id="inputTheme">
+				<ul class="searchResults resultTheme"></ul>
+			</form>
+		{{/if_eq}}
+		<span class="middleSeparator"></span>
+		<div class="choise"><div>{{codeDepartement}}</div></div>
+		<h3 class="selected">{{departement}}</h3>
+		{{#if_eq number "3"}}
+			<form class="selected" action="">	
+				<input type="text" name="departement" id="inputDepartement">
+				<ul class="searchResults resultDepartement"></ul>
+			</form>
+		{{/if_eq}}
+	</div>
+</div>
+{{/if_eq}}
+
+
+{{#if_eq step "B"}}
+<div id="asideContent" class="backgroundAside">
+	{{#if_eq number "3"}} 
+		<p id="asideExplain" class="asideExplain">Vous êtes actuellement en train de regarder les données du secteur <strong>{{secteur}}</strong>, dans le département <strong>{{departement}}</strong>. Vous pouvez changer directement les paramètres ci-dessous.</p>
+	{{/if_eq}}
 	<div class="choises">
 		<div class="choise"><div>{{codeDepartement}}</div></div>
 		<h3 class="selected">{{departement}}</h3>
@@ -9,14 +39,40 @@
 			<ul class="searchResults resultDepartement"></ul>
 		</form>
 		<span class="middleSeparator"></span>
-		<div class="choise"><div>22</div></div>
+		<div class="choise"><div></div></div>
 		<h3 class="selected">{{secteur}}</h3>
 		<form class="selected" action="">					
 			<input type="text" name="secteur" id="inputSecteur">
 			<ul class="searchResults resultSecteur"></ul>
 		</form>
 	</div>
-	{{/if_eq}}
-{{else}}
-<p id="asideExplain" class="asideExplain">Vous êtes actuellement en train de regarder les données du secteur <span id="showSecteur">informatique</span>, dans le <span id="showDepartement"></span>. Vous pouvez changer directement les paramètres ci-dessous.</p>
+</div>
 {{/if_eq}}
+
+{{#if_eq step "C"}}
+<div id="asideContent" class="backgroundAside">
+	{{#if_eq number "3"}} 
+		<p id="asideExplain" class="asideExplain">Vous êtes actuellement en train de regarder les données du thème <strong>{{theme}}</strong>, dans le secteur <strong>{{secteur}}</strong>. Vous pouvez changer directement les paramètres ci-dessous.</p>
+	{{/if_eq}}
+	<div class="choises">
+		<div class="choise"><div></div></div>
+		<h3 class="selected">{{theme}}</h3>
+		{{#if_eq number "3"}}
+			<form class="selected">	
+				<input type="text" name="theme" id="inputTheme">
+				<ul class="searchResults resultTheme"></ul>
+			</form>
+		{{/if_eq}}
+		<span class="middleSeparator"></span>
+		<div class="choise"><div></div></div>
+		<h3 class="selected">{{secteur}}</h3>
+		{{#if_eq number "3"}}
+			<form class="selected" action="">					
+				<input type="text" name="secteur" id="inputSecteur">
+				<ul class="searchResults resultSecteur"></ul>
+			</form>
+		{{/if_eq}}
+	</div>
+</div>
+{{/if_eq}}
+
