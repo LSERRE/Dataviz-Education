@@ -23,7 +23,7 @@ define([
   // Our router
   var Router = Backbone.Router.extend({
     routes : {
-      'home': 'home',
+      '': 'home',
       'A': 'a',
       'A/:donnee': 'a-donnee',
       'A/:donnee/:departement/:item': 'a-donnee-departement-item',
