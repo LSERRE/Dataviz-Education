@@ -28,9 +28,9 @@ define([
         }); 
         CircleChart.init({
           id: self.circleChart,
-          nomDuTheme: 'EMPLOI', //Valeur par défaut qui doive être réécrite
-          deptChoisi: '35',
-          parametre:'entreprises',
+          nomDuTheme: options.donnee.toUpperCase(), //Valeur par défaut qui doive être réécrite
+          deptChoisi: localStorage.getItem('codeDepartement'),
+          parametre: options.itemA,
         });
         statusCircleChart=true;
       }
