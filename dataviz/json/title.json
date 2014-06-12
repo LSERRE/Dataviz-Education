@@ -334,7 +334,7 @@
     {"id": 2, "nom": "Emploi", "url": "emploi", "img": "B"},
     {"id": 3, "nom": "Société", "url": "societe", "img": "C"}
   ],
-  "Emploi" :[
+  "emplois" :[
     {"nom": "Employés", "url": "employes", "unite":"", "color":"#"},
     {"nom": "Salaires horaires moyens", "url": "salaires-horaires-moyens", "unite":"€", "color":"#"},
     {"nom": "Entreprises", "url": "entreprises", "unite":"", "color":"#"},
@@ -343,7 +343,7 @@
     {"nom": "Offres d'emploi", "url": "offres-emploi", "unite":"", "color":"#"},
     {"nom": "Taux de chômage", "url": "taux-chomage", "unite":"%", "color":"#"}
   ],
-  "Societe" :[
+  "societes" :[
     {"nom": "Population active", "url": "population-activite", "unite":"", "color":"#"},
     {"nom": "Logements", "url": "logements", "unite":"", "color":"#"},
     {"nom": "Logements vacants", "url": "logements-vacants", "unite":"%", "color":"#"},
@@ -351,7 +351,7 @@
     {"nom": "Retraités", "url": "retraites", "unite":"", "color":"#"},
     {"nom": "Taux de célibataires", "url": "taux-de-celibataires", "unite":"%", "color":"#"}
   ],
-  "Bien-etre" :[
+  "bien-etre" :[
     {"nom": "Temps libre", "url": "temps-libre", "unite":"min", "color":"#"},
     {"nom": "Temps de sommeil moyen", "url": "temps-sommeil-moyen", "unite":"min", "color":"#"},
     {"nom": "Durée du trajet", "url": "duree-trajet", "unite":"min", "color":"#"}
