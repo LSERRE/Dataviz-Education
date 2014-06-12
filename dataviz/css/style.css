@@ -643,13 +643,13 @@ aside .choises ul.searchResults li a{
 }
 .fb-share-button{
 	position: absolute !important;
-	bottom: 60px;
-	right: 130px;
+	top: 17px;
+	right: 119px;
 }
 .twitter-share-button{
 	position: absolute !important;
-	bottom: 60px;
-	right: 2px;	
+	top: 17px;
+	right: -13px;	
 }
 
 
