@@ -87,6 +87,8 @@ define([
 		initialize: function(){
 			var w = $('.content').width(), 
 				h = $('.content').height();
+
+			var tailleIco = 30;
 				
 
 			var selectPlaceholder = document.querySelectorAll("#infosSecteurs>input[placeholder]")[0];
@@ -131,11 +133,11 @@ define([
 			    .attr("height", h)
 			    .attr("id","svg_circles")
 			  .append("g")
-			    .attr("transform", "translate(" + (w / 2) + "," + (h / 2) + ")scale("+h/640+")") //center the circle
+			    .attr("transform", "translate(" + (w / 2) + "," + (h / 2) + ")scale("+h/700+")") //center the circle
 
 			var svg_circle2 = d3.select("#svg_circles")
 				.append("g")
-				.attr("transform", "translate(" + (w / 2) + "," + (h / 2) + ") rotate("+360/39+")scale("+h/640+")") //center the circle
+				.attr("transform", "translate(" + (w / 2) + "," + (h / 2) + ") rotate("+360/39+")scale("+h/700+")") //center the circle
 
 			d3.json('json/secteurs.json', function(req, secjson) {
 
@@ -178,13 +180,13 @@ define([
 				
 				secteur_circle1.append("svg:image")
 				  		.attr("xlink:href", function(d){ return "./svg/"+d.propreties.NOM_ICON;})
-				  		.attr("x",-40) //-height/2
-				  		.attr("y",-40) //-width/2
+				  		.attr("x",-tailleIco/2) //-height/2
+				  		.attr("y",-tailleIco/2) //-width/2
 				  		.attr("transform", function(d) {
 					          return "rotate(" + (-d.x+90) + ")";
 					     })
-                    	.attr("width", 80)
-                    	.attr("height", 80);
+                    	.attr("width", tailleIco)
+                    	.attr("height", tailleIco);
 
                 secteur_circle1.attr("opacity","0.0")
 							  		.transition()
@@ -212,13 +214,13 @@ define([
 				
 				secteur_circle2.append("svg:image")
 				  		.attr("xlink:href", function(d){ return "./svg/"+d.propreties.NOM_ICON;})
-				  		.attr("x",-40) //-height/2
-				  		.attr("y",-40) //-width/2
+				  		.attr("x",-tailleIco/2) //-height/2
+				  		.attr("y",-tailleIco/2) //-width/2
 				  		.attr("transform", function(d) {
 					          return "rotate(" + (-d.x+80) + ")";
 					     })
-                    	.attr("width", 80)
-                    	.attr("height", 80);
+                    	.attr("width", tailleIco)
+                    	.attr("height", tailleIco);
 
                 secteur_circle2.attr("opacity","0.0")
 							  		.transition()
@@ -229,16 +231,7 @@ define([
 			});
 
 			//La recherche Live, déclaré après l'init du d3
-			/*
-			inputRecherche.onchange = function() {
-				if ( this.value == this.getAttribute('value') ) {
-					this.value='';
-				}
-				alert("COUCOU");
-				console.log("CONNARD");
 
-			}
-			*/
 			var tousLesSecteurs = document.getElementsByClassName('secteur');
 
 			inputRecherche.onkeyup = function(){
