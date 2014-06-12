@@ -16,7 +16,6 @@ define([
     render: function(options){
       var self = this;
       if(statusCircleChart==false){
-        console.log('circleChart');
         var items = JSON.parse(localStorage.getItem(options.donnee));
         self.$el.html(self.template(options));
         var i=0;
@@ -35,8 +34,6 @@ define([
         statusCircleChart=true;
       }
       else{
-        console.log(statusCircleChart);
-        console.log('la');
         CircleChart.init({
           id: self.circleChart,
           nomDuTheme: options.donnee.toUpperCase(), //Valeur par défaut qui doive être réécrite

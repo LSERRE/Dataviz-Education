@@ -68,6 +68,8 @@ define([
       return false;
     });
 
+    $('.pluginCountNum').css({'max-width':'8px'})
+
     $('#closeAbout').on('click', function(e){
       e.preventDefault();
       $('#aboutSection').removeClass('active');
@@ -215,7 +217,6 @@ define([
         var data = JSON.parse(localStorage.getItem(self.params.category));
         $.each(data, function(index, value){
           data[index].minuscule = value['nom'].toLowerCase();
-          //console.log(data['nom']);
         });
         self.params.initialized.call(this, data);
       },
@@ -275,7 +276,6 @@ define([
         var data = JSON.parse(localStorage.getItem(self.params.category));
         $.each(data, function(index, value){
           data[index].minuscule = value['nom'].toLowerCase();
-          //console.log(data['nom']);
         });
         self.params.initialized.call(this, data);
       },
@@ -316,15 +316,6 @@ define([
         this.params=$.extend(this.defaults,options);
         this.initialize();
       },
-      /*getJsonFile : function(){
-        var self = this.params;
-        $.getJSON(this.params.file, function(result){
-          $.each(result, function(index, value){
-              self.tab.push(value[self.category].toLowerCase());
-            });
-            self.gotJsonFile.call(this, null);
-        });
-      },*/
       compare: function(a, b){
         return a[2] < b[2];
       },
@@ -335,7 +326,6 @@ define([
         var data = JSON.parse(localStorage.getItem(self.params.category));
         $.each(data, function(index, value){
           data[index].minuscule = value['nom'].toLowerCase();
-          //console.log(data['nom']);
         });
         self.params.initialized.call(this, data);
       },
@@ -355,10 +345,21 @@ define([
             if(i==maxOccurrence)
               return;
             var lien;
-            if(filterSecteur.params.step=='B')
+            if(filterSecteur.params.step=='B'){
               lien='#/B/'+localStorage.getItem('urlDepartement')+'/'+result[i][1]+'/emploi';
-            else
-              lien='#/C/'+result[i][1]+'/'+localStorage.getItem('urlSecteur')+'/emploi';
+            }              
+            else{
+              nomTheme=localStorage.getItem('nomTheme');
+              if(nomTheme=='bienetre')
+                var itemDefault = 'temps-libre';
+              else if(nomTheme=='emploi')
+                var itemDefault = 'employes';
+              else
+                var itemDefault = 'population-activite';
+              lien='#/C/'+nomTheme+'/'+result[i][1]+'/'+itemDefault;
+
+            }
+             
             $('<li><a href="'+lien+'">'+result[i][0]+'</a></li>').appendTo(ul);
           }
         }

@@ -56,7 +56,7 @@
 	{{/if_eq}}
 	<div class="choises">
 		<div class="choise {{#if_eq number '1'}} currentChoise{{/if_eq}}"><div>{{#if_eq number '1'}} {{else}}<img class="iconeSecteur" src="./svg/datas.svg" alt="">{{/if_eq}}</div></div>
-		<h3 class="selected">{{#if_eq number "2"}} {{theme}} {{/if_eq}}</h3>
+		<h3 class="selected">{{#if_eq number '1'}} {{else}} {{theme}} {{/if_eq}}</h3>
 		{{#if_eq number "3"}}
 			<form class="selected">	
 				<input type="text" name="theme" id="inputTheme">
@@ -74,4 +74,3 @@
 		{{/if_eq}}
 	</div>
 {{/if_eq}}
-

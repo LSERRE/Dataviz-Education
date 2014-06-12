@@ -31,7 +31,6 @@ define([
             $('.choise').eq(1).children().html(code);
             // sector in localstorage
             var secteurUrl = findType('secteurs', nom, 'url');
-            console.log(secteurUrl);
             if(secteurUrl){
 
               localStorage.setItem('urlSecteur', secteurUrl[0]);
