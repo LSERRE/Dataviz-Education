@@ -142,9 +142,9 @@ define([
             d3.select("#infosSecteurs2>h1").html(item.getAttribute("value"));
             d3.select("#infosSecteurs2>#nom>h2").html(item.getAttribute("secteur_nom"));
             d3.select("#infosSecteurs2>span").html("<img src='./svg/"+item.getAttribute("secteur_icon")+"' alt='icon secteur'/>");
-        }
+        },
 
-        afficherNewCircle: function(leCSV){
+        majCircle: function(leCSV){
 
             var dataCSV = leCSV;
 
