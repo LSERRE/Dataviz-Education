@@ -136,7 +136,7 @@ define([
 		  						//.style("top",centroid.top+height/2+"px")
 		  						//.style("left",centroid.left-30+width/2+"px");
 		  						.style("top",function(){ 
-		  													console.log(this.offsetHeight*3);
+		  													//console.log(this.offsetHeight*3);
 															var value = centroid[1]-this.offsetHeight*1.3;
 															if(map.params.zoomed)
 																value *= scaleZoom/2;
@@ -176,8 +176,6 @@ define([
 			// Les 3 valeurs là sont celles à changer pour faire varier le graph
 
 			var nom_du_CSV = 'json/'+map.params.nomDuTheme+'_'+map.params.parametre+'.csv'; //Nb employés
-			console.log(nom_du_CSV);
-
 		 	 /* 
 		  	 * On créait un nouvel objet path qui permet 
 		   	* de manipuler les données géographiques.
@@ -218,9 +216,8 @@ define([
 		},
 
 		majCarte: function() {
+			console.log('majCarte');
 			var nomDuCSV = 'json/'+map.params.nomDuTheme+'_'+map.params.parametre+'.csv'; //Nb employés
-			
-			console.log(nomDuCSV);
 			d3.csv(nomDuCSV,function(data){
 				//Fonction asynchrone
 			  	map.afficherNouvelleCarte(data);

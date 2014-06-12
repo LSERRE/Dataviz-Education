@@ -150,7 +150,6 @@ define([
 
 				var trStr2 = "translate(" + -x + width / (scaleZoom*2) + "px ," + -y + height / (scaleZoom*2) + "px )" +
 				" scale(" + k + ")"
-			console.log(trStr);
 
 			var container = d3.select("#infosDepartements");
 			//console.log(d3.select("#container_map"));
@@ -162,14 +161,9 @@ define([
 		},
 
 		choisirDepartement: function(){
-			//zoomerMap(d);
-			//console.log(+d.properties.CODE_DEPTS+"");
-			//console.log("Nom du département : "+this.getAttribute('nom_dept')+"\n Code du Département : "+this.getAttribute('num_dept'));
-			//d3.selectAll(".departement").style('fill',patternDept);
 			d3.selectAll(".departement").classed('dept_select',false);
 			d3.select(this).classed('dept_select',true);
 			map.params.choix.call(this, this.getAttribute('nom_dept'), this.getAttribute('num_dept'));
-			//d3.select(this).style('fill',patternSelect);
 		}
 	};
 

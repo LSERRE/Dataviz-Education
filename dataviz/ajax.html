@@ -39,7 +39,6 @@
 				var self = this;
 				$('.result').empty();
 				var result = new Array();
-				console.log(self.params.category);
 				var data = JSON.parse(localStorage.getItem(self.params.category));
 				$.each(data, function(index, value){
 					data[index].minuscule = value['nom'].toLowerCase();
@@ -56,12 +55,9 @@
 						if(occurrence!=-1)
 							result.push(new Array(value.nom, value.url, value.code, occurrence));
 					});
-					console.log(result);
 					result.sort(function(a, b) { return a[3]>b[3] }); 
-					console.log(result);
 					var ul = $('.result');
 					for(i=0; i<result.length; i++){
-						console.log(result);
 						if(i==maxOccurrence)
 							return;
 						$('<li>'+result[i][0]+'</li>').appendTo(ul);
