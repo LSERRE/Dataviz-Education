@@ -348,10 +348,14 @@ aside > footer{
 			  }
 			}
 		}
+<<<<<<< HEAD
 
 aside .asideContainer{
 	height: 100%;
 }
+
+=======
+>>>>>>> 94c91f387a6e692cee93bef3c0bf262e5b9cd242
 aside .backgroundAside{
 	background: #38414b;
 	height: calc(100% - 98px);
@@ -1807,26 +1811,12 @@ div.filterContainer nav ul li:last-child  a:after{
 	transform: rotate(90deg);
 }
 
-
-
-
-
 /* 13 - THEME */
 #container_cT{
 height: 100%;
 margin:0 auto;
 text-align: center;
 font-family: sans-serif;
-}
-#container_cT button{
-background: white;
-padding: 15px 20px;
-border: none;
-cursor: pointer;
-}
-#container_cT button:hover{
-background: blue;
-color: white;
 }
 #choixThemes{
 /*
@@ -1842,24 +1832,74 @@ cursor: pointer;
 transform-origin: center center;
 }
 #descriptionTheme{
-position:absolute;
-left:50%;
-top:50%;
-width:340px;
-margin-left:-160px;
-margin-top: -120px;
+	position: absolute;
+	left: 50%;
+	top: 60%;
+	width: 340px;
+	margin-left: -170px;
+	margin-top: -120px;
+	font-family: "clear_sans_lightregular", 'verdana', 'sans-serif';
+	color: #404952;
+	line-height: 18pt;
+	font-size: 1.6rem;
 }
-#previous_item,#next_item{
 
+#previous_item, #next_item{
+	width: 50px;
+	height: 50px;
+	display: block;
+	border: none;
+	cursor: pointer;
+	position:	absolute;
+	top: 50%;
+	margin-top: -15px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+	outline: none;
+}
+#previous_item{
+	left:17%;
+	background: url('img/arrowThemeUp.png') #fff center center no-repeat;
+	background-size: 16px 20px;
 }
 
+#next_item{
+	right:17%;
+	background: url('img/arrowThemeDown.png') #fff center center no-repeat;
+	background-size: 16px 20px;
+}
 
-
-
-
-
-
-
-
-
-
+#previous_item:hover, #previous_item:focus, #previous_item:active, #next_item:hover, #next_item:focus, #next_item:active{
+	background-color: #f4f4f4;
+	outline: none;
+}
+#valider_item{
+	background-color: #3c98ff;
+	width: 180px;
+	border-radius: 5px;
+	font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
+	font-size: 1.4rem;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 13px 30px;
+	border: 0;
+	outline: none;
+	margin-top: 10px;
+	cursor: pointer;
+	position: absolute;
+	top:70%;
+	left: 50%;
+	margin-left: -90px;
+}
+#valider_item:before{
+  content: '';
+  position: absolute;
+  top: 43px;
+  left: 90px;
+  margin-left: -15px;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-top: 10px solid #3c98ff;	
+}
