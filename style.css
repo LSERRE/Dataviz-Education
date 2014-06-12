@@ -191,12 +191,12 @@ html,body{
 }
 
 div.centerHome{
-	width: 645px;
+	width: 655px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	margin-left: -321px;
-	margin-top: -62px;
+	margin-top: -115px;
 }
 
 .centerHome h1{
@@ -211,6 +211,7 @@ div.centerHome{
 	height: 125px;
 	line-height: 120px;
 	float: left;
+    margin-left: 12px;
 }
 .centerHome h1+p, .centerHome h1+p {
 	color: #F1F1F1;
@@ -235,7 +236,7 @@ div.centerHome{
     margin: 0 auto;
     color: #fff;
     background-color: #3c80ce;
-    margin-top: 150px;
+    margin-top: 60px;
     border-radius: 150px;
     font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
     text-align: center;
