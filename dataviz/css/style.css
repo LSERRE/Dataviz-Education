@@ -496,7 +496,7 @@ aside .choises div.choise:last-of-type{
 				bottom: -25px;
 			}
 		}
-aside .choises div.choise:first-of-type div{
+aside .choises div.choise div{
 	height: 100%;
 	width: 50px;
 	margin: 0 auto;
@@ -556,6 +556,7 @@ aside.asideActive .choises h3{
 	top: 20px;
 	font-family: "clear_sansbold";
 	text-shadow: 1px 1px 0 #292f35;
+	width: 180px;
 }
 
 aside.asideActive .choises h3:nth-of-type(2){
@@ -605,8 +606,17 @@ aside.asideActive .choises form:nth-of-type(2) > input{
 aside .choises ul.searchResults{
 	position: absolute;
 	left: 103px;
+	height: 100px;
 	width: 150px;
+}
+aside .choises ul.top{
 	top: 115px;
+}
+aside .choises ul.bottom{
+	top:360px;
+}
+aside .choises form{
+	position: relative;
 }
 aside .choises ul.searchResults li{
 	margin-bottom: 15px;
