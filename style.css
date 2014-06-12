@@ -196,37 +196,27 @@ div.centerHome{
 	top: 50%;
 	left: 50%;
 	margin-left: -321px;
-	margin-top: -115px;
+	margin-top: -133px;
+    text-align: center;
 }
 
 .centerHome h1{
 	color: #3C98FF;
 	font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
-	font-size: 5rem;
+	font-size: 6.5rem;
 	text-transform: uppercase;
 	opacity: 0.9;
-	display: inline-block;
-	border-right: 1px solid #919aa4;
-	padding-right: 35px;
-	height: 125px;
-	line-height: 120px;
-	float: left;
-    margin-left: 12px;
+    margin-bottom: 30px;
 }
+
 .centerHome h1+p, .centerHome h1+p {
 	color: #F1F1F1;
 	font-family: 'clear_sansitalic' , 'verdana', 'sans-serif';
-	font-size: 1.4rem;
-	display: inline-block;
+	font-size: 1.6rem;
 	text-shadow: 1px 1px #303841;
-	line-height: 18pt;
-	padding-left: 30px;
+	line-height: 20pt;
 }
-.centerHome p{
-	width: 300px;
-	float: left;
-	margin-top: 26px;
-}
+
 .centerHome h1 > span{
 	color: #F1F1F1 !important;
 }
@@ -236,7 +226,7 @@ div.centerHome{
     margin: 0 auto;
     color: #fff;
     background-color: #3c80ce;
-    margin-top: 60px;
+    margin-top: 45px;
     border-radius: 150px;
     font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
     text-align: center;
