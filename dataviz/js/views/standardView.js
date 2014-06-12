@@ -355,8 +355,10 @@ define([
             if(i==maxOccurrence)
               return;
             var lien;
-            if(filterSecteur.params.step='B')
-              lien='#/B/'+result[i][1]+'/'+localStorage.getItem('urlSecteur')+'/emploi';
+            if(filterSecteur.params.step=='B')
+              lien='#/B/'+localStorage.getItem('urlDepartement')+'/'+result[i][1]+'/emploi';
+            else
+              lien='#/C/'+result[i][1]+'/'+localStorage.getItem('urlSecteur')+'/emploi';
             $('<li><a href="'+lien+'">'+result[i][0]+'</a></li>').appendTo(ul);
           }
         }
