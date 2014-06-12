@@ -217,7 +217,6 @@ define([
         var data = JSON.parse(localStorage.getItem(self.params.category));
         $.each(data, function(index, value){
           data[index].minuscule = value['nom'].toLowerCase();
-          //console.log(data['nom']);
         });
         self.params.initialized.call(this, data);
       },
@@ -277,7 +276,6 @@ define([
         var data = JSON.parse(localStorage.getItem(self.params.category));
         $.each(data, function(index, value){
           data[index].minuscule = value['nom'].toLowerCase();
-          //console.log(data['nom']);
         });
         self.params.initialized.call(this, data);
       },
@@ -328,7 +326,6 @@ define([
         var data = JSON.parse(localStorage.getItem(self.params.category));
         $.each(data, function(index, value){
           data[index].minuscule = value['nom'].toLowerCase();
-          //console.log(data['nom']);
         });
         self.params.initialized.call(this, data);
       },

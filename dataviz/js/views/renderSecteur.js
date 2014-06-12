@@ -80,7 +80,6 @@ define([
 		},
 
 		selectionSecteur: function(){
-			console.log("Nom du secteur : "+this.getAttribute('secteur_nom')+"\n Id du secteur : "+this.getAttribute('secteur_id'));
 			secteur.params.choix.call(this, this.getAttribute('secteur_nom'), this.getAttribute('secteur_id'));
 		},
 
@@ -231,7 +230,6 @@ define([
 				$( window ).resize(function() {
 					w = $('.content').width(); 
 					h = $('.content').height();
-					console.log("coucou");
 					d3.select("#svg_circles")
 						.attr("width", w)
 			    		.attr("height", h);
@@ -246,7 +244,6 @@ define([
 			var tousLesSecteurs = document.getElementsByClassName('secteur');
 
 			inputRecherche.onkeyup = function(){
-				//console.log(inputRecherche.value.toString());
 				if(inputRecherche.value.toString() != "")
 				{
 					for(var i=0;i<tousLesSecteurs.length;i++)

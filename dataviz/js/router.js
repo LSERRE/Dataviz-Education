@@ -160,7 +160,6 @@ define([
     router.on('route:a-donnee-departement-item', function(donnee, urlDepartement, urlItemA){
       view.render({step:'A', number:'3'});
       if(statusCircleChart==false){
-        console.log('duuuuur');
         contain();
       }
         

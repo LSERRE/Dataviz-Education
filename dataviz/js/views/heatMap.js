@@ -22,7 +22,6 @@ define([
     templateItem: Handlebars.compile(templateHeatMapItem), 
     render: function(options){
       var self = this;
-      
       if(heatMap==false){
         var items = JSON.parse(localStorage.getItem(options.donnee));
         self.$el.html(self.template(options));
@@ -41,7 +40,8 @@ define([
           parametre: options.itemC,
           rendered: function(){
             heatMap=true;
-          }
+          },
+          status:'no'
         });
       }
       else{

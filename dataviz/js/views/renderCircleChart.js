@@ -15,7 +15,6 @@ define([
         },
 
         init : function(options){
-            console.log(this);
             circleChart.params=$.extend(circleChart.defaults,options);
             circleChart.chargerCsv();
         },
@@ -23,13 +22,9 @@ define([
         chargerCsv : function(){
             // afficher le loader
             var nom_du_CSV = 'json/'+circleChart.params.nomDuTheme+'_'+circleChart.params.parametre+'.csv'; //Nb employés
-            console.log(nom_du_CSV);
             var donneesCsv = [];
             d3.csv(nom_du_CSV,function(data){
                 donneesCsv = data;
-                // donneesCsv[CodeSecteur-1][CodeDept]
-                // circleChart.getRow(donneesCsv, CodeDept)
-                 console.log( circleChart.getRow(donneesCsv, circleChart.params.deptChoisi) );
                 if(circleChart.params.status!='update')
                     circleChart.initialize( circleChart.getRow(donneesCsv, circleChart.params.deptChoisi) );
                 else
@@ -47,7 +42,6 @@ define([
         },
 
         initialize: function(leCSV){
-            console.log('init');
             var w = $('.content').width(),
             h = $('.content').height()-49;
 
@@ -86,9 +80,6 @@ define([
                     children: data.map(function(d) { return d; })
                 };
                 var secteurs_bars = tree.nodes(dataTree);
-
-                console.log(dataCSV);
-                console.log( d3.max(dataCSV));
 
                 var scale = d3.scale.linear()
                     .domain([0, d3.max(dataCSV)])
@@ -169,8 +160,6 @@ define([
         },
 
         majCircle: function(leCSV){
-            console.log('LALALALLALA');
-            console.log(leCSV);
             var dataCSV = leCSV;
 
             for(var i=0; i<dataCSV.length;i++)
