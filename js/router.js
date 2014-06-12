@@ -278,7 +278,7 @@ define([
       view.render({step:'C', number:'1'});
       var theme = new Theme();
       // To determine if we are on step A or step C
-      theme.render({step:'A'});
+      theme.render({step:'C'});
     });
 
     router.on('route:c-donnee', function(donnee){
