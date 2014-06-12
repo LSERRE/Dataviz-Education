@@ -79,7 +79,7 @@ define([
 
     var View = Backbone.View.extend({
       el: '.filterContainer',   
-      aside: '.backgroundAside',
+      aside: '.asideContainer',
       template: Handlebars.compile(templateStandardView), 
       templateAside: Handlebars.compile(templateAside), 
       render: function(options){

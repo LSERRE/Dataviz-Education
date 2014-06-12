@@ -349,8 +349,11 @@ aside > footer{
 			}
 		}
 
+aside .asideContainer{
+	height: 100%;
+}
 aside .backgroundAside{
-	background: url('./img/motif.svg');
+	background: #38414b;
 	background-size: 0.1rem;
 	height: calc(100% - 98px);
 	border-bottom: 1px solid #292f35;
@@ -365,6 +368,7 @@ aside .backgroundAside{
 				border: none;
 				position: relative;
 				height: calc(100% - 100px);
+				background: url('./img/motif.svg');
 			}
 			aside .backgroundAside:before {
 				background-color: transparent;
@@ -392,7 +396,7 @@ aside .asideExplain{
 	opacity: 0.01;
 	text-align: justify;
 	position: absolute;
-	top: 40px;
+	top: 100px;
 	-webkit-transition: opacity 0.2s ease-in-out 0.4s;
     -moz-transition: opacity 0.2s ease-in-out 0.4s;
     -o-transition: opacity 0.2s ease-in-out 0.4s;
@@ -610,7 +614,6 @@ aside .choises ul.searchResults li a{
 	opacity: 0.3;
 	text-transform: uppercase;
 }
-
 /* 06: HEADER */
 
 .mainContainer header > div:first-child{
