@@ -1603,6 +1603,7 @@ div.filterContainer nav ul li:last-child  a:after{
     left: 50%;
     z-index: 100;
     width: 500px;
+    margin-top: -139px;
     margin-left: -250px;
     text-align: center;
     font-family: sans-serif;
@@ -1613,6 +1614,7 @@ div.filterContainer nav ul li:last-child  a:after{
     font-size: 4.0rem;
     font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
     text-shadow: 1px 1px #ffffff ;
+    margin-bottom: 17px;
 }
 
 #nom{
@@ -1659,10 +1661,28 @@ div.filterContainer nav ul li:last-child  a:after{
     color:#64717e;
     font-size: 1.4rem;
     font-family: 'clear_sansitalic' , 'verdana', 'sans-serif';
+    margin-top: -32px;
+}
+
+.icon_big{
+	position: relative;
+	width: 70px;
+	height: 70px;
+	display: inline-block;
+	border: 1px solid #0078FF;
+	border-radius: 50%;
+	margin-bottom: 15px;
+	margin-top: 104px;
 }
 
 .icon_big img{
-	width: 150px;
+	position: absolute;
+	width: 44.1px;
+	height: 44.1px;
+	left: 50%;
+	top: 50%;
+	margin-top: -22.05px;
+	margin-left: -22.05px;
 }
 
 /* BIDON */
