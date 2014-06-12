@@ -29,7 +29,7 @@ define([
             children : [
               { name: 'EMPLOI', url:'emploi' },
               { name: 'SOCIETE', url:'societe' },
-              { name: 'BIENETRE', url:'bien-etre' },
+              { name: 'BIENETRE', url:'bienetre' },
             ]
           }
           //console.log(localStorage.getItem('donnees'));
@@ -114,7 +114,7 @@ define([
             {
               case "emploi": returnValue = "societe";
               break;
-              case "societe": returnValue = "bien-etre";
+              case "societe": returnValue = "bienetre";
               break;
               case "bien-etre": returnValue = "emploi";
               break;
@@ -126,7 +126,7 @@ define([
           function tournerD(){
             switch(returnValue)
             {
-              case "emploi": returnValue = "bien-etre";
+              case "emploi": returnValue = "bienetre";
               break;
               case "bien-etre": returnValue = "societe";
               break;
@@ -157,7 +157,7 @@ define([
               case "societe": degree = 270;
               text = "schpeck knepfle jetz gehts los Oberschaeffolsheim eleifend lotto-owe météor turpis tristique ullamcorper sit elit auctor, hopla rhoncus habitant porta geïz ornare nüdle wie sagittis flammekueche sit placerat condimentum consectetur Chulia Roberstau Salut bisamme dui risus, ac wurscht geht's tellus ornare libero, bredele ante Huguette morbi bissame mamsell rossbolla Hans gravida turpis, sed Pellentesque vielmols, Racing.";
               break;
-              case "bien-etre": degree = 150;
+              case "bienetre": degree = 150;
               text = "Heineken Carola commodo Oberschaeffolsheim rucksack tellus et dolor Mauris kougelhopf Christkindelsmärik semper aliquam hopla Strasbourg varius mollis schnaps hopla hop munster yeuh. gewurztraminer quam, adipiscing ftomi! Wurschtsalad non Coopé de Truchtersheim purus amet, knack vulputate Spätzle salu réchime sed Chulien Miss Dahlias leo gal Pfourtz ! barapli ch'ai Kabinetpapier DNA, .";
               break;
               default:

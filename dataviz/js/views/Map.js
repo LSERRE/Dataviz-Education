@@ -28,8 +28,14 @@ define([
             localStorage.setItem('codeDepartement', departementUrl[2]);
             // redirection
             if(options.donnee){
+              if(options.donnee=='bienetre')
+                var itemDefault = 'temps-libre';
+              else if(options.donnee=='emploi')
+                var itemDefault = 'employes';
+              else
+                var itemDefault = 'population-activite';
               // route A
-              glob.router.navigate('#/A/'+options.donnee+'/'+departementUrl[0]+'/employes', {trigger: true});
+              glob.router.navigate('#/A/'+options.donnee+'/'+departementUrl[0]+'/'+itemDefault, {trigger: true});
             }
             else{
               // route B

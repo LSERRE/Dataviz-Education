@@ -330,11 +330,11 @@
     {"id": 38, "nom": "Médico-social", "url": "medico-social", "img": "medico_social.svg"}
   ],
   "themes" :[
-    {"id": 1, "nom": "Bien-être", "url": "bien-etre", "img": "A"},
+    {"id": 1, "nom": "Bien-être", "url": "bienetre", "img": "A"},
     {"id": 2, "nom": "Emploi", "url": "emploi", "img": "B"},
     {"id": 3, "nom": "Société", "url": "societe", "img": "C"}
   ],
-  "Emploi" :[
+  "emploi" :[
     {"nom": "Employés", "url": "employes", "unite":""},
     {"nom": "Salaires horaires moyens", "url": "salaires-horaires-moyens", "unite":"€"},
     {"nom": "Entreprises", "url": "entreprises", "unite":""},
@@ -343,7 +343,7 @@
     {"nom": "Offres d'emploi", "url": "offres-emploi", "unite":""},
     {"nom": "Taux de chômage", "url": "taux-chomage", "unite":"%"}
   ],
-  "Societe" :[
+  "societe" :[
     {"nom": "Population active", "url": "population-activite", "unite":""},
     {"nom": "Logements", "url": "logements", "unite":""},
     {"nom": "Logements vacants", "url": "logements-vacants", "unite":"%"},
@@ -351,7 +351,7 @@
     {"nom": "Retraités", "url": "retraites", "unite":""},
     {"nom": "Taux de célibataires", "url": "taux-de-celibataires", "unite":"%"}
   ],
-  "Bien-etre" :[
+  "bienetre" :[
     {"nom": "Temps libre", "url": "temps-libre", "unite":"min"},
     {"nom": "Temps de sommeil moyen", "url": "temps-sommeil-moyen", "unite":"min"},
     {"nom": "Durée du trajet", "url": "duree-trajet", "unite":"min"}

@@ -12,6 +12,7 @@ define([
     template: Handlebars.compile(templateBar), 
     render: function(options){
       var self = this;
+      console.log(options);
       self.$el.html(self.template(options));
       $('.emploiBar').removeClass('none');
       $('.dataBar').each(function(index){

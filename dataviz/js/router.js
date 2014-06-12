@@ -45,14 +45,15 @@ define([
       else
           return opts.inverse(this);
   });
-  
+
+ 
   $.getJSON('json/title.json', function(data){
       localStorage.setItem('departements', JSON.stringify(data.departements));
       localStorage.setItem('secteurs', JSON.stringify(data.secteurs));
       localStorage.setItem('themes', JSON.stringify(data.themes));
-      localStorage.setItem('itemA', JSON.stringify(data.itemA));
-      localStorage.setItem('itemB', JSON.stringify(data.itemB));
-      localStorage.setItem('itemC', JSON.stringify(data.itemC));        
+      localStorage.setItem('emploi', JSON.stringify(data.emploi));
+      localStorage.setItem('societe', JSON.stringify(data.societe));
+      localStorage.setItem('bienetre', JSON.stringify(data.bienetre));        
     });
 
   var initialize = function(){
@@ -81,17 +82,16 @@ define([
         data = JSON.parse(localStorage.getItem('secteurs'));
       else if(type=='themes')
         data = JSON.parse(localStorage.getItem('themes'));
-      else if(type=='itemA')
-        data = JSON.parse(localStorage.getItem('itemA'));
-      else if(type=='itemB')
-        data = JSON.parse(localStorage.getItem('itemB'));
-      else if(type=='itemC')
-        data = JSON.parse(localStorage.getItem('itemC'));
+      else if(type=='emploi')
+        data = JSON.parse(localStorage.getItem('emploi'));
+      else if(type=='societe')
+        data = JSON.parse(localStorage.getItem('societe'));
+      else if(type=='bienetre')
+        data = JSON.parse(localStorage.getItem('bienetre'));
       else
         return false;
       
       if(result=='url' || result=='nom'){
-        console.log(data);
         $.each(data, function(key, value){
           if(result=='url'){
             // want url
@@ -167,7 +167,6 @@ define([
           error();
         }
       }
-
       // third itemA
       if(urlItemA==localStorage.getItem('urlItemA')){
         document.title = localStorage.getItem('nomItemA')+ ' '+localStorage.getItem('nomDepartement')+' | JobShaker';
@@ -176,16 +175,19 @@ define([
         circleChart.render({donnee: donnee, departement: urlDepartement, itemA: urlItemA});
       }
       else{
-        var nomItemA = findType('itemA', urlItemA, 'nom');
+        console.log(donnee);
+        var nomItemA = findType(donnee, urlItemA, 'nom');
+        console.log(nomItemA);
         if(nomItemA){
           document.title = localStorage.getItem('nomItemA')+ ' '+localStorage.getItem('nomDepartement')+' | JobShaker';
           $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+localStorage.getItem('nomItemA')+' dans le secteur #jeudedonnée');
           localStorage.setItem('nomItemA', nomItemA[0]);
           var circleChart = new CircleChart();
+          console.log(urlItemA);
           circleChart.render({donnee: donnee, departement: urlDepartement, itemA: urlItemA});
         }
         else{
-          error();
+          //error();
         }
       }
     });
@@ -222,9 +224,8 @@ define([
       }
     });
 
-    router.on('route:b-departement-secteur-item', function(urlDepartement, urlSecteur, urlItemB){
+    router.on('route:b-departement-secteur-item', function(urlDepartement, urlSecteur, urlTheme){
       view.render({step:'B', number:'3'});
-      console.log('b-departement-secteur');
       contain();
       // first departement
       if(urlDepartement!=localStorage.getItem('urlDepartement')){
@@ -251,20 +252,20 @@ define([
       }
       
       // third itemB
-      if(urlItemB==localStorage.getItem('urlItemB')){
-        document.title = localStorage.getItem('nomItemB')+ ' '+localStorage.getItem('nomSecteur')+' '+localStorage.getItem('nomDepartement')+' | JobShaker';
-        $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+localStorage.getItem('nomItemB')+' dans le secteur '+localStorage.getItem('nomSecteur'));
+      if(urlTheme==localStorage.getItem('themes')){
+        document.title = localStorage.getItem('nomTheme')+ ' '+localStorage.getItem('nomSecteur')+' '+localStorage.getItem('nomDepartement')+' | JobShaker';
+        $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+localStorage.getItem('nomTheme')+' dans le secteur '+localStorage.getItem('nomSecteur'));
         var bar = new Bar();
-        bar.render({departement: urlDepartement, secteur: urlSecteur, itemB: urlItemB});
+        bar.render({departement: urlDepartement, secteur: urlSecteur, theme:urlTheme});
       }
       else{
-        var nomItemB = findType('itemB', urlItemB, 'nom');
-        if(nomItemB){
-          localStorage.setItem('nomItemB', nomItemB[0]);
-          document.title = localStorage.getItem('nomItemB')+ ' '+localStorage.getItem('nomSecteur')+' '+localStorage.getItem('nomDepartement')+' | JobShaker';
-          $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+localStorage.getItem('nomItemB')+' dans le secteur '+localStorage.getItem('nomSecteur'));
+        var nomTheme = findType('themes', urlTheme, 'nom');
+        if(nomTheme){
+          localStorage.setItem('nomTheme', nomTheme[0]);
+          document.title = nomTheme[0]+ ' '+localStorage.getItem('nomSecteur')+' '+localStorage.getItem('nomDepartement')+' | JobShaker';
+          $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+nomTheme[0]+' dans le secteur '+localStorage.getItem('nomSecteur'));
           var bar = new Bar();
-          bar.render({departement: urlDepartement, secteur: urlSecteur, itemB: urlItemB});
+          bar.render({departement: urlDepartement, secteur: urlSecteur, theme:urlTheme});
         }
         else{
           error();

@@ -21,22 +21,19 @@ define([
         validerId: '#valider_item',
         rendered: function(result){
           // update sidebar
-          console.log(result);
           // theme in localstorage
           var themeName = findType('themes', result, 'nom');
-          console.log(themeName);
           if(themeName){
             localStorage.setItem('urlTheme', result);
             localStorage.setItem('nomTheme', themeName[0]);
             // redirection
-            console.log(options.step);
             if(options.step=='A'){
               // route A
-              glob.router.navigate('#/A/'+themeName[0], {trigger: true});
+              glob.router.navigate('#/A/'+result, {trigger: true});
             }
             if(options.step=='C'){
               // route C
-              glob.router.navigate('#/C/'+themeName[0], {trigger: true});
+              glob.router.navigate('#/C/'+result, {trigger: true});
             }
           }
         }

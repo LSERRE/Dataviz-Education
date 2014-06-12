@@ -86,7 +86,6 @@ define([
         var self = this;
         $('.page_404').remove();
         self.$el.html(self.template(options)); 
-        console.log(localStorage.getItem('nomSecteur'));
         $(self.aside).html(self.templateAside({step: options.step, number: options.number, departement: localStorage.getItem('nomDepartement'), codeDepartement: localStorage.getItem('codeDepartement'), secteur: localStorage.getItem('nomSecteur'), theme: localStorage.getItem('nomTheme') })); 
         if(options.number){
           $('.stepUI').removeClass('none');
@@ -235,7 +234,6 @@ define([
               result.push(new Array(value.nom, value.url, value.code, occurrence));
           });
           result.sort(function(a, b) { return a[3]>b[3] }); 
-          console.log(self.params);
           var ul = $(self.params.result);
           for(i=0; i<result.length; i++){
             if(i==maxOccurrence)
