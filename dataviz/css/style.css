@@ -1524,9 +1524,8 @@ div.filterContainer nav ul li:last-child  a:after{
 	width: 800px;
 	position: absolute;
 	top: 50%;
-	*left: 50%;
-	*margin-left: -262.5px;
-	left: 15%;
+	left: 50%;
+	margin-left: -263px;
 	margin-top: -62px;
 }
 
