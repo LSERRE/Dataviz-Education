@@ -278,3 +278,14 @@ div.centerHome{
 .clear{
 	clear: both;
 }
+
+.fb-share-button{
+    position: absolute !important;
+    bottom: 200px;
+    right: 140px;
+}
+.twitter-share-button{
+    position: absolute;
+    bottom: 200px;
+    right: 10px;
+}

@@ -68,6 +68,8 @@ define([
       return false;
     });
 
+    $('.pluginCountNum').css({'max-width':'8px'})
+
     $('#closeAbout').on('click', function(e){
       e.preventDefault();
       $('#aboutSection').removeClass('active');
