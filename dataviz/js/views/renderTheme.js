@@ -118,6 +118,8 @@ define([
               break;
               case "bien-etre": returnValue = "emploi";
               break;
+              default: returnValue = "emploi"; 
+              break;
             }
             tournerRoueAt(true);
             return false;
@@ -131,6 +133,8 @@ define([
               case "bien-etre": returnValue = "societe";
               break;
               case "societe": returnValue = "emploi";
+              break;
+              default: returnValue = "emploi"; 
               break;
             }
             tournerRoueAt(true);
@@ -146,19 +150,19 @@ define([
             else{
               returnValue = this.getAttribute("url_theme");
             }
-            var text = "";
+            var text = "Ce jeu contient des données sur l’emploi, les salaires, les entreprises et la parité.";
 
             var degree = 30;
             switch(returnValue)
             {
               case "emploi": degree = 30;
-              text = "Lorem Elsass ipsum in, Richard Schirmeck kartoffelsalad Gal ! suspendisse nullam leverwurscht pellentesque amet eget elementum dignissim chambon Morbi sit mänele baeckeoffe Salu bissame lacus hopla so merci vielmols und ac picon bière libero. blottkopf, tchao bissame Yo dû. kuglopf messti de Bischheim Verdammi id libero, id, amet s'guelt hoplageiss schneck leo quam. senectus non Gal.  ";
+              text = "Ce jeu contient des données sur l’emploi, les salaires, les entreprises et la parité.";
               break;
               case "societe": degree = 270;
-              text = "schpeck knepfle jetz gehts los Oberschaeffolsheim eleifend lotto-owe météor turpis tristique ullamcorper sit elit auctor, hopla rhoncus habitant porta geïz ornare nüdle wie sagittis flammekueche sit placerat condimentum consectetur Chulia Roberstau Salut bisamme dui risus, ac wurscht geht's tellus ornare libero, bredele ante Huguette morbi bissame mamsell rossbolla Hans gravida turpis, sed Pellentesque vielmols, Racing.";
+              text = "Ce jeu contient des données sur la population, la démographie et le logement.";
               break;
               case "bienetre": degree = 150;
-              text = "Heineken Carola commodo Oberschaeffolsheim rucksack tellus et dolor Mauris kougelhopf Christkindelsmärik semper aliquam hopla Strasbourg varius mollis schnaps hopla hop munster yeuh. gewurztraminer quam, adipiscing ftomi! Wurschtsalad non Coopé de Truchtersheim purus amet, knack vulputate Spätzle salu réchime sed Chulien Miss Dahlias leo gal Pfourtz ! barapli ch'ai Kabinetpapier DNA, .";
+              text = "Ce jeu contient des données sur le temps libre et la santé.";
               break;
               default:
               break;
