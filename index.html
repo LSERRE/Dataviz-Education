@@ -3,86 +3,18 @@
 <head>
   <meta charset="utf-8">
   <title>JobShaker</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/barres.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<aside id="leftPanel" class="leftPanel">
-		<header>
-			<h1><a href="#"><span>Job</span>Shaker</a></h1>
-		</header>
-		<div class="backgroundAside">
-		</div>
-		<footer><a id="about" href="">à propos</a></footer>
-	</aside>
-
-	<div id="mainContainer" class="mainContainer">
-		<header>
-			<div>
-				<a class="navPrev" id="buttonSidebar" href=""></a>
-				<div class="titleContainer"><h2></h2></div>
-				<script type="text/javascript">
-				    function enterFullscreen(element) {
-				      if(element.requestFullScreen) {
-				              //fonction officielle du w3c
-				              element.requestFullScreen();
-				      } else if(element.webkitRequestFullScreen) {
-				              //fonction pour Google Chrome (on lui passe un argument pour autoriser le plein écran lors d'une pression sur le clavier)
-				              element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-				      } else if(element.mozRequestFullScreen){
-				              //fonction pour Firefox
-				              element.mozRequestFullScreen();
-				      } else {
-				              alert('Votre navigateur ne supporte pas le mode plein écran, il est temps de passer à un plus récent ;)');
-				      }
-				      $('#fullSize').css({ display: "none"});
-				      $('#LeaveFullSize').css({display: "table-cell"});
-				      return false;
-				    }
-				    function LeaveFullscreen(element) {
-				    	if (document.exitFullscreen) {
-					      document.exitFullscreen();
-					    } else if (document.msExitFullscreen) {
-					      document.msExitFullscreen();
-					    } else if (document.mozCancelFullScreen) {
-					      document.mozCancelFullScreen();
-					    } else if (document.webkitExitFullscreen) {
-					      document.webkitExitFullscreen();
-    					}
-    					$('#fullSize').css({ display: "table-cell"});
-				      	$('#LeaveFullSize').css({display: "none"});
-    					return false;
-				    }
-				    document.addEventListener("keyup", function(e) {
-					  if (e.keyCode == 27) {
- 						$('#fullSize').css({ display: "table-cell"});
-				      	$('#LeaveFullSize').css({display: "none"});
-					  }
-					}, false);
-				</script>
-				<a id="fullSize" onClick="event.preventDefault(); enterFullscreen(document.body);" class="fullSize" href=""></a>
-				<a id="LeaveFullSize" onClick="event.preventDefault(); LeaveFullscreen(document.body);" class="leaveFullSize" href=""></a>
-			</div>
-			<div class="filterContainer">
-				
-			</div>
-		</header>
-		<div class="content">
-
-		</div>
-		<div class="stepUI">
-			<div class="currentStep"></div>
-			<div class="step2"></div>
-			<div class="step3"></div>
-		</div>
+	<div class="centerHome">
+		<h1>Job<span>Shaker</span></h1>
+		<p>Attention, cette page n'existe pas !
+Nous vous invitons à retourner sur la page d'accueil
+pour continuer votre visite. À bientôt</p>
+		<div class="clear"></div>
+	<a href="dataviz/"><span>Commencer la datavizualisaton</span></a>
 	</div>
-	<div id="aboutSection" class="aboutSection">
-		<div class="content_about">
-			<h2>à propos</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed enim et eros molestie condimentum. Phasellus vitae urna vel nulla bibendum fermentum. In vitae ligula eget orci facilisis auctor. Suspendisse eu eros a libero dignissim pretium. Ut gravida varius elementum.</p>
-		</div>
-		<a id="closeAbout" class="closeAbout" href=""></a>
-	</div>
+
 	<script data-main="js/main" src="js/libs/require.js"></script>
 </body>
 </html>

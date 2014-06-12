@@ -1,0 +1,280 @@
+/* 01: RESET CSS */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+	text-decoration: none;
+}
+
+/* 02: FONTS */
+
+@font-face {
+    font-family: 'clear_sans_thinregular';
+    src: url('dataviz/css/fonts/clearsans-thin-webfont.eot');
+    src: url('dataviz/css/fonts/clearsans-thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dataviz/css/fonts/clearsans-thin-webfont.woff') format('woff'),
+         url('dataviz/css/fonts/clearsans-thin-webfont.ttf') format('truetype'),
+         url('dataviz/css/fonts/clearsans-thin-webfont.svg#clear_sans_thinregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'clear_sansregular';
+    src: url('dataviz/css/fonts/clearsans-regular-webfont.eot');
+    src: url('dataviz/css/fonts/clearsans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dataviz/css/fonts/clearsans-regular-webfont.woff') format('woff'),
+         url('dataviz/css/fonts/clearsans-regular-webfont.ttf') format('truetype'),
+         url('dataviz/css/fonts/clearsans-regular-webfont.svg#clear_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sans_mediumitalic';
+    src: url('dataviz/css/fonts/clearsans-mediumitalic-webfont.eot');
+    src: url('dataviz/css/fonts/clearsans-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dataviz/css/fonts/clearsans-mediumitalic-webfont.woff') format('woff'),
+         url('dataviz/css/fonts/clearsans-mediumitalic-webfont.ttf') format('truetype'),
+         url('dataviz/css/fonts/clearsans-mediumitalic-webfont.svg#clear_sans_mediumitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sansbold_italic';
+    src: url('dataviz/css/fonts/clearsans-bolditalic-webfont.eot');
+    src: url('dataviz/css/fonts/clearsans-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dataviz/css/fonts/clearsans-bolditalic-webfont.woff') format('woff'),
+         url('dataviz/css/fonts/clearsans-bolditalic-webfont.ttf') format('truetype'),
+         url('dataviz/css/fonts/clearsans-bolditalic-webfont.svg#clear_sansbold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sansbold';
+    src: url('dataviz/css/fonts/clearsans-bold-webfont.eot');
+    src: url('dataviz/css/fonts/clearsans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dataviz/css/fonts/clearsans-bold-webfont.woff') format('woff'),
+         url('dataviz/css/fonts/clearsans-bold-webfont.ttf') format('truetype'),
+         url('dataviz/css/fonts/clearsans-bold-webfont.svg#clear_sansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sans_mediumregular';
+    src: url('dataviz/css/fonts/clearsans-medium-webfont.eot');
+    src: url('dataviz/css/fonts/clearsans-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dataviz/css/fonts/clearsans-medium-webfont.woff') format('woff'),
+         url('dataviz/css/fonts/clearsans-medium-webfont.ttf') format('truetype'),
+         url('dataviz/css/fonts/clearsans-medium-webfont.svg#clear_sans_mediumregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sans_lightregular';
+    src: url('dataviz/css/fonts/clearsans-light-webfont.eot');
+    src: url('dataviz/css/fonts/clearsans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dataviz/css/fonts/clearsans-light-webfont.woff') format('woff'),
+         url('dataviz/css/fonts/clearsans-light-webfont.ttf') format('truetype'),
+         url('dataviz/css/fonts/clearsans-light-webfont.svg#clear_sans_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'clear_sansitalic';
+    src: url('dataviz/css/fonts/clearsans-italic-webfont.eot');
+    src: url('dataviz/css/fonts/clearsans-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dataviz/css/fonts/clearsans-italic-webfont.woff') format('woff'),
+         url('dataviz/css/fonts/clearsans-italic-webfont.ttf') format('truetype'),
+         url('dataviz/css/fonts/clearsans-italic-webfont.svg#clear_sansitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'oswald_bold';
+    src: url('dataviz/css/fonts/oswald-bold-webfont.eot');
+    src: url('dataviz/css/fonts/oswald-bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'oswald_light';
+    src: url('dataviz/css/fonts/oswald-bold-webfont.eot');
+    src: url('dataviz/css/fonts/oswald-light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'oswald_italic';
+    src: url('dataviz/css/fonts/oswald-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* 03: BASIC STRUCTURE */
+
+html,body{
+	font-size: 62.5%;
+	overflow: hidden;
+	height: 100%;
+	background: url("dataviz/css/img/motif_404.png"), url("dataviz/css/img/404.jpg");
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	background-size: 2px, cover;
+	background-repeat: repeat, no-repeat;
+	background-position: top left;
+}
+
+div.centerHome{
+	width: 645px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -321px;
+	margin-top: -62px;
+}
+
+.centerHome h1{
+	color: #3C98FF;
+	font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
+	font-size: 5rem;
+	text-transform: uppercase;
+	opacity: 0.9;
+	display: inline-block;
+	border-right: 1px solid #919aa4;
+	padding-right: 35px;
+	height: 125px;
+	line-height: 120px;
+	float: left;
+}
+.centerHome h1+p, .centerHome h1+p {
+	color: #919aa4;
+	font-family: 'clear_sansitalic' , 'verdana', 'sans-serif';
+	font-size: 1.4rem;
+	display: inline-block;
+	text-shadow: 1px 1px #303841;
+	line-height: 18pt;
+	padding-left: 30px;
+}
+.centerHome p{
+	width: 300px;
+	float: left;
+	margin-top: 26px;
+}
+.centerHome h1 > span{
+	color: #B1B3B6 !important;
+}
+.centerHome a{
+	width: 60%;
+	display: block;
+	margin: 0 auto;
+	color: #fff;
+	background-color: #3c80ce;
+	margin-top: 100px;
+	border-radius: 15px;
+	font-family: 'clear_sansbold' , 'verdana', 'sans-serif';
+	text-align: center;
+	font-size: 2.0rem;
+	text-transform: uppercase;
+	 -webkit-box-shadow:    0 4px 0 #2c64a2, 0 4px 5px rgba(0, 0, 0, .35);
+    -moz-box-shadow: 0 4px 0 #2c64a2, 0 4px 5px rgba(0, 0, 0, .35);
+    box-shadow: 0 4px 0 #2c64a2, 0 4px 5px rgba(0, 0, 0, .35);
+    -webkit-transition: -webkit-box-shadow .1s ease-in-out;
+    -moz-transition: -moz-box-shadow .1s ease-in-out;
+    -o-transition: -o-box-shadow .1s ease-in-out;
+    transition: box-shadow .1s ease-in-out;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(hsla(211, 56%, 32%, .3)), to(hsla(211, 56%, 32%, .1)));
+    background-image: -webkit-linear-gradient(hsla(211, 56%, 32%, .3), hsla(211, 56%, 32%, .1));
+    background-image: -moz-linear-gradient(hsla(211, 56%, 32%, .3), hsla(211, 56%, 32%, .1));
+    background-image: -o-linear-gradient(hsla(211, 56%, 32%, .3), hsla(211, 56%, 32%, .1));
+    text-shadow: 0 -1px 1px rgba(43, 106, 177, .7);
+}
+.centerHome a span{
+	padding: 22px 20px;
+	display: inline-block;
+}
+.centerHome a:hover, .centerHome a:focus{
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(hsla(211, 56%, 32%, .1)), to(hsla(211, 56%, 32%, .3)));
+    background-image: -webkit-linear-gradient(hsla(211, 56%, 32%, .1), hsla(211, 56%, 32%, .3));
+    background-image: -moz-linear-gradient(hsla(211, 56%, 32%, .1), hsla(211, 56%, 32%, .3));
+    background-image: -o-linear-gradient(hsla(211, 56%, 32%, .1), hsla(211, 56%, 32%, .3));
+}
+.centerHome a:active{
+	 	 -webkit-box-shadow:    0 2px 0 #2c64a2, 0 2px 2px rgba(0, 0, 0, .35);
+	    -moz-box-shadow: 0 2px 0 #2c64a2, 0 2px 2px rgba(0, 0, 0, .35);
+	    box-shadow: 0 2px 0 #2c64a2, 0 2px 2px rgba(0, 0, 0, .35);
+}
+.centerHome a:active span {
+    -webkit-transform: translate(0, 1px);
+    -moz-transform: translate(0, 1px);
+    -o-transform: translate(0, 1px);
+    transform: translate(0, 1px);
+}
+.clear{
+	clear: both;
+}

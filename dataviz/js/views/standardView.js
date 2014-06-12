@@ -88,10 +88,6 @@ define([
         self.$el.html(self.template(options)); 
         console.log(localStorage.getItem('nomSecteur'));
         $(self.aside).html(self.templateAside({step: options.step, number: options.number, departement: localStorage.getItem('nomDepartement'), codeDepartement: localStorage.getItem('codeDepartement'), secteur: localStorage.getItem('nomSecteur'), theme: localStorage.getItem('nomTheme') })); 
-        console.log(options);
-        if(options.step=='A'){
-          // sidebar first theme, second departement
-        }
         if(options.number){
           $('.stepUI').removeClass('none');
           if(stepBar==false)
@@ -107,6 +103,79 @@ define([
             $('.step3').removeClass('currentStep');
           }
           else if(options.number==3){
+
+            if(options.step=='A'){
+              var A = filter.init({
+                result: '.resultDepartement',
+                category : 'departements',
+                step : options.step,
+                initialized : function(data){
+                  console.log(filter.result);
+                  $('#inputDepartement').on('keyup',function(e){
+                    filter.render(data, $(this).val(), 2);
+                  });
+                }
+              });
+
+              var B = filter.init({
+                result: '.resultTheme',
+                category : 'themes',
+                step : options.step,
+                initialized : function(data){
+                  $('#inputTheme').on('keyup',function(e){
+                    filter.render(data, $(this).val(), 2);
+                  });
+                }
+              });
+            }
+            
+            else if(options.step=='B'){
+              filter.init({
+                result: '.resultDepartement',
+                category : 'departements',
+                step : options.step,
+                initialized : function(data){
+                  $('#inputDepartement').on('keyup',function(e){
+                    filter.render(data, $(this).val(), 2);
+                  });
+                }
+              });
+
+              filter.init({
+                result: '.resultSecteur',
+                category : 'secteurs',
+                step : options.step,
+                initialized : function(data){
+                  $('#inputSecteur').on('keyup',function(e){
+                    filter.render(data, $(this).val(), 2);
+                  });
+                }
+              });
+            }
+
+            else{
+              filter.init({
+                result: '.resultTheme',
+                category : 'themes',
+                step : options.step,
+                initialized : function(data){
+                  $('#inputTheme').on('keyup',function(e){
+                    filter.render(data, $(this).val(), 2);
+                  });
+                }
+              });
+
+              filter.init({
+                result: '.resultSecteur',
+                category : 'secteurs',
+                step : options.step,
+                initialized : function(data){
+                  $('#inputSecteur').on('keyup',function(e){
+                    filter.render(data, $(this).val(), 2);
+                  });
+                }
+              });
+            }
             $('.step1').addClass('currentStep');
             $('.step2').addClass('currentStep');
             $('.step3').addClass('currentStep');
@@ -120,18 +189,27 @@ define([
       }
     });   
 
-    var departement = new Array();
     var filter = {
       defaults : {
         result : '',
         file : '',
         category : '',
+        step: '',
         initialized : function(){}
       },
       init : function(options){
         this.params=$.extend(this.defaults,options);
         this.initialize();
       },
+      /*getJsonFile : function(){
+        var self = this.params;
+        $.getJSON(this.params.file, function(result){
+          $.each(result, function(index, value){
+              self.tab.push(value[self.category].toLowerCase());
+            });
+            self.gotJsonFile.call(this, null);
+        });
+      },*/
       compare: function(a, b){
         return a[2] < b[2];
       },
@@ -147,6 +225,7 @@ define([
         self.params.initialized.call(this, data);
       },
       render:function(data, search, maxOccurrence){
+        var self = this;
         $(filter.params.result).empty();
         var result = new Array();
         if(search.length>1){
@@ -156,27 +235,21 @@ define([
               result.push(new Array(value.nom, value.url, value.code, occurrence));
           });
           result.sort(function(a, b) { return a[3]>b[3] }); 
-
-          var ul = $(filter.params.result);
+          console.log(self.params);
+          var ul = $(self.params.result);
           for(i=0; i<result.length; i++){
             if(i==maxOccurrence)
               return;
-            $('<li><a href="">'+result[i][0]+'</a></li>').appendTo(ul);
+            var lien;
+            if(filter.params.step='B')
+              lien='#/B/'+result[i][1]+'/'+localStorage.getItem('urlSecteur')+'/emploi';
+            $('<li><a href="'+lien+'">'+result[i][0]+'</a></li>').appendTo(ul);
           }
         }
         
       }
     };
 
-    filter.init({
-      result: '.resultDepartement',
-      category : 'departements',
-      initialized : function(data){
-        $('#inputDepartements').on('keyup',function(e){
-          filter.render(data, $(this).val(), 2);
-        });
-      }
-    });
 
   return View;
 });
