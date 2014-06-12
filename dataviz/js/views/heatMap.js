@@ -36,9 +36,9 @@ define([
         Map.init({
           id: '#map',
           infosid: '#infosDepartements',
-          nomDuTheme: 'EMPLOI',
-          secteurChoisi: '2',
-          parametre:'nb_employes',
+          nomDuTheme: options.donnee.toUpperCase(),
+          secteurChoisi: localStorage.getItem('idSecteur'),
+          parametre: options.itemC,
           rendered: function(){
             heatMap=true;
           }
@@ -48,9 +48,9 @@ define([
         Map.init({
           id: '#map',
           infosid: '#infosDepartements',
-          nomDuTheme: 'EMPLOI',
-          secteurChoisi: '2',
-          parametre:'nb_employes',
+          nomDuTheme: options.donnee.toUpperCase(),
+          secteurChoisi: localStorage.getItem('idSecteur'),
+          parametre: options.itemC,
           status: 'update'
         });
       }      

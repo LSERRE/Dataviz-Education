@@ -31,10 +31,13 @@ define([
             $('.choise').eq(1).children().html(code);
             // sector in localstorage
             var secteurUrl = findType('secteurs', nom, 'url');
+            console.log(secteurUrl);
             if(secteurUrl){
+
               localStorage.setItem('urlSecteur', secteurUrl[0]);
               localStorage.setItem('nomSecteur', nom);
               localStorage.setItem('imgSecteur', secteurUrl[1]);
+              localStorage.setItem('idSecteur', secteurUrl[3]);
                 // redirection
               if(options.departement){
                 // route B

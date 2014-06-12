@@ -318,15 +318,6 @@ define([
         this.params=$.extend(this.defaults,options);
         this.initialize();
       },
-      /*getJsonFile : function(){
-        var self = this.params;
-        $.getJSON(this.params.file, function(result){
-          $.each(result, function(index, value){
-              self.tab.push(value[self.category].toLowerCase());
-            });
-            self.gotJsonFile.call(this, null);
-        });
-      },*/
       compare: function(a, b){
         return a[2] < b[2];
       },
@@ -357,8 +348,21 @@ define([
             if(i==maxOccurrence)
               return;
             var lien;
-            if(filterSecteur.params.step='B')
-              lien='#/B/'+result[i][1]+'/'+localStorage.getItem('urlSecteur')+'/emploi';
+            if(filterSecteur.params.step=='B'){
+              lien='#/B/'+localStorage.getItem('urlDepartement')+'/'+result[i][1]+'/emploi';
+            }              
+            else{
+              nomTheme=localStorage.getItem('nomTheme');
+              if(nomTheme=='bienetre')
+                var itemDefault = 'temps-libre';
+              else if(nomTheme=='emploi')
+                var itemDefault = 'employes';
+              else
+                var itemDefault = 'population-activite';
+              lien='#/C/'+nomTheme+'/'+result[i][1]+'/'+itemDefault;
+
+            }
+             
             $('<li><a href="'+lien+'">'+result[i][0]+'</a></li>').appendTo(ul);
           }
         }

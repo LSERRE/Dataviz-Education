@@ -60,6 +60,7 @@ define([
 		  	var donneesCsv = [];
 			d3.csv(leCSV,function(data){
 				donneesCsv = data;
+
 			  	// donneesCsv[CodeSecteur-1][CodeDept]
 			  	// console.log(donneesCsv["10"]["13"])
 			  	map.afficherCarte(donneesCsv, deps, path);
@@ -73,7 +74,7 @@ define([
 			d3.json('json/departements.json', function(req, geojson) {
 
 			//Supprimer Loader
-
+			
 		  	/*
 		     * On "bind" un élément SVG path pour chaque entrée
 		     * du tableau features de notre objet geojson
@@ -82,7 +83,7 @@ define([
 		  			.selectAll("path")
 					.data(geojson.features);
 
-
+			
 			/*
 		     * On créait un ColorScale, qui va nous
 		     * permettre d'assigner plus tard une
@@ -102,7 +103,7 @@ define([
 			  	.append("path")
 			  		.attr('class', 'departementHM')
 			  		.attr('fill', function(d) { 
-			  			if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" ){
+			  			if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" || isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) ){
 			  				console.log("Undefined or NULL at "+(map.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
 			  				return "#ccc";
 			  			}
@@ -112,7 +113,7 @@ define([
 			      	.attr("nom_dept", function(d){ return d.properties.NOM_DEPT; })
 			      	.attr("num_dept", function(d){ return d.properties.CODE_DEPT; })
 			      	.attr("value",function(d){ 
-			      		if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" ){
+			      		if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" || isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) ){
 			  				return "Indisponible";
 			  			}
 			      		return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT];
@@ -175,8 +176,7 @@ define([
 			// Les 3 valeurs là sont celles à changer pour faire varier le graph
 
 			var nom_du_CSV = 'json/'+map.params.nomDuTheme+'_'+map.params.parametre+'.csv'; //Nb employés
-
-			
+			console.log(nom_du_CSV);
 
 		 	 /* 
 		  	 * On créait un nouvel objet path qui permet 
@@ -219,6 +219,8 @@ define([
 
 		majCarte: function() {
 			var nomDuCSV = 'json/'+map.params.nomDuTheme+'_'+map.params.parametre+'.csv'; //Nb employés
+			
+			console.log(nomDuCSV);
 			d3.csv(nomDuCSV,function(data){
 				//Fonction asynchrone
 			  	map.afficherNouvelleCarte(data);
@@ -233,16 +235,16 @@ define([
 				.range(["#f1f1f1","red"]); //#AED4FE"
 			d3.selectAll(".departementHM")
 				.transition()
-				.duration(1000)
+				.duration(500)
 		  		.attr('fill', function(d) { 
-		  			if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" ){
+		  			if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" || isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) ){
 		  				console.log("Undefined or NULL at "+(map.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
 		  				return "#ccc";
 		  			}
 		  			return color(parseInt(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT].replace(" ",""))); 
 		  		})
 		      	.attr('value', function(d){ 
-		      		if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" ){
+		      		if (donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null | "NC" | undefined | "" || isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) ){
 		  				return "Indisponible";
 		  			}
 		      		return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT];

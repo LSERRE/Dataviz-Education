@@ -502,10 +502,10 @@ aside .choises div.choise div{
 	padding: 2px 0px 0px 1px;
 }
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
-			aside .choises div.choise:first-of-type div {
+			aside .choises div.choise div {
 					height: 100%;
 					width: 100px;
-					line-height: 100px;
+					line-height: 100px !important;
 			}
 		}
 
@@ -516,6 +516,16 @@ aside .choises div.choise img{
 	width: 25px;
 	height: 25px;
 }
+
+		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
+			aside .choises div.choise img {
+				top: 26px;
+				left: 26px;
+				width: 50px;
+				height: 50px;
+			}
+		}
+
 aside .choises span.middleSeparator{
 	height: 200px;
 	width: 1px;
