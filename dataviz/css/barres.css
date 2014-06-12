@@ -1,7 +1,7 @@
 .dataBar{
 	width: 154px;
 	height: 400px;
-	float: left;
+	display: inline-block;
 	margin: 0 0.5%;
 }
 
@@ -140,3 +140,6 @@
 	position: relative;
 }
 
+.grandContainerBar{
+	text-align: center;
+}
