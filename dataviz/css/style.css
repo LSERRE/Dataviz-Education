@@ -1836,23 +1836,34 @@ height: 100%;
 margin:0 auto;
 text-align: center;
 font-family: sans-serif;
+position: relative;
+}
+
+.center_button{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	width: 320px;
+	height: 150px;
+	margin-top: -67px;
+	margin-left: -160px;
 }
 
 #choixThemes{
-/*
-width:50%;
-height: 50%;
-background: black;*/
-margin: 0 auto;
+	margin: 0 auto;
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 
 #choixThemes svg{
-	/*
-	width:50%;
-	height: 50%;
-	background: black;*/
-	margin: 0 auto;
+	position: absolute;
+	margin-left: -300px;
+	top: 50%;
+	margin-top: -305px;
 }
+
 
 .btnTheme{
 cursor: pointer;
@@ -1862,12 +1873,7 @@ transform-origin: center center;
 }
 
 #descriptionTheme{
-	position: absolute;
-	left: 50%;
-	top: 60%;
-	width: 340px;
-	margin-left: -170px;
-	margin-top: -120px;
+	width: auto;
 	font-family: "clear_sans_lightregular", 'verdana', 'sans-serif';
 	color: #404952;
 	line-height: 18pt;
@@ -1887,6 +1893,7 @@ transform-origin: center center;
 	border: 1px solid #ccc;
 	background-color: #f1f1f1;
 	outline: none;
+	z-index: 300;
 }
 #previous_item{
 	left:17%;
@@ -1915,13 +1922,11 @@ transform-origin: center center;
 	padding: 13px 30px;
 	border: 0;
 	outline: none;
-	margin-top: 10px;
 	cursor: pointer;
-	position: absolute;
-	top:70%;
-	left: 50%;
-	margin-left: -90px;
+	position: relative;
+	margin-top: 40px;
 }
+
 #valider_item:before{
   content: '';
   position: absolute;
