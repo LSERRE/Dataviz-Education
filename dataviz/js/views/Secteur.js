@@ -41,8 +41,14 @@ define([
                 glob.router.navigate('#/B/'+options.departement+'/'+secteurUrl[0]+'/emploi', {trigger: true});
               }
               else{
+                if(options.donnee=='bienetre')
+                  var itemDefault = 'temps-libre';
+                else if(options.donnee=='emploi')
+                  var itemDefault = 'employes';
+                else
+                  var itemDefault = 'population-activite';
                  // route C
-                glob.router.navigate('#/C/'+options.donnee+'/'+secteurUrl[0]+'/taux-activite', {trigger: true});
+                glob.router.navigate('#/C/'+options.donnee+'/'+secteurUrl[0]+'/'+itemDefault, {trigger: true});
               }
             }
           }

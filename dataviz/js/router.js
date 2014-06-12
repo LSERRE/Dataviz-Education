@@ -153,7 +153,6 @@ define([
     });
 
     router.on('route:a-donnee-departement-item', function(donnee, urlDepartement, urlItemA){
-      console.log('A - donnee - departement (bar)');
       view.render({step:'A', number:'3'});
       contain();
       // second departement
@@ -175,9 +174,7 @@ define([
         circleChart.render({donnee: donnee, departement: urlDepartement, itemA: urlItemA});
       }
       else{
-        console.log(donnee);
         var nomItemA = findType(donnee, urlItemA, 'nom');
-        console.log(nomItemA);
         if(nomItemA){
           document.title = localStorage.getItem('nomItemA')+ ' '+localStorage.getItem('nomDepartement')+' | JobShaker';
           $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+localStorage.getItem('nomItemA')+' dans le secteur #jeudedonnée');
@@ -187,7 +184,7 @@ define([
           circleChart.render({donnee: donnee, departement: urlDepartement, itemA: urlItemA});
         }
         else{
-          //error();
+          error();
         }
       }
     });
@@ -251,7 +248,7 @@ define([
         }
       }
       
-      // third itemB
+      // third theme
       if(urlTheme==localStorage.getItem('themes')){
         document.title = localStorage.getItem('nomTheme')+ ' '+localStorage.getItem('nomSecteur')+' '+localStorage.getItem('nomDepartement')+' | JobShaker';
         $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+localStorage.getItem('nomTheme')+' dans le secteur '+localStorage.getItem('nomSecteur'));
@@ -278,6 +275,7 @@ define([
       $('.titleContainer h2').html('Choisissez un jeu de données');
       view.render({step:'C', number:'1'});
       var theme = new Theme();
+      heatMap=false;
       // To determine if we are on step A or step C
       theme.render({step:'C'});
     });
@@ -293,9 +291,7 @@ define([
     });
 
     router.on('route:c-donnee-secteur-item', function(donnee, urlSecteur, urlItemC){
-      console.log(heatMap);
       view.render({step:'C', number:'3'});
-      console.log(heatMap);
       if(heatMap==false)
         contain();
       // first secteur
@@ -310,7 +306,6 @@ define([
         }
       }
 
-
       // second itemC
       if(urlItemC==localStorage.getItem('urlItemC')){
         document.title = localStorage.getItem('nomItemC')+ ' '+localStorage.getItem('nomSecteur')+' #jeudedonnées'+' | JobShaker';
@@ -319,7 +314,7 @@ define([
         heatMap.render({donnee: donnee, secteur: urlSecteur, itemC: urlItemC});
       }
       else{
-        var nomItemC = findType('itemC', urlItemC, 'nom');
+        var nomItemC = findType(donnee, urlItemC, 'nom');
         if(nomItemC){
           localStorage.setItem('nomItemC', nomItemC[0]);
           document.title = localStorage.getItem('nomItemC')+ ' '+localStorage.getItem('nomSecteur')+' #jeudedonnées'+' | JobShaker';

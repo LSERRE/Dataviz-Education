@@ -24,7 +24,11 @@ define([
       var self = this;
       
       if(heatMap==false){
-        self.$el.html(self.template(options));  
+        var items = JSON.parse(localStorage.getItem(options.donnee));
+        self.$el.html(self.template(options));
+        $.each(items, function(index, value) {
+           $('.choix_categorie').append('<a href="#/C/'+options.donnee+'/'+options.secteur+'/'+value.url+'"><p class="btnChoixHeatMap">'+value.nom+'</p></a>');
+        }); 
         Map.init({
           id: '#map',
           infosid: '#infosDepartements',
@@ -46,7 +50,7 @@ define([
           status: 'update'
         });
       }      
-      $('.content').append(self.templateItem(options));  
+      
       //this.d3=d3.select(this.el);
     }
   });
