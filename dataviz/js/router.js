@@ -156,7 +156,6 @@ define([
     });
 
     router.on('route:a-donnee-departement-item', function(donnee, urlDepartement, urlItemA){
-      view.render({step:'A', number:'3'});
       if(statusCircleChart==false){
         contain();
       }
@@ -185,11 +184,11 @@ define([
         var nomItemA = findType(donnee, urlItemA, 'nom');
         if(nomItemA){
           document.title = localStorage.getItem('nomItemA')+ ' '+localStorage.getItem('nomDepartement')+' '+localStorage.getItem('nomTheme')+' | JobShaker';
-          $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' > '+localStorage.getItem('nomItemA')+' > '+localStorage.getItem('nomTheme'));
           localStorage.setItem('nomItemA', nomItemA[0]);
           localStorage.setItem('urlItemA', urlItemA);
           localStorage.setItem('uniteItemA', nomItemA[5]);
           localStorage.setItem('colorItemA', nomItemA[4]);
+          $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' > '+nomItemA[0]+' > '+localStorage.getItem('nomTheme'));
           view.render({step:'A', number:'3'});       
           var circleChart = new CircleChart();
           circleChart.render({donnee: donnee, departement: urlDepartement, itemA: urlItemA});
