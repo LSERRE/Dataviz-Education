@@ -175,17 +175,20 @@ define([
       }
       // third itemA
       if(urlItemA==localStorage.getItem('urlItemA')){
-        document.title = localStorage.getItem('nomItemA')+ ' '+localStorage.getItem('nomDepartement')+' | JobShaker';
-        $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+localStorage.getItem('nomItemA')+' dans le secteur #jeudedonnée');
+        document.title = localStorage.getItem('nomItemA')+ ' '+localStorage.getItem('nomDepartement')+' '+localStorage.getItem('nomTheme')+' | JobShaker';
+        $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' > '+localStorage.getItem('nomItemA')+' > '+localStorage.getItem('nomTheme'));
+        //aside
+        view.render({step:'A', number:'3'});
         var circleChart = new CircleChart();
         circleChart.render({donnee: donnee, departement: urlDepartement, itemA: urlItemA});
       }
       else{
         var nomItemA = findType(donnee, urlItemA, 'nom');
         if(nomItemA){
-          document.title = nomItemA[0]+ ' '+localStorage.getItem('nomDepartement')+' | JobShaker';
-          $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+nomItemA[0]+' dans le thème '+localStorage.getItem('nomTheme'));
+          document.title = localStorage.getItem('nomItemA')+ ' '+localStorage.getItem('nomDepartement')+' '+localStorage.getItem('nomTheme')+' | JobShaker';
+          $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' > '+localStorage.getItem('nomItemA')+' > '+localStorage.getItem('nomTheme'));
           localStorage.setItem('nomItemA', nomItemA[0]);
+          view.render({step:'A', number:'3'});       
           var circleChart = new CircleChart();
           circleChart.render({donnee: donnee, departement: urlDepartement, itemA: urlItemA});
         }
@@ -317,6 +320,8 @@ define([
       if(urlItemC==localStorage.getItem('urlItemC')){
         document.title = localStorage.getItem('nomItemC')+ ' '+localStorage.getItem('nomSecteur')+' #jeudedonnées'+' | JobShaker';
         $('.titleContainer h2').html(localStorage.getItem('nomTheme')+' : les données '+localStorage.getItem('nomItemC')+' dans le secteur '+localStorage.getItem('nomSecteur'));
+        //aside
+        view.render({step:'C', number:'3'});
         var heatMap = new HeatMap();
         heatMap.render({donnee: donnee, secteur: urlSecteur, itemC: urlItemC});
       }
@@ -326,6 +331,8 @@ define([
           localStorage.setItem('nomItemC', nomItemC[0]);
           document.title = localStorage.getItem('nomItemC')+ ' '+localStorage.getItem('nomSecteur')+' #jeudedonnées'+' | JobShaker';
           $('.titleContainer h2').html(localStorage.getItem('nomTheme')+' : les données '+localStorage.getItem('nomItemC')+' dans le secteur '+localStorage.getItem('nomSecteur'));
+          //aside
+          view.render({step:'C', number:'3'});
           var heatMap = new HeatMap();
           heatMap.render({donnee: donnee, secteur: urlSecteur, itemC: urlItemC});
         }

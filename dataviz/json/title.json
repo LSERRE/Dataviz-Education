@@ -344,7 +344,7 @@
     {"nom": "Taux de chômage", "url": "taux-chomage", "unite":"%", "color":"#7A6DCB"}
   ],
   "societe" :[
-    {"nom": "Population active", "url": "population-activite", "unite":"", "color":"#0078FF"},
+    {"nom": "Population active", "url": "population-active", "unite":"", "color":"#0078FF"},
     {"nom": "Logements", "url": "logements", "unite":"", "color":"#E03848"},
     {"nom": "Logements vacants", "url": "logements-vacants", "unite":"%", "color":"#FF8A0D"},
     {"nom": "Densité de population", "url": "densite-population", "unite":"Hab/m²", "color":"#FFDE00"},
