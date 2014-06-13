@@ -130,9 +130,7 @@ define([
 			  			if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
 			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
 			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
-			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "" ||
-			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NaN" ||
-			  				 isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) )
+			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "" )
 						{
 			  				console.log("Undefined or NULL at "+(map.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
 			  				return "#ccc";
@@ -146,9 +144,7 @@ define([
 			  			if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
 			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
 			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
-			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "" ||
-			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NaN" ||
-			  				 isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) )
+			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "" )
 			  			{
 			  				return "Indisponible";
 			  			}
@@ -254,8 +250,10 @@ define([
 		majCarte: function() {
 			console.log('majCarte');
 			var nomDuCSV = 'json/'+map.params.nomDuTheme+'_'+map.params.parametre+'.csv'; //Nb employés
+			console.log(nomDuCSV);
 			d3.csv(nomDuCSV,function(data){
 				//Fonction asynchrone
+				console.log(data);
 			  	map.afficherNouvelleCarte(data);
 			});
 
@@ -275,9 +273,7 @@ define([
 	  				if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
 		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
 		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
-		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "" ||
-		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NaN" ||
-		  				 isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) )
+		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "")
 		  			{
 		  				console.log("Undefined or NULL at "+(map.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
 		  				return "#ccc";
@@ -288,9 +284,7 @@ define([
 	      			if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
 		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
 		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
-		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "" ||
-		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NaN" ||
-		  				 isNaN(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]) )
+		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "")
 		      		{
 		  				return "Indisponible";
 		      		}
