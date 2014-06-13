@@ -652,20 +652,22 @@ aside .choises ul.searchResults li a{
 .fb-share-button{
 	position: absolute !important;
 	top: 170px;
-	right: 119px;
+	right: 129px;
 }
 .twitter-share-button{
 	position: absolute !important;
 	top: 170px;
-	right: -13px;	
+	right: -3px;	
 }
 
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
 			.fb-share-button{
 				top: 17px;
+				right: 119px;
 			}
 			.twitter-share-button{
 				top: 17px;
+				right: -13px;	
 			}
 		}
 
