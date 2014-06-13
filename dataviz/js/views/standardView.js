@@ -311,13 +311,7 @@ define([
             }              
             else{
               urlTheme=localStorage.getItem('urlTheme');
-              if(urlTheme=='bienetre')
-                var itemDefault = 'temps-libre';
-              else if(urlTheme=='emploi')
-                var itemDefault = 'employes';              
-              else
-                var itemDefault = 'population-active';
-              lien='#/A/'+urlTheme+'/'+result[i][1]+'/'+itemDefault;
+              lien='#/A/'+urlTheme+'/'+result[i][1]+'/'+localStorage.getItem('urlItemA');
 
             }
             $('<li><a href="'+lien+'">'+result[i][0]+'</a></li>').appendTo(ul);
@@ -373,13 +367,7 @@ define([
             }              
             else{
               urlTheme=localStorage.getItem('urlTheme');
-              if(urlTheme=='bienetre')
-                var itemDefault = 'temps-libre';
-              else if(urlTheme=='emploi')
-                var itemDefault = 'employes';
-              else
-                var itemDefault = 'population-active';
-              lien='#/C/'+urlTheme+'/'+result[i][1]+'/'+itemDefault;
+              lien='#/C/'+urlTheme+'/'+result[i][1]+'/'+localStorage.getItem('urlItemC');
 
             }
              

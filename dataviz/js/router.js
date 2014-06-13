@@ -187,7 +187,7 @@ define([
           document.title = localStorage.getItem('nomItemA')+ ' '+localStorage.getItem('nomDepartement')+' '+localStorage.getItem('nomTheme')+' | JobShaker';
           $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' > '+localStorage.getItem('nomItemA')+' > '+localStorage.getItem('nomTheme'));
           localStorage.setItem('nomItemA', nomItemA[0]);
-          localStorage.setItem('urlItemA', nomItemA[1]);
+          localStorage.setItem('urlItemA', urlItemA);
           localStorage.setItem('uniteItemA', nomItemA[5]);
           localStorage.setItem('colorItemA', nomItemA[4]);
           view.render({step:'A', number:'3'});       
@@ -335,7 +335,7 @@ define([
           $('.titleContainer h2').html(localStorage.getItem('nomTheme')+' > '+localStorage.getItem('nomItemC')+' > '+localStorage.getItem('nomSecteur'));
           //aside
           view.render({step:'C', number:'3'});
-          localStorage.setItem('urlItemC', nomItemC[1]);
+          localStorage.setItem('urlItemC', urlItemC);
           localStorage.setItem('uniteItemC', nomItemC[5]);
           localStorage.setItem('colorItemC', nomItemC[4]);
           var heatMap = new HeatMap();
