@@ -1,31 +1,31 @@
 {
   "departements": [
     {
-      "code":"1", "nom":"Ain", "url":"ain"
+      "code":"01", "nom":"Ain", "url":"ain"
     },
     {
-      "code":"2", "nom":"Aisne", "url":"aisne"
+      "code":"02", "nom":"Aisne", "url":"aisne"
     },
     {
-      "code":"3", "nom":"Allier", "url":"allier"
+      "code":"03", "nom":"Allier", "url":"allier"
     },
     {
-      "code":"4", "nom":"Alpes-de-Haute-Provence", "url":"alpes-de-haute-provence"
+      "code":"04", "nom":"Alpes-de-Haute-Provence", "url":"alpes-de-haute-provence"
     },
     {
-      "code":"5", "nom":"Hautes-Alpes", "url":"hautes-alpes"
+      "code":"05", "nom":"Hautes-Alpes", "url":"hautes-alpes"
     },
     {
-      "code":"6", "nom":"Alpes-Maritimes", "url":"alpes-maritimes"
+      "code":"06", "nom":"Alpes-Maritimes", "url":"alpes-maritimes"
     },
     {
-      "code":"7", "nom":"Ardèche", "url":"ardeche"
+      "code":"07", "nom":"Ardèche", "url":"ardeche"
     },
     {
-      "code":"8", "nom":"Ardennes", "url":"ardennes"
+      "code":"08", "nom":"Ardennes", "url":"ardennes"
     },
     {
-      "code":"9", "nom":"Ariège", "url":"ariege"
+      "code":"09", "nom":"Ariège", "url":"ariege"
     },
     {
       "code":"10", "nom":"Aube", "url":"aube"
