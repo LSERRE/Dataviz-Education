@@ -260,7 +260,7 @@ define([
       // third theme
       if(urlTheme==localStorage.getItem('themes')){
         document.title = localStorage.getItem('nomTheme')+ ' '+localStorage.getItem('nomSecteur')+' '+localStorage.getItem('nomDepartement')+' | JobShaker';
-        $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+localStorage.getItem('nomTheme')+' dans le secteur '+localStorage.getItem('nomSecteur'));
+        $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' > '+localStorage.getItem('nomTheme')+' > '+localStorage.getItem('nomSecteur'));
         var bar = new Bar();
         bar.render({departement: urlDepartement, secteur: urlSecteur, theme:urlTheme});
       }
@@ -269,7 +269,7 @@ define([
         if(nomTheme){
           localStorage.setItem('nomTheme', nomTheme[0]);
           document.title = nomTheme[0]+ ' '+localStorage.getItem('nomSecteur')+' '+localStorage.getItem('nomDepartement')+' | JobShaker';
-          $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' : les données '+nomTheme[0]+' dans le secteur '+localStorage.getItem('nomSecteur'));
+          $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' > '+localStorage.getItem('nomTheme')+' > '+localStorage.getItem('nomSecteur'));
           var bar = new Bar();
           bar.render({departement: urlDepartement, secteur: urlSecteur, theme:urlTheme});
         }
@@ -318,8 +318,8 @@ define([
 
       // second itemC
       if(urlItemC==localStorage.getItem('urlItemC')){
-        document.title = localStorage.getItem('nomItemC')+ ' '+localStorage.getItem('nomSecteur')+' #jeudedonnées'+' | JobShaker';
-        $('.titleContainer h2').html(localStorage.getItem('nomTheme')+' : les données '+localStorage.getItem('nomItemC')+' dans le secteur '+localStorage.getItem('nomSecteur'));
+        document.title = localStorage.getItem('nomItemC')+ ' '+localStorage.getItem('nomSecteur')+' '+localStorage.getItem('nomTheme')+' | JobShaker';
+        $('.titleContainer h2').html(localStorage.getItem('nomTheme')+' > les données '+localStorage.getItem('nomItemC')+' > '+localStorage.getItem('nomSecteur'));
         //aside
         view.render({step:'C', number:'3'});
         var heatMap = new HeatMap();
@@ -329,8 +329,8 @@ define([
         var nomItemC = findType(donnee, urlItemC, 'nom');
         if(nomItemC){
           localStorage.setItem('nomItemC', nomItemC[0]);
-          document.title = localStorage.getItem('nomItemC')+ ' '+localStorage.getItem('nomSecteur')+' #jeudedonnées'+' | JobShaker';
-          $('.titleContainer h2').html(localStorage.getItem('nomTheme')+' : les données '+localStorage.getItem('nomItemC')+' dans le secteur '+localStorage.getItem('nomSecteur'));
+          document.title = localStorage.getItem('nomItemC')+ ' '+localStorage.getItem('nomSecteur')+' '+localStorage.getItem('nomTheme')+' | JobShaker';
+          $('.titleContainer h2').html(localStorage.getItem('nomTheme')+' > les données '+localStorage.getItem('nomItemC')+' > '+localStorage.getItem('nomSecteur'));
           //aside
           view.render({step:'C', number:'3'});
           var heatMap = new HeatMap();
