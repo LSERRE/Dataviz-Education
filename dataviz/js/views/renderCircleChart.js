@@ -19,6 +19,30 @@ define([
             circleChart.chargerCsv();
         },
 
+        correctParsing : function(leCSV){
+            var parsing;
+            switch( map.params.parametre )
+            {
+                //Pas de secteur = Utiliser uniquement la ligne 1 :
+                case "salaires-horaires-moyens":
+                case "taux-chomage":
+                case "population-active":
+                case "retraites":
+                case "logements":
+                case "logements-vacants":
+                case "taux-de-celibataires":
+                
+                break;
+                //Recuperer la ligne 2 seulement
+                case "densite-population":
+                break;
+                //Parsing normal
+                default:
+                break;
+            }
+            return parsing;
+        },
+
         chargerCsv : function(){
             // afficher le loader
             var nom_du_CSV = 'json/'+circleChart.params.nomDuTheme+'_'+circleChart.params.parametre+'.csv'; //Nb employés
@@ -40,6 +64,14 @@ define([
 
         getRow : function(array, nbr){
             var retArray = new Array();
+            //console.log("Coucou :"+Object.keys(array).length)
+            if(Object.keys(array).length == 1)
+            {
+                for(var i=0; i<38; i++)
+                {
+                    retArray[i] = array[0][nbr];
+                }
+            }
             for(var i=0; i<Object.keys(array).length; i++)
             {
                 retArray[i] = array[i][nbr];
@@ -192,9 +224,9 @@ define([
 
             var dataCSV = leCSV;
 
-            //circleChart.valeurEnFonctionDeLOnglet(leCSV);
-
-            document.querySelectorAll("#infosSecteurs2>h1").innerHTML = "Valeur";
+            d3.select("#infosSecteurs2>h1").html("Valeur");
+            d3.select("#infosSecteurs2>#nom>h2").html("Nom du Secteur");
+            d3.select("#infosSecteurs2>span").html("");
 
             for(var i=0; i<dataCSV.length;i++)
             {
