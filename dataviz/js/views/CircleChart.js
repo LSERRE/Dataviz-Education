@@ -32,6 +32,7 @@ define([
           parametre: options.itemA,
           color: localStorage.getItem('colorItemA'),
           unite: localStorage.getItem('uniteItemA'),
+          status: 'no'
         });
         statusCircleChart=true;
       }
@@ -45,7 +46,7 @@ define([
           parametre: options.itemA,
           color: localStorage.getItem('colorItemA'),
           unite: localStorage.getItem('uniteItemA'),
-          status:'update',
+          status:'update'
         });
       }
     }
