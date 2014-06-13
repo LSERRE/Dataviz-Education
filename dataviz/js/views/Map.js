@@ -30,21 +30,31 @@ define([
             if(options.donnee){
               var urlDefault;
               var nomDefault;
+              var colorDefault;
+              var uniteDefault;
               if(options.donnee=='bienetre'){
                 urlDefault = 'temps-libre';
                 nomDefault = 'Temps libre';
+                uniteDefault = 'min';
+                colorDefault = '#0078FF';
               }
               else if(options.donnee=='emploi'){
                 urlDefault = 'employes';
                 nomDefault = 'Employés';
+                uniteDefault = '';
+                colorDefault = '#0078FF';
               }
               else{
                 urlDefault = 'Population active';
                 nomDefault = 'population-active';
+                uniteDefault = '';
+                colorDefault = '#0078FF';
               }
               // route A
               localStorage.setItem('urlItemA', urlDefault);
               localStorage.setItem('nomItemA', nomDefault);
+              localStorage.setItem('uniteItemA', uniteDefault);
+              localStorage.setItem('colorItemA', colorDefault);
               glob.router.navigate('#/A/'+options.donnee+'/'+departementUrl[0]+'/'+urlDefault, {trigger: true});
             }
             else{

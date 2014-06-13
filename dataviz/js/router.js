@@ -100,6 +100,8 @@ define([
               img = value.img;
               code = value.code;
               id = value.id;
+              color = value.color;
+              unite = value.unite;
               return false;
             }
           }
@@ -110,13 +112,15 @@ define([
               img = value.img;
               code = value.code;
               id = value.id;
+              color = value.color;
+              unite = value.unite;
               return false;
             }
           }          
         });
       }
-      if(returnValue || img || code || id)
-        return [returnValue, img, code, id];
+      if(returnValue || img || code || id || color || unite)
+        return [returnValue, img, code, id, color, unite];
       return false;
     };
 
@@ -183,6 +187,9 @@ define([
           document.title = localStorage.getItem('nomItemA')+ ' '+localStorage.getItem('nomDepartement')+' '+localStorage.getItem('nomTheme')+' | JobShaker';
           $('.titleContainer h2').html(localStorage.getItem('nomDepartement')+' > '+localStorage.getItem('nomItemA')+' > '+localStorage.getItem('nomTheme'));
           localStorage.setItem('nomItemA', nomItemA[0]);
+          localStorage.setItem('urlItemA', nomItemA[1]);
+          localStorage.setItem('uniteItemA', nomItemA[5]);
+          localStorage.setItem('colorItemA', nomItemA[4]);
           view.render({step:'A', number:'3'});       
           var circleChart = new CircleChart();
           circleChart.render({donnee: donnee, departement: urlDepartement, itemA: urlItemA});
@@ -328,6 +335,9 @@ define([
           $('.titleContainer h2').html(localStorage.getItem('nomTheme')+' > les données '+localStorage.getItem('nomItemC')+' > '+localStorage.getItem('nomSecteur'));
           //aside
           view.render({step:'C', number:'3'});
+          localStorage.setItem('urlItemC', nomItemC[1]);
+          localStorage.setItem('uniteItemC', nomItemC[5]);
+          localStorage.setItem('colorItemC', nomItemC[4]);
           var heatMap = new HeatMap();
           heatMap.render({donnee: donnee, secteur: urlSecteur, itemC: urlItemC});
         }

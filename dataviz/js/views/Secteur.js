@@ -43,14 +43,35 @@ define([
                 glob.router.navigate('#/B/'+options.departement+'/'+secteurUrl[0]+'/emploi', {trigger: true});
               }
               else{
-                if(options.donnee=='bienetre')
-                  var itemDefault = 'temps-libre';
-                else if(options.donnee=='emploi')
-                  var itemDefault = 'employes';
-                else
-                  var itemDefault = 'population-activite';
-                 // route C
-                glob.router.navigate('#/C/'+options.donnee+'/'+secteurUrl[0]+'/'+itemDefault, {trigger: true});
+                  var urlDefault;
+                  var nomDefault;
+                  var colorDefault;
+                  var uniteDefault;
+                  if(options.donnee=='bienetre'){
+                    urlDefault = 'temps-libre';
+                    nomDefault = 'Temps libre';
+                    uniteDefault = 'min';
+                    colorDefault = '#0078FF';
+                  }
+                  else if(options.donnee=='emploi'){
+                    urlDefault = 'employes';
+                    nomDefault = 'Employés';
+                    uniteDefault = '';
+                    colorDefault = '#0078FF';
+                  }
+                  else{
+                    urlDefault = 'Population active';
+                    nomDefault = 'population-active';
+                    uniteDefault = '';
+                    colorDefault = '#0078FF';
+                  }
+                  // route A
+                  localStorage.setItem('urlItemC', urlDefault);
+                  localStorage.setItem('nomItemC', nomDefault);
+                  localStorage.setItem('uniteItemC', uniteDefault);
+                  localStorage.setItem('colorItemC', colorDefault);
+                     // route C
+                glob.router.navigate('#/C/'+options.donnee+'/'+secteurUrl[0]+'/'+urlDefault, {trigger: true});
               }
             }
           }
