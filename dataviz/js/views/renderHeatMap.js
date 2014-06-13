@@ -16,6 +16,8 @@ define([
 			parametre:'employes',
 			width: $('.content').width(),
 			height:  $('.content').height()-1,
+			unite: '',
+			color: '#000',
 			status: '',
 			rendered : function(){}
 		},
@@ -116,7 +118,7 @@ define([
 		     */
 		  	var color = d3.scale.linear()
 					.domain([0, map.maxVal(donneesCsv[map.params.secteurChoisi-1])])
-					.range(["#f1f1f1","#0078FF"]); //#AED4FE"
+					.range(["#f1f1f1",map.params.color]); //#AED4FE"
 
 		  	/*
 		     * Pour chaque entrée du tableau feature, on
@@ -148,7 +150,7 @@ define([
 			  			{
 			  				return "Indisponible";
 			  			}
-			      		return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT];
+			      		return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]+map.params.unite;
 			      	})
 			      	.attr("fill-opacity","0.0")
 			      	.attr("stroke-opacity","0.0")
@@ -269,7 +271,7 @@ define([
 			//La couleur est encore à définir en fonction de l'onglet
 		  	var color = d3.scale.linear()
 				.domain([0, map.maxVal(donneesCsv[map.params.secteurChoisi-1])])
-				.range(["#f1f1f1","red"]); //COULEUR A METTRE ICI
+				.range(["#f1f1f1",map.params.color]); //COULEUR A METTRE ICI
 
 			d3.selectAll(".departementHM")
 				.transition()
@@ -293,7 +295,7 @@ define([
 		      		{
 		  				return "Indisponible";
 		      		}
-		      		return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT];
+		      		return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]+map.params.unite;
 		      	});
 
 

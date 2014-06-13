@@ -11,6 +11,8 @@ define([
             nomDuTheme: 'EMPLOI', //Valeur par défaut qui doive être réécrite
             deptChoisi: '35',
             parametre:'entreprises',
+            color:'#000',
+            unite:'',
             status:''
         },
 
@@ -128,7 +130,7 @@ define([
 
                 var color = d3.scale.linear()
                     .domain([0, d3.max(dataCSV)])
-                    .range(["#AED4FE","#0078FF"]); //#AED4FE"
+                    .range(["#AED4FE", circleChart.params.color ]); //#AED4FE"
 
                 var bars = leGraph.selectAll(".uneBarSecteur")
                     .data(secteurs_bars.slice(1))
@@ -168,7 +170,7 @@ define([
                                 {
                                     return "Indisponible"; 
                                 }else{
-                                    return dataCSV[i];   
+                                    return dataCSV[i]+circleChart.params.unite;   
                                 }
                             })
 
@@ -246,7 +248,7 @@ define([
 
             var color = d3.scale.linear()
                 .domain([0, d3.max(dataCSV)])
-                .range(["#AED4FE","#0078FF"]); //#AED4FE"
+                .range(["#AED4FE", circleChart.params.color ]); //#AED4FE"
             
 
             d3.selectAll(".uneBarSecteur")
@@ -288,7 +290,7 @@ define([
                     {
                         return "Indisponible"; 
                     }else{
-                        return dataCSV[i];   
+                        return dataCSV[i]+circleChart.params.unite ;   
                     }
                 })
                 ;

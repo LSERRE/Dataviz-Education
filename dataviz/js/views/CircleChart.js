@@ -30,6 +30,8 @@ define([
           nomDuTheme: options.donnee.toUpperCase(), //Valeur par défaut qui doive être réécrite
           deptChoisi: localStorage.getItem('codeDepartement'),
           parametre: options.itemA,
+          color: localStorage.getItem('colorItemA'),
+          unite: localStorage.getItem('uniteItemA'),
         });
         statusCircleChart=true;
       }
@@ -41,7 +43,9 @@ define([
           nomDuTheme: options.donnee.toUpperCase(), //Valeur par défaut qui doive être réécrite
           deptChoisi: localStorage.getItem('codeDepartement'),
           parametre: options.itemA,
-          status:'update'
+          color: localStorage.getItem('colorItemA'),
+          unite: localStorage.getItem('uniteItemA'),
+          status:'update',
         });
       }
     }

@@ -38,6 +38,8 @@ define([
           nomDuTheme: options.donnee.toUpperCase(),
           secteurChoisi: localStorage.getItem('idSecteur'),
           parametre: options.itemC,
+          color: localStorage.getItem('colorItemC'),
+          unite: localStorage.getItem('uniteItemC'),
           rendered: function(){
             heatMap=true;
           },
@@ -53,6 +55,8 @@ define([
           nomDuTheme: options.donnee.toUpperCase(),
           secteurChoisi: localStorage.getItem('idSecteur'),
           parametre: options.itemC,
+          color: localStorage.getItem('colorItemC'),
+          unite: localStorage.getItem('uniteItemC'),
           status: 'update'
         });
       }      
