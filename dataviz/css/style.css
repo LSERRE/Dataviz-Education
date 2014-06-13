@@ -653,11 +653,13 @@ aside .choises ul.searchResults li a{
 	position: absolute !important;
 	top: 170px;
 	right: 129px;
+	z-index: 999;
 }
 .twitter-share-button{
 	position: absolute !important;
 	top: 170px;
-	right: -3px;	
+	right: -3px;
+	z-index: 999;	
 }
 
 		@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx){
