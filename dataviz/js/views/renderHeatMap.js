@@ -274,6 +274,16 @@ define([
 				.range(["#f1f1f1",map.params.color]); //COULEUR A METTRE ICI
 
 			d3.selectAll(".departementHM")
+				.attr('value', function(d){ 
+	      			if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
+		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
+		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
+		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "")
+		      		{
+		  				return "Indisponible";
+		      		}
+		      		return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]+map.params.unite;
+		      	})
 				.transition()
 				.duration(500)
 		  		.attr('fill', function(d) { 
@@ -287,16 +297,7 @@ define([
 		  			}
 		  			return color(parseInt(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT].replace(" ",""))); 
 		  		})
-		      	.attr('value', function(d){ 
-	      			if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
-		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
-		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
-		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "")
-		      		{
-		  				return "Indisponible";
-		      		}
-		      		return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]+map.params.unite;
-		      	});
+				;
 
 
 		}

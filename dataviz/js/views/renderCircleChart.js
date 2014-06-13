@@ -130,7 +130,7 @@ define([
 
                 var color = d3.scale.linear()
                     .domain([0, d3.max(dataCSV)])
-                    .range(["#AED4FE", circleChart.params.color ]); //#AED4FE"
+                    .range(["#DDD", circleChart.params.color ]); //#AED4FE"
 
                 var bars = leGraph.selectAll(".uneBarSecteur")
                     .data(secteurs_bars.slice(1))
@@ -248,10 +248,23 @@ define([
 
             var color = d3.scale.linear()
                 .domain([0, d3.max(dataCSV)])
-                .range(["#AED4FE", circleChart.params.color ]); //#AED4FE"
+                .range(["#DDD", circleChart.params.color ]); //#AED4FE"
             
 
             d3.selectAll(".uneBarSecteur")
+                .attr("value", function(d,i){ 
+                    if( dataCSV[i] == null ||
+                    dataCSV[i] == "" ||
+                    dataCSV[i] == undefined ||
+                    dataCSV[i] == "NaN" ||
+                    dataCSV[i] == "NC" ||
+                    isNaN(dataCSV[i]) )
+                    {
+                        return "Indisponible"; 
+                    }else{
+                        return dataCSV[i]+circleChart.params.unite ;   
+                    }
+                })
                 .transition()
                 .duration(500)
                 .attr("fill", function(d,i){ 
@@ -278,19 +291,6 @@ define([
                         return 10; 
                     }else{
                         return scale(dataCSV[i]);   
-                    }
-                })
-                .attr("value", function(d,i){ 
-                    if( dataCSV[i] == null ||
-                    dataCSV[i] == "" ||
-                    dataCSV[i] == undefined ||
-                    dataCSV[i] == "NaN" ||
-                    dataCSV[i] == "NC" ||
-                    isNaN(dataCSV[i]) )
-                    {
-                        return "Indisponible"; 
-                    }else{
-                        return dataCSV[i]+circleChart.params.unite ;   
                     }
                 })
                 ;
