@@ -871,6 +871,21 @@ div.filterContainer{
 			}
 		}
 
+.soon:before{
+	content:'';
+	position: absolute;
+	width: 100%;
+	height: 41px;
+	background-color: #F1F1F1;
+	opacity: 0.75;
+	z-index: 999;
+	border-radius: 20px;
+}
+
+.soon{
+	position: relative;
+}
+
 div.filterContainer nav{
 	width: 1185px;
 	margin: 0 auto;
