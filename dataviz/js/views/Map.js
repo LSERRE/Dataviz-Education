@@ -28,15 +28,24 @@ define([
             localStorage.setItem('codeDepartement', departementUrl[2]);
             // redirection
             if(options.donnee){
-              if(options.donnee=='bienetre')
-                var itemDefault = 'temps-libre';
-              else if(options.donnee=='emploi')
-                var itemDefault = 'employes';
-              else
-                var itemDefault = 'population-activite';
+              var urlDefault;
+              var nomDefault;
+              if(options.donnee=='bienetre'){
+                urlDefault = 'temps-libre';
+                nomDefault = 'Temps libre';
+              }
+              else if(options.donnee=='emploi'){
+                urlDefault = 'employes';
+                nomDefault = 'Employés';
+              }
+              else{
+                urlDefault = 'Population active';
+                nomDefault = 'population-active';
+              }
               // route A
-              localStorage.setItem('urlItemA', itemDefault);
-              glob.router.navigate('#/A/'+options.donnee+'/'+departementUrl[0]+'/'+itemDefault, {trigger: true});
+              localStorage.setItem('urlItemA', urlDefault);
+              localStorage.setItem('nomItemA', nomDefault);
+              glob.router.navigate('#/A/'+options.donnee+'/'+departementUrl[0]+'/'+urlDefault, {trigger: true});
             }
             else{
               // route B

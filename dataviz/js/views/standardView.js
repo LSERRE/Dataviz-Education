@@ -215,33 +215,42 @@ define([
       initialize : function(){
         var self = this;
         $(filterTheme.params.result).empty();
-        var result = new Array();
-        var data = JSON.parse(localStorage.getItem(self.params.category));
-        $.each(data, function(index, value){
-          data[index].minuscule = value['nom'].toLowerCase();
-        });
-        self.params.initialized.call(this, data);
+        self.params.initialized.call(this);
       },
       render:function(data, search, maxOccurrence){
         var self = this;
-        $(filter.params.result).empty();
-        var result = new Array();
+        $(filterTheme.params.result).empty();
         if(search.length>1){
-          $.each(data, function(index, value){
-            var occurrence = value.minuscule.search(new RegExp(search.toLowerCase()));
-            if(occurrence!=-1)
-              result.push(new Array(value.nom, value.url, value.code, occurrence));
-          });
-          result.sort(function(a, b) { return a[3]>b[3] }); 
+          urlTheme=localStorage.getItem('urlTheme');
           var ul = $(self.params.result);
-          for(i=0; i<result.length; i++){
-            if(i==maxOccurrence)
-              return;
-            var lien;
-            if(filter.params.step='B')
-              lien='#/B/'+result[i][1]+'/'+localStorage.getItem('urlSecteur')+'/emploi';
-            $('<li><a href="'+lien+'">'+result[i][0]+'</a></li>').appendTo(ul);
+          if(filterTheme.params.step='A'){
+            if(urlTheme=='bienetre'){
+              $('<li><a href="#/A/emploi/'+localStorage.getItem('urlDepartement')+'/employes">Emploi</a></li>').appendTo(ul);
+              $('<li><a href="#/A/societe/'+localStorage.getItem('urlDepartement')+'/population-active">Société</a></li>').appendTo(ul);
+            }
+            else if(urlTheme=='emploi'){
+              $('<li><a href="#/A/bienetre/'+localStorage.getItem('urlDepartement')+'/temps-libre">Bien-être</a></li>').appendTo(ul);
+              $('<li><a href="#/A/societe/'+localStorage.getItem('urlDepartement')+'/population-active">Société</a></li>').appendTo(ul);
+            }           
+            else{
+              $('<li><a href="#/A/bienetre/'+localStorage.getItem('urlDepartement')+'/temps-libre">Bien-être</a></li>').appendTo(ul);
+              $('<li><a href="#/A/emploi/'+localStorage.getItem('urlDepartement')+'/employes">Emploi</a></li>').appendTo(ul);
+            }
           }
+          else{
+            if(urlTheme=='bienetre'){
+              $('<li><a href="#/C/emploi/'+localStorage.getItem('urlSecteur')+'/employes">Emploi</a></li>').appendTo(ul);
+              $('<li><a href="#/C/societe/'+localStorage.getItem('urlSecteur')+'/population-active">Société</a></li>').appendTo(ul);
+            }
+            else if(urlTheme=='emploi'){
+              $('<li><a href="#/C/bienetre/'+localStorage.getItem('urlSecteur')+'/temps-libre">Bien-être</a></li>').appendTo(ul);
+              $('<li><a href="#/C/societe/'+localStorage.getItem('urlSecteur')+'/population-active">Société</a></li>').appendTo(ul);
+            }           
+            else{
+              $('<li><a href="#/C/bienetre/'+localStorage.getItem('urlSecteur')+'/temps-libre">Bien-être</a></li>').appendTo(ul);
+              $('<li><a href="#/C/emploi/'+localStorage.getItem('urlSecteur')+'/employes">Emploi</a></li>').appendTo(ul);
+            }
+          }   
         }
         
       }
@@ -287,7 +296,6 @@ define([
         var result = new Array();
         if(search.length>1){
           $.each(data, function(index, value){
-            console.log('log');
             var occurrence = value.minuscule.search(new RegExp(search.toLowerCase()));
             if(occurrence!=-1)
               result.push(new Array(value.nom, value.url, value.code, occurrence));
@@ -302,14 +310,14 @@ define([
               lien='#/B/'+result[i][1]+'/'+localStorage.getItem('urlSecteur')+'/emploi';
             }              
             else{
-              nomTheme=localStorage.getItem('nomTheme');
-              if(nomTheme=='bienetre')
+              urlTheme=localStorage.getItem('urlTheme');
+              if(urlTheme=='bienetre')
                 var itemDefault = 'temps-libre';
-              else if(nomTheme=='emploi')
-                var itemDefault = 'employes';
+              else if(urlTheme=='emploi')
+                var itemDefault = 'employes';              
               else
-                var itemDefault = 'population-activite';
-              lien='#/A/'+localStorage.getItem('urlTheme')+'/'+result[i][1]+'/'+itemDefault;
+                var itemDefault = 'population-active';
+              lien='#/A/'+urlTheme+'/'+result[i][1]+'/'+itemDefault;
 
             }
             $('<li><a href="'+lien+'">'+result[i][0]+'</a></li>').appendTo(ul);
@@ -364,14 +372,14 @@ define([
               lien='#/B/'+localStorage.getItem('urlDepartement')+'/'+result[i][1]+'/emploi';
             }              
             else{
-              nomTheme=localStorage.getItem('nomTheme');
-              if(nomTheme=='bienetre')
+              urlTheme=localStorage.getItem('urlTheme');
+              if(urlTheme=='bienetre')
                 var itemDefault = 'temps-libre';
-              else if(nomTheme=='emploi')
+              else if(urlTheme=='emploi')
                 var itemDefault = 'employes';
               else
-                var itemDefault = 'population-activite';
-              lien='#/C/'+localStorage.getItem('urlTheme')+'/'+result[i][1]+'/'+itemDefault;
+                var itemDefault = 'population-active';
+              lien='#/C/'+urlTheme+'/'+result[i][1]+'/'+itemDefault;
 
             }
              
