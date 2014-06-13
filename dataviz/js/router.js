@@ -124,12 +124,7 @@ define([
 
     
     router.on('route:home', function(){
-      document.title = 'Home | JobShaker';
-      $('.titleContainer h2').html('Bienvenue sur JobShaker');
-      view.render({step:''});
-      contain();
-      var home = new Home();
-      home.render();
+      router.navigate('#/A', {trigger: true});
     });
 
     router.on('route:a', function(){
