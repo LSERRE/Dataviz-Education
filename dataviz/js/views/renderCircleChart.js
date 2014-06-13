@@ -18,7 +18,7 @@ define([
             circleChart.params=$.extend(circleChart.defaults,options);
             circleChart.chargerCsv();
         },
-
+        /*
         correctParsing : function(leCSV){
             var parsing;
             switch( map.params.parametre )
@@ -42,7 +42,7 @@ define([
             }
             return parsing;
         },
-
+        */
         chargerCsv : function(){
             // afficher le loader
             var nom_du_CSV = 'json/'+circleChart.params.nomDuTheme+'_'+circleChart.params.parametre+'.csv'; //Nb employés
@@ -62,13 +62,14 @@ define([
 
         getRow : function(array, nbr){
             var retArray = new Array();
+            /*
             if(Object.keys(array).length == 1)
             {
                 for(var i=0; i<38; i++)
                 {
                     retArray[i] = array[0][nbr];
                 }
-            }
+            }*/
             for(var i=0; i<Object.keys(array).length; i++)
             {
                 retArray[i] = array[i][nbr];

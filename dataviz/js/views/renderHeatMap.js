@@ -27,7 +27,7 @@ define([
 			else
 				map.initialize();
 		},
-
+		/*
 		correctParsing : function(leCSV){
 			switch( map.params.parametre )
 			{
@@ -49,7 +49,7 @@ define([
 				break;
 			}
 		},
-
+		*/
 		maxVal : function(array){
 			//Fonction max custom pour les départements
 	     	var maxVal = 0;
@@ -253,7 +253,12 @@ define([
 			console.log(nomDuCSV);
 			d3.csv(nomDuCSV,function(data){
 				//Fonction asynchrone
+				/*
 				console.log(data);
+				if (data.length == 1)
+				{
+					for(var i = 0; i<)
+				}*/
 			  	map.afficherNouvelleCarte(data);
 			});
 
