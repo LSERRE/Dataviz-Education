@@ -352,7 +352,7 @@
     {"nom": "Taux de célibataires", "url": "taux-de-celibataires", "unite":"%", "color":"#45BE9D"}
   ],
   "bienetre" :[
-    {"nom": "Temps libre", "url": "temps-libre", "unite":"min", "color":"#0078FF"},
+    {"nom": "Temps libre (loisirs)", "url": "temps-libre", "unite":"min", "color":"#0078FF"},
     {"nom": "Temps de sommeil moyen", "url": "temps-sommeil-moyen", "unite":"min", "color":"#E03848"},
     {"nom": "Durée du trajet", "url": "duree-trajet", "unite":"min", "color":"#FF8A0D"}
   ]
