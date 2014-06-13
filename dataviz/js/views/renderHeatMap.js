@@ -28,6 +28,28 @@ define([
 				map.initialize();
 		},
 
+		correctParsing : function(leCSV){
+			switch( map.params.parametre )
+			{
+				//Pas de secteur = Utiliser uniquement la ligne 1 :
+				case "salaires-horaires-moyens":
+				case "taux-chomage":
+				case "population-active":
+				case "retraites":
+				case "logements":
+				case "logements-vacants":
+				case "taux-de-celibataires":
+				
+				break;
+				//Recuperer la ligne 2 seulement
+				case "densite-population":
+				break;
+				//Parsing normal
+				default:
+				break;
+			}
+		},
+
 		maxVal : function(array){
 			//Fonction max custom pour les départements
 	     	var maxVal = 0;

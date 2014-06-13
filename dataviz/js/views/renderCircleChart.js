@@ -192,6 +192,8 @@ define([
 
             var dataCSV = leCSV;
 
+            //circleChart.valeurEnFonctionDeLOnglet(leCSV);
+
             document.querySelectorAll("#infosSecteurs2>h1").innerHTML = "Valeur";
 
             for(var i=0; i<dataCSV.length;i++)
