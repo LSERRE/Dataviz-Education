@@ -45,6 +45,8 @@ define([
         });
       }
       else{
+        $(".btnChoixHeatMap").removeClass("activeItem");
+        $('.'+options.itemC).addClass('activeItem');
         Map.init({
           id: '#map',
           infosid: '#infosDepartements',

@@ -53,8 +53,6 @@ define([
                 // circleChart.getRow(donneesCsv, CodeDept)
                 var dataACharger = circleChart.getRow(donneesCsv, circleChart.params.deptChoisi);
 
-                 console.log( dataACharger );
-
                 if(circleChart.params.status!='update')
                     circleChart.initialize( dataACharger );
                 else
@@ -64,7 +62,6 @@ define([
 
         getRow : function(array, nbr){
             var retArray = new Array();
-            //console.log("Coucou :"+Object.keys(array).length)
             if(Object.keys(array).length == 1)
             {
                 for(var i=0; i<38; i++)
@@ -98,7 +95,6 @@ define([
                     dataCSV[i] == "NC" ||
                     isNaN(dataCSV[i]) )
                 {
-                    console.log("pouet");
                     dataCSV[i] = "";
                 }else{
                     dataCSV[i] = parseInt(leCSV[i].replace(" ",""));
@@ -219,8 +215,7 @@ define([
         },
 
         majCircle: function(leCSV){
-            
-            console.log(leCSV);
+        
 
             var dataCSV = leCSV;
 

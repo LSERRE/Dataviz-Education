@@ -20,7 +20,7 @@ define([
         self.$el.html(self.template(options));
         var i=0;
         $.each(items, function(index, value) {
-          var element = $('.choix_categorie').append('<a href="#/A/'+options.donnee+'/'+options.departement+'/'+value.url+'"><p class="btnChoixHeatMap">'+value.nom+'</p></a>');
+          var element = $('.choix_categorie').append('<a href="#/A/'+options.donnee+'/'+options.departement+'/'+value.url+'"><p class="btnChoixHeatMap '+ value.url+'">'+value.nom+'</p></a>');
           if(value.url==options.itemA)
             $('.btnChoixHeatMap').eq(i).addClass('activeItem');
           i++;
@@ -34,6 +34,8 @@ define([
         statusCircleChart=true;
       }
       else{
+        $(".btnChoixHeatMap").removeClass("activeItem");
+        $('.'+options.itemA).addClass('activeItem');
         CircleChart.init({
           id: self.circleChart,
           nomDuTheme: options.donnee.toUpperCase(), //Valeur par défaut qui doive être réécrite
