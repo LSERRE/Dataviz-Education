@@ -45,31 +45,6 @@ define([
             return parsing;
         },
         */
-        maxVal : function(array){
-            //Fonction max custom pour les départements
-            var maxVal = 0;
-            //console.log(newArray);
-            for(var i=0; i<array.length; i++)
-            {
-                var y;
-                y = i+1;
-                if (y<10)
-                    y="0"+y;
-                else if(y == 96)
-                    y="2A";
-                else if(y == 97)
-                    y="2B";
-                // La seul erreur vient du departement 20 qui n'existe pas, c'est le undefined
-
-                if (array[y] == undefined){
-                    console.log("MaxValue encounter an Undefined value : "+y);
-                }else{
-                    if( parseInt(array[y].replace(" ",""))>maxVal )
-                        maxVal = parseInt(array[y].replace(" ",""));
-                }
-            }
-            return maxVal;
-        },
         chargerCsv : function(){
             // afficher le loader
             var nom_du_CSV = 'json/'+circleChart.params.nomDuTheme+'_'+circleChart.params.parametre+'.csv'; //Nb employés
@@ -150,11 +125,11 @@ define([
                 var secteurs_bars = tree.nodes(dataTree);
 
                 var scale = d3.scale.linear()
-                    .domain([0, circleChart.maxVal(dataCSV)])
+                    .domain([0, d3.max(dataCSV)])
                     .range([10, 200]);
 
                 var color = d3.scale.linear()
-                    .domain([0, circleChart.maxVal(dataCSV)])
+                    .domain([0, d3.max(dataCSV)])
                     .range(["#DDD", circleChart.params.color ]); //#AED4FE"
 
                 var bars = leGraph.selectAll(".uneBarSecteur")
@@ -268,11 +243,11 @@ define([
             //La couleur est encore à définir en fonction de l'onglet
             
             var scale = d3.scale.linear()
-                    .domain([0, circleChart.maxVal(dataCSV)])
+                    .domain([0, d3.max(dataCSV)])
                     .range([10, 200]);
 
             var color = d3.scale.linear()
-                .domain([0, circleChart.maxVal(dataCSV)])
+                .domain([0, d3.max(dataCSV)])
                 .range(["#DDD", circleChart.params.color ]); //#AED4FE"
             
 
