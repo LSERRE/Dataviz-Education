@@ -1072,6 +1072,27 @@ div.filterContainer nav ul li:last-child  a:after{
 		  }
 		}
 
+#title_loader {
+	display: none;
+	position: absolute;
+	z-index: 500;
+	top: 0;
+	left: 50%;
+	height: 49px;
+	width: 60%;
+	margin-left: -30%;
+	background: #3c98ff;
+	overflow: hidden;
+}
+#title_loader img{
+	position: relative;
+	top: 5px;
+	left: 50%;
+	width: 39px;
+	height: 39px;
+	margin-left: -19.5px;
+}
+
 /* 07: CONTENT */
 
 .content{

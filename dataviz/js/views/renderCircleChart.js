@@ -47,6 +47,8 @@ define([
         */
         chargerCsv : function(){
             // afficher le loader
+            $("#title_loader").show();
+
             var nom_du_CSV = 'json/'+circleChart.params.nomDuTheme+'_'+circleChart.params.parametre+'.csv'; //Nb employés
             var donneesCsv = [];
             d3.csv(nom_du_CSV,function(data){
@@ -116,6 +118,9 @@ define([
                 .size([180, circle_radius])
 
             d3.json('json/secteurs.json', function(req, secjson) {
+
+                //Remove Loader
+                $("#title_loader").fadeOut(500);
         
                 var data = secjson.features;
 
@@ -219,6 +224,8 @@ define([
 
         majCircle: function(leCSV){
         
+            //Remove Loader
+            $("#title_loader").fadeOut(500);
 
             var dataCSV = leCSV;
 

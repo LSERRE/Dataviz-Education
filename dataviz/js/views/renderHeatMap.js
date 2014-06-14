@@ -80,6 +80,7 @@ define([
 
 		changerCarte : function(leCSV, deps, path){
 			// afficher le loader
+			$("#title_loader").show();
 
 		  	var donneesCsv = [];
 			d3.csv(leCSV,function(data){
@@ -97,7 +98,8 @@ define([
 			*/
 			d3.json('json/departements.json', function(req, geojson) {
 
-			//Supprimer Loader
+			//Remove Loader
+			$("#title_loader").fadeOut(500);
 			
 			console.log(map.params.secteurChoisi);
 
@@ -250,6 +252,9 @@ define([
 		},
 
 		majCarte: function() {
+			//Afficher Loader
+			$("#title_loader").show();
+
 			console.log('majCarte');
 			var nomDuCSV = 'json/'+map.params.nomDuTheme+'_'+map.params.parametre+'.csv'; //Nb employés
 			console.log(nomDuCSV);
@@ -267,6 +272,9 @@ define([
 		},
 
 		afficherNouvelleCarte: function(donneesCsv){
+
+			//Remove Loader
+			$("#title_loader").fadeOut(500);
 
 			//La couleur est encore à définir en fonction de l'onglet
 		  	var color = d3.scale.linear()
