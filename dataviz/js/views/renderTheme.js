@@ -116,9 +116,9 @@ define([
               break;
               case "societe": returnValue = "bienetre";
               break;
-              case "bien-etre": returnValue = "emploi";
+              case "bienetre": returnValue = "emploi";
               break;
-              default: returnValue = "emploi"; 
+              default: console.log("Error tournerG : "+returnValue); 
               break;
             }
             tournerRoueAt(true);
@@ -130,11 +130,11 @@ define([
             {
               case "emploi": returnValue = "bienetre";
               break;
-              case "bien-etre": returnValue = "societe";
-              break;
               case "societe": returnValue = "emploi";
               break;
-              default: returnValue = "emploi"; 
+              case "bienetre": returnValue = "societe";
+              break;
+              default: console.log("Error tournerD : "+returnValue);  
               break;
             }
             tournerRoueAt(true);
@@ -145,14 +145,13 @@ define([
             //30  Emploi
             //150  Bien-être
             //270  Société
-            if(at == true)
-            {}  //No need to specify a value, it's returnValue
-            else{
+            if(at != true)
               returnValue = this.getAttribute("url_theme");
-            }
+            
             var text = "Ce jeu contient des données sur l’emploi, les salaires, les entreprises et la parité.";
 
             var degree = 30;
+
             switch(returnValue)
             {
               case "emploi": degree = 30;
@@ -164,7 +163,7 @@ define([
               case "bienetre": degree = 150;
               text = "Ce jeu contient des données sur le temps libre et la santé.";
               break;
-              default:
+              default: console.log("Error tournerRoueAt : "+returnValue); 
               break;
             }
 

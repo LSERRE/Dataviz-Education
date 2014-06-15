@@ -274,7 +274,7 @@ define([
 		afficherNouvelleCarte: function(donneesCsv){
 
 			//Remove Loader
-			$("#title_loader").fadeOut(500);
+			$("#title_loader").delay(500).fadeOut(500);
 
 			//La couleur est encore à définir en fonction de l'onglet
 		  	var color = d3.scale.linear()
@@ -294,6 +294,7 @@ define([
 		      	})
 				.transition()
 				.duration(500)
+				.delay(function(d,i){ return 2*i; })
 		  		.attr('fill', function(d) { 
 	  				if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
 		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||

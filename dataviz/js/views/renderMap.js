@@ -21,6 +21,9 @@ define([
 
 
 		initialize: function(){
+			// afficher le loader
+			$("#title_loader").show();
+
 			var self=this;
 			var path = d3.geo.path();
 			var projection = d3.geo.mercator();
@@ -36,12 +39,12 @@ define([
 
 	        path.projection(projection);
 
-	        var svg = d3.select(map.params.id).append("svg")
-	      		.attr("width", width)
-	      		.attr("height", height);
+	        var svg = d3.select(map.params.id).append("svg");
 
 			var deps = svg.append("g")
-		    	.attr("id", "departements");
+		    	.attr("id", "departements")
+		    	.attr("width", width)
+	      		.attr("height", height);
 
 	    	d3.json('json/departements.json', function(req, geojson) {
 			  	/*
@@ -51,6 +54,9 @@ define([
 			  	var features = deps
 			  			.selectAll("path")
 						.data(geojson.features);
+
+				//Remove Loader
+				$("#title_loader").fadeOut(500);
 
 					/*
 			     * On créait un ColorScale, qui va nous
@@ -65,7 +71,7 @@ define([
 			     * créait un élément SVG path, avec les
 			     * propriétés suivantes
 			     */
-		  		features.enter()
+		  		var dept_variable = features.enter()
 			  	.append("path")
 			  		.attr('class', 'departement')
 			  		/*.attr('fill', function(d) { 
@@ -76,7 +82,7 @@ define([
 			      	.attr("num_dept", function(d){ return d.properties.CODE_DEPT; })
 			      	.attr("fill-opacity","0.0")
 			      	.attr("stroke-opacity","0.0")
-		      		.attr("transform", "scale(2.0)translate("+-width/4+","+-height/4+")")
+		      		.attr("transform", "scale(2.0) translate("+-width/4+","+-height/4+")")
 		     		 //.on('click', countyClickHandler);
 		      		.on('mouseover', function(d){
 		      			d3.select(this).classed('dept_hover',true);

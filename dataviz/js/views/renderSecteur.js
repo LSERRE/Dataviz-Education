@@ -89,6 +89,8 @@ define([
 
 			var tailleIco = 30;
 				
+			// afficher le loader
+			$("#title_loader").show();
 
 			var selectPlaceholder = document.querySelectorAll("#infosSecteurs>input[placeholder]")[0];
 			var inputRecherche = document.querySelectorAll('#infosSecteurs>input')[0];
@@ -139,6 +141,9 @@ define([
 				.attr("transform", "translate(" + (w / 2) + "," + (h / 2) + ") rotate("+360/39+")scale("+h/700+")") //center the circle
 
 			d3.json('json/secteurs.json', function(req, secjson) {
+
+				//Remove Loader
+				$("#title_loader").fadeOut(500);
 
 				// some made-up data
 				var dataOri = secjson.features;
