@@ -7,7 +7,7 @@ define([
   'views/renderHeatMap',
   'text!../../templates/heatMap-template.html',
   'text!../../templates/heatMapItem-template.html'
-], function($, d3, _, Backbone, Map, templateHeatMap, templateHeatMapItem){
+], function($, d3, _, Backbone, HeatMap, templateHeatMap, templateHeatMapItem){
 
   Handlebars.registerHelper('if_eq', function(a, b, opts) {
       if(a == b) // Or === depending on your needs
@@ -16,13 +16,14 @@ define([
           return opts.inverse(this);
   });
 
-  var map = Backbone.View.extend({
+  var heatMap = Backbone.View.extend({
     el: '.content',
+    heatMap : '#map',
     template: Handlebars.compile(templateHeatMap), 
     templateItem: Handlebars.compile(templateHeatMapItem), 
     render: function(options){
       var self = this;
-      if(heatMap==false){
+      if(statusHeatMap==false){
         var items = JSON.parse(localStorage.getItem(options.donnee));
         self.$el.html(self.template(options));
         var i=0;
@@ -32,8 +33,8 @@ define([
             $('.btnChoixHeatMap').eq(i).addClass('activeItem');
           i++;
         }); 
-        Map.init({
-          id: '#map',
+        HeatMap.init({
+          id: self.heatMap,
           infosid: '#infosDepartements',
           nomDuTheme: options.donnee.toUpperCase(),
           secteurChoisi: localStorage.getItem('idSecteur'),
@@ -41,7 +42,7 @@ define([
           color: localStorage.getItem('colorItemC'),
           unite: localStorage.getItem('uniteItemC'),
           rendered: function(){
-            heatMap=true;
+            statusHeatMap=true;
           },
           status:'no'
         });
@@ -49,8 +50,8 @@ define([
       else{
         $(".btnChoixHeatMap").removeClass("activeItem");
         $('.'+options.itemC).addClass('activeItem');
-        Map.init({
-          id: '#map',
+        HeatMap.init({
+          id: self.heatMap,
           infosid: '#infosDepartements',
           nomDuTheme: options.donnee.toUpperCase(),
           secteurChoisi: localStorage.getItem('idSecteur'),
@@ -65,5 +66,5 @@ define([
     }
   });
 
-  return map;
+  return heatMap;
 });

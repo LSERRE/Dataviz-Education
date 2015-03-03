@@ -5,7 +5,7 @@ define([
   'backbone',
   'handlebars',
 ], function($, d3, _, Backbone, Handlebars){
-  	var map = {
+  	var heatMap = {
 
   		defaults : {
 			id: '#map',
@@ -23,11 +23,11 @@ define([
 		},
 
 		init : function(options){
-			map.params=$.extend(map.defaults,options);
-			if(map.params.status=='update')
-				map.majCarte();			
+			heatMap.params=$.extend(heatMap.defaults,options);
+			if(heatMap.params.status=='update')
+				heatMap.majCarte();			
 			else
-				map.initialize();
+				heatMap.initialize();
 		},
 		/*
 		correctParsing : function(leCSV){
@@ -88,7 +88,7 @@ define([
 
 			  	// donneesCsv[CodeSecteur-1][CodeDept]
 			  	// console.log(donneesCsv["10"]["13"])
-			  	map.afficherCarte(donneesCsv, deps, path);
+			  	heatMap.afficherCarte(donneesCsv, deps, path);
 			});
 		},
 
@@ -101,7 +101,7 @@ define([
 			//Remove Loader
 			$("#title_loader").fadeOut(500);
 			
-			console.log(map.params.secteurChoisi);
+			console.log(heatMap.params.secteurChoisi);
 
 		  	/*
 		     * On "bind" un élément SVG path pour chaque entrée
@@ -119,8 +119,8 @@ define([
 		     * départements
 		     */
 		  	var color = d3.scale.linear()
-					.domain([0, map.maxVal(donneesCsv[map.params.secteurChoisi-1])])
-					.range(["#f1f1f1",map.params.color]); //#AED4FE"
+					.domain([0, heatMap.maxVal(donneesCsv[heatMap.params.secteurChoisi-1])])
+					.range(["#f1f1f1",heatMap.params.color]); //#AED4FE"
 
 		  	/*
 		     * Pour chaque entrée du tableau feature, on
@@ -131,32 +131,32 @@ define([
 			  	.append("path")
 			  		.attr('class', 'departementHM')
 			  		.attr('fill', function(d) { 
-			  			if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
-			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
-			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
-			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "" )
+			  			if ( donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
+			  				 donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
+			  				 donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
+			  				 donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == "" )
 						{
-			  				console.log("Undefined or NULL at "+(map.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
+			  				console.log("Undefined or NULL at "+(heatMap.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
 			  				return "#ccc";
 			  			}
-			  			return color(parseInt(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT].replace(" ",""))); 
+			  			return color(parseInt(donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT].replace(" ",""))); 
 			  		})
 			      	.attr("d", path)
 			      	.attr("nom_dept", function(d){ return d.properties.NOM_DEPT; })
 			      	.attr("num_dept", function(d){ return d.properties.CODE_DEPT; })
 			      	.attr("value",function(d){ 
-			  			if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
-			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
-			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
-			  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "" )
+			  			if ( donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
+			  				 donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
+			  				 donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
+			  				 donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == "" )
 			  			{
 			  				return "Indisponible";
 			  			}
-			      		return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]+map.params.unite;
+			      		return donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT]+heatMap.params.unite;
 			      	})
 			      	.attr("fill-opacity","0.0")
 			      	.attr("stroke-opacity","0.0")
-			      	.attr("transform", "scale(2.0)translate("+-map.params.width/4+","+-map.params.height/4+")")
+			      	.attr("transform", "scale(2.0)translate("+-heatMap.params.width/4+","+-heatMap.params.height/4+")")
 			      	//.on('click', countyClickHandler);
 			      	.on('mouseover', function(d){
 			      		//d3.select(this).classed('dept_hover',true);
@@ -165,7 +165,7 @@ define([
 
 			      		var nom_departement = d.properties.NOM_DEPT;
 
-			      		d3.select(map.params.infosid)
+			      		d3.select(heatMap.params.infosid)
 			      			.append("div")
 		  						.attr("class","text_nom_dept2")
 		  						.html("<h3>"+nom_departement+"</h3><hr /><p>"+this.getAttribute("value")+"</p>")
@@ -174,13 +174,13 @@ define([
 		  						.style("top",function(){ 
 		  													//console.log(this.offsetHeight*3);
 															var value = centroid[1]-this.offsetHeight*1.3;
-															if(map.params.zoomed)
+															if(heatMap.params.zoomed)
 																value *= scaleZoom/2;
 															return value+"px";
 														})
 		  						.style("left",function(){ 
 		  													var value = centroid[0];
-		  													if(map.params.zoomed)
+		  													if(heatMap.params.zoomed)
 																value *= scaleZoom/2;
 		  													return value+"px";
 		  												})
@@ -189,7 +189,7 @@ define([
 			      	.on('mouseout', function(){
 			      		//d3.select(this).classed('dept_hover',false);
 
-			      		d3.select(map.params.infosid).select("div").remove();
+			      		d3.select(heatMap.params.infosid).select("div").remove();
 			      	})
 			      	//.on('click', choisirDepartement)
 
@@ -201,17 +201,17 @@ define([
 			  			.attr("transform", "scale(1)");
 
 			});
-			map.params.rendered.call(this);
+			heatMap.params.rendered.call(this);
 		},
 
 		initialize: function(){
 			
-			var scaleDeLaCarte = 3.5*map.params.height;
+			var scaleDeLaCarte = 3.5*heatMap.params.height;
 			var scaleZoom = 4;
 
 			// Les 3 valeurs là sont celles à changer pour faire varier le graph
 
-			var nom_du_CSV = 'json/'+map.params.nomDuTheme+'_'+map.params.parametre+'.csv'; //Nb employés
+			var nom_du_CSV = 'json/'+heatMap.params.nomDuTheme+'_'+heatMap.params.parametre+'.csv'; //Nb employés
 		 	 /* 
 		  	 * On créait un nouvel objet path qui permet 
 		   	* de manipuler les données géographiques.
@@ -226,7 +226,7 @@ define([
 			projection
         		.center([2.454071, 46.279229]) // On centre la carte sur la France
         		.scale(scaleDeLaCarte)
-      			.translate([map.params.width / 2, map.params.height / 2]);
+      			.translate([heatMap.params.width / 2, heatMap.params.height / 2]);
 
 	        path.projection(projection);
 		  
@@ -236,9 +236,9 @@ define([
 		  	* On créait un nouvel élément svg à la racine de notre div #map,
 		   	* définie plus haut dans le HTML
 		   	*/
-		  	var svg = d3.select(map.params.id).append("svg")
-	      		.attr("width", map.params.width)
-	      		.attr("height", map.params.height);
+		  	var svg = d3.select(heatMap.params.id).append("svg")
+	      		.attr("width", heatMap.params.width)
+	      		.attr("height", heatMap.params.height);
 
 		  	/*
 		  	 * On créait un groupe SVG qui va accueillir
@@ -248,7 +248,7 @@ define([
 		    	.attr("id", "departements");
 
 		  	// Appel de la fonction pour initialiser
-		 	map.changerCarte(nom_du_CSV, deps, path);
+		 	heatMap.changerCarte(nom_du_CSV, deps, path);
 		},
 
 		majCarte: function() {
@@ -256,7 +256,7 @@ define([
 			$("#title_loader").show();
 
 			console.log('majCarte');
-			var nomDuCSV = 'json/'+map.params.nomDuTheme+'_'+map.params.parametre+'.csv'; //Nb employés
+			var nomDuCSV = 'json/'+heatMap.params.nomDuTheme+'_'+heatMap.params.parametre+'.csv'; //Nb employés
 			console.log(nomDuCSV);
 			d3.csv(nomDuCSV,function(data){
 				//Fonction asynchrone
@@ -266,7 +266,7 @@ define([
 				{
 					for(var i = 0; i<)
 				}*/
-			  	map.afficherNouvelleCarte(data);
+			  	heatMap.afficherNouvelleCarte(data);
 			});
 
 		},
@@ -278,33 +278,33 @@ define([
 
 			//La couleur est encore à définir en fonction de l'onglet
 		  	var color = d3.scale.linear()
-				.domain([0, map.maxVal(donneesCsv[map.params.secteurChoisi-1])])
-				.range(["#f1f1f1",map.params.color]); //COULEUR A METTRE ICI
+				.domain([0, heatMap.maxVal(donneesCsv[heatMap.params.secteurChoisi-1])])
+				.range(["#f1f1f1",heatMap.params.color]); //COULEUR A METTRE ICI
 
 			d3.selectAll(".departementHM")
 				.attr('value', function(d){ 
-	      			if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
-		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
-		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
-		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "")
+	      			if ( donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
+		  				 donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
+		  				 donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
+		  				 donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == "")
 		      		{
 		  				return "Indisponible";
 		      		}
-		      		return donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT]+map.params.unite;
+		      		return donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT]+heatMap.params.unite;
 		      	})
 				.transition()
 				.duration(500)
 				.delay(function(d,i){ return 2*i; })
 		  		.attr('fill', function(d) { 
-	  				if ( donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
-		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
-		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
-		  				 donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT] == "")
+	  				if ( donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == null ||
+		  				 donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == "NC" ||
+		  				 donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == undefined ||
+		  				 donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT] == "")
 		  			{
-		  				console.log("Undefined or NULL at "+(map.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
+		  				console.log("Undefined or NULL at "+(heatMap.params.secteurChoisi-1)+":"+d.properties.CODE_DEPT);
 		  				return "#ccc";
 		  			}
-		  			return color(parseInt(donneesCsv[map.params.secteurChoisi-1][d.properties.CODE_DEPT].replace(" ",""))); 
+		  			return color(parseInt(donneesCsv[heatMap.params.secteurChoisi-1][d.properties.CODE_DEPT].replace(" ",""))); 
 		  		})
 				;
 
@@ -313,6 +313,6 @@ define([
 	};
 
   	return {
-    	init : map.init
+    	init : heatMap.init
   	};
 });

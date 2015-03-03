@@ -1,6 +1,6 @@
 var glob = {};
 var findType;
-var heatMap=false;
+var statusHeatMap=false;
 var statusCircleChart=false;
 var stepBar;
 
@@ -285,7 +285,7 @@ define([
       $('.titleContainer h2').html('Choisissez un jeu de données');
       view.render({step:'C', number:'1'});
       var theme = new Theme();
-      heatMap=false;
+      statusHeatMap=false;
       // To determine if we are on step A or step C
       theme.render({step:'C'});
     });
@@ -295,14 +295,14 @@ define([
       $('.titleContainer h2').html('Choisissez un secteur');
       view.render({step:'C', number:'2'});
       contain();
-      heatMap=false;
+      statusHeatMap=false;
       var secteur = new Secteur();
       secteur.render({donnee: donnee});
     });
 
     router.on('route:c-donnee-secteur-item', function(donnee, urlSecteur, urlItemC){
       view.render({step:'C', number:'3'});
-      if(heatMap==false)
+      if(statusHeatMap==false)
         contain();
       // first secteur
       if(urlSecteur!=localStorage.getItem('urlSecteur')){
