@@ -39,7 +39,8 @@ define([
 
 	        path.projection(projection);
 
-	        var svg = d3.select(map.params.id).append("svg");
+	        var svg = d3.select(map.params.id).append("svg").attr("width", width)
+	      		.attr("height", height);
 
 			var deps = svg.append("g")
 		    	.attr("id", "departements")
